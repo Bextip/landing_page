@@ -25,7 +25,7 @@ narzedzia/       – og-image.html/.ps1 (obraz do podglądu linków), uicons.htm
 
 ## Sekcje (w kolejności)
 
-Nagłówek (logo, menu, lista języków, „Zaloguj się” → bextip.com/login, „Wybierz pakiet”) → hero → Czym jest Bextip
+Nagłówek (logo, menu, „Zaloguj się” → bextip.com/login, „Wybierz pakiet”) → hero → Czym jest Bextip
 (`#about`, porównanie: arkusz / Bextip / jednorazowy event) → Funkcje (`#features`, 9 kafelków) → Każdy gracz widzi
 swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki) → Dla kogo (`#who`) → Cennik
 (`#pricing`) → FAQ (`#faq`) → stopka. Sekcja kontaktowa „Zróbcie z piłkarskich emocji wspólne przeżycie całej firmy”
@@ -38,10 +38,20 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **Menu u góry białe, z rozmyciem** (Łukasz, 10.11.2026): półprzezroczyste białe tło z `backdrop-filter: blur`, więc
   to, co przewija się pod menu, jest rozmyte; po przewinięciu w dół `script.js` dodaje `.is-scrolled` (cień i linia).
   Logotyp w menu: `Bextip-Stadion-logotyp-na-jasnym-tle-zlota-kropka.svg`.
-- **Wybór języka – rozwijana lista** (Łukasz, 10.11.2026): przycisk z flagą i nazwą wybranego języka (na telefonie
-  sama flaga), lista z flagami i nazwami w danym języku („Polski”, „English”…). Lista bierze się z `languages`
-  w `config.js`, ale pokazuje tylko języki, które mają teksty w `i18n.js` – dziś PL i EN. Flagi DE, ES i RU czekają
-  w `assets/flags/`. Nowy język: jego teksty w `i18n.js` pod kodem z `languages` – pojawi się na liście sam.
+- **Układ menu jak na eqrento.com** (Łukasz, 10.11.2026): trzy kolumny (`1fr auto 1fr`) – logotyp z lewej, linki
+  na środku (ok. 300px od logotypu przy 1536px), przyciski z prawej; odstępy między linkami 36px, do 1440px 28px,
+  do 1240px 22px. Linia bazowa linków stoi na podstawie napisu „Bextip” (bez ogonka „p”): `translateY(--nav-shift)`,
+  5px – zmierzone w przeglądarce (różnica 0,4px). Zmiana wysokości logo albo rozmiaru linków = zmierz ponownie.
+- **Podkreślenie widocznej sekcji** (Łukasz, 10.11.2026): złota linia 2px pod linkiem (`.is-active`, kolor kropki
+  nad „i”); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
+  strony – FAQ. Sekcje bez linku (`#inside`, `#who`) zostawiają zaznaczoną poprzednią.
+- **Wybór języka w stopce** (Łukasz, 10.11.2026 – lista w menu wyglądała jak przyciski): kolumna „Język” z flagami
+  i nazwami w danym języku („Polski”, „English”…); wybrany jest biały ze złotą kropką. **Język startowy:** `?lang=`
+  w adresie → wybór zapamiętany w przeglądarce (localStorage `bextip-lang`) → przeglądarka ustawiona na polski
+  (pierwszy język w `navigator.languages`) – wersja polska, każda inna – angielska. Lista bierze się z `languages`
+  w `config.js`, ale pokazuje tylko języki z tekstami w `i18n.js` – dziś PL i EN; flagi DE, ES i RU czekają
+  w `assets/flags/`. Nowy język: teksty w `i18n.js` pod kodem z `languages`; trzeba też zdecydować, czy przeglądarki
+  w tym języku mają go dostawać zamiast angielskiego (dziś automatycznie tylko PL / EN).
 - Tła na przemian: hero białe → `#about` szare (`section--tint`, `#F1F4F8`) → `#features` białe → `#inside` szare →
   `#how` białe → `#who` niebieskie z logo (`section--blue`) → `#pricing` szare (białe kafelki odcinają się jak w EQrento) → `#faq` białe →
   stopka granatowa. Dodając sekcję, zachowaj naprzemienność.
@@ -104,7 +114,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Czas uruchomienia: wszędzie **„w kilka minut”** (Łukasz, 10.11.2026 – stopka; reszta ujednolicona na jego OK):
   etykieta w hero, karta Bextip w porównaniu, opis „Jak to działa”, FAQ „Jak szybko możemy zacząć?”. Uwaga: PDF
   z ofertą dla firm mówi jeszcze o „kilku godzinach”.
-- Etykieta nad hasłem: PL „Gry typerskie dla zespołów”, EN „Prediction games for teams” (claim z logo „Stadion”).
+- Etykieta nad hasłem (Łukasz, 10.11.2026): PL „Automatyczny typer on-line dla firm”, EN „Automated online prediction game for companies”. W hero jest jeden przycisk – „Wybierz pakiet” („Zobacz, jak to działa” usunięty, Łukasz, 10.11.2026).
 
 ## Cennik i Stripe
 
@@ -116,7 +126,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   4 w rzędzie powyżej 1100px, 2 × 2 niżej, jeden pod drugim na telefonach; Bez Limitu (`players: null`) to
   `.tier--wide` pod nimi na całą szerokość. Kafelek: nazwa, cena z „netto / za rozgrywki” obok, limit graczy,
   „wszystkie funkcje w cenie”, przycisk. Piąty pakiet z limitem nie zmieści się w rzędzie – trzeba by zmienić siatkę.
-- Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`. Lista „W każdym pakiecie” – `pricing.included`.
+- Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`.
+- **„W każdym pakiecie”** – `pricing.included`: 20 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza
+  (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
+  z góry na dół (CSS `columns`), dwie do 1100px, jedna na telefonach; ptaszki w złotych kółkach.
+- Ceny w kafelkach: Lexend 600, jak hasło i tytuły (wcześniej 800 – po odchudzeniu nagłówków wyglądały za ciężko).
 - „Polecany”: `recommended: true` daje granatowy kafelek z etykietą na górnej krawędzi. Teraz żaden pakiet (był
   Pakiet 50).
 - Przycisk pakietu zależy od pola `stripe`:
@@ -147,12 +161,18 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Pozostałe warianty z paczki „Stadion” (z claimem, panel, biały, na jasnym tle) zostają w `assets/logo/`, strona ich
   nie używa.
 - Czcionki: Lexend (nagłówki) i Inter (tekst) z Google Fonts – dobrane na oko, bo w plikach SVG litery są krzywymi.
-  Do potwierdzenia przez Łukasza. Hasło (h1) i tytuły sekcji (h2) mają grubość 600, nie 700 (Łukasz, 10.11.2026:
-  były za ciężkie); tytuły kart (h3) zostają 700.
+  Do potwierdzenia przez Łukasza. Hasło (h1), tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
+  (Łukasz, 10.11.2026: były za ciężkie); ceny w cenniku też 600, numery kroków 700.
 - **Szerokość jak na eqrento.com** (Łukasz, 10.11.2026): treść do 1360px (`.wrap`), boczne odstępy `--gutter`
   48px, do 1440px 40px, do 1200px 32px, na telefonach (do 640px) 20px. Przy 1366×768 okno w hero mieści się
   na styk – szerszej treści albo wyższego okna nie da się już dodać bez zmniejszenia okna.
-- Główne przyciski: zielone `#86C93E` z granatowym napisem – biały napis na tej zieleni ma za słaby kontrast.
+- Główne przyciski: zielone z granatowym napisem – biały napis na tej zieleni ma za słaby kontrast. **Lekki gradient
+  i strzałka na końcu** jak na eqrento.com (Łukasz, 10.11.2026): `.btn--primary` ma gradient `#9AD452 → #7CBC35`;
+  `.btn--arrow` + `<span class="btn__icon">` dodaje na końcu granatowe kółko ze złotą strzałką (`--ico-arrow`), tekst
+  idzie wtedy w `<span>` (atrybut `data-i18n` na `<span>`, nie na `<a>`, bo inaczej zniknęłaby strzałka). Strzałkę
+  mają: przycisk w hero, „Wybierz pakiet” w porównaniu i przyciski pakietów; „Wybierz pakiet” w menu – bez strzałki
+  (jak „Book a demo” w nagłówku EQrento).
+- Ptaszki na listach i w etykietach hero: złote kółko z granatowym ptaszkiem (`--ico-check`; Łukasz, 10.11.2026).
 - Trzeci akcent: złoty `#F5B82E` (`--gold`; ciemniejszy `--gold-dark` na jasnym tle) – decyzja Claude za zgodą Łukasza, 10.11.2026, żeby strona nie była tylko niebiesko-zielona; nawiązuje do pucharu i żółtych ikon Jokera w aplikacji. Używany oszczędnie: kropka nad „i” w logo, kropka w etykiecie hero (rozmiar `--dot` = 7px, jak kropka nad „i” w logo z nagłówka – Łukasz, 10.11.2026), strzałki między krokami, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), górna krawędź kart „Dla kogo”, plusy w FAQ.
 - Wizualizacje „Tabele” i „Typowanie wyniku” zawierają prawdziwe imiona i nazwiska graczy – celowo nie są na stronie.
   Ekran tabeli można dodać, gdy powstanie wersja z fikcyjnymi nazwiskami.
@@ -194,7 +214,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110i`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110j`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

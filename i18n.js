@@ -6,9 +6,9 @@ window.BEXTIP_I18N = {
       title: "Bextip – firmowy typer sportowy, który integruje zespół",
       description: "Bextip to automatyczny typer on-line dla firm. Pracownicy typują wyniki wydarzeń sportowych, a wyniki, punkty, tabela i statystyki liczą się same. Z identyfikacją wizualną Twojej firmy, bez instalacji."
     },
-    nav: { language: "Język", about: "Czym jest Bextip", features: "Funkcje", how: "Jak to działa", pricing: "Cennik", faq: "FAQ", login: "Zaloguj się", cta: "Wybierz pakiet" },
+    nav: { about: "Czym jest Bextip", features: "Funkcje", how: "Jak to działa", pricing: "Cennik", faq: "FAQ", login: "Zaloguj się", cta: "Wybierz pakiet" },
     hero: {
-      badge: "Gry typerskie dla zespołów",
+      badge: "Automatyczny typer on-line dla firm",
       title: "Firmowy typer sportowy, który integruje zespół.",
       lead: "Bextip angażuje i integruje pracowników dzięki emocjonującej zabawie w typowanie wyników wydarzeń sportowych. Wyniki, punkty, tabela i statystyki aktualizują się automatycznie.",
       chip1: "Logo i kolory Twojej firmy",
@@ -16,7 +16,6 @@ window.BEXTIP_I18N = {
       chip3: "5 wersji językowych",
       chip4: "Start w kilka minut",
       cta: "Wybierz pakiet",
-      cta2: "Zobacz, jak to działa",
       shotAlt: "Ekran typowania wyników w serwisie Bextip"
     },
     inside: {
@@ -92,7 +91,29 @@ window.BEXTIP_I18N = {
       orderSubject: "Zamówienie Bextip",
       names: { p20: "Pakiet 20", p30: "Pakiet 30", p100: "Pakiet 100", p250: "Pakiet 250", unlimited: "Pakiet Bez Limitu" },
       includedTitle: "W każdym pakiecie:",
-      included: ["Automatyczne wyniki, punkty i tabela", "Branding: logo i kolorystyka firmy", "Własna nazwa gry i subdomena", "Do 4 wewnętrznych drużyn", "Joker, zdarzenia Ekstra, bonus za mistrza", "Czat, statystyki, historia typowań", "5 wersji językowych", "Priorytetowa obsługa (maks. 1 h)", "Bezpieczne połączenie SSL", "Brak reklam"],
+      // lista funkcji z PDF-u „Oferta dla firm 2026” (Łukasz, 10.11.2026); **…** = pogrubienie jak w PDF-ie
+      included: [
+        "Automatyczna **aktualizacja wyników** rozgrywek",
+        "Automatyczne **zliczanie zdobytych punktów** graczy",
+        "Automatyczna **aktualizacja tabel** graczy i drużyn",
+        "Dodatkowe punkty za **wytypowanie Mistrza** rozgrywek",
+        "Możliwość typowania **zdarzeń „Ekstra”** w wybranych meczach",
+        "Możliwość **ukrycia swoich typowań** do godziny rozpoczęcia meczu",
+        "Opcja **„Jokera”** (podwojenie zdobytych punktów) w wybranych meczach",
+        "Możliwość sprawdzania **historii typowań** graczy",
+        "Rozbudowane **statystyki graczy**",
+        "**Czat** dostępny dla wszystkich graczy",
+        "Możliwość wgrania swojego zdjęcia lub avatara",
+        "Możliwość podzielenia graczy na maks. **4 wewnętrzne drużyny**",
+        "Branding (**logo i kolorystyka**) firmy",
+        "**Własna nazwa** gry",
+        "Własna **subdomena** (np.: nazwa_firmy.bextip.com)",
+        "Dostęp przez **dowolną przeglądarkę** z komputera lub smartfona – bez potrzeby instalacji dodatkowej aplikacji",
+        "**5 wersji językowych** (polska, angielska, niemiecka, hiszpańska, rosyjska)",
+        "**Priorytetowa obsługa** użytkowników firmowych",
+        "Bezpieczne połączenie protokołem **SSL**",
+        "**Brak reklam**"
+      ],
       note: "Podane ceny są cenami netto. Bezpieczne płatności on-line obsługuje Stripe."
     },
     faq: {
@@ -116,7 +137,7 @@ window.BEXTIP_I18N = {
       login: "Zaloguj się", register: "Załóż konto",
       tagline1: "Stworzone z pasją w", tagline2: "Polsce, dla zespołów, które kibicują razem.",
       rights: "Wszelkie prawa zastrzeżone.",
-      terms: "Regulamin", privacy: "Polityka prywatności"
+      terms: "Regulamin", privacy: "Polityka prywatności", langTitle: "Język"
     }
   },
 
@@ -125,9 +146,9 @@ window.BEXTIP_I18N = {
       title: "Bextip – the sports prediction game that brings your team together",
       description: "Bextip is an automated online sports prediction game for companies. Employees predict the results of sporting events while results, points, the leaderboard and statistics update themselves. Your company’s visual identity, no installation."
     },
-    nav: { language: "Language", about: "What is Bextip", features: "Features", how: "How it works", pricing: "Pricing", faq: "FAQ", login: "Log in", cta: "Choose a package" },
+    nav: { about: "What is Bextip", features: "Features", how: "How it works", pricing: "Pricing", faq: "FAQ", login: "Log in", cta: "Choose a package" },
     hero: {
-      badge: "Prediction games for teams",
+      badge: "Automated online prediction game for companies",
       title: "The sports prediction game that brings your team together.",
       lead: "Bextip engages and connects your employees through the thrill of predicting the results of sporting events. Results, points, the leaderboard and statistics update automatically.",
       chip1: "Your company logo and colours",
@@ -135,7 +156,6 @@ window.BEXTIP_I18N = {
       chip3: "5 languages",
       chip4: "Live in minutes",
       cta: "Choose a package",
-      cta2: "See how it works",
       shotAlt: "Match prediction screen in Bextip"
     },
     inside: {
@@ -211,7 +231,28 @@ window.BEXTIP_I18N = {
       orderSubject: "Bextip order",
       names: { p20: "Package 20", p30: "Package 30", p100: "Package 100", p250: "Package 250", unlimited: "Unlimited Package" },
       includedTitle: "In every package:",
-      included: ["Automatic results, points and leaderboard", "Branding: company logo and colours", "Own game name and subdomain", "Up to 4 internal teams", "Joker, Extra events, champion bonus", "Chat, statistics, prediction history", "5 languages", "Priority support (max. 1 h)", "Secure SSL connection", "No ads"],
+      included: [
+        "Automatic **update of results**",
+        "Automatic **counting of players’ points**",
+        "Automatic **update of the player and team leaderboards**",
+        "Bonus points for **predicting the champion** of the competition",
+        "Predicting **“Extra” events** in selected matches",
+        "Option to **hide your predictions** until kick-off",
+        "**“Joker”** option (double points) in selected matches",
+        "Players’ **prediction history**",
+        "Detailed **player statistics**",
+        "**Chat** for all players",
+        "Upload your own photo or avatar",
+        "Split players into up to **4 internal teams**",
+        "Branding (**company logo and colours**)",
+        "**Your own game name**",
+        "Your own **subdomain** (e.g. company_name.bextip.com)",
+        "Access from **any browser** on desktop or smartphone – no app to install",
+        "**5 languages** (Polish, English, German, Spanish, Russian)",
+        "**Priority support** for company users",
+        "Secure **SSL** connection",
+        "**No ads**"
+      ],
       note: "All prices are net, in Polish złoty (PLN). Secure online payments are handled by Stripe."
     },
     faq: {
@@ -235,7 +276,7 @@ window.BEXTIP_I18N = {
       login: "Log in", register: "Create an account",
       tagline1: "Made with passion in", tagline2: "Poland, for teams that cheer together.",
       rights: "All rights reserved.",
-      terms: "Terms", privacy: "Privacy policy"
+      terms: "Terms", privacy: "Privacy policy", langTitle: "Language"
     }
   }
 };
