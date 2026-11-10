@@ -30,8 +30,24 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 
 - **Nagłówki sekcji** (Łukasz, 10.11.2026: jak na eqrento.com): tytuł i opis pod nim w `<div class="section-head">`,
   wyśrodkowane. Wyjątek: `#inside`, gdzie tekst stoi obok ekranu i zostaje wyrównany do lewej.
-- Tła na przemian: białe / `section--tint` (`#F1F4F8`); Cennik jest szary, żeby białe kafelki odcinały się jak w EQrento,
-  dlatego FAQ jest białe.
+- **Hero jest białe** (Łukasz, 10.11.2026: niebieski panel boczny aplikacji na ekranie ginął na niebieskim tle),
+  z delikatną niebieską poświatą za oknem. Nagłówek z menu zostaje niebieski (biały logotyp).
+- Tła na przemian: hero białe → `#about` szare (`section--tint`, `#F1F4F8`) → `#features` białe → `#inside` szare →
+  `#how` białe → `#who` granatowe → `#pricing` szare (białe kafelki odcinają się jak w EQrento) → `#faq` białe →
+  `#contact` niebieskie → stopka granatowa. Dodając sekcję, zachowaj naprzemienność.
+- **Jeden odstęp góra / dół dla wszystkich sekcji** (Łukasz, 10.11.2026): `--sec-y` w `:root` (72px na komputerze,
+  mniej na węższych ekranach) – wzorem był dolny odstęp hero od przycisków do krawędzi. Hero, sekcje i góra stopki
+  używają tej samej zmiennej, a ostatni element sekcji nie ma dolnego marginesu. Okno w hero ma `margin-top`
+  (32px), żeby stało na wysokości nagłówka h1 i mieściło się na ekranie laptopa 1366×768.
+- **Telefon (do 820px): grafika zaraz pod hasłem** (Łukasz, 10.11.2026): `.hero__copy` ma `display: contents`,
+  a elementy hero dostają `order` – etykieta, h1, okno z ekranem, opis, zalety, przyciski.
+- **Kroki** (`#how`, Łukasz, 10.11.2026: żeby było widać, że jeden następuje po drugim): karty z numerem w kółku
+  i złote strzałki w odstępach między nimi (`.steps li::after`, strzałka to SVG w CSS); do 1100px karty jedna pod
+  drugą i strzałki w dół.
+- **Cienie i głębia** (Łukasz, 10.11.2026: strona była zbyt płaska): trzy poziomy `--shadow-sm / -md / -lg` w `:root`
+  na kartach, kafelkach cennika, krokach, pytaniach FAQ (każde na osobnej karcie), etykietach i przyciskach; karty
+  unoszą się po najechaniu myszą (wyłączone przy „ogranicz animacje”); poświaty na niebieskich i granatowych
+  sekcjach.
 - **Ekrany aplikacji w oknie przeglądarki** (Łukasz, 10.11.2026): `<div class="window">` z paskiem `.window__bar`
   (trzy kropki i adres – `bextip.com/predictions`, `bextip.com/tips-stats`, prawdziwe adresy tych ekranów
   w aplikacji). Ramka to sam CSS (`.window` w styles.css), obrazy są bez ramki. Ta sama ramka jest na obrazie do
@@ -86,9 +102,13 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Paleta (z „Bextip-Stadion-00-Logo-i-paleta”): `#1C4F95` tło firmowe / panel, `#FFFFFF` napis, `#86C93E` akcent „x”,
   `#0C2A55` kontur sygnetu i tekst, `#1F86CF` „x” na jasnym tle, `#F1F4F8` tło strony UI.
 - **Logotyp** – podstawowy znak serwisu (Łukasz, 10.11.2026): sam napis „Bextip” z wersji kompaktowej, bez sygnetu „Bx”.
-  - `Bextip-Stadion-logotyp.svg` – biały napis z zielonym „x”, bez tła: nagłówek, stopka, obraz do podglądu linków;
+  - `Bextip-Stadion-logotyp.svg` – biały napis z zielonym „x”, bez tła (wersja z paczki „Stadion”);
   - `Bextip-Stadion-logotyp-z-tlem.svg` – to samo na tle `#1C4F95`, do użycia poza stroną.
   - Oba wycięte z `Bextip-Stadion-logo-kompaktowe-z-tlem.svg` (6 ścieżek napisu; kształty i kolory bez zmian).
+  - **Na stronie: `Bextip-Stadion-logotyp-zlota-kropka.svg`** – kropka nad „i” w kolorze `--gold` `#F5B82E`
+    (pomysł Łukasza, decyzja Claude, 10.11.2026; ścieżka „i” rozdzielona na trzon i kropkę) – w nagłówku, stopce
+    i na obrazie do podglądu linków. Jest też `-zlota-kropka-z-tlem.svg`. Aplikacja i inne materiały mają na razie
+    logo bez złotej kropki – do ujednolicenia, jeśli Łukasz ją zostawi.
   - Napis jest biały, dlatego nagłówek strony jest niebieski (`#1C4F95`), jak panel boczny w aplikacji.
 - **Sygnet** – podstawowy (Łukasz, 10.11.2026): `Bextip-Stadion-logo-sygnet-ikona.svg` („Bx” bez tła) – ikona karty
   przeglądarki.
@@ -97,7 +117,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Czcionki: Lexend (nagłówki) i Inter (tekst) z Google Fonts – dobrane na oko, bo w plikach SVG litery są krzywymi.
   Do potwierdzenia przez Łukasza.
 - Główne przyciski: zielone `#86C93E` z granatowym napisem – biały napis na tej zieleni ma za słaby kontrast.
-- Trzeci akcent: złoty `#F5B82E` (`--gold`; ciemniejszy `--gold-dark` na jasnym tle) – decyzja Claude za zgodą Łukasza, 10.11.2026, żeby strona nie była tylko niebiesko-zielona; nawiązuje do pucharu i żółtych ikon Jokera w aplikacji. Używany oszczędnie: kropka w etykiecie hero, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), górna krawędź kart „Dla kogo”, plusy w FAQ.
+- Trzeci akcent: złoty `#F5B82E` (`--gold`; ciemniejszy `--gold-dark` na jasnym tle) – decyzja Claude za zgodą Łukasza, 10.11.2026, żeby strona nie była tylko niebiesko-zielona; nawiązuje do pucharu i żółtych ikon Jokera w aplikacji. Używany oszczędnie: kropka nad „i” w logo, kropka w etykiecie hero (rozmiar `--dot` = 7px, jak kropka nad „i” w logo z nagłówka – Łukasz, 10.11.2026), strzałki między krokami, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), górna krawędź kart „Dla kogo”, plusy w FAQ.
 - Wizualizacje „Tabele” i „Typowanie wyniku” zawierają prawdziwe imiona i nazwiska graczy – celowo nie są na stronie.
   Ekran tabeli można dodać, gdy powstanie wersja z fikcyjnymi nazwiskami.
 
@@ -138,7 +158,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110d`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110e`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich czterech linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut.
 
