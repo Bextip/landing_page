@@ -1,5 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
+  var ASSET_V = "20261110i";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
 
   function get(path) {
@@ -71,7 +72,7 @@
     // „Dla kogo”: mała biała ikona na niebieskim kafelku obok tekstu, jak w sekcji „One platform” na eqrento.com
     // (assets/icons/, pole icon w i18n.js)
     $("whoGrid").innerHTML = get("who.items").map(function (w) {
-      return '<article class="card who"><span class="who__icon"><img src="assets/icons/' + esc(w.icon) +
+      return '<article class="card who"><span class="who__icon"><img src="assets/icons/' + esc(w.icon) + "?v=" + ASSET_V +
         '" alt="" width="24" height="24"></span><h3>' + esc(w.t) + "</h3><p>" + esc(w.d) + "</p></article>";
     }).join("");
     // FAQ w dwóch kolumnach: pierwsza połowa pytań w lewej, reszta w prawej (otwarcie pytania nie przesuwa drugiej

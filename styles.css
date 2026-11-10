@@ -21,6 +21,8 @@
   --radius: 16px;
   /* jeden odstęp góra / dół dla wszystkich sekcji = dolny odstęp hero od przycisków do krawędzi (Łukasz, 10.11.2026) */
   --sec-y: clamp(40px, 6vw, 72px);
+  /* szerokość treści jak na eqrento.com: do 1360px, boczne odstępy 48 / 40 / 32 / 20px (Łukasz, 10.11.2026) */
+  --gutter: 48px;
   /* złote kropki-akcenty mają rozmiar kropki nad „i” w logo z nagłówka (36px wysokości → ok. 7px) */
   --dot: 7px;
   /* cienie – trzy poziomy, żeby strona miała głębię („3D”) */
@@ -38,13 +40,16 @@ body { margin: 0; font-family: var(--font); color: var(--ink); background: var(-
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 .5em; letter-spacing: -.02em; text-wrap: balance; }
+h1, h2 { font-weight: 600; }   /* hasło i tytuły sekcji lżejsze niż domyślne 700 (Łukasz, 10.11.2026) */
 h1 { font-size: clamp(2.1rem, 5vw, 3.5rem); }
 h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); }
 h3 { font-size: 1.15rem; }
 p { margin: 0 0 1em; }
 
-.wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
-.wrap--narrow { width: min(800px, 100% - 32px); }
+.wrap { width: min(1360px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+@media (max-width: 1440px) { :root { --gutter: 40px; } }
+@media (max-width: 1200px) { :root { --gutter: 32px; } }
+@media (max-width: 640px) { :root { --gutter: 20px; } }
 .section { padding: var(--sec-y) 0; }
 /* ostatni element sekcji bez dolnego marginesu – od treści do krawędzi zawsze jest dokładnie --sec-y */
 .section .wrap > :last-child, .hero__copy > :last-child { margin-bottom: 0; }
@@ -173,7 +178,7 @@ p { margin: 0 0 1em; }
   background: linear-gradient(145deg, #2C69BD 0%, var(--blue) 100%);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 10px 20px -10px rgba(28, 79, 149, .85);
 }
-.who__icon img { width: 26px; height: 26px; }
+.who__icon img { width: 24px; height: 24px; }   /* Uicons (Flaticon) 24×24, jak w EQrento */
 .card.who h3 { margin: 4px 0 6px; }
 .card.who p { grid-column: 2; }
 

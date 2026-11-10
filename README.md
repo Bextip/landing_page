@@ -14,11 +14,11 @@ script.js        – wybór języka, wypełnianie list i cennika, menu mobilne
 styles.css       – wygląd; kolory „Stadion” i czcionki jako zmienne w :root na górze pliku
 assets/logo/     – logo „Stadion” (SVG od Łukasza, 10.11.2026) i wycięty z niego logotyp (patrz „Wygląd”)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
-assets/icons/    – małe białe ikony kart „Dla kogo” (who-firmy, who-hr, who-liderzy; rysowane przez Claude, SVG 24×24)
+assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): shop, users, trophy; robi je narzedzia/uicons.ps1
 assets/flags/    – flagi listy języków (pl, gb, de, es, ru; SVG, bo Windows nie pokazuje emoji flag)
 assets/og-image.png – obraz do podglądu linków (1200×630), tworzony przez narzedzia/og-image.ps1
 robots.txt, sitemap.xml – dla wyszukiwarek (adres https://bextip.site/)
-narzedzia/       – szablon i skrypt obrazu do podglądu linków (nie trafiają na stronę)
+narzedzia/       – og-image.html/.ps1 (obraz do podglądu linków), uicons.html/.ps1 (ikony z Flaticon); nie trafiają na stronę
 .claude/         – lokalny podgląd: launch.json + serve.ps1 (PowerShell, bez Node i Pythona)
 .github/workflows/static.yml – publikacja na GitHub Pages przy każdym pushu do main
 ```
@@ -66,13 +66,20 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   tekstu mała biała ikona na niebieskim kafelku (`.who__icon`), jak ikony na „chipach” w sekcji „One platform” na
   eqrento.com – sklep (właściciele firm), ludzie (HR), puchar (liderzy). Duże ilustracje z poprzedniej wersji Łukasz
   odrzucił (są w historii gita). Plik ikony to pole `icon` przy pozycji w `who.items` w `i18n.js`.
+- **Ikony: Uicons z Flaticon** (Łukasz, 10.11.2026: „Możesz używać ikony z Flaticon”), zestaw regular rounded – ten sam
+  co na eqrento.com. Paczka npm Uicons ma tylko font, więc `narzedzia/uicons.html` wyciąga z niego ścieżki SVG
+  (opentype.js), a `narzedzia/uicons.ps1` zapisuje je jako białe `assets/icons/<plik>.svg` 24×24 (potrzebny podgląd
+  lokalny i Edge). Nowa ikona: dopisz `plik → fi-rr-nazwa` w `ICONS` w uicons.html i uruchom skrypt.
+  **Licencja wymaga podpisu „Uicons by Flaticon” z linkiem** – jest w dolnym wierszu stopki, jak na eqrento.com;
+  zostaw go, póki strona używa Uicons.
 - **FAQ w dwóch kolumnach** od 901px (Łukasz, 10.11.2026): `script.js` dzieli pytania na pół (pierwsza połowa
   w lewej kolumnie), każda kolumna układa się osobno, więc otwarte pytanie nie przesuwa drugiej; niżej jedna kolumna
   w tej samej kolejności.
 - **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
   (sekcje strony) / Aplikacja (bextip.com/login i /register), hasło z flagą (SVG, nie emoji), na dole prawa
-  autorskie i Regulamin / Polityka prywatności. Kolumna „Firma” z danymi spółki (jak w EQrento) – dopiero po
-  podaniu danych przez Łukasza.
+  autorskie, Regulamin / Polityka prywatności i podpis „Uicons by Flaticon”. „Zaloguj się” i „Załóż konto” w stopce
+  otwierają aplikację w nowej karcie (Łukasz, 10.11.2026); „Zaloguj się” w menu – w tej samej. Kolumna „Firma”
+  z danymi spółki (jak w EQrento) – dopiero po podaniu danych przez Łukasza.
 
 ## Teksty i języki
 
@@ -140,7 +147,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Pozostałe warianty z paczki „Stadion” (z claimem, panel, biały, na jasnym tle) zostają w `assets/logo/`, strona ich
   nie używa.
 - Czcionki: Lexend (nagłówki) i Inter (tekst) z Google Fonts – dobrane na oko, bo w plikach SVG litery są krzywymi.
-  Do potwierdzenia przez Łukasza.
+  Do potwierdzenia przez Łukasza. Hasło (h1) i tytuły sekcji (h2) mają grubość 600, nie 700 (Łukasz, 10.11.2026:
+  były za ciężkie); tytuły kart (h3) zostają 700.
+- **Szerokość jak na eqrento.com** (Łukasz, 10.11.2026): treść do 1360px (`.wrap`), boczne odstępy `--gutter`
+  48px, do 1440px 40px, do 1200px 32px, na telefonach (do 640px) 20px. Przy 1366×768 okno w hero mieści się
+  na styk – szerszej treści albo wyższego okna nie da się już dodać bez zmniejszenia okna.
 - Główne przyciski: zielone `#86C93E` z granatowym napisem – biały napis na tej zieleni ma za słaby kontrast.
 - Trzeci akcent: złoty `#F5B82E` (`--gold`; ciemniejszy `--gold-dark` na jasnym tle) – decyzja Claude za zgodą Łukasza, 10.11.2026, żeby strona nie była tylko niebiesko-zielona; nawiązuje do pucharu i żółtych ikon Jokera w aplikacji. Używany oszczędnie: kropka nad „i” w logo, kropka w etykiecie hero (rozmiar `--dot` = 7px, jak kropka nad „i” w logo z nagłówka – Łukasz, 10.11.2026), strzałki między krokami, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), górna krawędź kart „Dla kogo”, plusy w FAQ.
 - Wizualizacje „Tabele” i „Typowanie wyniku” zawierają prawdziwe imiona i nazwiska graczy – celowo nie są na stronie.
@@ -183,9 +194,11 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110h`).
-Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich czterech linkach – GitHub Pages
-trzyma pliki w pamięci przeglądarki do 10 minut.
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110i`).
+Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
+trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
+a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
+nie pokazały się Łukaszowi właśnie przez pamięć przeglądarki) podbij i je.
 
 ## Przed uruchomieniem – do zrobienia
 
