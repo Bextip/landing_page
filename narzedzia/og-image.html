@@ -16,8 +16,15 @@
   ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
   li { background: #86C93E; color: #0C2A55; font-weight: 600; font-size: 20px; padding: 8px 16px; border-radius: 999px; }
   .url { position: absolute; left: 64px; bottom: 42px; font-size: 22px; font-weight: 500; color: #C9D8EE; }
-  .shot { position: absolute; left: 650px; top: 118px; width: 640px; height: auto; border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, .25); box-shadow: 0 30px 70px rgba(5, 20, 45, .45); }
+  /* ekran w oknie przegladarki, jak na stronie (.window w styles.css) */
+  .shot { position: absolute; left: 650px; top: 100px; width: 640px; border-radius: 14px; overflow: hidden; background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 30px 70px -10px rgba(5, 20, 45, .6), 0 40px 110px -30px rgba(31, 134, 207, .6); }
+  .bar { height: 34px; display: grid; grid-template-columns: 70px 1fr 70px; align-items: center; padding: 0 14px;
+    background: #E8EDF4; border-bottom: 1px solid #D8E0EC; }
+  .bar i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; box-shadow: 18px 0 #febc2e, 36px 0 #28c840; }
+  .bar span { justify-self: center; width: 300px; height: 22px; border-radius: 6px; background: #fff;
+    font-size: 12px; font-weight: 500; line-height: 22px; color: #55627D; text-align: center; }
+  .shot img { display: block; width: 100%; height: auto; }
 </style>
 </head>
 <body>
@@ -30,6 +37,6 @@
     </ul>
   </div>
   <div class="url">bextip.site</div>
-  <img class="shot" src="../assets/screens/typowania.svg" alt="">
+  <div class="shot"><div class="bar"><i></i><span>bextip.com/predictions</span></div><img src="../assets/screens/typowania.svg" alt=""></div>
 </body>
 </html>

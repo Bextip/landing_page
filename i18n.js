@@ -81,15 +81,16 @@ window.BEXTIP_I18N = {
       title: "Cennik dopasowany do wielkości zespołu",
       sub: "Jedna opłata za grę na wybrane rozgrywki, np. Ligę Mistrzów 2026/27. Każdy pakiet zawiera wszystkie funkcje.",
       upTo: "do {n} graczy",
-      unlimited: "bez limitu graczy",
-      net: "netto / rozgrywki",
-      perPlayer: "+ {p} zł / os. netto",
+      allFeatures: "wszystkie funkcje w cenie",
+      per: ["netto", "za rozgrywki"],
+      unlimitedPer: ["+ {p} zł za osobę", "netto, za rozgrywki"],
+      unlimitedDesc: "Bez limitu graczy – dla firm, które chcą zaprosić do gry więcej niż 250 osób.",
       recommended: "Polecany",
       buy: "Kup pakiet",
       order: "Zamów pakiet",
       ask: "Zapytaj o ofertę",
       orderSubject: "Zamówienie Bextip",
-      names: { p20: "Pakiet 20", p30: "Pakiet 30", p50: "Pakiet 50", p100: "Pakiet 100", p250: "Pakiet 250", unlimited: "Pakiet Bez Limitu" },
+      names: { p20: "Pakiet 20", p30: "Pakiet 30", p100: "Pakiet 100", p250: "Pakiet 250", unlimited: "Pakiet Bez Limitu" },
       includedTitle: "W każdym pakiecie:",
       included: ["Automatyczne wyniki, punkty i tabela", "Branding: logo i kolorystyka firmy", "Własna nazwa gry i subdomena", "Do 4 wewnętrznych drużyn", "Joker, zdarzenia Ekstra, bonus za mistrza", "Czat, statystyki, historia typowań", "5 wersji językowych", "Priorytetowa obsługa (maks. 1 h)", "Bezpieczne połączenie SSL", "Brak reklam"],
       note: "Podane ceny są cenami netto. Bezpieczne płatności on-line obsługuje Stripe."
@@ -113,7 +114,15 @@ window.BEXTIP_I18N = {
       sub: "Wybierz pakiet albo napisz do nas – odpowiemy na pytania i uruchomimy typera w kilka godzin.",
       contact: "Napisz do nas"
     },
-    footer: { terms: "Regulamin", privacy: "Polityka prywatności", contact: "Kontakt" }
+    footer: {
+      about: "Bextip to automatyczny typer piłkarski dla firm: wyniki, punkty i tabela liczą się same, a gra ma logo i kolory Twojej firmy.",
+      invite: "Napisz lub zadzwoń – odpowiemy na pytania i uruchomimy typera w kilka godzin.",
+      contactTitle: "Kontakt", siteTitle: "Serwis", appTitle: "Aplikacja",
+      login: "Zaloguj się", register: "Załóż konto",
+      tagline1: "Stworzone z pasją w", tagline2: "Polsce, dla zespołów, które kibicują razem.",
+      rights: "Wszelkie prawa zastrzeżone.",
+      terms: "Regulamin", privacy: "Polityka prywatności"
+    }
   },
 
   en: {
@@ -196,15 +205,16 @@ window.BEXTIP_I18N = {
       title: "Pricing that fits your team size",
       sub: "One fee per game for the competition you choose, e.g. the 2026/27 Champions League. Every package includes all features.",
       upTo: "up to {n} players",
-      unlimited: "unlimited players",
-      net: "net / competition",
-      perPlayer: "+ PLN {p} / player net",
+      allFeatures: "all features included",
+      per: ["net", "per competition"],
+      unlimitedPer: ["+ {p} zł per player", "net, per competition"],
+      unlimitedDesc: "No player limit – for companies that want to invite more than 250 people.",
       recommended: "Recommended",
       buy: "Buy package",
       order: "Order package",
       ask: "Ask for a quote",
       orderSubject: "Bextip order",
-      names: { p20: "Package 20", p30: "Package 30", p50: "Package 50", p100: "Package 100", p250: "Package 250", unlimited: "Unlimited Package" },
+      names: { p20: "Package 20", p30: "Package 30", p100: "Package 100", p250: "Package 250", unlimited: "Unlimited Package" },
       includedTitle: "In every package:",
       included: ["Automatic results, points and leaderboard", "Branding: company logo and colours", "Own game name and subdomain", "Up to 4 internal teams", "Joker, Extra events, champion bonus", "Chat, statistics, prediction history", "5 languages", "Priority support (max. 1 h)", "Secure SSL connection", "No ads"],
       note: "All prices are net, in Polish złoty (PLN). Secure online payments are handled by Stripe."
@@ -228,6 +238,14 @@ window.BEXTIP_I18N = {
       sub: "Choose a package or write to us – we’ll answer your questions and launch your game within hours.",
       contact: "Write to us"
     },
-    footer: { terms: "Terms", privacy: "Privacy policy", contact: "Contact" }
+    footer: {
+      about: "Bextip is an automated football prediction game for companies: results, points and the leaderboard update themselves, and the game carries your company’s logo and colours.",
+      invite: "Write or call us – we’ll answer your questions and launch your game within hours.",
+      contactTitle: "Contact", siteTitle: "Site", appTitle: "App",
+      login: "Log in", register: "Create an account",
+      tagline1: "Made with passion in", tagline2: "Poland, for teams that cheer together.",
+      rights: "All rights reserved.",
+      terms: "Terms", privacy: "Privacy policy"
+    }
   }
 };

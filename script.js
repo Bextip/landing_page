@@ -13,25 +13,41 @@
   }
   function $(id) { return document.getElementById(id); }
 
+  // Cennik: pakiety z limitem graczy jako małe kafelki w rzędzie, pakiet bez limitu pod nimi na całą szerokość
   function renderPlans() {
     var t = get("pricing");
-    $("planGrid").innerHTML = CFG.plans.map(function (p) {
+    function button(p, cls) {
       var name = t.names[p.id];
-      var players = p.players ? t.upTo.replace("{n}", p.players) : t.unlimited;
-      var per = t.net + (p.perPlayer ? "<br>" + t.perPlayer.replace("{p}", String(p.perPlayer).replace(".", lang === "pl" ? "," : ".")) : "");
       var mail = "mailto:" + CFG.contactEmail + "?subject=" + encodeURIComponent(t.orderSubject + " – " + name);
       var href = p.stripe || mail;
       var label = p.stripe ? t.buy : (p.stripe === null ? t.ask : t.order);
       var ext = p.stripe ? ' target="_blank" rel="noopener"' : "";
-      return '<article class="card plan' + (p.recommended ? " card--hl" : "") + '">' +
-        (p.recommended ? '<span class="tag">' + esc(t.recommended) + "</span>" : "") +
-        "<h3>" + esc(name) + "</h3>" +
-        '<p class="desc">' + esc(players) + "</p>" +
-        '<p class="price">' + money(p.price) + " <small>zł</small></p>" +
-        '<p class="per">' + per + "</p>" +
-        '<a class="btn btn--block ' + (p.recommended ? "btn--primary" : "btn--ghost") + '" href="' + esc(href) + '"' + ext + ">" + esc(label) + "</a>" +
-        "</article>";
-    }).join("");
+      return '<p class="tier__cta"><a class="btn ' + cls + '" href="' + esc(href) + '"' + ext + ">" + esc(label) + "</a></p>";
+    }
+    function per(lines) {
+      return '<span class="tier__per"><span>' + esc(lines[0]) + "</span><span>" + esc(lines[1]) + "</span></span>";
+    }
+    var tiers = CFG.plans.filter(function (p) { return p.players; });
+    var wide = CFG.plans.filter(function (p) { return !p.players; });
+    $("planGrid").innerHTML =
+      '<ul class="tiers">' + tiers.map(function (p) {
+        return '<li class="tier' + (p.recommended ? " tier--hero" : "") + '">' +
+          (p.recommended ? '<span class="tag tier__badge">' + esc(t.recommended) + "</span>" : "") +
+          '<h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" +
+          '<p class="tier__price"><b>' + money(p.price) + " zł</b>" + per(t.per) + "</p>" +
+          '<ul class="tier__limits"><li>' + esc(t.upTo).replace("{n}", "<b>" + p.players + "</b>") + "</li>" +
+          "<li>" + esc(t.allFeatures) + "</li></ul>" +
+          button(p, "btn--primary") + "</li>";
+      }).join("") + "</ul>" +
+      wide.map(function (p) {
+        var pp = String(p.perPlayer).replace(".", lang === "pl" ? "," : ".");
+        return '<div class="tier tier--wide">' +
+          '<div><h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" +
+          '<p class="tier__desc">' + esc(t.unlimitedDesc) + "</p></div>" +
+          '<p class="tier__price"><b>' + money(p.price) + " zł</b>" +
+          per([t.unlimitedPer[0].replace("{p}", pp), t.unlimitedPer[1]]) + "</p>" +
+          button(p, "btn--ghost") + "</div>";
+      }).join("");
     $("includedList").innerHTML = t.included.map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("");
   }
 
@@ -75,6 +91,7 @@
   var browser = (navigator.language || "pl").toLowerCase().indexOf("pl") === 0 ? "pl" : "en";
 
   document.querySelectorAll('[data-href="app"]').forEach(function (a) { a.href = CFG.appUrl; });
+  document.querySelectorAll('[data-href="register"]').forEach(function (a) { a.href = CFG.registerUrl; });
   document.querySelectorAll('[data-href="mail"]').forEach(function (a) { a.href = "mailto:" + CFG.contactEmail; });
   document.querySelectorAll('[data-href="tel"]').forEach(function (a) { a.href = "tel:" + CFG.phone.replace(/\s/g, ""); a.textContent = CFG.phone; });
   document.querySelectorAll("[data-lang]").forEach(function (b) {

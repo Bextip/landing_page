@@ -28,6 +28,19 @@ Nagłówek (logo, menu, PL/EN, „Zaloguj się” → bextip.com/login, „Wybie
 swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki) → Dla kogo (`#who`) → Cennik
 (`#pricing`) → FAQ (`#faq`) → kontakt (`#contact`) → stopka.
 
+- **Nagłówki sekcji** (Łukasz, 10.11.2026: jak na eqrento.com): tytuł i opis pod nim w `<div class="section-head">`,
+  wyśrodkowane. Wyjątek: `#inside`, gdzie tekst stoi obok ekranu i zostaje wyrównany do lewej.
+- Tła na przemian: białe / `section--tint` (`#F1F4F8`); Cennik jest szary, żeby białe kafelki odcinały się jak w EQrento,
+  dlatego FAQ jest białe.
+- **Ekrany aplikacji w oknie przeglądarki** (Łukasz, 10.11.2026): `<div class="window">` z paskiem `.window__bar`
+  (trzy kropki i adres – `bextip.com/predictions`, `bextip.com/tips-stats`, prawdziwe adresy tych ekranów
+  w aplikacji). Ramka to sam CSS (`.window` w styles.css), obrazy są bez ramki. Ta sama ramka jest na obrazie do
+  podglądu linków.
+- **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
+  (sekcje strony) / Aplikacja (bextip.com/login i /register), hasło z flagą (SVG, nie emoji), na dole prawa
+  autorskie i Regulamin / Polityka prywatności. Kolumna „Firma” z danymi spółki (jak w EQrento) – dopiero po
+  podaniu danych przez Łukasza.
+
 ## Teksty i języki
 
 - Element w HTML ma `data-i18n="klucz"` (tekst), `data-i18n-list="klucz"` (lista) lub
@@ -50,11 +63,17 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 
 ## Cennik i Stripe
 
-- Pakiety: `plans` w `config.js` – 20 / 30 / 50 / 100 / 250 graczy i Bez Limitu (3950 zł + 1,25 zł / os.).
+- Pakiety: `plans` w `config.js` – 20 / 30 / 100 / 250 graczy i Bez Limitu (3950 zł + 1,25 zł / os.).
   Ceny netto w zł, jednorazowo za jedną grę na wybrane rozgrywki. **Ten sam cennik dla wszystkich rozgrywek**
-  (MŚ 2026, Liga Mistrzów 2026/27 – Łukasz, 10.11.2026).
+  (MŚ 2026, Liga Mistrzów 2026/27 – Łukasz, 10.11.2026). **Pakiet 50 (1690 zł) zdjęty ze strony** (Łukasz,
+  10.11.2026), choć jest w PDF-ie z ofertą.
+- Układ (Łukasz, 10.11.2026: mniejsze kafelki jak w EQrento): pakiety z limitem graczy to `.tier` w `.tiers` –
+  4 w rzędzie powyżej 1100px, 2 × 2 niżej, jeden pod drugim na telefonach; Bez Limitu (`players: null`) to
+  `.tier--wide` pod nimi na całą szerokość. Kafelek: nazwa, cena z „netto / za rozgrywki” obok, limit graczy,
+  „wszystkie funkcje w cenie”, przycisk. Piąty pakiet z limitem nie zmieści się w rzędzie – trzeba by zmienić siatkę.
 - Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`. Lista „W każdym pakiecie” – `pricing.included`.
-- „Polecany”: `recommended: true` – teraz Pakiet 50 (propozycja Claude, do potwierdzenia przez Łukasza).
+- „Polecany”: `recommended: true` daje granatowy kafelek z etykietą na górnej krawędzi. Teraz żaden pakiet (był
+  Pakiet 50).
 - Przycisk pakietu zależy od pola `stripe`:
   - adres Payment Linku → „Kup pakiet”, otwiera Stripe w nowej karcie;
   - `""` (pusty) → „Zamów pakiet”, otwiera e-mail do kontakt@bextip.com z nazwą pakietu w temacie;
@@ -119,7 +138,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110c`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110d`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich czterech linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut.
 
