@@ -70,9 +70,6 @@ p { margin: 0 0 1em; }
 .btn--primary:hover { background: var(--accent-dark); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 12px 22px -8px rgba(76, 128, 20, .85); }
 .btn--ghost { border-color: var(--line); background: var(--white); box-shadow: var(--shadow-sm); }
 .btn--ghost:hover { border-color: var(--blue); color: var(--blue); }
-.btn--white { background: var(--white); color: var(--blue); box-shadow: 0 10px 22px -10px rgba(5, 20, 45, .6); }
-.btn--outline { border-color: rgba(255,255,255,.6); color: var(--white); }
-.btn--outline:hover { background: rgba(255,255,255,.12); }
 .btn--block { width: 100%; }
 
 /* Nav – białe, półprzezroczyste, z rozmyciem tego, co przewija się pod spodem (Łukasz, 10.11.2026);
@@ -141,11 +138,8 @@ p { margin: 0 0 1em; }
 }
 .chips li::before { content: "✓"; position: absolute; left: 11px; color: var(--ok); font-weight: 800; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero__cta--center { justify-content: center; }
 .included { margin-top: 20px; }
 .included .list { grid-template-columns: repeat(2, 1fr); margin: 0; }
-.cta__tel { margin: 22px 0 0; color: #dbe6ff; }
-.cta__tel a { text-decoration: underline; }
 
 /* Cards / grids */
 .compare { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 20px; align-items: start; }
@@ -167,14 +161,21 @@ p { margin: 0 0 1em; }
 .feature:nth-child(3n+2) .ico { background: var(--green-soft); }
 .feature:nth-child(3n) .ico { background: var(--gold-soft); }
 .feature p, .who p { color: var(--muted); margin: 0; }
-/* „Dla kogo”: białe karty na niebieskim tle, u góry ilustracja do opisu (assets/illustrations/) */
-.card.who { color: var(--ink); padding: 14px 14px 26px; border: 0; box-shadow: 0 2px 4px rgba(5, 20, 45, .12), 0 24px 50px -20px rgba(5, 20, 45, .6); }
-.who__art {
-  aspect-ratio: 16 / 9; margin-bottom: 18px; border-radius: 12px; overflow: hidden;
-  background: linear-gradient(160deg, #F1F6FD 0%, #DCE8F7 100%);
+/* „Dla kogo”: białe karty na niebieskim tle; mała biała ikona na niebieskim kafelku obok tekstu – jak ikony na
+   „chipach” w sekcji „One platform” na eqrento.com (Łukasz, 10.11.2026) */
+.card.who {
+  display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 18px; align-content: start;
+  color: var(--ink); padding: 26px; border: 0;
+  box-shadow: 0 2px 4px rgba(5, 20, 45, .12), 0 24px 50px -20px rgba(5, 20, 45, .6);
 }
-.who__art img { width: 100%; height: 100%; object-fit: contain; }
-.card.who h3, .card.who p { padding: 0 10px; }
+.who__icon {
+  grid-row: 1 / span 2; width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center;
+  background: linear-gradient(145deg, #2C69BD 0%, var(--blue) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 10px 20px -10px rgba(28, 79, 149, .85);
+}
+.who__icon img { width: 26px; height: 26px; }
+.card.who h3 { margin: 4px 0 6px; }
+.card.who p { grid-column: 2; }
 
 /* Steps – karty z numerem i złotymi strzałkami między nimi, żeby było widać kolejność (Łukasz, 10.11.2026);
    do 1100px jedna kolumna i strzałki w dół */
@@ -245,13 +246,6 @@ summary::after { content: "+"; color: var(--gold-dark); font-size: 1.4rem; line-
 details[open] summary::after { content: "–"; }
 details p { color: var(--muted); margin: 12px 0 0; }
 
-/* CTA + footer */
-.cta {
-  color: var(--white); text-align: center;
-  background: radial-gradient(60% 90% at 50% 0%, rgba(255, 255, 255, .14), transparent 70%),
-              radial-gradient(40% 60% at 100% 100%, rgba(134, 201, 62, .2), transparent 70%), var(--blue);
-}
-.cta .sub { color: #dbe6ff; margin-inline: auto; }
 /* stopka wg schematu eqrento.com: marka (logo + dwa akapity), Kontakt, Serwis, Aplikacja; hasło; prawa i linki */
 .footer {
   position: relative; overflow: hidden; isolation: isolate;

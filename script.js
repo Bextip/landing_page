@@ -68,10 +68,11 @@
     $("stepList").innerHTML = get("how.steps").map(function (s) {
       return "<li><h3>" + esc(s.t) + "</h3><p>" + esc(s.d) + "</p></li>";
     }).join("");
-    // „Dla kogo”: ilustracja (assets/illustrations/, pole img w i18n.js) nad tytułem i opisem
+    // „Dla kogo”: mała biała ikona na niebieskim kafelku obok tekstu, jak w sekcji „One platform” na eqrento.com
+    // (assets/icons/, pole icon w i18n.js)
     $("whoGrid").innerHTML = get("who.items").map(function (w) {
-      return '<article class="card who"><div class="who__art"><img src="assets/illustrations/' + esc(w.img) +
-        '" alt="" width="320" height="180" loading="lazy"></div><h3>' + esc(w.t) + "</h3><p>" + esc(w.d) + "</p></article>";
+      return '<article class="card who"><span class="who__icon"><img src="assets/icons/' + esc(w.icon) +
+        '" alt="" width="24" height="24"></span><h3>' + esc(w.t) + "</h3><p>" + esc(w.d) + "</p></article>";
     }).join("");
     // FAQ w dwóch kolumnach: pierwsza połowa pytań w lewej, reszta w prawej (otwarcie pytania nie przesuwa drugiej
     // kolumny); na węższych ekranach kolumny stoją jedna pod drugą, więc kolejność zostaje ta sama

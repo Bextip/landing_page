@@ -3,14 +3,14 @@
 window.BEXTIP_I18N = {
   pl: {
     meta: {
-      title: "Bextip – firmowy typer piłkarski, który integruje zespół",
-      description: "Bextip to automatyczny typer on-line dla firm. Pracownicy typują wyniki meczów Ligi Mistrzów i wielkich turniejów piłkarskich, a wyniki, punkty i tabela liczą się same. Z logo i kolorami Twojej firmy, bez instalacji."
+      title: "Bextip – firmowy typer sportowy, który integruje zespół",
+      description: "Bextip to automatyczny typer on-line dla firm. Pracownicy typują wyniki wydarzeń sportowych, a wyniki, punkty, tabela i statystyki liczą się same. Z identyfikacją wizualną Twojej firmy, bez instalacji."
     },
     nav: { language: "Język", about: "Czym jest Bextip", features: "Funkcje", how: "Jak to działa", pricing: "Cennik", faq: "FAQ", login: "Zaloguj się", cta: "Wybierz pakiet" },
     hero: {
-      badge: "Prediction games for teams",
-      title: "Firmowy typer piłkarski, który integruje zespół.",
-      lead: "Bextip angażuje i integruje pracowników dzięki emocjonującej zabawie w typowanie wyników meczów w Lidze Mistrzów i podczas wielkich turniejów piłkarskich. Wyniki, punkty i tabela aktualizują się automatycznie.",
+      badge: "Gry typerskie dla zespołów",
+      title: "Firmowy typer sportowy, który integruje zespół.",
+      lead: "Bextip angażuje i integruje pracowników dzięki emocjonującej zabawie w typowanie wyników wydarzeń sportowych. Wyniki, punkty, tabela i statystyki aktualizują się automatycznie.",
       chip1: "Logo i kolory Twojej firmy",
       chip2: "Bez instalacji i działu IT",
       chip3: "5 wersji językowych",
@@ -72,14 +72,14 @@ window.BEXTIP_I18N = {
     who: {
       title: "Dla kogo jest Bextip?",
       items: [
-        { img: "who-firmy.svg", t: "Właściciele małych i średnich firm", d: "Prosty i niedrogi sposób na lepszą atmosferę w zespole. Uruchamiasz raz – zabawa toczy się sama przez całe rozgrywki." },
-        { img: "who-hr.svg", t: "Działy HR", d: "Gotowe narzędzie do integracji i employer brandingu – także dla zespołów zdalnych, rozproszonych i międzynarodowych." },
-        { img: "who-liderzy.svg", t: "Menedżerowie i liderzy zespołów", d: "Wspólny temat do rozmów i zdrowa rywalizacja między działami, bez odrywania ludzi od pracy." }
+        { icon: "who-firmy.svg", t: "Właściciele małych i średnich firm", d: "Prosty i niedrogi sposób na lepszą atmosferę w zespole. Uruchamiasz raz – zabawa toczy się sama przez całe rozgrywki." },
+        { icon: "who-hr.svg", t: "Działy HR", d: "Gotowe narzędzie do integracji i employer brandingu – także dla zespołów zdalnych, rozproszonych i międzynarodowych." },
+        { icon: "who-liderzy.svg", t: "Menedżerowie i liderzy zespołów", d: "Wspólny temat do rozmów i zdrowa rywalizacja między działami, bez odrywania ludzi od pracy." }
       ]
     },
     pricing: {
       title: "Cennik dopasowany do wielkości zespołu",
-      sub: "Jedna opłata za grę na wybrane rozgrywki, np. Ligę Mistrzów 2026/27. Każdy pakiet zawiera wszystkie funkcje.",
+      sub: "Jednorazowa opłata za grę na wybrane rozgrywki, np.: Ligę Mistrzów UEFA, angielską Premier League, polską Ekstraligę czy amerykański NHL. Każdy pakiet zawiera wszystkie funkcje.",
       upTo: "do {n} graczy",
       allFeatures: "wszystkie funkcje w cenie",
       per: ["netto", "za rozgrywki"],
@@ -109,14 +109,9 @@ window.BEXTIP_I18N = {
         { q: "Co, jeśli mamy więcej niż 250 graczy?", a: "Wybierz Pakiet Bez Limitu: stała opłata plus niewielka kwota za każdego gracza. Napisz do nas, a przygotujemy zamówienie." }
       ]
     },
-    cta: {
-      title: "Zróbcie z piłkarskich emocji wspólne przeżycie całej firmy",
-      sub: "Wybierz pakiet albo napisz do nas – odpowiemy na pytania i uruchomimy typera w kilka godzin.",
-      contact: "Napisz do nas"
-    },
     footer: {
-      about: "Bextip to automatyczny typer piłkarski dla firm: wyniki, punkty i tabela liczą się same, a gra ma logo i kolory Twojej firmy.",
-      invite: "Napisz lub zadzwoń – odpowiemy na pytania i uruchomimy typera w kilka godzin.",
+      about: "Bextip to automatyczny typer piłkarski dla firm: wyniki, punkty i tabela liczą się same, a gra może mieć identyfikację wizualną Twojej firmy.",
+      invite: "Napisz lub zadzwoń – odpowiemy na pytania i pomożemy Ci uruchomić typera dosłownie w kilka minut.",
       contactTitle: "Kontakt", siteTitle: "Serwis", appTitle: "Aplikacja",
       login: "Zaloguj się", register: "Załóż konto",
       tagline1: "Stworzone z pasją w", tagline2: "Polsce, dla zespołów, które kibicują razem.",
@@ -127,14 +122,14 @@ window.BEXTIP_I18N = {
 
   en: {
     meta: {
-      title: "Bextip – the football prediction game that brings your team together",
-      description: "Bextip is an automated online football prediction game for companies. Employees predict match scores in the Champions League and major tournaments while results, points and the leaderboard update themselves. Your logo and colours, no installation."
+      title: "Bextip – the sports prediction game that brings your team together",
+      description: "Bextip is an automated online sports prediction game for companies. Employees predict the results of sporting events while results, points, the leaderboard and statistics update themselves. Your company’s visual identity, no installation."
     },
     nav: { language: "Language", about: "What is Bextip", features: "Features", how: "How it works", pricing: "Pricing", faq: "FAQ", login: "Log in", cta: "Choose a package" },
     hero: {
       badge: "Prediction games for teams",
-      title: "The football prediction game that brings your team together.",
-      lead: "Bextip engages and connects your employees through the thrill of predicting match scores in the Champions League and major football tournaments. Results, points and the leaderboard update automatically.",
+      title: "The sports prediction game that brings your team together.",
+      lead: "Bextip engages and connects your employees through the thrill of predicting the results of sporting events. Results, points, the leaderboard and statistics update automatically.",
       chip1: "Your company logo and colours",
       chip2: "No installation, no IT needed",
       chip3: "5 languages",
@@ -196,14 +191,14 @@ window.BEXTIP_I18N = {
     who: {
       title: "Who is Bextip for?",
       items: [
-        { img: "who-firmy.svg", t: "Owners of small and medium businesses", d: "A simple, affordable way to lift team spirit. Set it up once – the fun runs itself for the whole competition." },
-        { img: "who-hr.svg", t: "HR departments", d: "A ready-made tool for team building and employer branding – including remote, distributed and international teams." },
-        { img: "who-liderzy.svg", t: "Managers and team leaders", d: "A shared talking point and healthy rivalry between departments, without pulling people away from work." }
+        { icon: "who-firmy.svg", t: "Owners of small and medium businesses", d: "A simple, affordable way to lift team spirit. Set it up once – the fun runs itself for the whole competition." },
+        { icon: "who-hr.svg", t: "HR departments", d: "A ready-made tool for team building and employer branding – including remote, distributed and international teams." },
+        { icon: "who-liderzy.svg", t: "Managers and team leaders", d: "A shared talking point and healthy rivalry between departments, without pulling people away from work." }
       ]
     },
     pricing: {
       title: "Pricing that fits your team size",
-      sub: "One fee per game for the competition you choose, e.g. the 2026/27 Champions League. Every package includes all features.",
+      sub: "A one-off fee per game for the competition you choose, e.g. the UEFA Champions League, the English Premier League, Poland’s Ekstraliga or the American NHL. Every package includes all features.",
       upTo: "up to {n} players",
       allFeatures: "all features included",
       per: ["net", "per competition"],
@@ -233,14 +228,9 @@ window.BEXTIP_I18N = {
         { q: "What if we have more than 250 players?", a: "Choose the Unlimited Package: a fixed fee plus a small amount per player. Write to us and we will prepare your order." }
       ]
     },
-    cta: {
-      title: "Turn football fever into a shared experience for the whole company",
-      sub: "Choose a package or write to us – we’ll answer your questions and launch your game within hours.",
-      contact: "Write to us"
-    },
     footer: {
-      about: "Bextip is an automated football prediction game for companies: results, points and the leaderboard update themselves, and the game carries your company’s logo and colours.",
-      invite: "Write or call us – we’ll answer your questions and launch your game within hours.",
+      about: "Bextip is an automated football prediction game for companies: results, points and the leaderboard update themselves, and the game can carry your company’s visual identity.",
+      invite: "Write or call us – we’ll answer your questions and help you launch your game in literally a few minutes.",
       contactTitle: "Contact", siteTitle: "Site", appTitle: "App",
       login: "Log in", register: "Create an account",
       tagline1: "Made with passion in", tagline2: "Poland, for teams that cheer together.",
