@@ -110,11 +110,12 @@ p { margin: 0 0 1em; }
 /* trzy kolumny jak na eqrento.com: logotyp z lewej, linki na środku (z dala od logotypu), przyciski z prawej */
 .nav__in { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: 24px; height: 68px; }
 .brand { grid-column: 1; justify-self: start; display: flex; align-items: center; }
-.brand img { height: 36px; width: auto; }
-/* --nav-shift: linia bazowa linków na wysokości podstawy napisu „Bextip” (bez ogonka „p”) – zmierzone w przeglądarce */
+.brand img { height: 43px; width: auto; }   /* logo w menu o ok. 20% większe (Łukasz, 10.11.2026) */
+/* --nav-shift: linia bazowa linków na wysokości podstawy napisu „Bextip” (bez ogonka „p”) – zmierzone w przeglądarce
+   dla logo 43px (7px; różnica ok. 0,5px) */
 .nav__links {
   grid-column: 2; display: flex; gap: 36px; font-weight: 500; color: var(--muted); white-space: nowrap;
-  transform: translateY(var(--nav-shift, 5px));
+  transform: translateY(var(--nav-shift, 7px));
 }
 .nav__links a { position: relative; display: block; padding: 6px 0; line-height: 1.1; transition: color .2s; }
 .nav__links a::after {   /* podkreślenie widocznej sekcji – złota linia jak kropka nad „i” */
@@ -276,7 +277,9 @@ details p { color: var(--muted); margin: 12px 0 0; }
   background: radial-gradient(40% 60% at 0% 0%, rgba(31, 134, 207, .35), transparent 70%),
               radial-gradient(35% 55% at 100% 100%, rgba(134, 201, 62, .14), transparent 70%);
 }
-.footer__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr; gap: 32px; }
+/* marka do 340px, potem cztery kolumny szerokie na swoją treść; wolne miejsce rozkłada się po równo między kolumnami,
+   więc „Kontakt” stoi tak samo daleko od marki, jak kolumny od siebie (Łukasz, 10.11.2026) */
+.footer__grid { display: grid; grid-template-columns: minmax(0, 340px) repeat(4, auto); justify-content: space-between; gap: 32px; }
 .footer__brand img { width: 150px; height: auto; }
 .footer__brand p { margin: 20px 0 0; max-width: 340px; }
 .footer__col { padding-top: 8px; }
@@ -347,7 +350,7 @@ details p { color: var(--muted); margin: 12px 0 0; }
   .tier--wide { max-width: 680px; margin-inline: auto; grid-template-columns: minmax(0, 1fr) auto; }
   .tier--wide .tier__cta { grid-column: 1 / -1; }
   .tier--wide .tier__cta .btn { width: 100%; }
-  .footer__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer__grid { grid-template-columns: repeat(4, auto); }
   .footer__brand { grid-column: 1 / -1; }
   .footer__brand p { max-width: 560px; }
   /* kroki jeden pod drugim, numer z lewej, strzałka w dół */
@@ -381,7 +384,7 @@ details p { color: var(--muted); margin: 12px 0 0; }
 @media (max-width: 560px) {
   .tiers { grid-template-columns: minmax(0, 1fr); }
   .tier--wide { grid-template-columns: minmax(0, 1fr); }
-  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: stretch; }
   .footer__bottom { flex-direction: column-reverse; align-items: center; text-align: center; }
   .footer__legal { justify-content: center; }
   .nav__right .btn--primary { display: none; }

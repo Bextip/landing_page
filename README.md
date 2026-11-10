@@ -40,8 +40,9 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   Logotyp w menu: `Bextip-Stadion-logotyp-na-jasnym-tle-zlota-kropka.svg`.
 - **Układ menu jak na eqrento.com** (Łukasz, 10.11.2026): trzy kolumny (`1fr auto 1fr`) – logotyp z lewej, linki
   na środku (ok. 300px od logotypu przy 1536px), przyciski z prawej; odstępy między linkami 36px, do 1440px 28px,
-  do 1240px 22px. Linia bazowa linków stoi na podstawie napisu „Bextip” (bez ogonka „p”): `translateY(--nav-shift)`,
-  5px – zmierzone w przeglądarce (różnica 0,4px). Zmiana wysokości logo albo rozmiaru linków = zmierz ponownie.
+  do 1240px 22px. Logo w menu ma 43px wysokości (o ok. 20% więcej niż wcześniej – Łukasz, 10.11.2026). Linia bazowa
+  linków stoi na podstawie napisu „Bextip” (bez ogonka „p”): `translateY(--nav-shift)`, 7px – zmierzone
+  w przeglądarce (różnica ok. 0,5px). Zmiana wysokości logo albo rozmiaru linków = zmierz ponownie.
 - **Podkreślenie widocznej sekcji** (Łukasz, 10.11.2026): złota linia 2px pod linkiem (`.is-active`, kolor kropki
   nad „i”); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
   strony – FAQ. Sekcje bez linku (`#inside`, `#who`) zostawiają zaznaczoną poprzednią.
@@ -86,7 +87,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   w lewej kolumnie), każda kolumna układa się osobno, więc otwarte pytanie nie przesuwa drugiej; niżej jedna kolumna
   w tej samej kolejności.
 - **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
-  (sekcje strony) / Aplikacja (bextip.com/login i /register), hasło z flagą (SVG, nie emoji), na dole prawa
+  (sekcje strony) / Aplikacja (bextip.com/login i /register) / Język. Marka ma do 340px, a wolne miejsce rozkłada się
+  po równo między kolumny (`justify-content: space-between`), więc odstęp marka → Kontakt jest taki sam jak między
+  pozostałymi (Łukasz, 10.11.2026). Hasło: „Stworzone z pasją w Polsce [flaga], dla zespołów, które kibicują razem na
+  świecie [kula ziemska]” – flaga po „Polsce”, kula po „na świecie”, jak we wzorze Łukasza (obie jako SVG, nie emoji;
+  kula – ta sama co na eqrento.com). Na dole prawa
   autorskie, Regulamin / Polityka prywatności i podpis „Uicons by Flaticon”. „Zaloguj się” i „Załóż konto” w stopce
   otwierają aplikację w nowej karcie (Łukasz, 10.11.2026); „Zaloguj się” w menu – w tej samej. Kolumna „Firma”
   z danymi spółki (jak w EQrento) – dopiero po podaniu danych przez Łukasza.
@@ -214,7 +219,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110j`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110k`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

@@ -78,7 +78,8 @@ window.BEXTIP_I18N = {
     },
     pricing: {
       title: "Cennik dopasowany do wielkości zespołu",
-      sub: "Jednorazowa opłata za grę na wybrane rozgrywki, np.: Ligę Mistrzów UEFA, angielską Premier League, polską Ekstraligę czy amerykański NHL. Każdy pakiet zawiera wszystkie funkcje.",
+      sub: "Jednorazowa opłata za grę na wybrane rozgrywki, np.: Ligę Mistrzów UEFA, angielską Premier League, polską Ekstraligę czy amerykański NHL.",
+      sub2: "Każdy pakiet zawiera wszystkie funkcje.",
       upTo: "do {n} graczy",
       allFeatures: "wszystkie funkcje w cenie",
       per: ["netto", "za rozgrywki"],
@@ -108,7 +109,7 @@ window.BEXTIP_I18N = {
         "Branding (**logo i kolorystyka**) firmy",
         "**Własna nazwa** gry",
         "Własna **subdomena** (np.: nazwa_firmy.bextip.com)",
-        "Dostęp przez **dowolną przeglądarkę** z komputera lub smartfona – bez potrzeby instalacji dodatkowej aplikacji",
+        "Dostęp przez **dowolną przeglądarkę** z komputera lub smartfona",
         "**5 wersji językowych** (polska, angielska, niemiecka, hiszpańska, rosyjska)",
         "**Priorytetowa obsługa** użytkowników firmowych",
         "Bezpieczne połączenie protokołem **SSL**",
@@ -135,7 +136,7 @@ window.BEXTIP_I18N = {
       invite: "Napisz lub zadzwoń – odpowiemy na pytania i pomożemy Ci uruchomić typera dosłownie w kilka minut.",
       contactTitle: "Kontakt", siteTitle: "Serwis", appTitle: "Aplikacja",
       login: "Zaloguj się", register: "Załóż konto",
-      tagline1: "Stworzone z pasją w", tagline2: "Polsce, dla zespołów, które kibicują razem.",
+      tagline1: "Stworzone z pasją w Polsce", tagline2: ", dla zespołów, które kibicują razem na świecie",
       rights: "Wszelkie prawa zastrzeżone.",
       terms: "Regulamin", privacy: "Polityka prywatności", langTitle: "Język"
     }
@@ -218,7 +219,8 @@ window.BEXTIP_I18N = {
     },
     pricing: {
       title: "Pricing that fits your team size",
-      sub: "A one-off fee per game for the competition you choose, e.g. the UEFA Champions League, the English Premier League, Poland’s Ekstraliga or the American NHL. Every package includes all features.",
+      sub: "A one-off fee per game for the competition you choose, e.g. the UEFA Champions League, the English Premier League, Poland’s Ekstraliga or the American NHL.",
+      sub2: "Every package includes all features.",
       upTo: "up to {n} players",
       allFeatures: "all features included",
       per: ["net", "per competition"],
@@ -247,7 +249,7 @@ window.BEXTIP_I18N = {
         "Branding (**company logo and colours**)",
         "**Your own game name**",
         "Your own **subdomain** (e.g. company_name.bextip.com)",
-        "Access from **any browser** on desktop or smartphone – no app to install",
+        "Access from **any browser** on desktop or smartphone",
         "**5 languages** (Polish, English, German, Spanish, Russian)",
         "**Priority support** for company users",
         "Secure **SSL** connection",
@@ -274,7 +276,7 @@ window.BEXTIP_I18N = {
       invite: "Write or call us – we’ll answer your questions and help you launch your game in literally a few minutes.",
       contactTitle: "Contact", siteTitle: "Site", appTitle: "App",
       login: "Log in", register: "Create an account",
-      tagline1: "Made with passion in", tagline2: "Poland, for teams that cheer together.",
+      tagline1: "Made with passion in Poland", tagline2: ", for teams that cheer together around the world",
       rights: "All rights reserved.",
       terms: "Terms", privacy: "Privacy policy", langTitle: "Language"
     }
