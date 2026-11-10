@@ -93,18 +93,23 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
   i `sitemap.xml`.
 - Domena jest w OVH (DNS `dns200.anycast.me` / `ns200.anycast.me`, jak bextip.com). 10.11.2026 pokazywała stronę OVH
   „Site en construction” (rekordy A `213.186.33.5` dla `bextip.site` i `www`).
-- Hosting: GitHub Pages. Konto / organizacja Bextip jeszcze nie istnieje (10.11.2026), folder nie jest jeszcze
-  repozytorium git.
-- Uruchomienie, krok po kroku:
-  1. Konto lub organizacja na GitHubie i repozytorium – publiczne (darmowe GitHub Pages działa tylko
-     z publicznymi), pierwszy commit, push do `main`.
-  2. Settings → Pages → Source: **GitHub Actions**. Strona działa wtedy pod `https://<konto>.github.io/<repozytorium>/`.
+- Hosting: GitHub Pages. Repozytorium **https://github.com/Bextip/landing_page** (konto `Bextip`, publiczne),
+  gałąź `main`. Pages włączone przez GitHub Actions (10.11.2026); strona działa pod
+  **https://bextip.github.io/landing_page/** (bez własnej domeny).
+- Logowanie: GitHub CLI na tym komputerze zna dwa konta – aktywne jest `eqrento` (dla EQrento). To repozytorium ma
+  własny `credential.helper` w `.git/config`, który bierze token konta `Bextip` (`gh auth token --user Bextip`),
+  więc push działa bez przełączania kont. Commity podpisane `Bextip <355040911+Bextip@users.noreply.github.com>`.
+  Polecenia `gh` dla tego repozytorium: z `-R Bextip/landing_page` (zapis, np. ustawienia Pages, wymaga
+  `gh auth switch --user Bextip`, a potem powrotu na `eqrento`).
+- Dalsze kroki do podpięcia domeny:
+  1. ~~Repozytorium, pierwszy commit, push~~ – zrobione 10.11.2026.
+  2. ~~Settings → Pages → Source: GitHub Actions~~ – zrobione 10.11.2026.
   3. Weryfikacja domeny (chroni przed przejęciem adresu): ustawienia konta / organizacji → Pages → Add a domain →
-     `bextip.site`. GitHub poda rekord TXT `_github-pages-challenge-<konto>` do dodania w strefie DNS w OVH.
+     `bextip.site`. GitHub poda rekord TXT `_github-pages-challenge-Bextip` do dodania w strefie DNS w OVH.
   4. Strefa DNS bextip.site w OVH: usunąć rekordy A `213.186.33.5` (`bextip.site` i `www`) i dodać:
      - A `bextip.site` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
      - AAAA `bextip.site` → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
-     - CNAME `www` → `<konto>.github.io.`
+     - CNAME `www` → `bextip.github.io.`
   5. Settings → Pages → Custom domain: `bextip.site`, potem **Enforce HTTPS**. Zmiany DNS mogą się rozchodzić do
      24 h; certyfikat HTTPS GitHub wystawia sam.
   Plik `CNAME` w repozytorium nie jest potrzebny – przy publikacji przez GitHub Actions GitHub go pomija.
