@@ -68,14 +68,24 @@
     $("stepList").innerHTML = get("how.steps").map(function (s) {
       return "<li><h3>" + esc(s.t) + "</h3><p>" + esc(s.d) + "</p></li>";
     }).join("");
+    // „Dla kogo”: ilustracja (assets/illustrations/, pole img w i18n.js) nad tytułem i opisem
     $("whoGrid").innerHTML = get("who.items").map(function (w) {
-      return '<article class="card who"><h3>' + esc(w.t) + "</h3><p>" + esc(w.d) + "</p></article>";
+      return '<article class="card who"><div class="who__art"><img src="assets/illustrations/' + esc(w.img) +
+        '" alt="" width="320" height="180" loading="lazy"></div><h3>' + esc(w.t) + "</h3><p>" + esc(w.d) + "</p></article>";
     }).join("");
-    $("faqList").innerHTML = get("faq.items").map(function (f) {
-      return "<details><summary>" + esc(f.q) + "</summary><p>" + esc(f.a) + "</p></details>";
-    }).join("");
+    // FAQ w dwóch kolumnach: pierwsza połowa pytań w lewej, reszta w prawej (otwarcie pytania nie przesuwa drugiej
+    // kolumny); na węższych ekranach kolumny stoją jedna pod drugą, więc kolejność zostaje ta sama
+    var faq = get("faq.items"), half = Math.ceil(faq.length / 2);
+    function qa(f) { return "<details><summary>" + esc(f.q) + "</summary><p>" + esc(f.a) + "</p></details>"; }
+    $("faqList").innerHTML = '<div class="faq__col">' + faq.slice(0, half).map(qa).join("") + "</div>" +
+      '<div class="faq__col">' + faq.slice(half).map(qa).join("") + "</div>";
     renderPlans();
-    document.querySelectorAll("[data-lang]").forEach(function (b) { b.classList.toggle("is-on", b.dataset.lang === lang); });
+    // przycisk listy języków: flaga i nazwa wybranego języka, zaznaczenie na liście
+    var cur = LANGS.filter(function (l) { return l.code === lang; })[0] || LANGS[0];
+    $("langFlag").src = flagSrc(cur);
+    $("langName").textContent = cur.name;
+    $("langBtn").setAttribute("aria-label", get("nav.language") + ": " + cur.name);
+    document.querySelectorAll("[data-lang]").forEach(function (b) { b.setAttribute("aria-current", b.dataset.lang === lang ? "true" : "false"); });
   }
 
   function setLang(l, save) {
@@ -84,18 +94,40 @@
     render();
   }
 
-  // Start: ?lang=en → zapamiętany wybór → język przeglądarki
+  // Języki: tylko te z listy w config.js, które mają teksty w i18n.js
+  var LANGS = CFG.languages.filter(function (l) { return I18N[l.code]; });
+  function flagSrc(l) { return "assets/flags/" + l.flag + ".svg"; }
+  $("langList").innerHTML = LANGS.map(function (l) {
+    return '<li><button type="button" class="lang__opt" data-lang="' + l.code + '" lang="' + l.code + '">' +
+      '<img class="lang__flag" src="' + flagSrc(l) + '" alt="" width="20" height="14"><span>' + esc(l.name) + "</span></button></li>";
+  }).join("");
+  function openLang(open) {
+    $("langList").hidden = !open;
+    $("langBtn").setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  $("langBtn").addEventListener("click", function () { openLang($("langList").hidden); });
+  document.addEventListener("click", function (e) { if (!$("lang").contains(e.target)) openLang(false); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !$("langList").hidden) { openLang(false); $("langBtn").focus(); }
+  });
+
+  // Start: ?lang=en → zapamiętany wybór → pierwszy język przeglądarki, który strona ma (inaczej angielski)
   var saved = null;
   try { saved = localStorage.getItem("bextip-lang"); } catch (e) {}
   var q = new URLSearchParams(location.search).get("lang");
-  var browser = (navigator.language || "pl").toLowerCase().indexOf("pl") === 0 ? "pl" : "en";
+  var prefs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "pl"];
+  var browser = "en";
+  for (var i = 0; i < prefs.length; i++) {
+    var code = String(prefs[i]).slice(0, 2).toLowerCase();
+    if (I18N[code]) { browser = code; break; }
+  }
 
   document.querySelectorAll('[data-href="app"]').forEach(function (a) { a.href = CFG.appUrl; });
   document.querySelectorAll('[data-href="register"]').forEach(function (a) { a.href = CFG.registerUrl; });
   document.querySelectorAll('[data-href="mail"]').forEach(function (a) { a.href = "mailto:" + CFG.contactEmail; });
   document.querySelectorAll('[data-href="tel"]').forEach(function (a) { a.href = "tel:" + CFG.phone.replace(/\s/g, ""); a.textContent = CFG.phone; });
   document.querySelectorAll("[data-lang]").forEach(function (b) {
-    b.addEventListener("click", function () { setLang(b.dataset.lang, true); });
+    b.addEventListener("click", function () { setLang(b.dataset.lang, true); openLang(false); $("langBtn").focus(); });
   });
   $("burger").addEventListener("click", function () {
     var open = $("navLinks").classList.toggle("is-open");
@@ -103,6 +135,12 @@
   });
   $("navLinks").addEventListener("click", function () { this.classList.remove("is-open"); });
   $("year").textContent = new Date().getFullYear();
+
+  // menu: po przewinięciu strony w dół – cień i linia pod spodem (rozmycie tła daje CSS: backdrop-filter)
+  var nav = document.querySelector(".nav");
+  function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 4); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 
   setLang(q || saved || browser, false);
 })();

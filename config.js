@@ -13,6 +13,15 @@ window.BEXTIP_CONFIG = {
   phone: "+48 603 197 858",
   appUrl: "https://bextip.com/login",
   registerUrl: "https://bextip.com/register",
+  // Języki w rozwijanej liście (nazwa w danym języku, flaga z assets/flags/). Na stronie pojawiają się tylko te,
+  // które mają teksty w i18n.js – nowy język = jego teksty w i18n.js pod tym samym kodem.
+  languages: [
+    { code: "pl", name: "Polski", flag: "pl" },
+    { code: "en", name: "English", flag: "gb" },
+    { code: "de", name: "Deutsch", flag: "de" },
+    { code: "es", name: "Español", flag: "es" },
+    { code: "ru", name: "Русский", flag: "ru" }
+  ],
   plans: [
     { id: "p20",  players: 20,  price: 850,  stripe: "" },
     { id: "p30",  players: 30,  price: 1150, stripe: "" },

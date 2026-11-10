@@ -6,7 +6,7 @@ window.BEXTIP_I18N = {
       title: "Bextip – firmowy typer piłkarski, który integruje zespół",
       description: "Bextip to automatyczny typer on-line dla firm. Pracownicy typują wyniki meczów Ligi Mistrzów i wielkich turniejów piłkarskich, a wyniki, punkty i tabela liczą się same. Z logo i kolorami Twojej firmy, bez instalacji."
     },
-    nav: { about: "Czym jest Bextip", features: "Funkcje", how: "Jak to działa", pricing: "Cennik", faq: "FAQ", login: "Zaloguj się", cta: "Wybierz pakiet" },
+    nav: { language: "Język", about: "Czym jest Bextip", features: "Funkcje", how: "Jak to działa", pricing: "Cennik", faq: "FAQ", login: "Zaloguj się", cta: "Wybierz pakiet" },
     hero: {
       badge: "Prediction games for teams",
       title: "Firmowy typer piłkarski, który integruje zespół.",
@@ -72,9 +72,9 @@ window.BEXTIP_I18N = {
     who: {
       title: "Dla kogo jest Bextip?",
       items: [
-        { t: "Właściciele małych i średnich firm", d: "Prosty i niedrogi sposób na lepszą atmosferę w zespole. Uruchamiasz raz – zabawa toczy się sama przez całe rozgrywki." },
-        { t: "Działy HR", d: "Gotowe narzędzie do integracji i employer brandingu – także dla zespołów zdalnych, rozproszonych i międzynarodowych." },
-        { t: "Menedżerowie i liderzy zespołów", d: "Wspólny temat do rozmów i zdrowa rywalizacja między działami, bez odrywania ludzi od pracy." }
+        { img: "who-firmy.svg", t: "Właściciele małych i średnich firm", d: "Prosty i niedrogi sposób na lepszą atmosferę w zespole. Uruchamiasz raz – zabawa toczy się sama przez całe rozgrywki." },
+        { img: "who-hr.svg", t: "Działy HR", d: "Gotowe narzędzie do integracji i employer brandingu – także dla zespołów zdalnych, rozproszonych i międzynarodowych." },
+        { img: "who-liderzy.svg", t: "Menedżerowie i liderzy zespołów", d: "Wspólny temat do rozmów i zdrowa rywalizacja między działami, bez odrywania ludzi od pracy." }
       ]
     },
     pricing: {
@@ -130,7 +130,7 @@ window.BEXTIP_I18N = {
       title: "Bextip – the football prediction game that brings your team together",
       description: "Bextip is an automated online football prediction game for companies. Employees predict match scores in the Champions League and major tournaments while results, points and the leaderboard update themselves. Your logo and colours, no installation."
     },
-    nav: { about: "What is Bextip", features: "Features", how: "How it works", pricing: "Pricing", faq: "FAQ", login: "Log in", cta: "Choose a package" },
+    nav: { language: "Language", about: "What is Bextip", features: "Features", how: "How it works", pricing: "Pricing", faq: "FAQ", login: "Log in", cta: "Choose a package" },
     hero: {
       badge: "Prediction games for teams",
       title: "The football prediction game that brings your team together.",
@@ -196,9 +196,9 @@ window.BEXTIP_I18N = {
     who: {
       title: "Who is Bextip for?",
       items: [
-        { t: "Owners of small and medium businesses", d: "A simple, affordable way to lift team spirit. Set it up once – the fun runs itself for the whole competition." },
-        { t: "HR departments", d: "A ready-made tool for team building and employer branding – including remote, distributed and international teams." },
-        { t: "Managers and team leaders", d: "A shared talking point and healthy rivalry between departments, without pulling people away from work." }
+        { img: "who-firmy.svg", t: "Owners of small and medium businesses", d: "A simple, affordable way to lift team spirit. Set it up once – the fun runs itself for the whole competition." },
+        { img: "who-hr.svg", t: "HR departments", d: "A ready-made tool for team building and employer branding – including remote, distributed and international teams." },
+        { img: "who-liderzy.svg", t: "Managers and team leaders", d: "A shared talking point and healthy rivalry between departments, without pulling people away from work." }
       ]
     },
     pricing: {

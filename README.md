@@ -14,6 +14,8 @@ script.js        – wybór języka, wypełnianie list i cennika, menu mobilne
 styles.css       – wygląd; kolory „Stadion” i czcionki jako zmienne w :root na górze pliku
 assets/logo/     – logo „Stadion” (SVG od Łukasza, 10.11.2026) i wycięty z niego logotyp (patrz „Wygląd”)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
+assets/illustrations/ – ilustracje kart „Dla kogo” (who-firmy, who-hr, who-liderzy; rysowane przez Claude, SVG)
+assets/flags/    – flagi listy języków (pl, gb, de, es, ru; SVG, bo Windows nie pokazuje emoji flag)
 assets/og-image.png – obraz do podglądu linków (1200×630), tworzony przez narzedzia/og-image.ps1
 robots.txt, sitemap.xml – dla wyszukiwarek (adres https://bextip.site/)
 narzedzia/       – szablon i skrypt obrazu do podglądu linków (nie trafiają na stronę)
@@ -23,7 +25,7 @@ narzedzia/       – szablon i skrypt obrazu do podglądu linków (nie trafiają
 
 ## Sekcje (w kolejności)
 
-Nagłówek (logo, menu, PL/EN, „Zaloguj się” → bextip.com/login, „Wybierz pakiet”) → hero → Czym jest Bextip
+Nagłówek (logo, menu, lista języków, „Zaloguj się” → bextip.com/login, „Wybierz pakiet”) → hero → Czym jest Bextip
 (`#about`, porównanie: arkusz / Bextip / jednorazowy event) → Funkcje (`#features`, 9 kafelków) → Każdy gracz widzi
 swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki) → Dla kogo (`#who`) → Cennik
 (`#pricing`) → FAQ (`#faq`) → kontakt (`#contact`) → stopka.
@@ -31,9 +33,16 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **Nagłówki sekcji** (Łukasz, 10.11.2026: jak na eqrento.com): tytuł i opis pod nim w `<div class="section-head">`,
   wyśrodkowane. Wyjątek: `#inside`, gdzie tekst stoi obok ekranu i zostaje wyrównany do lewej.
 - **Hero jest białe** (Łukasz, 10.11.2026: niebieski panel boczny aplikacji na ekranie ginął na niebieskim tle),
-  z delikatną niebieską poświatą za oknem. Nagłówek z menu zostaje niebieski (biały logotyp).
+  z delikatną niebieską poświatą za oknem.
+- **Menu u góry białe, z rozmyciem** (Łukasz, 10.11.2026): półprzezroczyste białe tło z `backdrop-filter: blur`, więc
+  to, co przewija się pod menu, jest rozmyte; po przewinięciu w dół `script.js` dodaje `.is-scrolled` (cień i linia).
+  Logotyp w menu: `Bextip-Stadion-logotyp-na-jasnym-tle-zlota-kropka.svg`.
+- **Wybór języka – rozwijana lista** (Łukasz, 10.11.2026): przycisk z flagą i nazwą wybranego języka (na telefonie
+  sama flaga), lista z flagami i nazwami w danym języku („Polski”, „English”…). Lista bierze się z `languages`
+  w `config.js`, ale pokazuje tylko języki, które mają teksty w `i18n.js` – dziś PL i EN. Flagi DE, ES i RU czekają
+  w `assets/flags/`. Nowy język: jego teksty w `i18n.js` pod kodem z `languages` – pojawi się na liście sam.
 - Tła na przemian: hero białe → `#about` szare (`section--tint`, `#F1F4F8`) → `#features` białe → `#inside` szare →
-  `#how` białe → `#who` granatowe → `#pricing` szare (białe kafelki odcinają się jak w EQrento) → `#faq` białe →
+  `#how` białe → `#who` niebieskie z logo (`section--blue`) → `#pricing` szare (białe kafelki odcinają się jak w EQrento) → `#faq` białe →
   `#contact` niebieskie → stopka granatowa. Dodając sekcję, zachowaj naprzemienność.
 - **Jeden odstęp góra / dół dla wszystkich sekcji** (Łukasz, 10.11.2026): `--sec-y` w `:root` (72px na komputerze,
   mniej na węższych ekranach) – wzorem był dolny odstęp hero od przycisków do krawędzi. Hero, sekcje i góra stopki
@@ -52,6 +61,13 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   (trzy kropki i adres – `bextip.com/predictions`, `bextip.com/tips-stats`, prawdziwe adresy tych ekranów
   w aplikacji). Ramka to sam CSS (`.window` w styles.css), obrazy są bez ramki. Ta sama ramka jest na obrazie do
   podglądu linków.
+- **„Dla kogo jest Bextip?”** (Łukasz, 10.11.2026): tło w niebieskim z logo `#1C4F95`, białe karty, nad tytułem każdej
+  ilustracja do jej opisu – firma (sklep z markizą, włączony przełącznik „uruchamiasz raz”, piłka), HR (zespół
+  rozproszony po świecie i serce – employer branding), liderzy (podium z pucharem, proporczyki dwóch działów,
+  dymki rozmowy). Plik ilustracji to pole `img` przy pozycji w `who.items` w `i18n.js`.
+- **FAQ w dwóch kolumnach** od 901px (Łukasz, 10.11.2026): `script.js` dzieli pytania na pół (pierwsza połowa
+  w lewej kolumnie), każda kolumna układa się osobno, więc otwarte pytanie nie przesuwa drugiej; niżej jedna kolumna
+  w tej samej kolejności.
 - **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
   (sekcje strony) / Aplikacja (bextip.com/login i /register), hasło z flagą (SVG, nie emoji), na dole prawa
   autorskie i Regulamin / Polityka prywatności. Kolumna „Firma” z danymi spółki (jak w EQrento) – dopiero po
@@ -107,9 +123,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   - Oba wycięte z `Bextip-Stadion-logo-kompaktowe-z-tlem.svg` (6 ścieżek napisu; kształty i kolory bez zmian).
   - **Na stronie: `Bextip-Stadion-logotyp-zlota-kropka.svg`** – kropka nad „i” w kolorze `--gold` `#F5B82E`
     (pomysł Łukasza, decyzja Claude, 10.11.2026; ścieżka „i” rozdzielona na trzon i kropkę) – w nagłówku, stopce
-    i na obrazie do podglądu linków. Jest też `-zlota-kropka-z-tlem.svg`. Aplikacja i inne materiały mają na razie
+    i na obrazie do podglądu linków; w białym menu wersja na jasne tło (niżej). Jest też `-zlota-kropka-z-tlem.svg`. Aplikacja i inne materiały mają na razie
     logo bez złotej kropki – do ujednolicenia, jeśli Łukasz ją zostawi.
-  - Napis jest biały, dlatego nagłówek strony jest niebieski (`#1C4F95`), jak panel boczny w aplikacji.
+  - **Na jasne tło** (białe menu, od 10.11.2026): `Bextip-Stadion-logotyp-na-jasnym-tle-zlota-kropka.svg` – litery
+    granatowe `#0C2A55`, „x” `#1F86CF` (tak paleta „Stadion” opisuje „x na jasnym tle”), złota kropka; jest też wersja
+    bez złotej kropki. Stopka (granatowa) i obraz do podglądu linków mają dalej biały napis z zielonym „x”.
 - **Sygnet** – podstawowy (Łukasz, 10.11.2026): `Bextip-Stadion-logo-sygnet-ikona.svg` („Bx” bez tła) – ikona karty
   przeglądarki.
 - Pozostałe warianty z paczki „Stadion” (z claimem, panel, biały, na jasnym tle) zostają w `assets/logo/`, strona ich
@@ -158,7 +176,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110e`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110f`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich czterech linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut.
 

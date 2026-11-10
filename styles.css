@@ -49,9 +49,11 @@ p { margin: 0 0 1em; }
 /* ostatni element sekcji bez dolnego marginesu – od treści do krawędzi zawsze jest dokładnie --sec-y */
 .section .wrap > :last-child, .hero__copy > :last-child { margin-bottom: 0; }
 .section--tint { background: var(--sky-2); }
-.section--dark {
+/* niebieski z logo (#1C4F95) – sekcja „Dla kogo” (Łukasz, 10.11.2026), z jasną i zieloną poświatą */
+.section--blue {
   color: var(--white);
-  background: radial-gradient(45% 70% at 100% 0%, rgba(31, 134, 207, .35), transparent 70%), var(--navy);
+  background: radial-gradient(50% 70% at 100% 0%, rgba(255, 255, 255, .14), transparent 70%),
+              radial-gradient(40% 60% at 0% 100%, rgba(134, 201, 62, .18), transparent 70%), var(--blue);
 }
 .sub { color: var(--muted); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; }
 /* tytuł sekcji i opis pod nim – wyśrodkowane, jak na eqrento.com (sekcja #inside ma tekst obok ekranu i zostaje z lewej) */
@@ -59,7 +61,7 @@ p { margin: 0 0 1em; }
 .section-head h2 { margin-bottom: .45em; }
 .section-head h2:last-child { margin-bottom: 0; }
 .section-head .sub { margin: 0 auto; }
-.section--dark .section-head .sub { color: #c5d2ee; }
+.section--blue .section-head .sub { color: #D5E2F5; }
 
 /* Buttons */
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-weight: 600; border: 1.5px solid transparent; cursor: pointer; transition: .15s; white-space: nowrap; font-size: .95rem; }
@@ -73,19 +75,48 @@ p { margin: 0 0 1em; }
 .btn--outline:hover { background: rgba(255,255,255,.12); }
 .btn--block { width: 100%; }
 
-/* Nav */
-.nav { position: sticky; top: 0; z-index: 20; background: var(--blue); border-bottom: 1px solid rgba(255,255,255,.12); box-shadow: 0 10px 24px -14px rgba(12, 42, 85, .65); }
+/* Nav – białe, półprzezroczyste, z rozmyciem tego, co przewija się pod spodem (Łukasz, 10.11.2026);
+   po przewinięciu w dół script.js dodaje .is-scrolled: cień i linia pod menu */
+.nav {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(255, 255, 255, .8);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px); backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid transparent; transition: border-color .2s, box-shadow .2s;
+}
+.nav.is-scrolled { border-bottom-color: rgba(12, 42, 85, .08); box-shadow: 0 10px 30px -18px rgba(12, 42, 85, .45); }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .nav { background: rgba(255, 255, 255, .97); } }
 .nav__in { display: flex; align-items: center; gap: 24px; height: 68px; }
 .brand { display: flex; align-items: center; }
 .brand img { height: 36px; width: auto; }
-.nav__links { display: flex; gap: 20px; margin-left: 8px; font-weight: 500; color: #D5E2F5; white-space: nowrap; }
-.nav__links a:hover { color: var(--white); }
+.nav__links { display: flex; gap: 20px; margin-left: 8px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.nav__links a:hover { color: var(--blue); }
 .nav__right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
-.lang { display: flex; border: 1.5px solid rgba(255,255,255,.35); border-radius: 999px; overflow: hidden; }
-.lang button { border: 0; background: none; padding: 6px 10px; font: inherit; font-size: .8rem; font-weight: 700; color: #D5E2F5; cursor: pointer; }
-.lang button.is-on { background: var(--white); color: var(--blue); }
 .burger { display: none; width: 40px; height: 40px; border: 0; background: none; cursor: pointer; padding: 10px; }
-.burger span { display: block; height: 2px; background: var(--white); margin: 4px 0; border-radius: 2px; }
+.burger span { display: block; height: 2px; background: var(--ink); margin: 4px 0; border-radius: 2px; }
+
+/* Wybór języka – rozwijana lista z flagą i nazwą języka w tym języku (Łukasz, 10.11.2026) */
+.lang { position: relative; }
+.lang__btn {
+  display: inline-flex; align-items: center; gap: 8px; height: 41px; padding: 0 12px 0 10px;
+  border: 1.5px solid var(--line); border-radius: 999px; background: var(--white); box-shadow: var(--shadow-sm);
+  font: inherit; font-size: .9rem; font-weight: 600; color: var(--ink); cursor: pointer; transition: border-color .15s;
+}
+.lang__btn:hover, .lang__btn[aria-expanded="true"] { border-color: var(--blue); }
+.lang__flag { flex: none; width: 20px; height: 14px; border-radius: 3px; object-fit: cover; box-shadow: 0 0 0 1px rgba(12, 42, 85, .14); }
+.lang__chev { flex: none; color: var(--muted); transition: transform .2s; }
+.lang__btn[aria-expanded="true"] .lang__chev { transform: rotate(180deg); }
+.lang__list {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 30; min-width: 190px; margin: 0; padding: 6px; list-style: none;
+  background: var(--white); border: 1px solid rgba(12, 42, 85, .08); border-radius: 14px; box-shadow: var(--shadow-lg);
+}
+.lang__list[hidden] { display: none; }
+.lang__opt {
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 12px; border: 0; border-radius: 10px;
+  background: none; font: inherit; font-size: .95rem; color: var(--ink); text-align: left; cursor: pointer;
+}
+.lang__opt:hover, .lang__opt:focus-visible { background: var(--sky-2); outline: none; }
+.lang__opt[aria-current="true"] { font-weight: 700; }
+.lang__opt[aria-current="true"]::after { content: "✓"; margin-left: auto; color: var(--ok); font-weight: 800; }
 
 /* Hero – białe tło (Łukasz, 10.11.2026: niebieski panel aplikacji na ekranie ginął na niebieskim tle),
    z delikatną niebieską poświatą za oknem z ekranem */
@@ -136,9 +167,14 @@ p { margin: 0 0 1em; }
 .feature:nth-child(3n+2) .ico { background: var(--green-soft); }
 .feature:nth-child(3n) .ico { background: var(--gold-soft); }
 .feature p, .who p { color: var(--muted); margin: 0; }
-.section--dark .card { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); box-shadow: var(--shadow-dark); }
-.section--dark .card.who { border-top: 3px solid var(--gold); }
-.section--dark .who p { color: #c5d2ee; }
+/* „Dla kogo”: białe karty na niebieskim tle, u góry ilustracja do opisu (assets/illustrations/) */
+.card.who { color: var(--ink); padding: 14px 14px 26px; border: 0; box-shadow: 0 2px 4px rgba(5, 20, 45, .12), 0 24px 50px -20px rgba(5, 20, 45, .6); }
+.who__art {
+  aspect-ratio: 16 / 9; margin-bottom: 18px; border-radius: 12px; overflow: hidden;
+  background: linear-gradient(160deg, #F1F6FD 0%, #DCE8F7 100%);
+}
+.who__art img { width: 100%; height: 100%; object-fit: contain; }
+.card.who h3, .card.who p { padding: 0 10px; }
 
 /* Steps – karty z numerem i złotymi strzałkami między nimi, żeby było widać kolejność (Łukasz, 10.11.2026);
    do 1100px jedna kolumna i strzałki w dół */
@@ -193,8 +229,11 @@ p { margin: 0 0 1em; }
 .tier--wide .tier__cta .btn { width: auto; min-width: 200px; }
 .note { color: var(--muted); font-size: .9rem; margin: 20px 0 0; text-align: center; }
 
-/* FAQ – każde pytanie na osobnej karcie */
-#faqList { display: grid; gap: 12px; }
+/* FAQ – każde pytanie na osobnej karcie; na szerokich ekranach dwie kolumny (Łukasz, 10.11.2026), każda kolumna
+   układa się sama, więc otwarcie pytania nie przesuwa drugiej */
+#faqList { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; align-items: start; }
+.faq__col { display: grid; gap: 12px; }
+@media (max-width: 900px) { #faqList { grid-template-columns: minmax(0, 1fr); } }
 details {
   background: var(--white); border: 1px solid rgba(12, 42, 85, .07); border-radius: 14px; padding: 18px 22px;
   box-shadow: var(--shadow-sm); transition: box-shadow .2s;
@@ -291,7 +330,7 @@ details p { color: var(--muted); margin: 12px 0 0; }
   .steps { grid-template-columns: minmax(0, 1fr); max-width: 640px; margin-inline: auto; gap: 48px; }
   .steps li { padding: 22px 24px 22px 80px; }
   .steps li:not(:last-child)::after { top: auto; right: auto; bottom: -42px; left: 50%; margin: 0 0 0 -18px; transform: rotate(90deg); }
-  .nav__links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--blue); flex-direction: column; padding: 16px; margin: 0; border-top: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); gap: 14px; }
+  .nav__links { display: none; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px; margin: 0; border-top: 1px solid var(--line); gap: 14px; box-shadow: 0 18px 30px -18px rgba(12, 42, 85, .45); }
   .nav__links.is-open { display: flex; }
   .burger { display: block; }
 }
@@ -322,4 +361,5 @@ details p { color: var(--muted); margin: 12px 0 0; }
   .footer__bottom { flex-direction: column-reverse; align-items: center; text-align: center; }
   .footer__legal { justify-content: center; }
   .nav__right .btn--primary { display: none; }
+  .lang__name { display: none; }   /* telefon: w przycisku sama flaga, nazwy są na liście */
 }
