@@ -14,7 +14,7 @@ window.BEXTIP_I18N = {
       chip1: "Logo i kolory Twojej firmy",
       chip2: "Bez instalacji i działu IT",
       chip3: "5 wersji językowych",
-      chip4: "Start w kilka godzin",
+      chip4: "Start w kilka minut",
       cta: "Wybierz pakiet",
       cta2: "Zobacz, jak to działa",
       shotAlt: "Ekran typowania wyników w serwisie Bextip"
@@ -36,7 +36,7 @@ window.BEXTIP_I18N = {
       b: {
         tag: "Stworzony dla firm",
         quote: "„Wspólne emocje dla całej firmy – od recepcji po zarząd.”",
-        items: ["Wyniki meczów, punkty i tabela liczone automatycznie", "Branding firmy: logo, kolory, własna nazwa gry i subdomena", "Rywalizacja między wewnętrznymi drużynami (do 4)", "Czat, statystyki i historia typowań", "Działa w każdej przeglądarce, na komputerze i telefonie", "Uruchomienie w kilka godzin od zgłoszenia"]
+        items: ["Wyniki meczów, punkty i tabela liczone automatycznie", "Branding firmy: logo, kolory, własna nazwa gry i subdomena", "Rywalizacja między wewnętrznymi drużynami (do 4)", "Czat, statystyki i historia typowań", "Działa w każdej przeglądarce, na komputerze i telefonie", "Uruchomienie dosłownie w kilka minut"]
       },
       c: {
         title: "Jednorazowy event",
@@ -61,7 +61,7 @@ window.BEXTIP_I18N = {
     },
     how: {
       title: "Od zamówienia do pierwszego typu w cztery kroki",
-      sub: "Nie potrzebujesz działu IT ani szkolenia. Typera uruchamiamy w ciągu zaledwie kilku godzin od zgłoszenia.",
+      sub: "Nie potrzebujesz działu IT ani szkolenia. Typera uruchomisz dosłownie w kilka minut.",
       steps: [
         { t: "Wybierz pakiet", d: "Dobierz pakiet do liczby graczy i opłać go on-line." },
         { t: "Stwórz grę", d: "Nadaj grze nazwę, wgraj logo i wybierz kolory firmy. Wszystko możesz później zmienić." },
@@ -98,9 +98,9 @@ window.BEXTIP_I18N = {
     faq: {
       title: "Najczęstsze pytania",
       items: [
-        { q: "Jakie rozgrywki można typować?", a: "Obecnie możesz stworzyć grę dla Ligi Mistrzów 2026/27. Bextip obsługuje też wielkie turnieje reprezentacyjne, takie jak Mistrzostwa Świata. Cennik jest taki sam dla wszystkich rozgrywek." },
+        { q: "Jakie rozgrywki można typować?", a: "Bextip obsługuje różne rozgrywki sportowe, np. Ligę Mistrzów UEFA, angielską Premier League, polską Ekstraligę czy amerykański NHL, a także wielkie turnieje, takie jak Mistrzostwa Świata. Dostępne rozgrywki zobaczysz przy tworzeniu gry. Cennik jest taki sam dla wszystkich." },
         { q: "Czy pracownicy muszą coś instalować?", a: "Nie. Bextip działa w każdej przeglądarce internetowej – na komputerze i smartfonie. Nie wymaga instalacji aplikacji ani integracji przez dział IT." },
-        { q: "Jak szybko możemy zacząć?", a: "Typera uruchamiamy w ciągu zaledwie kilku godzin od zgłoszenia. Potem wystarczy przekazać pracownikom kod zaproszenia." },
+        { q: "Jak szybko możemy zacząć?", a: "Dosłownie w kilka minut: wybierasz pakiet, tworzysz grę i przekazujesz pracownikom kod zaproszenia. Jeśli chcesz, pomożemy Ci przy każdym kroku." },
         { q: "Jak gracze dołączają do gry?", a: "Administrator gry otrzymuje 6-cyfrowy kod zaproszenia. Pracownik rejestruje się na bextip.com, potwierdza adres e-mail kodem weryfikacyjnym i wpisuje kod gry – to wszystko." },
         { q: "Jak liczone są punkty?", a: "Za dokładnie wytypowany wynik gracz otrzymuje 3 punkty, za wskazanie zwycięzcy – 1 punkt. Liczy się rezultat w regulaminowym czasie gry. Do tego dochodzą punkty za Jokera, zdarzenia Ekstra i bonus za wytypowanie mistrza." },
         { q: "Czy typer może wyglądać jak nasza firma?", a: "Tak. W każdym pakiecie możesz ustawić logo i kolorystykę firmy, własną nazwę gry oraz własną subdomenę, np. nazwa_firmy.bextip.com." },
@@ -110,7 +110,7 @@ window.BEXTIP_I18N = {
       ]
     },
     footer: {
-      about: "Bextip to automatyczny typer piłkarski dla firm: wyniki, punkty i tabela liczą się same, a gra może mieć identyfikację wizualną Twojej firmy.",
+      about: "Bextip to automatyczny typer sportowy dla firm: wyniki, punkty i tabela liczą się same, a gra może mieć identyfikację wizualną Twojej firmy.",
       invite: "Napisz lub zadzwoń – odpowiemy na pytania i pomożemy Ci uruchomić typera dosłownie w kilka minut.",
       contactTitle: "Kontakt", siteTitle: "Serwis", appTitle: "Aplikacja",
       login: "Zaloguj się", register: "Załóż konto",
@@ -133,7 +133,7 @@ window.BEXTIP_I18N = {
       chip1: "Your company logo and colours",
       chip2: "No installation, no IT needed",
       chip3: "5 languages",
-      chip4: "Live within hours",
+      chip4: "Live in minutes",
       cta: "Choose a package",
       cta2: "See how it works",
       shotAlt: "Match prediction screen in Bextip"
@@ -155,7 +155,7 @@ window.BEXTIP_I18N = {
       b: {
         tag: "Built for companies",
         quote: "“Shared excitement for the whole company – from reception to the boardroom.”",
-        items: ["Match results, points and leaderboard calculated automatically", "Company branding: logo, colours, your own game name and subdomain", "Competition between internal teams (up to 4)", "Chat, statistics and prediction history", "Works in any browser, on desktop and mobile", "Live within hours of your order"]
+        items: ["Match results, points and leaderboard calculated automatically", "Company branding: logo, colours, your own game name and subdomain", "Competition between internal teams (up to 4)", "Chat, statistics and prediction history", "Works in any browser, on desktop and mobile", "Live in literally a few minutes"]
       },
       c: {
         title: "One-off event",
@@ -180,7 +180,7 @@ window.BEXTIP_I18N = {
     },
     how: {
       title: "From order to first prediction in four steps",
-      sub: "No IT department and no training needed. We launch your game within just a few hours of your order.",
+      sub: "No IT department and no training needed. You can launch your game in literally a few minutes.",
       steps: [
         { t: "Choose a package", d: "Pick the package that fits your number of players and pay online." },
         { t: "Create your game", d: "Name the game, upload your logo and choose company colours. You can change it all later." },
@@ -217,9 +217,9 @@ window.BEXTIP_I18N = {
     faq: {
       title: "Frequently asked questions",
       items: [
-        { q: "Which competitions can we play?", a: "Right now you can create a game for the 2026/27 Champions League. Bextip also covers major international tournaments such as the World Cup. Pricing is the same for every competition." },
+        { q: "Which competitions can we play?", a: "Bextip covers a range of sports competitions, e.g. the UEFA Champions League, the English Premier League, Poland’s Ekstraliga or the American NHL, as well as major tournaments such as the World Cup. You’ll see the available competitions when you create a game. Pricing is the same for all of them." },
         { q: "Do employees have to install anything?", a: "No. Bextip works in any web browser – on desktop and smartphone. No app to install and no integration by your IT department." },
-        { q: "How quickly can we start?", a: "We launch your game within just a few hours of your order. After that you simply share the invitation code with your employees." },
+        { q: "How quickly can we start?", a: "In literally a few minutes: choose a package, create your game and share the invitation code with your employees. If you like, we’ll help you with every step." },
         { q: "How do players join the game?", a: "The game administrator gets a 6-digit invitation code. An employee registers at bextip.com, confirms their e-mail with a verification code and enters the game code – that’s all." },
         { q: "How are points awarded?", a: "A player gets 3 points for the exact score and 1 point for picking the winner. The result in regular playing time counts. On top of that come points for the Joker, Extra events and the champion bonus." },
         { q: "Can the game look like our company?", a: "Yes. Every package lets you set your company logo and colours, your own game name and your own subdomain, e.g. company_name.bextip.com." },
@@ -229,7 +229,7 @@ window.BEXTIP_I18N = {
       ]
     },
     footer: {
-      about: "Bextip is an automated football prediction game for companies: results, points and the leaderboard update themselves, and the game can carry your company’s visual identity.",
+      about: "Bextip is an automated sports prediction game for companies: results, points and the leaderboard update themselves, and the game can carry your company’s visual identity.",
       invite: "Write or call us – we’ll answer your questions and help you launch your game in literally a few minutes.",
       contactTitle: "Contact", siteTitle: "Site", appTitle: "App",
       login: "Log in", register: "Create an account",

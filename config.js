@@ -1,7 +1,7 @@
 /* Bextip – konfiguracja pakietów i płatności.
    Ceny: netto, jednorazowo za jedną grę na wybrane rozgrywki (wg „Oferta dla firm 2026”).
-   Ten sam cennik obowiązuje dla wszystkich rozgrywek: MŚ 2026, Liga Mistrzów 2026/27
-   (potwierdzone 10.11.2026).
+   Ten sam cennik obowiązuje dla wszystkich rozgrywek (np. Liga Mistrzów UEFA, Premier League, Ekstraliga, NHL,
+   MŚ – potwierdzone 10.11.2026).
    Po skonfigurowaniu Stripe wklej w polu "stripe" adres Payment Link
    danego pakietu (Stripe Dashboard → Payment Links).
    Pusty link = przycisk otwiera e-mail z zamówieniem.

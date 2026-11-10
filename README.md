@@ -92,9 +92,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Źródła treści: „BEXTIP – oferta dla firm 2026.pdf”, „Bextip – Zasady Gry (MŚ 2026).pdf”, „Bextip.com – rejestracja,
   stworzenie i dołączenie do gry.pdf” oraz zrzuty aplikacji (10.11.2026). Nie dopisuj funkcji, których tam nie ma.
 - Rozgrywki: w aplikacji (10.11.2026) można stworzyć grę dla Ligi Mistrzów 2026/27 (i MŚ 2026). Od 10.11.2026 strona
-  mówi o typerze **sportowym** (hasło i opis w hero, tytuł strony, podgląd linków), a cennik wymienia przykłady
-  Łukasza: Liga Mistrzów UEFA, Premier League, Ekstraliga, NHL. Stopka (tekst Łukasza) nadal mówi „typer piłkarski”,
-  FAQ – tylko o Lidze Mistrzów i MŚ.
+  mówi wszędzie o typerze **sportowym**, a cennik i FAQ wymieniają przykłady Łukasza: Liga Mistrzów UEFA, Premier
+  League, Ekstraliga, NHL (plus wielkie turnieje jak MŚ). FAQ dodaje, że dostępne rozgrywki widać przy tworzeniu gry.
+- Czas uruchomienia: wszędzie **„w kilka minut”** (Łukasz, 10.11.2026 – stopka; reszta ujednolicona na jego OK):
+  etykieta w hero, karta Bextip w porównaniu, opis „Jak to działa”, FAQ „Jak szybko możemy zacząć?”. Uwaga: PDF
+  z ofertą dla firm mówi jeszcze o „kilku godzinach”.
 - Etykieta nad hasłem: PL „Gry typerskie dla zespołów”, EN „Prediction games for teams” (claim z logo „Stadion”).
 
 ## Cennik i Stripe
@@ -181,7 +183,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110g`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110h`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich czterech linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut.
 
