@@ -71,8 +71,15 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   sekcjach.
 - **Ekrany aplikacji w oknie przeglądarki** (Łukasz, 10.11.2026): `<div class="window">` z paskiem `.window__bar`
   (trzy kropki i adres – `bextip.com/predictions`, `bextip.com/tips-stats`, prawdziwe adresy tych ekranów
-  w aplikacji). Ramka to sam CSS (`.window` w styles.css), obrazy są bez ramki. Ta sama ramka jest na obrazie do
-  podglądu linków.
+  w aplikacji). Ramka to sam CSS (`.window` w styles.css), obrazy są bez ramki. Ta sama ramka (macOS) jest na obrazie
+  do podglądu linków – ten obraz jest jeden dla wszystkich, więc nie zmienia się z systemem.
+- **Okno zależne od systemu odwiedzającego** (Łukasz, 11.11.2026): sprzęt Apple (macOS, iOS, iPadOS) – okno w stylu
+  macOS (trzy kolorowe kropki, adres na środku); Windows, Android, Linux i inne – okno w stylu Windows (wstecz / dalej /
+  odśwież, pasek adresu z kłódką, minimalizuj / maksymalizuj / zamknij, zaokrąglenie 8px). Mały skrypt w `<head>`
+  `index.html` dodaje do `<html>` klasę `os-apple` albo `os-other` (z `navigator.userAgentData.platform`,
+  `navigator.platform` i user agenta), zanim strona się narysuje – okno nie zmienia wyglądu w trakcie wczytywania. Bez
+  JavaScriptu – okno macOS. Ten skrypt jest jedynym skryptem wpisanym w HTML: gdyby strona trafiła kiedyś na serwer
+  z nagłówkiem Content-Security-Policy (jak eqrento.com na OVH), trzeba go dopuścić hashem albo przenieść do pliku.
 - **„Dla kogo jest Bextip?”** (Łukasz, 10.11.2026): tło w niebieskim z logo `#1C4F95`, białe karty, a w każdej obok
   tekstu mała biała ikona na niebieskim kafelku (`.who__icon`), jak ikony na „chipach” w sekcji „One platform” na
   eqrento.com – sklep (właściciele firm), ludzie (HR), puchar (liderzy). Duże ilustracje z poprzedniej wersji Łukasz
@@ -228,7 +235,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111a`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111b`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

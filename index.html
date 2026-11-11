@@ -3,6 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    /* System odwiedzającego (Łukasz, 11.11.2026): Apple (macOS, iOS, iPadOS) → okna z ekranami aplikacji w stylu macOS,
+       każdy inny (Windows, Android, Linux…) → w stylu Windows. Klasa os-apple / os-other na <html> (styles.css, „Okno
+       przeglądarki”) – ustawiana tutaj, w <head>, zanim strona się narysuje, żeby okno nie zmieniało wyglądu w trakcie. */
+    (function (d, n) {
+      var p = (n.userAgentData && n.userAgentData.platform) || n.platform || "";
+      var apple = /mac|iphone|ipad|ipod/i.test(p) || /Macintosh|iPhone|iPad|iPod/.test(n.userAgent || "");
+      d.documentElement.className += apple ? " os-apple" : " os-other";
+    })(document, navigator);
+  </script>
   <title>Bextip – firmowy typer sportowy, który integruje zespół</title>
   <meta name="description" content="Bextip to automatyczny typer on-line dla firm. Pracownicy typują wyniki wydarzeń sportowych, a wyniki, punkty, tabela i statystyki liczą się same. Z identyfikacją wizualną Twojej firmy, bez instalacji." data-i18n-attr="content:meta.description">
   <link rel="canonical" href="https://bextip.site/">
@@ -18,18 +28,18 @@
   <meta property="og:image:alt" content="Bextip – firmowy typer sportowy, który integruje zespół">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#1C4F95">
-  <link rel="icon" href="assets/logo/Bextip-Stadion-logo-sygnet-ikona.svg?v=20261111a" type="image/svg+xml">
+  <link rel="icon" href="assets/logo/Bextip-Stadion-logo-sygnet-ikona.svg?v=20261111b" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lexend:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261111a">
+  <link rel="stylesheet" href="styles.css?v=20261111b">
 </head>
 <body>
 
 <header class="nav">
   <div class="wrap nav__in">
     <a class="brand" href="#top" aria-label="Bextip">
-      <img src="assets/logo/Bextip-Stadion-logotyp-na-jasnym-tle-zlota-kropka.svg?v=20261111a" alt="Bextip" width="147" height="43">
+      <img src="assets/logo/Bextip-Stadion-logotyp-na-jasnym-tle-zlota-kropka.svg?v=20261111b" alt="Bextip" width="147" height="43">
     </a>
     <nav class="nav__links" id="navLinks">
       <a href="#about" data-i18n="nav.about"></a>
@@ -66,7 +76,7 @@
       </div>
       <div class="hero__shot">
         <div class="window">
-          <div class="window__bar" aria-hidden="true"><i class="window__dots"></i><span class="window__url">bextip.com/predictions</span></div>
+          <div class="window__bar" aria-hidden="true"><i class="window__dots"></i><i class="window__nav"></i><span class="window__url">bextip.com/predictions</span><i class="window__ctrls"></i></div>
           <img src="assets/screens/typowania.svg" width="1080" height="720" alt="" data-i18n-attr="alt:hero.shotAlt">
         </div>
       </div>
@@ -89,7 +99,7 @@
              na eqrento.com), zamiast napisu logotyp w rozmiarze tytułów kafelków; na telefonie pierwszy (Łukasz, 11.11.2026) -->
         <article class="card card--hl">
           <span class="tag card__badge" data-i18n="about.b.tag"></span>
-          <h3 class="card__logo"><img src="assets/logo/Bextip-Stadion-logotyp-zlota-kropka.svg?v=20261111a" alt="Bextip" width="58" height="17"></h3>
+          <h3 class="card__logo"><img src="assets/logo/Bextip-Stadion-logotyp-zlota-kropka.svg?v=20261111b" alt="Bextip" width="58" height="17"></h3>
           <p class="quote" data-i18n="about.b.quote"></p>
           <ul class="list list--check" data-i18n-list="about.b.items"></ul>
           <a class="btn btn--primary btn--arrow card__cta" href="#pricing"><span data-i18n="hero.cta"></span><span class="btn__icon" aria-hidden="true"></span></a>
@@ -121,7 +131,7 @@
         <ul class="list list--check" data-i18n-list="inside.items"></ul>
       </div>
       <div class="window">
-        <div class="window__bar" aria-hidden="true"><i class="window__dots"></i><span class="window__url">bextip.com/tips-stats</span></div>
+        <div class="window__bar" aria-hidden="true"><i class="window__dots"></i><i class="window__nav"></i><span class="window__url">bextip.com/tips-stats</span><i class="window__ctrls"></i></div>
         <img src="assets/screens/tips-stats.svg" width="1080" height="720" loading="lazy" alt="" data-i18n-attr="alt:inside.shotAlt">
       </div>
     </div>
@@ -178,7 +188,7 @@
   <div class="wrap">
     <div class="footer__grid">
       <div class="footer__brand">
-        <a href="#top" aria-label="Bextip"><img src="assets/logo/Bextip-Stadion-logotyp-zlota-kropka.svg?v=20261111a" alt="Bextip" width="150" height="44"></a>
+        <a href="#top" aria-label="Bextip"><img src="assets/logo/Bextip-Stadion-logotyp-zlota-kropka.svg?v=20261111b" alt="Bextip" width="150" height="44"></a>
         <p data-i18n="footer.about"></p>
         <p data-i18n="footer.invite"></p>
       </div>
@@ -226,8 +236,8 @@
   </div>
 </footer>
 
-<script src="config.js?v=20261111a"></script>
-<script src="i18n.js?v=20261111a"></script>
-<script src="script.js?v=20261111a"></script>
+<script src="config.js?v=20261111b"></script>
+<script src="i18n.js?v=20261111b"></script>
+<script src="script.js?v=20261111b"></script>
 </body>
 </html>
