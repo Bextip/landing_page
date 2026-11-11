@@ -69,10 +69,15 @@ p { margin: 0 0 1em; }
 .section-head h2:last-child { margin-bottom: 0; }
 .section-head .sub { margin: 0 auto; }
 .section--blue .section-head .sub { color: #D5E2F5; }
+/* przycisk „Wybierz pakiet” na dole sekcji Funkcje i Jak to działa (Łukasz, 11.11.2026); odstęp jak pod nagłówkiem */
+.section-cta { display: flex; justify-content: center; margin-top: clamp(32px, 4vw, 48px); }
 
 /* Buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-weight: 600; border: 1.5px solid transparent; cursor: pointer; transition: .15s; white-space: nowrap; font-size: .95rem; }
-.btn--lg { padding: 14px 26px; font-size: 1.05rem; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-weight: 600; border: 1.5px solid transparent; cursor: pointer; transition: transform .15s, box-shadow .15s, border-color .15s, color .15s, background-color .15s; white-space: nowrap; font-size: .95rem; }   /* bez animacji rozmiaru: --fit zmienia czcionkę od razu */
+/* duży przycisk („Wybierz pakiet” w hero i na dole sekcji): 1,05rem, 26px od krawędzi do tekstu, 14px od tekstu do
+   kółka. --fit (script.js, fitBadge) zmniejsza czcionkę i odstępy razem z etykietą nad hasłem, gdy ta nie mieści się
+   w jednej linii; wysokość (kółko 40px) zostaje */
+.btn--lg { padding: 14px calc(26px * var(--fit, 1)); font-size: calc(1.05rem * var(--fit, 1)); }
 /* lekki gradient jak na eqrento.com (tam złoto-pomarańczowy, tu zieleń z logo) */
 .btn--primary {
   background: linear-gradient(90deg, #9AD452 0%, #7CBC35 100%); color: var(--navy);
@@ -84,7 +89,7 @@ p { margin: 0 0 1em; }
 }
 /* strzałka na końcu przycisku (jak na eqrento.com): złota strzałka w granatowym kółku, tekst z lewej */
 .btn--arrow { justify-content: space-between; gap: 14px; padding: 5px 5px 5px 20px; }
-.btn--lg.btn--arrow { padding: 6px 6px 6px 26px; }
+.btn--lg.btn--arrow { gap: calc(14px * var(--fit, 1)); padding: 6px 6px 6px calc(26px * var(--fit, 1)); }
 .btn__icon {
   flex: none; width: 32px; height: 32px; border-radius: 50%;
   background: var(--navy) var(--ico-arrow) center / 16px no-repeat;
@@ -138,12 +143,16 @@ p { margin: 0 0 1em; }
 .hero__in { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
 .hero__shot { margin-top: clamp(0px, 1.2vw, 16px); }   /* okno blisko wysokości h1; mniej niż 32px, bo pasek okna Chrome / Edge / Firefox jest wyższy */
 .hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.2rem); }
-/* etykieta nad hasłem w wymiarach przycisku „Wybierz pakiet” z hero (Łukasz, 11.11.2026): ta sama wysokość
-   (40px linia + 2 × 6px + 2 × 1,5px ramki = 55px), czcionka, grubość i lewy odstęp tekstu */
+/* etykieta nad hasłem = duży przycisk „Wybierz pakiet” (Łukasz, 11.11.2026), tylko kolory własne: ta sama wysokość
+   (40px linia jak kółko ze strzałką + 2 × 6px + 2 × 1,5px ramki = 55px), czcionka i grubość, 26px od krawędzi
+   i 14px między kropką a tekstem (jak między tekstem a kółkiem). Zawsze w jednej linii: gdy się nie mieści,
+   script.js (fitBadge) zmniejsza ją razem z dużymi przyciskami (--fit), a poniżej 14px już tylko ją (--fit-pill) */
 .pill {
-  display: inline-flex; align-items: center; gap: 10px; padding: 6px 26px; line-height: 40px; border-radius: 999px;
+  --s: var(--fit-pill, var(--fit, 1));
+  display: inline-flex; align-items: center; gap: calc(14px * var(--s)); padding: 6px calc(26px * var(--s));
+  line-height: 40px; border-radius: 999px; max-width: 100%; white-space: nowrap;
   background: var(--white); border: 1.5px solid var(--line); box-shadow: var(--shadow-sm);
-  color: var(--blue); font-weight: 600; font-size: 1.05rem; margin-bottom: 18px;
+  color: var(--blue); font-weight: 600; font-size: calc(1.05rem * var(--s)); margin-bottom: 18px;
 }
 .pill::before { content: ""; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--gold); }
 .lead { font-size: 1.2rem; color: var(--muted); max-width: 560px; }
@@ -168,15 +177,18 @@ p { margin: 0 0 1em; }
 /* kafelek Bextip w porównaniu (Łukasz, 11.11.2026): niebieski, z logotypem zamiast napisu; etykieta na górnej
    krawędzi i przycisk na dolnej – do połowy poza kafelkiem, jak na eqrento.com */
 .card--hl {
-  position: relative; border: 0; color: var(--white); padding: 40px 28px 54px; margin-bottom: 26px;
+  position: relative; border: 0; color: var(--white); padding: 54px 28px; margin-bottom: 26px;   /* pod etykietą tyle miejsca co nad przyciskiem */
   background: var(--grad);
   box-shadow: 0 2px 4px rgba(5, 20, 45, .12), 0 26px 50px -18px rgba(12, 42, 85, .6);
 }
 .card--hl .quote { color: #D5E2F5; }
 .card--hl .list { margin-bottom: 0; }
-.card__badge {
+/* etykieta „Stworzony dla firm” = przycisk „Wybierz pakiet” z tego kafelka (Łukasz, 11.11.2026), tylko kolory własne:
+   ta sama wysokość (32px linia jak kółko ze strzałką + 2 × 5px + 2 × 1,5px ramki = 45px), czcionka, grubość
+   i 20px od krawędzi do tekstu; .tag.card__badge, bo .tag stoi niżej i nadpisywał czcionkę i odstępy */
+.tag.card__badge {
   position: absolute; top: 0; left: 50%; translate: -50% -50%; margin: 0; white-space: nowrap;
-  padding: 7px 18px; font-size: .85rem;
+  padding: 5px 20px; border: 1.5px solid transparent; line-height: 32px; font-size: .95rem; font-weight: 600;
 }
 .card__logo { line-height: 1; margin-bottom: 12px; }
 .card__logo img { height: 17px; width: auto; }   /* wielkie „B” logotypu = wielkie litery tytułów kafelków (13px) */
@@ -424,10 +436,8 @@ details p { color: var(--muted); margin: 12px 0 0; }
   .hero__in { grid-template-columns: minmax(0, 1fr); gap: 0; }
   .hero__copy { display: contents; }
   .hero .pill { order: 1; justify-self: center; }   /* telefon: etykieta na środku (Łukasz, 11.11.2026) */
-}
-@media (max-width: 480px) {
-  /* wąski telefon: etykieta w jednej linii – ta sama wysokość co przycisk, tylko mniejsza czcionka i odstępy */
-  .pill { max-width: 100%; white-space: nowrap; gap: 8px; font-size: clamp(.8rem, 3.6vw, .95rem); padding: 6px clamp(14px, 4vw, 22px); }
+  /* kolejność w całym zakresie do 820px (wcześniej stała w bloku do 480px, więc od 481 do 820px etykieta z order: 1
+     spadała pod okno z ekranem) */
   .hero h1 { order: 2; }
   .hero__shot { order: 3; margin: 6px 0 28px; }
   .hero .lead { order: 4; }

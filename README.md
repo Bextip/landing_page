@@ -132,14 +132,24 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   etykieta w hero, karta Bextip w porównaniu, opis „Jak to działa”, FAQ „Jak szybko możemy zacząć?”. Uwaga: PDF
   z ofertą dla firm mówi jeszcze o „kilku godzinach”.
 - Etykieta nad hasłem (Łukasz, 10.11.2026): PL „Automatyczny typer on-line dla firm”, EN „Automated online prediction game for companies”. W hero jest jeden przycisk – „Wybierz pakiet” („Zobacz, jak to działa” usunięty, Łukasz, 10.11.2026).
-  Etykieta ma wymiary tego przycisku (Łukasz, 11.11.2026): 55px wysokości, ta sama czcionka i lewy odstęp; na telefonie
-  stoi na środku, a do 480px ma mniejszą czcionkę, żeby mieściła się w jednej linii (wysokość zostaje).
+  **Etykieta = duży przycisk „Wybierz pakiet”** (Łukasz, 11.11.2026: te same proporcje, czcionka i odstępy, kolory
+  własne): 55px wysokości, 1,05rem / 600, 26px od krawędzi, 14px między kropką a tekstem (jak między tekstem a kółkiem
+  ze strzałką). Zawsze w jednej linii: gdy się nie mieści, `fitBadge()` w `script.js` ustawia `--fit` na `<html>`
+  i etykieta zmniejsza się razem ze wszystkimi dużymi przyciskami (czcionka i odstępy, wysokość zostaje); przyciski
+  najwyżej do 14px, dalej już tylko etykieta (`--fit-pill`). PL mieści się w rozmiarze przycisku na każdym telefonie
+  od 351px (przy 390px oba mają 15,1px). EN jest dłuższy, więc na telefonach etykieta ma 11–12px, a przycisk 14px;
+  „Automated office prediction game” zmieściłby się w rozmiarze przycisku. Na telefonie etykieta stoi na środku.
 - Opis pod hasłem w dwóch akapitach (`hero.lead` i `hero.lead2`, Łukasz, 11.11.2026), podobnie opis cennika
   (`pricing.sub` i `pricing.sub2`).
 - **Kafelek Bextip w porównaniu** (`#about`, Łukasz, 11.11.2026): niebieski, zamiast napisu „Bextip” biały logotyp
   w rozmiarze tytułów kafelków (17px – wielkie „B” ma 13px jak wielkie litery tytułów), etykieta „Stworzony dla firm”
   na górnej krawędzi i przycisk „Wybierz pakiet” na dolnej – do połowy poza kafelkiem, jak na eqrento.com; kafelek ma
   `margin-bottom`, żeby przycisk nie zjadał odstępu sekcji. Na telefonie jest pierwszy (`order: -1`).
+  **Etykieta „Stworzony dla firm” = przycisk „Wybierz pakiet” z tego kafelka** (Łukasz, 11.11.2026, kolory własne):
+  45px wysokości, .95rem / 600, 20px od krawędzi do tekstu. Selektor `.tag.card__badge`, bo `.tag` stoi w CSS niżej
+  i nadpisywał czcionkę i odstępy. Pod etykietą tyle miejsca co nad przyciskiem (54px górnego i dolnego odstępu).
+- **Przycisk „Wybierz pakiet” na dole sekcji Funkcje i Jak to działa** (Łukasz, 11.11.2026): duży, ze strzałką, jak
+  w hero, na środku (`.section-cta`, odstęp nad nim jak pod nagłówkiem sekcji), prowadzi do cennika.
 - **Funkcje** (`#features`, Łukasz, 11.11.2026): ikona i tytuł kafelka w jednym rzędzie, opis pod nimi.
 
 ## Cennik i Stripe
@@ -200,7 +210,7 @@ od Łukasza. Poprzednie logo „Stadion” zostało zastąpione (pliki są w his
   i strzałka na końcu** jak na eqrento.com (Łukasz, 10.11.2026): `.btn--primary` ma gradient `#9AD452 → #7CBC35`;
   `.btn--arrow` + `<span class="btn__icon">` dodaje na końcu granatowe kółko ze złotą strzałką (`--ico-arrow`), tekst
   idzie wtedy w `<span>` (atrybut `data-i18n` na `<span>`, nie na `<a>`, bo inaczej zniknęłaby strzałka). Strzałkę
-  mają: przycisk w hero, „Wybierz pakiet” w porównaniu i przyciski pakietów; „Wybierz pakiet” w menu – bez strzałki
+  mają: przycisk w hero, „Wybierz pakiet” w porównaniu, pod Funkcjami i pod Krokami oraz przyciski pakietów; „Wybierz pakiet” w menu – bez strzałki
   (jak „Book a demo” w nagłówku EQrento).
 - Ptaszki na listach i w etykietach hero: złote kółko z granatowym ptaszkiem (`--ico-check`; Łukasz, 10.11.2026).
 - Akcent: złoty z karty znaku `#EEC13E` (`--gold`; wcześniej `#F5B82E`). Używany oszczędnie i tylko jako wypełnienie lub znacznik: kropka w etykiecie hero (`--dot` 8,4px), podkreślenie widocznej sekcji w menu, strzałki między krokami i w przyciskach, ptaszki, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), kropka przy wybranym języku w stopce.
@@ -245,7 +255,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111e`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111f`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

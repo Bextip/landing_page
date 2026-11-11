@@ -1,6 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261111e";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261111f";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
 
   function get(path) {
@@ -90,7 +90,37 @@
     // wybrany język na liście w stopce
     document.querySelectorAll("[data-lang]").forEach(function (b) { b.setAttribute("aria-current", b.dataset.lang === lang ? "true" : "false"); });
     spy();
+    fitBadge();
   }
+
+  // Etykieta nad hasłem ma wymiary dużego przycisku „Wybierz pakiet” i zawsze stoi w jednej linii (Łukasz, 11.11.2026).
+  // Gdy się nie mieści (wąski telefon, dłuższy tekst EN), etykieta i duże przyciski zmniejszają się razem: --fit na <html>
+  // (1 = pełny rozmiar) mnoży w CSS czcionkę i odstępy. Przyciski najwyżej do 14px, dalej już tylko etykieta (--fit-pill).
+  // Kropka i ramki się nie zmieniają, więc nie wchodzą do skali.
+  var FIT_MIN = 14 / 16.8;
+  function fitBadge() {
+    var root = document.documentElement, pill = document.querySelector(".hero .pill"), h1 = document.querySelector(".hero h1");
+    if (!pill || !h1) return;
+    root.style.removeProperty("--fit");
+    root.style.removeProperty("--fit-pill");
+    pill.style.maxWidth = "none";
+    var full = pill.getBoundingClientRect().width;
+    pill.style.maxWidth = "";
+    var room = h1.getBoundingClientRect().width - 1;   // szerokość kolumny hero (hasło ją wypełnia), 1px zapasu
+    if (full <= room) return;
+    var cs = getComputedStyle(pill);
+    var fixed = (parseFloat(getComputedStyle(pill, "::before").width) || 0) +
+      parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
+    var s = Math.max(0.5, (room - fixed) / (full - fixed));
+    root.style.setProperty("--fit", Math.max(s, FIT_MIN).toFixed(4));
+    if (s < FIT_MIN) root.style.setProperty("--fit-pill", s.toFixed(4));
+  }
+  // ponownie po wczytaniu czcionek (Inter zmienia szerokość tekstu) i po zmianie rozmiaru okna
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitBadge);
+  var fitting = false;
+  window.addEventListener("resize", function () {
+    if (!fitting) { fitting = true; window.requestAnimationFrame(function () { fitting = false; fitBadge(); }); }
+  });
 
   function setLang(l, save) {
     lang = I18N[l] ? l : "en";
