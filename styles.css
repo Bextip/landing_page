@@ -154,7 +154,7 @@ p { margin: 0 0 1em; }
   background: var(--white); border: 1.5px solid var(--line); box-shadow: var(--shadow-sm);
   color: var(--blue); font-weight: 600; font-size: calc(1.05rem * var(--s)); margin-bottom: 18px;
 }
-.pill::before { content: ""; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--gold); }
+.pill::before { content: ""; flex: none; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--gold); }   /* flex: none – kropka nie znika, gdy etykieta dojdzie do max-width */
 .lead { font-size: 1.2rem; color: var(--muted); max-width: 560px; }
 .chips { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li {

@@ -131,14 +131,15 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Czas uruchomienia: wszędzie **„w kilka minut”** (Łukasz, 10.11.2026 – stopka; reszta ujednolicona na jego OK):
   etykieta w hero, karta Bextip w porównaniu, opis „Jak to działa”, FAQ „Jak szybko możemy zacząć?”. Uwaga: PDF
   z ofertą dla firm mówi jeszcze o „kilku godzinach”.
-- Etykieta nad hasłem (Łukasz, 10.11.2026): PL „Automatyczny typer on-line dla firm”, EN „Automated online prediction game for companies”. W hero jest jeden przycisk – „Wybierz pakiet” („Zobacz, jak to działa” usunięty, Łukasz, 10.11.2026).
+- Etykieta nad hasłem (Łukasz, 10.11.2026): PL „Automatyczny typer on-line dla firm”, EN „Automated office prediction game” (Łukasz, 11.11.2026; wcześniej „Automated online prediction game for companies” – za długie, żeby na telefonach mieć rozmiar przycisku). W hero jest jeden przycisk – „Wybierz pakiet” („Zobacz, jak to działa” usunięty, Łukasz, 10.11.2026).
   **Etykieta = duży przycisk „Wybierz pakiet”** (Łukasz, 11.11.2026: te same proporcje, czcionka i odstępy, kolory
   własne): 55px wysokości, 1,05rem / 600, 26px od krawędzi, 14px między kropką a tekstem (jak między tekstem a kółkiem
   ze strzałką). Zawsze w jednej linii: gdy się nie mieści, `fitBadge()` w `script.js` ustawia `--fit` na `<html>`
   i etykieta zmniejsza się razem ze wszystkimi dużymi przyciskami (czcionka i odstępy, wysokość zostaje); przyciski
-  najwyżej do 14px, dalej już tylko etykieta (`--fit-pill`). PL mieści się w rozmiarze przycisku na każdym telefonie
-  od 351px (przy 390px oba mają 15,1px). EN jest dłuższy, więc na telefonach etykieta ma 11–12px, a przycisk 14px;
-  „Automated office prediction game” zmieściłby się w rozmiarze przycisku. Na telefonie etykieta stoi na środku.
+  najwyżej do 14px, dalej już tylko etykieta (`--fit-pill`). Na telefonach etykieta i przyciski mają w obu językach
+  ten sam rozmiar: od 412px pełne 16,8px, przy 390px 15,8px (PL) / 16,6px (EN), przy 360px 14,5px / 15,1px. Dłuższy
+  tekst etykiety = mniejsze przyciski na telefonach (poniżej 14px zmniejsza się już tylko etykieta). Na telefonie
+  etykieta stoi na środku.
 - Opis pod hasłem w dwóch akapitach (`hero.lead` i `hero.lead2`, Łukasz, 11.11.2026), podobnie opis cennika
   (`pricing.sub` i `pricing.sub2`).
 - **Kafelek Bextip w porównaniu** (`#about`, Łukasz, 11.11.2026): niebieski, zamiast napisu „Bextip” biały logotyp
@@ -255,7 +256,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111f`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111h`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

@@ -1,6 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261111f";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261111h";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
 
   function get(path) {
@@ -115,8 +115,12 @@
     root.style.setProperty("--fit", Math.max(s, FIT_MIN).toFixed(4));
     if (s < FIT_MIN) root.style.setProperty("--fit-pill", s.toFixed(4));
   }
-  // ponownie po wczytaniu czcionek (Inter zmienia szerokość tekstu) i po zmianie rozmiaru okna
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitBadge);
+  // ponownie po wczytaniu każdej czcionki (Inter zmienia szerokość tekstu), po załadowaniu strony i po zmianie rozmiaru okna
+  if (document.fonts) {
+    if (document.fonts.ready) document.fonts.ready.then(fitBadge);
+    if (document.fonts.addEventListener) document.fonts.addEventListener("loadingdone", fitBadge);
+  }
+  window.addEventListener("load", fitBadge);
   var fitting = false;
   window.addEventListener("resize", function () {
     if (!fitting) { fitting = true; window.requestAnimationFrame(function () { fitting = false; fitBadge(); }); }

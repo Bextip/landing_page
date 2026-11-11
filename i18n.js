@@ -150,7 +150,7 @@ window.BEXTIP_I18N = {
     },
     nav: { about: "What is Bextip", features: "Features", how: "How it works", pricing: "Pricing", faq: "FAQ", login: "Log in", cta: "Choose a package" },
     hero: {
-      badge: "Automated online prediction game for companies",
+      badge: "Automated office prediction game",
       title: "The sports prediction game that brings your team together.",
       lead: "Bextip engages and connects your employees through the thrill of predicting the results of sporting events for points.",
       lead2: "Results, points, the leaderboard and statistics update automatically.",
