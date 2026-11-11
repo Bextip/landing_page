@@ -4,26 +4,33 @@
 <meta charset="utf-8">
 <title>Bextip – obraz do podglądu linków</title>
 <!-- Szablon assets/og-image.png (1200×630). Generowanie: narzedzia/og-image.ps1 -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Lexend:wght@800&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&family=Lexend:wght@600&display=block" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1200px; height: 630px; overflow: hidden; }
   body { position: relative; color: #fff; font-family: Inter, sans-serif;
     background: radial-gradient(circle at 88% 12%, #2B64B2 0, #1C4F95 58%); }
-  .copy { position: absolute; left: 64px; top: 56px; width: 560px; }
+  .copy { position: absolute; left: 64px; top: 56px; width: 540px; }
   .logo { display: block; width: auto; height: 84px; margin-bottom: 44px; }
-  h1 { font-family: Lexend, sans-serif; font-weight: 800; font-size: 54px; line-height: 1.12; letter-spacing: -0.02em; }
+  /* grubość 600 jak hasło na stronie (h1 w styles.css) */
+  h1 { font-family: Lexend, sans-serif; font-weight: 600; font-size: 54px; line-height: 1.12; letter-spacing: -0.02em; }
   ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
   li { background: #86C93E; color: #0C2A55; font-weight: 600; font-size: 20px; padding: 8px 16px; border-radius: 999px; }
   .url { position: absolute; left: 64px; bottom: 42px; font-size: 22px; font-weight: 500; color: #C9D8EE; }
-  /* ekran w oknie przegladarki, jak na stronie (.window w styles.css) */
-  .shot { position: absolute; left: 650px; top: 100px; width: 640px; border-radius: 14px; overflow: hidden; background: #fff;
+  /* ekran w oknie przeglądarki w stylu Windows (Łukasz, 11.11.2026: obraz jest jeden dla wszystkich, a większość
+     odbiorców pracuje na Windows) – te same ikony co .os-other .window w styles.css; okno mieści się w kadrze,
+     żeby przyciski minimalizuj / maksymalizuj / zamknij były widoczne */
+  .shot { position: absolute; left: 628px; top: 112px; width: 540px; border-radius: 8px; overflow: hidden; background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 30px 70px -10px rgba(5, 20, 45, .6), 0 40px 110px -30px rgba(31, 134, 207, .6); }
-  .bar { height: 34px; display: grid; grid-template-columns: 70px 1fr 70px; align-items: center; padding: 0 14px;
-    background: #E8EDF4; border-bottom: 1px solid #D8E0EC; }
-  .bar i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; box-shadow: 18px 0 #febc2e, 36px 0 #28c840; }
-  .bar span { justify-self: center; width: 300px; height: 22px; border-radius: 6px; background: #fff;
-    font-size: 12px; font-weight: 500; line-height: 22px; color: #55627D; text-align: center; }
+  .bar { height: 34px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 12px;
+    padding-left: 14px; background: #F3F3F3; border-bottom: 1px solid #E1E1E1; }
+  .bar .nav { display: block; width: 62px; height: 15px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 58 14' fill='none' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 2.5 2.5 7 7 11.5M2.5 7h9.5' stroke='%235f6368'/%3E%3Cpath d='M27 2.5 31.5 7 27 11.5M31.5 7H22' stroke='%23b4b8bd'/%3E%3Cpath d='M54.3 3.8A5 5 0 1 0 55.2 8.7' stroke='%235f6368'/%3E%3Cpath d='M55 1.3v3h-3' stroke='%235f6368'/%3E%3C/svg%3E") left center / 62px 15px no-repeat; }
+  .bar span { height: 22px; padding-left: 27px; border-radius: 999px; box-shadow: inset 0 0 0 1px #E1E1E1;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Crect x='2' y='5.2' width='8' height='5.8' rx='1.2' fill='%235f6368'/%3E%3Cpath d='M3.8 5.2V3.9a2.2 2.2 0 0 1 4.4 0v1.3' fill='none' stroke='%235f6368' stroke-width='1.2'/%3E%3C/svg%3E") 10px center / 11px no-repeat;
+    font-size: 12px; font-weight: 500; line-height: 22px; color: #3c4043; white-space: nowrap; overflow: hidden; }
+  .bar .ctrls { display: block; width: 102px; height: 34px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 32' fill='none' stroke='%23202020' stroke-width='1'%3E%3Cpath d='M11 16.5h10'/%3E%3Crect x='43.5' y='11.5' width='9' height='9' rx='1'/%3E%3Cpath d='M75.5 11.5l9 9m0-9-9 9'/%3E%3C/svg%3E") center / 102px 34px no-repeat; }
   .shot img { display: block; width: 100%; height: auto; }
 </style>
 </head>
@@ -37,6 +44,6 @@
     </ul>
   </div>
   <div class="url">bextip.site</div>
-  <div class="shot"><div class="bar"><i></i><span>bextip.com/predictions</span></div><img src="../assets/screens/typowania.svg" alt=""></div>
+  <div class="shot"><div class="bar"><i class="nav"></i><span>bextip.com/predictions</span><i class="ctrls"></i></div><img src="../assets/screens/typowania.svg" alt=""></div>
 </body>
 </html>

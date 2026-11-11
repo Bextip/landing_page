@@ -71,8 +71,10 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   sekcjach.
 - **Ekrany aplikacji w oknie przeglądarki** (Łukasz, 10.11.2026): `<div class="window">` z paskiem `.window__bar`
   (trzy kropki i adres – `bextip.com/predictions`, `bextip.com/tips-stats`, prawdziwe adresy tych ekranów
-  w aplikacji). Ramka to sam CSS (`.window` w styles.css), obrazy są bez ramki. Ta sama ramka (macOS) jest na obrazie
-  do podglądu linków – ten obraz jest jeden dla wszystkich, więc nie zmienia się z systemem.
+  w aplikacji). Ramka to sam CSS (`.window` w styles.css), obrazy są bez ramki. Obraz do podglądu linków jest jeden
+  dla wszystkich, więc ma na stałe okno w stylu Windows (Łukasz, 11.11.2026 – większość odbiorców pracuje na
+  Windows); okno mieści się w kadrze, żeby było widać przyciski minimalizuj / maksymalizuj / zamknij, a hasło ma
+  grubość 600 jak na stronie.
 - **Okno zależne od systemu odwiedzającego** (Łukasz, 11.11.2026): sprzęt Apple (macOS, iOS, iPadOS) – okno w stylu
   macOS (trzy kolorowe kropki, adres na środku); Windows, Android, Linux i inne – okno w stylu Windows (wstecz / dalej /
   odśwież, pasek adresu z kłódką, minimalizuj / maksymalizuj / zamknij, zaokrąglenie 8px). Mały skrypt w `<head>`
