@@ -35,7 +35,8 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 (`#contact`) usunięta (Łukasz, 10.11.2026) – kontakt jest w stopce.
 
 - **Nagłówki sekcji** (Łukasz, 10.11.2026: jak na eqrento.com): tytuł i opis pod nim w `<div class="section-head">`,
-  wyśrodkowane. Wyjątek: `#inside`, gdzie tekst stoi obok ekranu i zostaje wyrównany do lewej.
+  wyśrodkowane; tytuł ma do 840px (angielski tytuł sekcji funkcji ma w Sora 822px), opis pod nim do 720px.
+  Wyjątek: `#inside`, gdzie tekst stoi obok ekranu i zostaje wyrównany do lewej.
 - **Hero jest białe** (Łukasz, 10.11.2026: niebieski panel boczny aplikacji na ekranie ginął na niebieskim tle),
   z delikatną niebieską poświatą za oknem.
 - **Menu u góry białe, z rozmyciem** (Łukasz, 10.11.2026): półprzezroczyste białe tło z `backdrop-filter: blur`, więc
@@ -155,7 +156,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **„W każdym pakiecie”** – `pricing.included`: 20 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza
   (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
   z góry na dół (CSS `columns`), dwie do 1100px, jedna na telefonach; ptaszki w złotych kółkach.
-- Ceny w kafelkach: Lexend 600, jak hasło i tytuły (wcześniej 800 – po odchudzeniu nagłówków wyglądały za ciężko).
+- Ceny w kafelkach: Sora 600, jak hasło i tytuły (wcześniej 800 – po odchudzeniu nagłówków wyglądały za ciężko).
 - „Polecany”: `recommended: true` daje granatowy kafelek z etykietą na górnej krawędzi. Teraz żaden pakiet (był
   Pakiet 50).
 - Przycisk pakietu zależy od pola `stripe`:
@@ -187,9 +188,10 @@ od Łukasza. Poprzednie logo „Stadion” zostało zastąpione (pliki są w his
 - **Zasady z karty:** nie rozciągać logo i nie zmieniać pochylenia pola; napis biały, x zielone, kropka złota; bez
   cieni, obrysów i efektów na logo; pole ochronne co najmniej wysokość litery x; najmniejsza wysokość logo 24px;
   **złoty to akcent – wypełnienia i znaczniki, nie tekst na bieli** (dlatego plusy w FAQ są niebieskie).
-- **Krój napisu w logo: Sora ExtraBold** (B własne). Strona ma nagłówki w Lexend – patrz „Czcionki”.
-- Czcionki: Lexend (nagłówki) i Inter (tekst) z Google Fonts – dobrane na oko, bo w plikach SVG litery są krzywymi.
-  Do potwierdzenia przez Łukasza. Hasło (h1), tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
+- **Krój napisu w logo: Sora ExtraBold** (B własne) – tym samym krojem są złożone nagłówki strony (patrz „Czcionki”).
+- Czcionki z Google Fonts: **Sora** w nagłówkach (Łukasz, 11.11.2026: krój napisu z logo według karty znaku;
+  wcześniej Lexend) i Inter w tekście. Strona ładuje tylko Sora 600 i 700.
+  Hasło (h1), tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
   (Łukasz, 10.11.2026: były za ciężkie); ceny w cenniku też 600, numery kroków 700.
 - **Szerokość jak na eqrento.com** (Łukasz, 10.11.2026): treść do 1360px (`.wrap`), boczne odstępy `--gutter`
   48px, do 1440px 40px, do 1200px 32px, na telefonach (do 640px) 20px. Przy 1366×768 okno w hero mieści się
@@ -242,7 +244,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111d`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111e`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

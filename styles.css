@@ -37,7 +37,7 @@
   --shadow-lg: 0 2px 4px rgba(12, 42, 85, .07), 0 26px 50px -18px rgba(12, 42, 85, .36);
   --shadow-dark: 0 18px 40px -18px rgba(0, 0, 0, .65);
   --font: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
-  --font-head: "Lexend", "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-head: "Sora", "Inter", "Segoe UI", system-ui, sans-serif;   /* krój napisu w logo z karty znaku (Łukasz, 11.11.2026; wcześniej Lexend) */
 }
 
 * { box-sizing: border-box; }
@@ -64,7 +64,7 @@ p { margin: 0 0 1em; }
 .section--blue { color: var(--white); background: var(--grad); }   /* sekcja „Dla kogo” – gradient z karty znaku */
 .sub { color: var(--muted); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; }
 /* tytuł sekcji i opis pod nim – wyśrodkowane, jak na eqrento.com (sekcja #inside ma tekst obok ekranu i zostaje z lewej) */
-.section-head { text-align: center; max-width: 820px; margin: 0 auto clamp(32px, 4vw, 48px); }
+.section-head { text-align: center; max-width: 840px; margin: 0 auto clamp(32px, 4vw, 48px); }   /* 840px: tytuł EN „Everything an office prediction game needs” w Sora ma 822px – mieści się w jednej linii */
 .section-head h2 { margin-bottom: .45em; }
 .section-head h2:last-child { margin-bottom: 0; }
 .section-head .sub { margin: 0 auto; }
