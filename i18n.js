@@ -10,7 +10,8 @@ window.BEXTIP_I18N = {
     hero: {
       badge: "Automatyczny typer on-line dla firm",
       title: "Firmowy typer sportowy, który integruje zespół.",
-      lead: "Bextip angażuje i integruje pracowników dzięki emocjonującej zabawie w typowanie wyników wydarzeń sportowych. Wyniki, punkty, tabela i statystyki aktualizują się automatycznie.",
+      lead: "Bextip angażuje i integruje pracowników dzięki emocjonującej zabawie w typowanie na punkty wyników wydarzeń sportowych.",
+      lead2: "Wyniki, punkty, tabela i statystyki aktualizują się automatycznie.",
       chip1: "Logo i kolory Twojej firmy",
       chip2: "Bez instalacji i działu IT",
       chip3: "5 wersji językowych",
@@ -20,7 +21,7 @@ window.BEXTIP_I18N = {
     },
     inside: {
       title: "Każdy gracz widzi swoją formę",
-      sub: "Bextip to nie tylko typowanie. Statystyki, historia typów i tabela sprawiają, że do gry wraca się po każdym meczu.",
+      sub: "Bextip to nie tylko samo typowanie. Statystyki, historia typowań i tabele sprawiają, że gracze chętniej wracają po każdym meczu, żeby sprawdzić skuteczność swoją oraz innych graczy.",
       items: ["Pozycja w tabeli i suma punktów na żywo", "Średnia punktów na mecz i z Jokera", "Wykres trafionych wyników, zwycięzców i błędnych typów", "Pełna historia typowań – swoich i innych graczy"],
       shotAlt: "Ekran statystyk gracza w serwisie Bextip"
     },
@@ -59,12 +60,12 @@ window.BEXTIP_I18N = {
       ]
     },
     how: {
-      title: "Od zamówienia do pierwszego typu w cztery kroki",
-      sub: "Nie potrzebujesz działu IT ani szkolenia. Typera uruchomisz dosłownie w kilka minut.",
+      title: "Od wyboru pakietu do pierwszego typowania w zaledwie cztery kroki",
+      sub: "Nie potrzebujesz działu IT, instalacji oprogramowania ani szkolenia. Typera Bextip uruchomisz dosłownie w kilka minut.",
       steps: [
         { t: "Wybierz pakiet", d: "Dobierz pakiet do liczby graczy i opłać go on-line." },
         { t: "Stwórz grę", d: "Nadaj grze nazwę, wgraj logo i wybierz kolory firmy. Wszystko możesz później zmienić." },
-        { t: "Zaproś pracowników", d: "Przekaż graczom 6-cyfrowy kod zaproszenia. Rejestrują się i dołączają do gry w minutę." },
+        { t: "Zaproś pracowników", d: "Przekaż graczom 6-cyfrowy kod gry. Rejestracja i dołączenie do gry zajmie im zaledwie minutę." },
         { t: "Typujcie i kibicujcie", d: "Gracze typują wyniki do rozpoczęcia meczu. Wyniki, punkty i tabela liczą się same." }
       ]
     },
@@ -136,7 +137,7 @@ window.BEXTIP_I18N = {
       invite: "Napisz lub zadzwoń – odpowiemy na pytania i pomożemy Ci uruchomić typera dosłownie w kilka minut.",
       contactTitle: "Kontakt", siteTitle: "Serwis", appTitle: "Aplikacja",
       login: "Zaloguj się", register: "Załóż konto",
-      tagline1: "Stworzone z pasją w Polsce", tagline2: ", dla zespołów, które kibicują razem na świecie",
+      tagline1: "Stworzone z pasją w", tagline2: "Polsce", tagline3: ", dla zespołów, które typują razem na", tagline4: "świecie",
       rights: "Wszelkie prawa zastrzeżone.",
       terms: "Regulamin", privacy: "Polityka prywatności", langTitle: "Język"
     }
@@ -151,7 +152,8 @@ window.BEXTIP_I18N = {
     hero: {
       badge: "Automated online prediction game for companies",
       title: "The sports prediction game that brings your team together.",
-      lead: "Bextip engages and connects your employees through the thrill of predicting the results of sporting events. Results, points, the leaderboard and statistics update automatically.",
+      lead: "Bextip engages and connects your employees through the thrill of predicting the results of sporting events for points.",
+      lead2: "Results, points, the leaderboard and statistics update automatically.",
       chip1: "Your company logo and colours",
       chip2: "No installation, no IT needed",
       chip3: "5 languages",
@@ -161,7 +163,7 @@ window.BEXTIP_I18N = {
     },
     inside: {
       title: "Every player can see their form",
-      sub: "Bextip is more than predicting. Statistics, prediction history and the leaderboard bring players back after every match.",
+      sub: "Bextip is more than just predicting. Statistics, prediction history and leaderboards make players come back after every match to check how they – and everyone else – are doing.",
       items: ["Leaderboard position and total points, live", "Average points per match and from the Joker", "Chart of exact scores, correct winners and misses", "Full prediction history – your own and other players’"],
       shotAlt: "Player statistics screen in Bextip"
     },
@@ -200,12 +202,12 @@ window.BEXTIP_I18N = {
       ]
     },
     how: {
-      title: "From order to first prediction in four steps",
-      sub: "No IT department and no training needed. You can launch your game in literally a few minutes.",
+      title: "From choosing a package to the first prediction in just four steps",
+      sub: "No IT department, software installation or training needed. You can launch your Bextip game in literally a few minutes.",
       steps: [
         { t: "Choose a package", d: "Pick the package that fits your number of players and pay online." },
         { t: "Create your game", d: "Name the game, upload your logo and choose company colours. You can change it all later." },
-        { t: "Invite your employees", d: "Share the 6-digit invitation code. Players register and join the game in a minute." },
+        { t: "Invite your employees", d: "Share the 6-digit game code with your players. Registering and joining the game takes them just a minute." },
         { t: "Predict and cheer", d: "Players predict scores until kick-off. Results, points and the leaderboard take care of themselves." }
       ]
     },
@@ -276,7 +278,7 @@ window.BEXTIP_I18N = {
       invite: "Write or call us – we’ll answer your questions and help you launch your game in literally a few minutes.",
       contactTitle: "Contact", siteTitle: "Site", appTitle: "App",
       login: "Log in", register: "Create an account",
-      tagline1: "Made with passion in Poland", tagline2: ", for teams that cheer together around the world",
+      tagline1: "Made with passion in", tagline2: "Poland", tagline3: ", for teams that predict together around the", tagline4: "world",
       rights: "All rights reserved.",
       terms: "Terms", privacy: "Privacy policy", langTitle: "Language"
     }

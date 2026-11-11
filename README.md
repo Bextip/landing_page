@@ -89,9 +89,9 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
   (sekcje strony) / Aplikacja (bextip.com/login i /register) / Język. Marka ma do 340px, a wolne miejsce rozkłada się
   po równo między kolumny (`justify-content: space-between`), więc odstęp marka → Kontakt jest taki sam jak między
-  pozostałymi (Łukasz, 10.11.2026). Hasło: „Stworzone z pasją w Polsce [flaga], dla zespołów, które kibicują razem na
-  świecie [kula ziemska]” – flaga po „Polsce”, kula po „na świecie”, jak we wzorze Łukasza (obie jako SVG, nie emoji;
-  kula – ta sama co na eqrento.com). Na dole prawa
+  pozostałymi (Łukasz, 10.11.2026). Hasło (Łukasz, 11.11.2026): „Stworzone z pasją w [flaga] Polsce, dla zespołów,
+  które typują razem na [kula ziemska] świecie” – grafiki przed słowami, jak na eqrento.com (obie jako SVG, nie emoji;
+  kula – ta sama co na eqrento.com); tekst w czterech kluczach `footer.tagline1–4`. Na dole prawa
   autorskie, Regulamin / Polityka prywatności i podpis „Uicons by Flaticon”. „Zaloguj się” i „Załóż konto” w stopce
   otwierają aplikację w nowej karcie (Łukasz, 10.11.2026); „Zaloguj się” w menu – w tej samej. Kolumna „Firma”
   z danymi spółki (jak w EQrento) – dopiero po podaniu danych przez Łukasza.
@@ -120,6 +120,15 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   etykieta w hero, karta Bextip w porównaniu, opis „Jak to działa”, FAQ „Jak szybko możemy zacząć?”. Uwaga: PDF
   z ofertą dla firm mówi jeszcze o „kilku godzinach”.
 - Etykieta nad hasłem (Łukasz, 10.11.2026): PL „Automatyczny typer on-line dla firm”, EN „Automated online prediction game for companies”. W hero jest jeden przycisk – „Wybierz pakiet” („Zobacz, jak to działa” usunięty, Łukasz, 10.11.2026).
+  Etykieta ma wymiary tego przycisku (Łukasz, 11.11.2026): 55px wysokości, ta sama czcionka i lewy odstęp; na telefonie
+  stoi na środku, a do 480px ma mniejszą czcionkę, żeby mieściła się w jednej linii (wysokość zostaje).
+- Opis pod hasłem w dwóch akapitach (`hero.lead` i `hero.lead2`, Łukasz, 11.11.2026), podobnie opis cennika
+  (`pricing.sub` i `pricing.sub2`).
+- **Kafelek Bextip w porównaniu** (`#about`, Łukasz, 11.11.2026): niebieski, zamiast napisu „Bextip” biały logotyp
+  w rozmiarze tytułów kafelków (17px – wielkie „B” ma 13px jak wielkie litery tytułów), etykieta „Stworzony dla firm”
+  na górnej krawędzi i przycisk „Wybierz pakiet” na dolnej – do połowy poza kafelkiem, jak na eqrento.com; kafelek ma
+  `margin-bottom`, żeby przycisk nie zjadał odstępu sekcji. Na telefonie jest pierwszy (`order: -1`).
+- **Funkcje** (`#features`, Łukasz, 11.11.2026): ikona i tytuł kafelka w jednym rzędzie, opis pod nimi.
 
 ## Cennik i Stripe
 
@@ -164,7 +173,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **Sygnet** – podstawowy (Łukasz, 10.11.2026): `Bextip-Stadion-logo-sygnet-ikona.svg` („Bx” bez tła) – ikona karty
   przeglądarki.
 - Pozostałe warianty z paczki „Stadion” (z claimem, panel, biały, na jasnym tle) zostają w `assets/logo/`, strona ich
-  nie używa.
+  nie używa. Biały logotyp ze złotą kropką jest też w kafelku Bextip w porównaniu.
 - Czcionki: Lexend (nagłówki) i Inter (tekst) z Google Fonts – dobrane na oko, bo w plikach SVG litery są krzywymi.
   Do potwierdzenia przez Łukasza. Hasło (h1), tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
   (Łukasz, 10.11.2026: były za ciężkie); ceny w cenniku też 600, numery kroków 700.
@@ -178,7 +187,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   mają: przycisk w hero, „Wybierz pakiet” w porównaniu i przyciski pakietów; „Wybierz pakiet” w menu – bez strzałki
   (jak „Book a demo” w nagłówku EQrento).
 - Ptaszki na listach i w etykietach hero: złote kółko z granatowym ptaszkiem (`--ico-check`; Łukasz, 10.11.2026).
-- Trzeci akcent: złoty `#F5B82E` (`--gold`; ciemniejszy `--gold-dark` na jasnym tle) – decyzja Claude za zgodą Łukasza, 10.11.2026, żeby strona nie była tylko niebiesko-zielona; nawiązuje do pucharu i żółtych ikon Jokera w aplikacji. Używany oszczędnie: kropka nad „i” w logo, kropka w etykiecie hero (rozmiar `--dot` = 7px, jak kropka nad „i” w logo z nagłówka – Łukasz, 10.11.2026), strzałki między krokami, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), górna krawędź kart „Dla kogo”, plusy w FAQ.
+- Trzeci akcent: złoty `#F5B82E` (`--gold`; ciemniejszy `--gold-dark` na jasnym tle) – decyzja Claude za zgodą Łukasza, 10.11.2026, żeby strona nie była tylko niebiesko-zielona; nawiązuje do pucharu i żółtych ikon Jokera w aplikacji. Używany oszczędnie: kropka nad „i” w logo, kropka w etykiecie hero (rozmiar `--dot` = 8,4px, jak kropka nad „i” w logo z nagłówka – Łukasz, 10.11.2026; po powiększeniu logo do 43px kropka też urosła), strzałki między krokami, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), górna krawędź kart „Dla kogo”, plusy w FAQ.
 - Wizualizacje „Tabele” i „Typowanie wyniku” zawierają prawdziwe imiona i nazwiska graczy – celowo nie są na stronie.
   Ekran tabeli można dodać, gdy powstanie wersja z fikcyjnymi nazwiskami.
 
@@ -219,7 +228,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261110k`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111a`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
