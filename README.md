@@ -227,7 +227,8 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
   więc push działa bez przełączania kont. Commity podpisane `Bextip <355040911+Bextip@users.noreply.github.com>`.
   Polecenia `gh` dla tego repozytorium: z `-R Bextip/landing_page` (zapis, np. ustawienia Pages, wymaga
   `gh auth switch --user Bextip`, a potem powrotu na `eqrento`).
-- Dalsze kroki do podpięcia domeny:
+- Dalsze kroki do podpięcia domeny (najpierw dane firmy do stopki i pełny przegląd strony – patrz
+  „Przed uruchomieniem – do zrobienia”, Łukasz 11.11.2026):
   1. ~~Repozytorium, pierwszy commit, push~~ – zrobione 10.11.2026.
   2. ~~Settings → Pages → Source: GitHub Actions~~ – zrobione 10.11.2026.
   3. Weryfikacja domeny (chroni przed przejęciem adresu): ustawienia konta / organizacji → Pages → Add a domain →
@@ -252,7 +253,23 @@ nie pokazały się Łukaszowi właśnie przez pamięć przeglądarki) podbij i j
 
 ## Przed uruchomieniem – do zrobienia
 
+**Uruchomienie = podpięcie bextip.site** (Łukasz, 11.11.2026). Wtedy projekt strony jest skończony, więc przy
+podpinaniu domeny Claude najpierw przypomina Łukaszowi o danych firmy do stopki, a potem robi pełny przegląd strony
+(lista niżej) – przed przełączeniem DNS.
+
+- **Dane firmy do stopki** – Łukasz je poda (10.11.2026: „Podam inne dane”): kolumna „Firma” z nazwą, adresem, NIP
+  i KRS albo REGON; przy sp. z o.o. także sąd rejestrowy i kapitał zakładowy.
 - Linki Stripe w `config.js`.
 - Regulamin i Polityka prywatności – linki w stopce prowadzą na razie do `#`.
-- Konto GitHub, repozytorium i DNS bextip.site (patrz „Publikacja”).
+- ~~Konto GitHub i repozytorium~~ – zrobione 10.11.2026. DNS i własna domena bextip.site – patrz „Publikacja”.
 - Lżejsze ekrany: `typowania.svg` i `tips-stats.svg` mają po 400–600 KB.
+- **Pełny przegląd przed przełączeniem DNS:**
+  - teksty PL i EN: literówki, brakujące klucze w `i18n.js`, nazwy pakietów i ceny zgodne z ofertą;
+  - linki: menu, stopka, bextip.com/login i /register, e-mail, telefon, Stripe, Regulamin, Polityka prywatności,
+    „Uicons by Flaticon”;
+  - wygląd od 360 do 1920 px w obu językach, okna przeglądarek (`?okno=…`, `narzedzia/okna.html`);
+  - walidator HTML (W3C), błędy w konsoli, dostępność (teksty alternatywne, kontrast, obsługa klawiaturą), Lighthouse;
+  - meta tagi i podgląd linków (canonical, `og:url`, `og:image`), `robots.txt`, `sitemap.xml`, favikony,
+    `site.webmanifest`, strona 404 (teraz domyślna GitHuba).
+- **Po przełączeniu:** Enforce HTTPS, `www.bextip.site` przekierowuje na `bextip.site`, podgląd linku do bextip.site
+  na LinkedInie i Facebooku, wersje plików `?v=`.
