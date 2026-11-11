@@ -1,13 +1,17 @@
 /* Bextip – konfiguracja pakietów i płatności.
-   Ceny: netto, jednorazowo za jedną grę na wybrane rozgrywki (wg „Oferta dla firm 2026”).
-   Ten sam cennik obowiązuje dla wszystkich rozgrywek (np. Liga Mistrzów UEFA, Premier League, Ekstraliga, NHL,
-   MŚ – potwierdzone 10.11.2026).
-   Po skonfigurowaniu Stripe wklej w polu "stripe" adres Payment Link
-   danego pakietu (Stripe Dashboard → Payment Links).
-   Pusty link = przycisk otwiera e-mail z zamówieniem.
-   Pakiety z limitem graczy (players) to kafelki w rzędzie (4 – tyle mieści układ), pakiet bez limitu
-   (players: null) jest pod nimi na całą szerokość. Pakiet 50 (1690 zł) zdjęty ze strony – Łukasz, 10.11.2026.
-   recommended: true wyróżnia pakiet (granatowy kafelek z etykietą „Polecany”) – teraz żaden. */
+   Cennik od 11.11.2026 (Łukasz, nowa strategia cenowa): abonament miesięczny (month) albo roczny (year), ceny netto.
+   Wersja polska pokazuje ceny w złotych (pln), pozostałe języki w euro (eur) – currencyByLang.
+   W złotych cena roczna = 10 × miesięczna (2 miesiące gratis); w euro ceny roczne są inne (podane przez Łukasza),
+   dlatego wersja angielska nie pisze o „2 miesiącach gratis”.
+   perPlayer = cena za gracza miesięcznie przy płatności rocznej – wpisana tak, jak podał Łukasz (nie liczona).
+   softLimit = miękki limit: tyle graczy ponad limit pakietu bez dopłaty (10% → +2 / +5 / +10 / +20).
+   Pakiety z limitem graczy (players) to kafelki w rzędzie (4 – tyle mieści układ); Enterprise (players: null, ceny „od”)
+   jest pod nimi na całą szerokość, z wyceną indywidualną i przyciskiem „Zapytaj o ofertę”.
+   recommended: true wyróżnia pakiet (kafelek z gradientem i etykietą „Polecany”) – Mid (Łukasz, 11.11.2026).
+   Stripe: wklej adresy Payment Links (Stripe Dashboard → Payment Links) – osobno dla płatności miesięcznej i rocznej,
+   w każdej walucie. Pusty link = przycisk otwiera e-mail z zamówieniem (pakiet, okres i waluta w temacie).
+   Poprzedni cennik (do 11.11.2026): jednorazowo za grę na wybrane rozgrywki – Pakiet 20 / 30 / 100 / 250 (850 /
+   1150 / 2850 / 3950 zł) i Bez Limitu (3950 zł + 1,25 zł za osobę). */
 window.BEXTIP_CONFIG = {
   contactEmail: "kontakt@bextip.com",
   phone: "+48 603 197 858",
@@ -22,12 +26,24 @@ window.BEXTIP_CONFIG = {
     { code: "es", name: "Español", flag: "es" },
     { code: "ru", name: "Русский", flag: "ru" }
   ],
+  currencyByLang: { pl: "pln" },   // pozostałe języki: "eur"
+  softLimit: 0.1,
   plans: [
-    { id: "p20",  players: 20,  price: 850,  stripe: "" },
-    { id: "p30",  players: 30,  price: 1150, stripe: "" },
-    { id: "p100", players: 100, price: 2850, stripe: "" },
-    { id: "p250", players: 250, price: 3950, stripe: "" },
-    // Bez limitu: 3950 zł + 1,25 zł / os. – cena zmienna, zamówienie przez kontakt
-    { id: "unlimited", players: null, price: 3950, perPlayer: 1.25, stripe: null }
+    { id: "micro", players: 20,
+      pln: { month: 99, year: 990, perPlayer: 4.13 }, eur: { month: 29, year: 239, perPlayer: 0.99 },
+      stripe: { pln: { month: "", year: "" }, eur: { month: "", year: "" } } },
+    { id: "small", players: 50,
+      pln: { month: 199, year: 1990, perPlayer: 3.32 }, eur: { month: 59, year: 479, perPlayer: 0.79 },
+      stripe: { pln: { month: "", year: "" }, eur: { month: "", year: "" } } },
+    { id: "mid", players: 100, recommended: true,
+      pln: { month: 299, year: 2990, perPlayer: 2.49 }, eur: { month: 89, year: 689, perPlayer: 0.57 },
+      stripe: { pln: { month: "", year: "" }, eur: { month: "", year: "" } } },
+    { id: "large", players: 200,
+      pln: { month: 499, year: 4990, perPlayer: 2.08 }, eur: { month: 149, year: 1199, perPlayer: 0.50 },
+      stripe: { pln: { month: "", year: "" }, eur: { month: "", year: "" } } },
+    // Enterprise: ponad 200 graczy, ceny „od”, wycena indywidualna – zamówienie przez kontakt
+    { id: "enterprise", players: null,
+      pln: { month: 790, year: 7900 }, eur: { month: 179, year: 1990 },
+      stripe: null }
   ]
 };

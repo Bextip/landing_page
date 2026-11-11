@@ -1,7 +1,8 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261111i";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261111k";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
+  var billing = "year";   // okres płatności w cenniku: "year" (domyślnie) albo "month" – przełącznik nad kafelkami
 
   function get(path) {
     return path.split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, I18N[lang]);
@@ -11,47 +12,60 @@
   }
   // tekst z i18n.js, w którym **…** to pogrubienie (lista „W każdym pakiecie”)
   function rich(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
-  function money(n) {
-    return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+  // kwota w walucie: pln → „1 990 zł”, „4,13 zł”; eur → „€1,199”, „€0.99” (spacje nierozdzielające, żeby kwota
+  // nie łamała się między wierszami)
+  function money(n, cur) {
+    var parts = (Math.round(n * 100) / 100).toFixed(n % 1 ? 2 : 0).split(".");
+    var whole = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, cur === "pln" ? " " : ","), dec = parts[1];
+    return cur === "pln" ? whole + (dec ? "," + dec : "") + " zł" : "€" + whole + (dec ? "." + dec : "");
   }
   function $(id) { return document.getElementById(id); }
   // przycisk ze strzałką na końcu (złota strzałka w granatowym kółku – .btn__icon w styles.css), jak na eqrento.com
   var ARROW = '<span class="btn__icon" aria-hidden="true"></span>';
 
-  // Cennik: pakiety z limitem graczy jako małe kafelki w rzędzie, pakiet bez limitu pod nimi na całą szerokość
+  // Cennik (nowa strategia cenowa – Łukasz, 11.11.2026): pakiety z limitem graczy jako małe kafelki w rzędzie,
+  // Enterprise pod nimi na całą szerokość. Ceny z config.js w walucie języka (PL: złote, pozostałe: euro), za rok albo
+  // za miesiąc – wg przełącznika nad kafelkami (billing). Przy płatności rocznej pod ceną: cena za gracza miesięcznie,
+  // przy miesięcznej: ile kosztuje rok.
   function renderPlans() {
-    var t = get("pricing");
+    var t = get("pricing"), cur = CFG.currencyByLang[lang] || "eur", yearly = billing === "year";
+    function amount(text, n) { return esc(text).replace("{p}", "<b>" + money(n, cur) + "</b>"); }
     function button(p, cls) {
-      var name = t.names[p.id];
-      var mail = "mailto:" + CFG.contactEmail + "?subject=" + encodeURIComponent(t.orderSubject + " – " + name);
-      var href = p.stripe || mail;
-      var label = p.stripe ? t.buy : (p.stripe === null ? t.ask : t.order);
-      var ext = p.stripe ? ' target="_blank" rel="noopener"' : "";
+      var name = t.names[p.id], link = (p.stripe && p.stripe[cur] && p.stripe[cur][billing]) || "";
+      var subject = t.orderSubject + " – " + name + " – " + t.billing[billing] + " (" + cur.toUpperCase() + ")";
+      var href = link || "mailto:" + CFG.contactEmail + "?subject=" + encodeURIComponent(subject);
+      var label = link ? t.buy : (p.players ? t.order : t.ask);
+      var ext = link ? ' target="_blank" rel="noopener"' : "";
       return '<p class="tier__cta"><a class="btn btn--arrow ' + cls + '" href="' + esc(href) + '"' + ext + "><span>" +
         esc(label) + "</span>" + ARROW + "</a></p>";
     }
-    function per(lines) {
-      return '<span class="tier__per"><span>' + esc(lines[0]) + "</span><span>" + esc(lines[1]) + "</span></span>";
+    // cena i obok niej „netto” nad „za rok” / „za miesiąc”; Enterprise z małym „od” przed kwotą
+    function price(p) {
+      var n = money(p[cur][billing], cur);
+      return '<p class="tier__price"><b>' + (p.players ? n : '<span class="tier__from">' + esc(t.from) + "</span> " + n) + "</b>" +
+        '<span class="tier__per"><span>' + esc(t.net) + "</span><span>" + esc(yearly ? t.perYear : t.perMonth) + "</span></span></p>";
     }
     var tiers = CFG.plans.filter(function (p) { return p.players; });
     var wide = CFG.plans.filter(function (p) { return !p.players; });
+    var maxPlayers = Math.max.apply(null, tiers.map(function (p) { return p.players; }));
     $("planGrid").innerHTML =
       '<ul class="tiers">' + tiers.map(function (p) {
         return '<li class="tier' + (p.recommended ? " tier--hero" : "") + '">' +
           (p.recommended ? '<span class="tag tier__badge">' + esc(t.recommended) + "</span>" : "") +
-          '<h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" +
-          '<p class="tier__price"><b>' + money(p.price) + " zł</b>" + per(t.per) + "</p>" +
-          '<ul class="tier__limits"><li>' + esc(t.upTo).replace("{n}", "<b>" + p.players + "</b>") + "</li>" +
+          '<h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" + price(p) +
+          '<p class="tier__pp">' + (yearly ? amount(t.perPlayer, p[cur].perPlayer) : amount(t.orYear, p[cur].year)) + "</p>" +
+          '<ul class="tier__limits">' +
+          "<li>" + esc(t.upTo).replace("{n}", "<b>" + p.players + "</b>") + "</li>" +
+          "<li>" + esc(t.soft).replace("{pct}", Math.round(CFG.softLimit * 100)).replace("{n}", Math.round(p.players * CFG.softLimit)) + "</li>" +
           "<li>" + esc(t.allFeatures) + "</li></ul>" +
           button(p, "btn--primary") + "</li>";
       }).join("") + "</ul>" +
       wide.map(function (p) {
-        var pp = String(p.perPlayer).replace(".", lang === "pl" ? "," : ".");
         return '<div class="tier tier--wide">' +
           '<div><h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" +
-          '<p class="tier__desc">' + esc(t.unlimitedDesc) + "</p></div>" +
-          '<p class="tier__price"><b>' + money(p.price) + " zł</b>" +
-          per([t.unlimitedPer[0].replace("{p}", pp), t.unlimitedPer[1]]) + "</p>" +
+          '<ul class="tier__limits tier__limits--row"><li>' + esc(t.over).replace("{n}", "<b>" + maxPlayers + "</b>") + "</li>" +
+          "<li>" + esc(t.allFeatures) + "</li></ul></div>" +
+          '<div class="tier__pricebox">' + price(p) + '<p class="tier__pp">' + esc(t.custom) + "</p></div>" +
           button(p, "btn--ghost") + "</div>";
       }).join("");
     $("includedList").innerHTML = t.included.map(function (x) { return "<li>" + rich(x) + "</li>"; }).join("");
@@ -154,6 +168,14 @@
   document.querySelectorAll('[data-href="tel"]').forEach(function (a) { a.href = "tel:" + CFG.phone.replace(/\s/g, ""); a.textContent = CFG.phone; });
   document.querySelectorAll("[data-lang]").forEach(function (b) {
     b.addEventListener("click", function () { setLang(b.dataset.lang, true); });
+  });
+  // przełącznik okresu płatności w cenniku (jak na eqrento.com): rocznie / miesięcznie – kafelki rysują się od nowa
+  document.querySelectorAll("[data-billing]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      billing = b.dataset.billing;
+      document.querySelectorAll("[data-billing]").forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+      renderPlans();
+    });
   });
   $("burger").addEventListener("click", function () {
     var open = $("navLinks").classList.toggle("is-open");

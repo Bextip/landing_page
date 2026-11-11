@@ -79,19 +79,28 @@ window.BEXTIP_I18N = {
     },
     pricing: {
       title: "Cennik dopasowany do wielkości zespołu",
-      sub: "Jednorazowa opłata za grę na wybrane rozgrywki, np.: Ligę Mistrzów UEFA, angielską Premier League, polską Ekstraligę czy amerykański NHL.",
+      // nowa strategia cenowa (Łukasz, 11.11.2026): abonament miesięczny albo roczny, ceny w config.js
+      sub: "Płatność miesięczna albo roczna – przy płatności rocznej dwa miesiące gratis.",
       sub2: "Każdy pakiet zawiera wszystkie funkcje.",
+      // przełącznik nad kafelkami; save = znacznik przy „Rocznie” (pusty = bez znacznika)
+      billing: { label: "Okres płatności", year: "Rocznie", month: "Miesięcznie", save: "2 mies. gratis" },
+      net: "netto",
+      perYear: "za rok",
+      perMonth: "za miesiąc",
+      perPlayer: "{p} za gracza / mies.",
+      orYear: "lub {p} rocznie – 2 mies. gratis",
+      from: "od",
       upTo: "do {n} graczy",
+      soft: "miękki limit +{pct}% (+{n} graczy gratis)",
+      over: "ponad {n} graczy",
+      custom: "wycena indywidualna",
       allFeatures: "wszystkie funkcje w cenie",
-      per: ["netto", "za rozgrywki"],
-      unlimitedPer: ["+ {p} zł za osobę", "netto, za rozgrywki"],
-      unlimitedDesc: "Bez limitu graczy – dla firm, które chcą zaprosić do gry więcej niż 250 osób.",
       recommended: "Polecany",
       buy: "Kup pakiet",
       order: "Zamów pakiet",
       ask: "Zapytaj o ofertę",
       orderSubject: "Zamówienie Bextip",
-      names: { p20: "Pakiet 20", p30: "Pakiet 30", p100: "Pakiet 100", p250: "Pakiet 250", unlimited: "Pakiet Bez Limitu" },
+      names: { micro: "Micro", small: "Small", mid: "Mid", large: "Large", enterprise: "Enterprise" },
       includedTitle: "W każdym pakiecie:",
       // lista funkcji z PDF-u „Oferta dla firm 2026” (Łukasz, 10.11.2026); **…** = pogrubienie jak w PDF-ie
       included: [
@@ -129,7 +138,7 @@ window.BEXTIP_I18N = {
         { q: "Czy typer może wyglądać jak nasza firma?", a: "Tak. W każdym pakiecie możesz ustawić logo i kolorystykę firmy, własną nazwę gry oraz własną subdomenę, np. nazwa_firmy.bextip.com." },
         { q: "Mamy kilka działów lub oddziałów. Czy mogą rywalizować między sobą?", a: "Tak. Graczy można podzielić na maksymalnie 4 wewnętrzne drużyny, które rywalizują ze sobą obok klasyfikacji indywidualnej." },
         { q: "Nasz zespół jest międzynarodowy. W jakich językach działa Bextip?", a: "W pięciu: polskim, angielskim, niemieckim, hiszpańskim i rosyjskim. Każdy gracz wybiera swój język." },
-        { q: "Co, jeśli mamy więcej niż 250 graczy?", a: "Wybierz Pakiet Bez Limitu: stała opłata plus niewielka kwota za każdego gracza. Napisz do nas, a przygotujemy zamówienie." }
+        { q: "Co, jeśli mamy więcej niż 200 graczy?", a: "Wybierz pakiet Enterprise – cenę ustalamy indywidualnie (od 790 zł miesięcznie albo od 7 900 zł rocznie, netto). Napisz do nas, a przygotujemy ofertę." }
       ]
     },
     footer: {
@@ -221,19 +230,27 @@ window.BEXTIP_I18N = {
     },
     pricing: {
       title: "Pricing that fits your team size",
-      sub: "A one-off fee per game for the competition you choose, e.g. the UEFA Champions League, the English Premier League, Poland’s Ekstraliga or the American NHL.",
+      // ceny w euro (config.js); roczne ceny w euro to nie „2 miesiące gratis”, więc bez tego znacznika
+      sub: "Pay monthly or yearly – yearly billing works out cheaper.",
       sub2: "Every package includes all features.",
+      billing: { label: "Billing period", year: "Yearly", month: "Monthly", save: "" },
+      net: "net",
+      perYear: "per year",
+      perMonth: "per month",
+      perPlayer: "{p} per player / month",
+      orYear: "or {p} per year",
+      from: "from",
       upTo: "up to {n} players",
+      soft: "soft limit +{pct}% (+{n} players free)",
+      over: "more than {n} players",
+      custom: "custom quote",
       allFeatures: "all features included",
-      per: ["net", "per competition"],
-      unlimitedPer: ["+ {p} zł per player", "net, per competition"],
-      unlimitedDesc: "No player limit – for companies that want to invite more than 250 people.",
       recommended: "Recommended",
       buy: "Buy package",
       order: "Order package",
       ask: "Ask for a quote",
       orderSubject: "Bextip order",
-      names: { p20: "Package 20", p30: "Package 30", p100: "Package 100", p250: "Package 250", unlimited: "Unlimited Package" },
+      names: { micro: "Micro", small: "Small", mid: "Mid", large: "Large", enterprise: "Enterprise" },
       includedTitle: "In every package:",
       included: [
         "Automatic **update of results**",
@@ -257,7 +274,7 @@ window.BEXTIP_I18N = {
         "Secure **SSL** connection",
         "**No ads**"
       ],
-      note: "All prices are net, in Polish złoty (PLN). Secure online payments are handled by Stripe."
+      note: "All prices are net, in euros (EUR). Secure online payments are handled by Stripe."
     },
     faq: {
       title: "Frequently asked questions",
@@ -270,7 +287,7 @@ window.BEXTIP_I18N = {
         { q: "Can the game look like our company?", a: "Yes. Every package lets you set your company logo and colours, your own game name and your own subdomain, e.g. company_name.bextip.com." },
         { q: "We have several departments or branches. Can they compete with each other?", a: "Yes. Players can be split into up to 4 internal teams that compete alongside the individual ranking." },
         { q: "Our team is international. Which languages does Bextip support?", a: "Five: Polish, English, German, Spanish and Russian. Each player chooses their own language." },
-        { q: "What if we have more than 250 players?", a: "Choose the Unlimited Package: a fixed fee plus a small amount per player. Write to us and we will prepare your order." }
+        { q: "What if we have more than 200 players?", a: "Choose the Enterprise package – the price is set individually (from €179 a month or €1,990 a year, net). Write to us and we will prepare an offer." }
       ]
     },
     footer: {
