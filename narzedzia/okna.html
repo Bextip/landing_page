@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Bextip – podgląd okien przeglądarek</title>
+<!-- Wszystkie okna przeglądarek z frames.js naraz, w pełnej szerokości (1080). Otwórz przez podgląd lokalny:
+     http://localhost:8123/narzedzia/okna.html – nie trafia na stronę. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=block" rel="stylesheet">
+<style>
+  body { margin: 0; padding: 20px 24px 28px; background: #fff; font-family: Inter, sans-serif; }
+  h2 { margin: 16px 0 6px; font-size: 14px; font-weight: 600; color: #333; }
+  .bar { width: 1080px; }
+  .bar svg { display: block; width: 100%; height: auto; box-shadow: 0 0 0 1px #ddd; }
+</style>
+</head>
+<body>
+<div id="out"></div>
+<script src="../frames.js"></script>
+<script>
+  var V = [
+    ["chrome", false, "Chrome – Windows"], ["chrome", true, "Chrome – macOS"],
+    ["edge", false, "Edge – Windows"], ["edge", true, "Edge – macOS"],
+    ["firefox", false, "Firefox – Windows"], ["firefox", true, "Firefox – macOS"],
+    ["safari", true, "Safari (macOS, iPhone, iPad)"], ["samsung", false, "Samsung Internet (Android)"]
+  ];
+  document.getElementById("out").innerHTML = V.map(function (v) {
+    return "<h2>" + v[2] + "</h2><div class='bar'>" + window.bextipFrameSVG(v[0], "bextip.com/predictions", v[1]) + "</div>";
+  }).join("");
+</script>
+</body>
+</html>

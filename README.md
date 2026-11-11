@@ -11,6 +11,7 @@ index.html       – struktura strony i kolejność sekcji; teksty NIE są wpisa
 i18n.js          – wszystkie teksty strony, PL i EN, te same klucze w obu językach
 config.js        – pakiety, ceny, linki Stripe, e-mail, telefon, adres aplikacji
 script.js        – wybór języka, wypełnianie list i cennika, menu mobilne
+frames.js        – okna przeglądarek (Chrome, Safari, Edge, Firefox, Samsung Internet) wokół ekranów aplikacji
 styles.css       – wygląd; kolory „Stadion” i czcionki jako zmienne w :root na górze pliku
 assets/logo/     – logo „Stadion” (SVG od Łukasza, 10.11.2026) i wycięty z niego logotyp (patrz „Wygląd”)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
@@ -18,7 +19,7 @@ assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): sho
 assets/flags/    – flagi listy języków (pl, gb, de, es, ru; SVG, bo Windows nie pokazuje emoji flag)
 assets/og-image.png – obraz do podglądu linków (1200×630), tworzony przez narzedzia/og-image.ps1
 robots.txt, sitemap.xml – dla wyszukiwarek (adres https://bextip.site/)
-narzedzia/       – og-image.html/.ps1 (obraz do podglądu linków), uicons.html/.ps1 (ikony z Flaticon); nie trafiają na stronę
+narzedzia/       – og-image.html/.ps1 (obraz do podglądu linków), uicons.html/.ps1 (ikony z Flaticon), okna.html (podgląd okien przeglądarek); nie trafiają na stronę
 .claude/         – lokalny podgląd: launch.json + serve.ps1 (PowerShell, bez Node i Pythona)
 .github/workflows/static.yml – publikacja na GitHub Pages przy każdym pushu do main
 ```
@@ -75,27 +76,25 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   dla wszystkich, więc ma na stałe okno w stylu Windows (Łukasz, 11.11.2026 – większość odbiorców pracuje na
   Windows); okno mieści się w kadrze, żeby było widać przyciski minimalizuj / maksymalizuj / zamknij, a hasło ma
   grubość 600 jak na stronie.
-- **Okno zależne od systemu odwiedzającego** (Łukasz, 11.11.2026): sprzęt Apple (macOS, iOS, iPadOS) – okno w stylu
-  macOS (trzy kolorowe kropki, adres na środku); Windows, Android, Linux i inne – okno w stylu Windows (wstecz / dalej /
-  odśwież, pasek adresu z kłódką, minimalizuj / maksymalizuj / zamknij, zaokrąglenie 8px). Mały skrypt w `<head>`
-  `index.html` dodaje do `<html>` klasę `os-apple` albo `os-other` (z `navigator.userAgentData.platform`,
-  `navigator.platform` i user agenta), zanim strona się narysuje – okno nie zmienia wyglądu w trakcie wczytywania. Bez
-  JavaScriptu – okno macOS. Ten skrypt jest jedynym skryptem wpisanym w HTML: gdyby strona trafiła kiedyś na serwer
-  z nagłówkiem Content-Security-Policy (jak eqrento.com na OVH), trzeba go dopuścić hashem albo przenieść do pliku.
-- **„Dla kogo jest Bextip?”** (Łukasz, 10.11.2026): tło w niebieskim z logo `#1C4F95`, białe karty, a w każdej obok
-  tekstu mała biała ikona na niebieskim kafelku (`.who__icon`), jak ikony na „chipach” w sekcji „One platform” na
-  eqrento.com – sklep (właściciele firm), ludzie (HR), puchar (liderzy). Duże ilustracje z poprzedniej wersji Łukasz
-  odrzucił (są w historii gita). Plik ikony to pole `icon` przy pozycji w `who.items` w `i18n.js`.
-- **Ikony: Uicons z Flaticon** (Łukasz, 10.11.2026: „Możesz używać ikony z Flaticon”), zestaw regular rounded – ten sam
-  co na eqrento.com. Paczka npm Uicons ma tylko font, więc `narzedzia/uicons.html` wyciąga z niego ścieżki SVG
-  (opentype.js), a `narzedzia/uicons.ps1` zapisuje je jako białe `assets/icons/<plik>.svg` 24×24 (potrzebny podgląd
-  lokalny i Edge). Nowa ikona: dopisz `plik → fi-rr-nazwa` w `ICONS` w uicons.html i uruchom skrypt.
-  **Licencja wymaga podpisu „Uicons by Flaticon” z linkiem** – jest w dolnym wierszu stopki, jak na eqrento.com;
-  zostaw go, póki strona używa Uicons.
-- **FAQ w dwóch kolumnach** od 901px (Łukasz, 10.11.2026): `script.js` dzieli pytania na pół (pierwsza połowa
-  w lewej kolumnie), każda kolumna układa się osobno, więc otwarte pytanie nie przesuwa drugiej; niżej jedna kolumna
-  w tej samej kolejności.
-- **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
+- **Okno przeglądarki odwiedzającego** (Łukasz, 11.11.2026): ekrany aplikacji stoją w oknie tej przeglądarki, której
+  używa odwiedzający – jednej z pięciu najpopularniejszych w Europie i USA (StatCounter, październik 2026, wszystkie
+  urządzenia; Europa: Chrome 60,0%, Safari 20,1%, Edge 7,1%, Firefox 4,2%, Samsung Internet 3,2%; USA: Chrome 56,0%,
+  Safari 28,0%, Edge 7,1%, Firefox 3,6%, Samsung Internet 1,6%; szósta jest Opera). Pozostali (Opera, przeglądarki
+  wbudowane w aplikacje jak LinkedIn…) – uniwersalne okno w stylu Windows (CSS, `.br-other`).
+  - Skrypt w `<head>` `index.html` dodaje do `<html>` klasę `br-chrome / br-safari / br-edge / br-firefox / br-samsung /
+    br-other` (z user agenta) i `os-apple / os-other`, zanim strona się narysuje.
+  - `frames.js` rysuje okno jako SVG szerokie na 1080 (jak obrazy ekranów), więc skaluje się razem z ekranem jak zrzut
+    prawdziwej przeglądarki: Chrome (karty ze „skrzydełkami”, pasek adresu-pigułka, ⋮), Edge (akcje kart, adres
+    z „https://”, Copilot, ⋯), Firefox (Firefox View, pływająca karta, tarcza, ≡), Safari (jeden pasek, sama domena
+    na środku), Samsung Internet (dom, pigułka adresu, licznik kart, ≡). Chrome, Edge i Firefox na sprzęcie Apple mają
+    kolorowe kropki macOS z lewej, na innych systemach – przyciski Windows z prawej.
+  - Miejsce na pasek jest zarezerwowane od razu (`aspect-ratio` w styles.css: 1080/76 Chrome, Edge, Firefox; 1080/56
+    Safari; 1080/64 Samsung) – zmieniając wysokość SVG w frames.js, zmień ją też tam.
+  - **Podgląd innych wariantów:** dopisz do adresu `?okno=chrome-mac`, `chrome-win`, `edge-mac`, `edge-win`,
+    `firefox-mac`, `firefox-win`, `safari`, `samsung` albo `other`; wszystkie naraz – `narzedzia/okna.html` w podglądzie
+    lokalnym.
+  - Skrypt w `<head>` jest jedynym skryptem wpisanym w HTML: gdyby strona trafiła kiedyś na serwer z nagłówkiem
+    Content-Security-Policy (jak eqrento.com na OVH), trzeba go dopuścić hashem albo przenieść do pliku.- **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
   (sekcje strony) / Aplikacja (bextip.com/login i /register) / Język. Marka ma do 340px, a wolne miejsce rozkłada się
   po równo między kolumny (`justify-content: space-between`), więc odstęp marka → Kontakt jest taki sam jak między
   pozostałymi (Łukasz, 10.11.2026). Hasło (Łukasz, 11.11.2026): „Stworzone z pasją w [flaga] Polsce, dla zespołów,
@@ -237,7 +236,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111b`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111c`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

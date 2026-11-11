@@ -137,7 +137,7 @@ p { margin: 0 0 1em; }
   background: radial-gradient(42% 60% at 77% 46%, rgba(31, 134, 207, .17), transparent 72%), var(--white);
 }
 .hero__in { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
-.hero__shot { margin-top: clamp(0px, 2.4vw, 32px); }   /* okno na wysokości nagłówka h1 */
+.hero__shot { margin-top: clamp(0px, 1.2vw, 16px); }   /* okno blisko wysokości h1; mniej niż 32px, bo pasek okna Chrome / Edge / Firefox jest wyższy */
 .hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.2rem); }
 /* etykieta nad hasłem w wymiarach przycisku „Wybierz pakiet” z hero (Łukasz, 11.11.2026): ta sama wysokość
    (40px linia + 2 × 6px + 2 × 1,5px ramki = 55px), czcionka, grubość i lewy odstęp tekstu */
@@ -352,29 +352,42 @@ details p { color: var(--muted); margin: 12px 0 0; }
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .window img { display: block; width: 100%; height: auto; }
-/* Okno w stylu Windows dla odwiedzających spoza Apple (Łukasz, 11.11.2026; klasa os-other na <html> ustawia skrypt
-   w <head> index.html): z lewej wstecz / dalej / odśwież, pasek adresu z kłódką, z prawej minimalizuj / maksymalizuj /
-   zamknij, mniejsze zaokrąglenie jak w Windows 11. Apple (os-apple) i strona bez JavaScriptu – okno macOS jak wyżej. */
+/* Okno uniwersalne w stylu Windows – dla przeglądarek spoza pięciu najpopularniejszych (klasa br-other na <html>
+   ustawia skrypt w <head> index.html; Łukasz, 11.11.2026): z lewej wstecz / dalej / odśwież, pasek adresu z kłódką,
+   z prawej minimalizuj / maksymalizuj / zamknij, mniejsze zaokrąglenie jak w Windows 11. Bez JavaScriptu – okno
+   macOS jak wyżej. Chrome, Safari, Edge, Firefox i Samsung Internet dostają okno swojej przeglądarki (frames.js, niżej). */
 .window__nav, .window__ctrls { display: none; }
-.os-other .window { border-radius: 8px; }
-.os-other .window__dots { display: none; }
-.os-other .window__bar {
+.os-other .window, .br-other .window { border-radius: 8px; }
+.br-other .window__dots { display: none; }
+.br-other .window__bar {
   grid-template-columns: auto minmax(0, 1fr) auto; column-gap: 12px; padding: 0 0 0 12px;
   background: #F3F3F3; border-bottom-color: #E1E1E1;
 }
-.os-other .window__nav {
+.br-other .window__nav {
   display: block; width: 58px; height: 14px;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 58 14' fill='none' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 2.5 2.5 7 7 11.5M2.5 7h9.5' stroke='%235f6368'/%3E%3Cpath d='M27 2.5 31.5 7 27 11.5M31.5 7H22' stroke='%23b4b8bd'/%3E%3Cpath d='M54.3 3.8A5 5 0 1 0 55.2 8.7' stroke='%235f6368'/%3E%3Cpath d='M55 1.3v3h-3' stroke='%235f6368'/%3E%3C/svg%3E") left center / 58px 14px no-repeat;
 }
-.os-other .window__url {
+.br-other .window__url {
   justify-self: stretch; width: auto; max-width: 440px; padding: 0 12px 0 24px; border-radius: 999px; text-align: left; color: #3c4043;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Crect x='2' y='5.2' width='8' height='5.8' rx='1.2' fill='%235f6368'/%3E%3Cpath d='M3.8 5.2V3.9a2.2 2.2 0 0 1 4.4 0v1.3' fill='none' stroke='%235f6368' stroke-width='1.2'/%3E%3C/svg%3E") 9px center / 10px no-repeat;
   box-shadow: inset 0 0 0 1px #E1E1E1;
 }
-.os-other .window__ctrls {
+.br-other .window__ctrls {
   display: block; width: 96px; height: var(--bar);
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 32' fill='none' stroke='%23202020' stroke-width='1'%3E%3Cpath d='M11 16.5h10'/%3E%3Crect x='43.5' y='11.5' width='9' height='9' rx='1'/%3E%3Cpath d='M75.5 11.5l9 9m0-9-9 9'/%3E%3C/svg%3E") center / 96px 32px no-repeat;
 }
+/* Okna pięciu najpopularniejszych przeglądarek (frames.js rysuje je jako SVG szerokie na 1080, jak obrazy ekranów –
+   skalują się razem z ekranem). Miejsce na pasek jest zarezerwowane od razu (aspect-ratio = 1080 / wysokość SVG),
+   a uniwersalne elementy paska są ukryte, więc nic nie mruga, zanim skrypt narysuje okno. */
+.br-chrome .window__bar, .br-edge .window__bar, .br-firefox .window__bar,
+.br-safari .window__bar, .br-samsung .window__bar {
+  display: block; height: auto; padding: 0; border: 0; background: transparent; aspect-ratio: 1080 / 76;
+}
+.br-safari .window__bar { aspect-ratio: 1080 / 56; }
+.br-samsung .window__bar { aspect-ratio: 1080 / 64; }
+.br-chrome .window__bar > :not(svg), .br-edge .window__bar > :not(svg), .br-firefox .window__bar > :not(svg),
+.br-safari .window__bar > :not(svg), .br-samsung .window__bar > :not(svg) { display: none; }
+.window__bar > svg { display: block; width: 100%; height: 100%; }
 /* hero: okno wyraźniej uniesione nad białym tłem */
 .hero .window { box-shadow: 0 2px 4px rgba(12, 42, 85, .08), 0 28px 60px -16px rgba(12, 42, 85, .4), 0 50px 120px -30px rgba(31, 134, 207, .55); }
 .inside { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: center; }
@@ -431,10 +444,10 @@ details p { color: var(--muted); margin: 12px 0 0; }
   .window__bar { grid-template-columns: 44px minmax(0, 1fr) 44px; padding: 0 8px; }
   .window__dots { width: 7px; height: 7px; box-shadow: 11px 0 #febc2e, 22px 0 #28c840; }
   .window__url { height: 15px; line-height: 15px; font-size: 9px; border-radius: 4px; }
-  .os-other .window__bar { column-gap: 8px; padding-left: 8px; }
-  .os-other .window__nav { width: 44px; height: 11px; background-size: 44px 11px; }
-  .os-other .window__url { padding-left: 18px; border-radius: 999px; background-position: 6px center; background-size: 8px; }
-  .os-other .window__ctrls { width: 72px; background-size: 72px 24px; }
+  .br-other .window__bar { column-gap: 8px; padding-left: 8px; }
+  .br-other .window__nav { width: 44px; height: 11px; background-size: 44px 11px; }
+  .br-other .window__url { padding-left: 18px; border-radius: 999px; background-position: 6px center; background-size: 8px; }
+  .br-other .window__ctrls { width: 72px; background-size: 72px 24px; }
 }
 @media (max-width: 560px) {
   .tiers { grid-template-columns: minmax(0, 1fr); }
