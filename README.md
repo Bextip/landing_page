@@ -167,7 +167,8 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   | Enterprise | ponad 200 | od 790 zł / od €179 | od 7 900 zł / od €1,990 | wycena indywidualna |
 
   W złotych cena roczna = 10 × miesięczna („2 mies. gratis” przy przełączniku, w podtytule i przy cenie miesięcznej).
-  W euro roczne ceny są inne (np. Micro 239 € zamiast 12 × 29 = 348 €, Enterprise 1 990 € zamiast 2 148 €), więc
+  W euro roczne ceny są inne – celowo, Łukasz potwierdził 11.11.2026 (np. Micro 239 € zamiast 12 × 29 = 348 €,
+  Enterprise 1 990 € zamiast 2 148 €), więc
   wersja angielska nie pisze o „2 months free” – podtytuł: „yearly billing works out cheaper”. Ceny za gracza są
   wpisane tak, jak podał Łukasz (strona ich nie liczy). Miękki limit: `softLimit` 10% – na kafelku „miękki limit
   +10% (+2 / +5 / +10 / +20 graczy gratis)”. FAQ „Co, jeśli mamy więcej niż 200 graczy?” – Enterprise z cenami „od”.

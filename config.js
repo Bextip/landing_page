@@ -1,7 +1,7 @@
 /* Bextip – konfiguracja pakietów i płatności.
    Cennik od 11.11.2026 (Łukasz, nowa strategia cenowa): abonament miesięczny (month) albo roczny (year), ceny netto.
    Wersja polska pokazuje ceny w złotych (pln), pozostałe języki w euro (eur) – currencyByLang.
-   W złotych cena roczna = 10 × miesięczna (2 miesiące gratis); w euro ceny roczne są inne (podane przez Łukasza),
+   W złotych cena roczna = 10 × miesięczna (2 miesiące gratis); w euro ceny roczne są inne – celowo (Łukasz potwierdził 11.11.2026),
    dlatego wersja angielska nie pisze o „2 miesiącach gratis”.
    perPlayer = cena za gracza miesięcznie przy płatności rocznej – wpisana tak, jak podał Łukasz (nie liczona).
    softLimit = miękki limit: tyle graczy ponad limit pakietu bez dopłaty (10% → +2 / +5 / +10 / +20).
