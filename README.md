@@ -12,8 +12,10 @@ i18n.js          – wszystkie teksty strony, PL i EN, te same klucze w obu jęz
 config.js        – pakiety, ceny, linki Stripe, e-mail, telefon, adres aplikacji
 script.js        – wybór języka, wypełnianie list i cennika, menu mobilne
 frames.js        – okna przeglądarek (Chrome, Safari, Edge, Firefox, Samsung Internet) wokół ekranów aplikacji
-styles.css       – wygląd; kolory „Stadion” i czcionki jako zmienne w :root na górze pliku
-assets/logo/     – logo „Stadion” (SVG od Łukasza, 10.11.2026) i wycięty z niego logotyp (patrz „Wygląd”)
+styles.css       – wygląd; kolory z karty znaku, gradient i czcionki jako zmienne w :root na górze pliku
+assets/logo/     – logo z paczki znaku (11.11.2026): 6 wersji logo w SVG; assets/logo/ikona/ – 11 wariantów ikony „Bx”
+favicon.ico, favicon.svg, favicon-16/32.png, apple-touch-icon.png, icon-192/512.png, icon-maskable-192/512.png,
+site.webmanifest – favikona i ikony z paczki znaku (katalog główny, jak w jej instrukcji)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
 assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): shop, users, trophy; robi je narzedzia/uicons.ps1
 assets/flags/    – flagi listy języków (pl, gb, de, es, ru; SVG, bo Windows nie pokazuje emoji flag)
@@ -38,12 +40,12 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   z delikatną niebieską poświatą za oknem.
 - **Menu u góry białe, z rozmyciem** (Łukasz, 10.11.2026): półprzezroczyste białe tło z `backdrop-filter: blur`, więc
   to, co przewija się pod menu, jest rozmyte; po przewinięciu w dół `script.js` dodaje `.is-scrolled` (cień i linia).
-  Logotyp w menu: `Bextip-Stadion-logotyp-na-jasnym-tle-zlota-kropka.svg`.
+  Logo w menu: `Bextip-logo-gradient.svg` (wersja ekranowa z gradientem – na jasne tło), 48px wysokości.
 - **Układ menu jak na eqrento.com** (Łukasz, 10.11.2026): trzy kolumny (`1fr auto 1fr`) – logotyp z lewej, linki
   na środku (ok. 300px od logotypu przy 1536px), przyciski z prawej; odstępy między linkami 36px, do 1440px 28px,
-  do 1240px 22px. Logo w menu ma 43px wysokości (o ok. 20% więcej niż wcześniej – Łukasz, 10.11.2026). Linia bazowa
-  linków stoi na podstawie napisu „Bextip” (bez ogonka „p”): `translateY(--nav-shift)`, 7px – zmierzone
-  w przeglądarce (różnica ok. 0,5px). Zmiana wysokości logo albo rozmiaru linków = zmierz ponownie.
+  do 1240px 22px. Logo w menu ma 48px wysokości (nowe logo z polem, 11.11.2026; wcześniej logotyp 43px). Linia bazowa
+  linków stoi na podstawie napisu „Bextip” (bez ogonka „p”): `translateY(--nav-shift)`, 4px – zmierzone
+  w przeglądarce (różnica ok. 0,3px). Zmiana wysokości logo albo rozmiaru linków = zmierz ponownie.
 - **Podkreślenie widocznej sekcji** (Łukasz, 10.11.2026): złota linia 2px pod linkiem (`.is-active`, kolor kropki
   nad „i”); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
   strony – FAQ. Sekcje bez linku (`#inside`, `#who`) zostawiają zaznaczoną poprzednią.
@@ -162,26 +164,29 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Do ustalenia przy zakładaniu Stripe (konto jeszcze nie istnieje – 10.11.2026): VAT (ceny na stronie są netto),
   zbieranie NIP i danych do faktury, strona po płatności z tym, co klient robi dalej (stworzenie gry, kod zaproszenia).
 
-## Wygląd „Stadion”
+## Wygląd – karta znaku Bextip (11.11.2026)
 
-- Paleta (z „Bextip-Stadion-00-Logo-i-paleta”): `#1C4F95` tło firmowe / panel, `#FFFFFF` napis, `#86C93E` akcent „x”,
-  `#0C2A55` kontur sygnetu i tekst, `#1F86CF` „x” na jasnym tle, `#F1F4F8` tło strony UI.
-- **Logotyp** – podstawowy znak serwisu (Łukasz, 10.11.2026): sam napis „Bextip” z wersji kompaktowej, bez sygnetu „Bx”.
-  - `Bextip-Stadion-logotyp.svg` – biały napis z zielonym „x”, bez tła (wersja z paczki „Stadion”);
-  - `Bextip-Stadion-logotyp-z-tlem.svg` – to samo na tle `#1C4F95`, do użycia poza stroną.
-  - Oba wycięte z `Bextip-Stadion-logo-kompaktowe-z-tlem.svg` (6 ścieżek napisu; kształty i kolory bez zmian).
-  - **Na stronie: `Bextip-Stadion-logotyp-zlota-kropka.svg`** – kropka nad „i” w kolorze `--gold` `#F5B82E`
-    (pomysł Łukasza, decyzja Claude, 10.11.2026; ścieżka „i” rozdzielona na trzon i kropkę) – w nagłówku, stopce
-    i na obrazie do podglądu linków; w białym menu wersja na jasne tło (niżej). Jest też `-zlota-kropka-z-tlem.svg`. Aplikacja i inne materiały mają na razie
-    logo bez złotej kropki – do ujednolicenia, jeśli Łukasz ją zostawi.
-  - **Na jasne tło** (białe menu): `Bextip-Stadion-logotyp-na-jasnym-tle-zlota-kropka.svg` – litery niebieskie
-    `#1C4F95`, „x” zielone `#86C93E`, złota kropka (Łukasz, 10.11.2026 – zamiast granatu i niebieskiego „x” z palety);
-    jest też wersja bez złotej kropki. Stopka (granatowa) i obraz do podglądu linków mają dalej biały napis
-    z zielonym „x”.
-- **Sygnet** – podstawowy (Łukasz, 10.11.2026): `Bextip-Stadion-logo-sygnet-ikona.svg` („Bx” bez tła) – ikona karty
-  przeglądarki.
-- Pozostałe warianty z paczki „Stadion” (z claimem, panel, biały, na jasnym tle) zostają w `assets/logo/`, strona ich
-  nie używa. Biały logotyp ze złotą kropką jest też w kafelku Bextip w porównaniu.
+Źródło: „Bextip – karta znaku” (skrócona księga znaku, wersja 1.0, listopad 2026) z paczki `Bextip-logo-pakiet.zip`
+od Łukasza. Poprzednie logo „Stadion” zostało zastąpione (pliki są w historii gita).
+
+- **Kolory:** niebieski `#1C4F95` (podstawowy, pole logo), granat `#0C2A55` (koniec gradientu, teksty), zielony
+  `#86C93E` (litera x, akcje – przyciski), złoty `#EEC13E` (kropka nad „i”, akcenty), biel. Tło stron UI `#F1F4F8`
+  zostaje z poprzedniej palety.
+- **Gradient ekranowy:** liniowy, od `#1C4F95` do `#0C2A55`, kierunek 110° (`--grad` w styles.css). Na stronie:
+  stopka, sekcja „Dla kogo”, kafelek Bextip w porównaniu, ikony kart „Dla kogo”, numery kroków, wyróżniony pakiet
+  i tło obrazu do podglądu linków (Łukasz, 11.11.2026: gradient w stopce i innych ciemnych elementach).
+- **Logo na stronie** (zasady karty: gradient tylko na ekranach i na jasnym tle; na niebieskim tle sam napis, bez pola):
+  - menu (białe): `Bextip-logo-gradient.svg` – pole z gradientem, 48px wysokości;
+  - stopka (gradient od niebieskiego), kafelek Bextip (gradient) i obraz do podglądu linków:
+    `Bextip-napis-bez-pola-na-niebieskie-tlo.svg` – sam napis. Wersja płaska z polem na ciemne tło
+    (`Bextip-logo-plaskie.svg`) zlewała się z niebieskim początkiem gradientu stopki.
+  - Pozostałe wersje (płaska, jednokolorowe: granat, czerń, biel) są w `assets/logo/` – strona ich nie używa.
+- **Ikona „Bx”:** favikona z paczki (`favicon.svg` – wariant do małych rozmiarów z szerszą przerwą w B, `favicon.ico`,
+  `apple-touch-icon.png`, ikony w `site.webmanifest`); ta sama ikona jest na karcie w oknach przeglądarek (frames.js).
+- **Zasady z karty:** nie rozciągać logo i nie zmieniać pochylenia pola; napis biały, x zielone, kropka złota; bez
+  cieni, obrysów i efektów na logo; pole ochronne co najmniej wysokość litery x; najmniejsza wysokość logo 24px;
+  **złoty to akcent – wypełnienia i znaczniki, nie tekst na bieli** (dlatego plusy w FAQ są niebieskie).
+- **Krój napisu w logo: Sora ExtraBold** (B własne). Strona ma nagłówki w Lexend – patrz „Czcionki”.
 - Czcionki: Lexend (nagłówki) i Inter (tekst) z Google Fonts – dobrane na oko, bo w plikach SVG litery są krzywymi.
   Do potwierdzenia przez Łukasza. Hasło (h1), tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
   (Łukasz, 10.11.2026: były za ciężkie); ceny w cenniku też 600, numery kroków 700.
@@ -195,7 +200,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   mają: przycisk w hero, „Wybierz pakiet” w porównaniu i przyciski pakietów; „Wybierz pakiet” w menu – bez strzałki
   (jak „Book a demo” w nagłówku EQrento).
 - Ptaszki na listach i w etykietach hero: złote kółko z granatowym ptaszkiem (`--ico-check`; Łukasz, 10.11.2026).
-- Trzeci akcent: złoty `#F5B82E` (`--gold`; ciemniejszy `--gold-dark` na jasnym tle) – decyzja Claude za zgodą Łukasza, 10.11.2026, żeby strona nie była tylko niebiesko-zielona; nawiązuje do pucharu i żółtych ikon Jokera w aplikacji. Używany oszczędnie: kropka nad „i” w logo, kropka w etykiecie hero (rozmiar `--dot` = 8,4px, jak kropka nad „i” w logo z nagłówka – Łukasz, 10.11.2026; po powiększeniu logo do 43px kropka też urosła), strzałki między krokami, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), górna krawędź kart „Dla kogo”, plusy w FAQ.
+- Akcent: złoty z karty znaku `#EEC13E` (`--gold`; wcześniej `#F5B82E`). Używany oszczędnie i tylko jako wypełnienie lub znacznik: kropka w etykiecie hero (`--dot` 8,4px), podkreślenie widocznej sekcji w menu, strzałki między krokami i w przyciskach, ptaszki, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), kropka przy wybranym języku w stopce.
 - Wizualizacje „Tabele” i „Typowanie wyniku” zawierają prawdziwe imiona i nazwiska graczy – celowo nie są na stronie.
   Ekran tabeli można dodać, gdy powstanie wersja z fikcyjnymi nazwiskami.
 
@@ -236,7 +241,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111c`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111d`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

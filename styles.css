@@ -1,4 +1,4 @@
-/* Bextip landing – motyw „Stadion” (niebiesko-biały).
+/* Bextip landing – kolory z karty znaku Bextip (11.11.2026): niebieski, granat, zielony x, złota kropka, gradient 110°.
    Zmiana motywu = podmiana zmiennych w :root. */
 :root {
   --blue: #1C4F95;      /* tło firmowe / panel */
@@ -7,9 +7,12 @@
   --bright: #1F86CF;    /* niebieski akcent na jasnym tle */
   --accent: #86C93E;    /* zielony akcent „x” */
   --accent-dark: #74B42F;
-  --gold: #F5B82E;      /* trzeci akcent: kropka nad „i” w logo, strzałki kroków, „Polecany” – oszczędnie */
-  --gold-dark: #C98A00;
-  --gold-soft: #FFF3D3;
+  --gold: #EEC13E;      /* złoty z karty znaku: kropka nad „i”, akcenty – tylko wypełnienia i znaczniki, nie tekst na bieli */
+  --gold-soft: #FCF3D8; /* jasne tło ikon funkcji, z tego samego złotego */
+  --gold-shadow: rgba(184, 140, 20, .75);
+  /* gradient ekranowy z karty znaku: od niebieskiego do granatu, kierunek 110° – stopka, sekcja „Dla kogo”,
+     kafelek Bextip, ikony i numery kroków */
+  --grad: linear-gradient(110deg, #1C4F95 0%, #0C2A55 100%);
   --green-soft: #EDF7E2;
   --sky: #E6EEF8;
   --sky-2: #F1F4F8;     /* tło strony UI */
@@ -24,7 +27,7 @@
   /* szerokość treści jak na eqrento.com: do 1360px, boczne odstępy 48 / 40 / 32 / 20px (Łukasz, 10.11.2026) */
   --gutter: 48px;
   /* złota strzałka przycisków i granatowy ptaszek na złotym kółku list (SVG w CSS) */
-  --ico-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5B82E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E");
+  --ico-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EEC13E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E");
   --ico-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C2A55' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
   /* złote kropki-akcenty mają rozmiar kropki nad „i” w logo z nagłówka (36px wysokości → ok. 7px) */
   --dot: 8.4px;   /* logo w menu ma 43px, kropka nad „i” ma w nim ok. 8,4px */
@@ -58,11 +61,7 @@ p { margin: 0 0 1em; }
 .section .wrap > :last-child, .hero__copy > :last-child { margin-bottom: 0; }
 .section--tint { background: var(--sky-2); }
 /* niebieski z logo (#1C4F95) – sekcja „Dla kogo” (Łukasz, 10.11.2026), z jasną i zieloną poświatą */
-.section--blue {
-  color: var(--white);
-  background: radial-gradient(50% 70% at 100% 0%, rgba(255, 255, 255, .14), transparent 70%),
-              radial-gradient(40% 60% at 0% 100%, rgba(134, 201, 62, .18), transparent 70%), var(--blue);
-}
+.section--blue { color: var(--white); background: var(--grad); }   /* sekcja „Dla kogo” – gradient z karty znaku */
 .sub { color: var(--muted); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; }
 /* tytuł sekcji i opis pod nim – wyśrodkowane, jak na eqrento.com (sekcja #inside ma tekst obok ekranu i zostaje z lewej) */
 .section-head { text-align: center; max-width: 820px; margin: 0 auto clamp(32px, 4vw, 48px); }
@@ -110,12 +109,12 @@ p { margin: 0 0 1em; }
 /* trzy kolumny jak na eqrento.com: logotyp z lewej, linki na środku (z dala od logotypu), przyciski z prawej */
 .nav__in { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: 24px; height: 68px; }
 .brand { grid-column: 1; justify-self: start; display: flex; align-items: center; }
-.brand img { height: 43px; width: auto; }   /* logo w menu o ok. 20% większe (Łukasz, 10.11.2026) */
+.brand img { height: 48px; width: auto; }   /* logo z gradientem (karta znaku: wersja ekranowa na jasne tło), 48px */
 /* --nav-shift: linia bazowa linków na wysokości podstawy napisu „Bextip” (bez ogonka „p”) – zmierzone w przeglądarce
-   dla logo 43px (7px; różnica ok. 0,5px) */
+   dla logo z polem 48px (4px; różnica ok. 0,3px) */
 .nav__links {
   grid-column: 2; display: flex; gap: 36px; font-weight: 500; color: var(--muted); white-space: nowrap;
-  transform: translateY(var(--nav-shift, 7px));
+  transform: translateY(var(--nav-shift, 4px));
 }
 .nav__links a { position: relative; display: block; padding: 6px 0; line-height: 1.1; transition: color .2s; }
 .nav__links a::after {   /* podkreślenie widocznej sekcji – złota linia jak kropka nad „i” */
@@ -170,7 +169,7 @@ p { margin: 0 0 1em; }
    krawędzi i przycisk na dolnej – do połowy poza kafelkiem, jak na eqrento.com */
 .card--hl {
   position: relative; border: 0; color: var(--white); padding: 40px 28px 54px; margin-bottom: 26px;
-  background: radial-gradient(70% 60% at 100% 0%, rgba(255, 255, 255, .14), transparent 70%), var(--blue);
+  background: var(--grad);
   box-shadow: 0 2px 4px rgba(5, 20, 45, .12), 0 26px 50px -18px rgba(12, 42, 85, .6);
 }
 .card--hl .quote { color: #D5E2F5; }
@@ -182,13 +181,13 @@ p { margin: 0 0 1em; }
 .card__logo { line-height: 1; margin-bottom: 12px; }
 .card__logo img { height: 17px; width: auto; }   /* wielkie „B” logotypu = wielkie litery tytułów kafelków (13px) */
 .card__cta { position: absolute; bottom: 0; left: 50%; translate: -50% 50%; white-space: nowrap; }
-.tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: .78rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; box-shadow: 0 4px 10px -4px rgba(201, 138, 0, .7); }
+.tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: .78rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; box-shadow: 0 4px 10px -4px var(--gold-shadow); }
 .quote { color: var(--muted); font-style: italic; }
 .list { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; }
 .list li { padding-left: 28px; position: relative; }
 .list li::before { position: absolute; left: 0; top: 0; font-weight: 800; }
 /* ptaszki w kolorze akcentu (Łukasz, 10.11.2026): złote kółko z granatowym ptaszkiem */
-.list--check li::before { content: ""; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--gold) var(--ico-check) center / 11px no-repeat; box-shadow: 0 3px 6px -3px rgba(201, 138, 0, .8); }
+.list--check li::before { content: ""; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--gold) var(--ico-check) center / 11px no-repeat; box-shadow: 0 3px 6px -3px var(--gold-shadow); }
 .list--minus li::before { content: "–"; color: #9aa6bf; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 /* kafelek funkcji: ikona i tytuł w jednym rzędzie, opis pod nimi (Łukasz, 11.11.2026) */
@@ -213,7 +212,7 @@ p { margin: 0 0 1em; }
 }
 .who__icon {
   grid-row: 1 / span 2; width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center;
-  background: linear-gradient(145deg, #2C69BD 0%, var(--blue) 100%);
+  background: var(--grad);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 10px 20px -10px rgba(28, 79, 149, .85);
 }
 .who__icon img { width: 24px; height: 24px; }   /* Uicons (Flaticon) 24×24, jak w EQrento */
@@ -231,14 +230,14 @@ p { margin: 0 0 1em; }
 .steps li::before {   /* numer kroku */
   content: counter(s); position: absolute; top: 22px; left: 24px;
   width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--blue); color: var(--white); font: 700 1rem/1 var(--font-head);
+  background: var(--grad); color: var(--white); font: 700 1rem/1 var(--font-head);
   box-shadow: 0 6px 14px -6px rgba(28, 79, 149, .85);
 }
 .steps li:not(:last-child)::after {   /* strzałka do następnego kroku, na środku odstępu między kartami */
   content: ""; position: absolute; z-index: 1; top: 50%; right: -46px; width: 36px; height: 36px; margin-top: -18px;
   border-radius: 50%;
   background: var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C2A55' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / 18px no-repeat;
-  box-shadow: 0 6px 14px -6px rgba(201, 138, 0, .9);
+  box-shadow: 0 6px 14px -6px var(--gold-shadow);
 }
 .steps h3 { margin-bottom: .4em; }
 .steps p { color: var(--muted); margin: 0; }
@@ -262,7 +261,7 @@ p { margin: 0 0 1em; }
 .tier__cta { margin: auto 0 0; padding-top: 20px; }
 .tier__cta .btn { width: 100%; }
 /* wyróżniony pakiet (recommended: true w config.js) – granatowy, z etykietą na górnej krawędzi */
-.tier--hero { background: var(--navy); }
+.tier--hero { background: var(--grad); }
 .tier--hero .tier__name, .tier--hero .tier__price b, .tier--hero .tier__limits b { color: var(--white); }
 .tier--hero .tier__price, .tier--hero .tier__limits { color: #B9C8E2; }
 .tier__badge { position: absolute; top: 0; left: 50%; translate: -50% -50%; margin: 0; white-space: nowrap; }
@@ -285,24 +284,20 @@ details {
 details[open] { box-shadow: var(--shadow-md); }
 summary { cursor: pointer; font-weight: 700; font-size: 1.08rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
 summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; color: var(--gold-dark); font-size: 1.4rem; line-height: 1; }
+summary::after { content: "+"; color: var(--blue); font-size: 1.4rem; line-height: 1; }
 details[open] summary::after { content: "–"; }
 details p { color: var(--muted); margin: 12px 0 0; }
 
 /* stopka wg schematu eqrento.com: marka (logo + dwa akapity), Kontakt, Serwis, Aplikacja; hasło; prawa i linki */
 .footer {
   position: relative; overflow: hidden; isolation: isolate;
-  background: var(--navy); color: #B9C8E2; padding: var(--sec-y) 0 32px; font-size: .9rem; line-height: 1.7;
+  background: var(--grad); color: #B9C8E2; padding: var(--sec-y) 0 32px; font-size: .9rem; line-height: 1.7;
 }
-.footer::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: radial-gradient(40% 60% at 0% 0%, rgba(31, 134, 207, .35), transparent 70%),
-              radial-gradient(35% 55% at 100% 100%, rgba(134, 201, 62, .14), transparent 70%);
-}
+
 /* marka do 340px, potem cztery kolumny szerokie na swoją treść; wolne miejsce rozkłada się po równo między kolumnami,
    więc „Kontakt” stoi tak samo daleko od marki, jak kolumny od siebie (Łukasz, 10.11.2026) */
 .footer__grid { display: grid; grid-template-columns: minmax(0, 340px) repeat(4, auto); justify-content: space-between; gap: 32px; }
-.footer__brand img { width: 150px; height: auto; }
+.footer__brand img { width: 150px; height: auto; }   /* sam napis – karta znaku: „na niebieskim tle używaj samego napisu, bez pola” (stopka zaczyna się od niebieskiego) */
 .footer__brand p { margin: 20px 0 0; max-width: 340px; }
 .footer__col { padding-top: 8px; }
 .footer__col h3 { font-family: var(--font); font-size: .9rem; font-weight: 600; letter-spacing: 0; color: var(--white); margin: 0 0 14px; }

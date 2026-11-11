@@ -10,7 +10,7 @@
   var W = 1080;
   var FONT = "Inter, 'Segoe UI', system-ui, -apple-system, sans-serif";
   // ikona karty – adres liczony od położenia frames.js, więc działa też w narzedzia/okna.html
-  var FAV = new URL("assets/logo/Bextip-Stadion-logo-sygnet-ikona.svg", (document.currentScript && document.currentScript.src) || location.href).href;
+  var FAV = new URL("favicon.svg", (document.currentScript && document.currentScript.src) || location.href).href;
   var uid = 0;
 
   function esc(s) {

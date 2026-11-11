@@ -1,6 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261111a";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261111d";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
 
   function get(path) {
