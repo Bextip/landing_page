@@ -185,6 +185,10 @@ od Łukasza. Poprzednie logo „Stadion” zostało zastąpione (pliki są w his
 - **Kolory:** niebieski `#1C4F95` (podstawowy, pole logo), granat `#0C2A55` (koniec gradientu, teksty), zielony
   `#86C93E` (litera x, akcje – przyciski), złoty `#EEC13E` (kropka nad „i”, akcenty), biel. Tło stron UI `#F1F4F8`
   zostaje z poprzedniej palety.
+- **Kolory tekstu** (Łukasz, 11.11.2026): tytuły, hasło, ceny, pytania FAQ i pogrubienia w granacie `#0C2A55`
+  (`--ink`); opisy i teksty pomocnicze w jaśniejszym odcieniu tego granatu `#475F80` (`--muted`: 75% granatu,
+  25% bieli, kontrast z bielą 6,5:1; wcześniej szaroniebieski `#55627D`). Wszystko w granacie było rozważane –
+  tytuły przestałyby się wyróżniać, a długie opisy zrobiłyby się ciężkie.
 - **Gradient ekranowy:** liniowy, od `#1C4F95` do `#0C2A55`, kierunek 110° (`--grad` w styles.css). Na stronie:
   stopka, sekcja „Dla kogo”, kafelek Bextip w porównaniu, ikony kart „Dla kogo”, numery kroków, wyróżniony pakiet
   i tło obrazu do podglądu linków (Łukasz, 11.11.2026: gradient w stopce i innych ciemnych elementach).
@@ -256,7 +260,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111h`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111i`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

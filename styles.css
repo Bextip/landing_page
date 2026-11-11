@@ -18,7 +18,7 @@
   --sky-2: #F1F4F8;     /* tło strony UI */
   --line: #D8E0EC;
   --ink: #0C2A55;
-  --muted: #55627D;
+  --muted: #475F80;     /* opisy i teksty pomocnicze: jaśniejszy odcień granatu #0C2A55 (75% granatu, 25% bieli; kontrast z bielą 6,5:1) – Łukasz, 11.11.2026, wcześniej #55627D */
   --white: #fff;
   --ok: #5E9E22;
   --radius: 16px;
