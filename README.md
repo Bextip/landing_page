@@ -96,7 +96,8 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
     `firefox-mac`, `firefox-win`, `safari`, `samsung` albo `other`; wszystkie naraz – `narzedzia/okna.html` w podglądzie
     lokalnym.
   - Skrypt w `<head>` jest jedynym skryptem wpisanym w HTML: gdyby strona trafiła kiedyś na serwer z nagłówkiem
-    Content-Security-Policy (jak eqrento.com na OVH), trzeba go dopuścić hashem albo przenieść do pliku.- **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
+    Content-Security-Policy (jak eqrento.com na OVH), trzeba go dopuścić hashem albo przenieść do pliku.
+- **Stopka** (Łukasz, 10.11.2026: schemat eqrento.com): logotyp z dwoma akapitami, kolumny Kontakt / Serwis
   (sekcje strony) / Aplikacja (bextip.com/login i /register) / Język. Marka ma do 340px, a wolne miejsce rozkłada się
   po równo między kolumny (`justify-content: space-between`), więc odstęp marka → Kontakt jest taki sam jak między
   pozostałymi (Łukasz, 10.11.2026). Hasło (Łukasz, 11.11.2026): „Stworzone z pasją w [flaga] Polsce, dla zespołów,
