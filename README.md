@@ -143,7 +143,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Opis pod hasłem w dwóch akapitach (`hero.lead` i `hero.lead2`, Łukasz, 11.11.2026), podobnie opis cennika
   (`pricing.sub` i `pricing.sub2`).
 - **Kafelek Bextip w porównaniu** (`#about`, Łukasz, 11.11.2026): niebieski, zamiast napisu „Bextip” biały logotyp
-  w rozmiarze tytułów kafelków (17px – wielkie „B” ma 13px jak wielkie litery tytułów), etykieta „Stworzony dla firm”
+  28px wysokości – większy od tytułów kafelków obok (Łukasz, 11.11.2026: przy 17px ginął wśród punktów; karta znaku: logo co najmniej 24px), etykieta „Stworzony dla firm”
   na górnej krawędzi i przycisk „Wybierz pakiet” na dolnej – do połowy poza kafelkiem, jak na eqrento.com; kafelek ma
   `margin-bottom`, żeby przycisk nie zjadał odstępu sekcji. Na telefonie jest pierwszy (`order: -1`).
   **Etykieta „Stworzony dla firm” = przycisk „Wybierz pakiet” z tego kafelka** (Łukasz, 11.11.2026, kolory własne):
@@ -182,12 +182,12 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   `.tier--wide` pod nimi na całą szerokość. Piąty pakiet z limitem nie zmieści się w rzędzie – trzeba by zmienić siatkę.
 - **Kafelek** (Łukasz, 11.11.2026): u góry nazwa i trzy punkty ze złotymi kropkami – „do **20 graczy**”, „miękki
   limit **+10%** (+2 graczy gratis)”, „**wszystkie funkcje** w cenie” (pogrubienia `**…**` w `i18n.js`, nawias
-  z nierozdzielającymi spacjami, żeby łamał się w całości); na dole cena z „netto / za rok” obok, cena za gracza
+  z nierozdzielającymi spacjami, żeby łamał się w całości); na dole cena z „netto za rok” w jednej linii obok, „X,XX zł za gracza / miesiąc”
   i przycisk. Blok z ceną (`.tier__buy`) jest przyklejony do dołu, więc ceny stoją w jednej linii we wszystkich
   kafelkach. Enterprise: „ponad **200 graczy** • miękki limit **+10%** graczy gratis • **wszystkie funkcje** w cenie”
   w jednym rzędzie ze złotymi kropkami między punktami; do 1240px jeden pod drugim, z kropką przy każdym.
 - Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`.
-- **„W każdym pakiecie”** – `pricing.included`: 20 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza
+- **„W każdym pakiecie”** – `pricing.included`: 19 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza (bez „Własna subdomena” – usunięta z całej strony, Łukasz, 11.11.2026)
   (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
   z góry na dół (CSS `columns`), dwie do 1100px, jedna na telefonach; ptaszki w złotych kółkach.
 - Ceny w kafelkach: Sora 600, jak hasło i tytuły (wcześniej 800 – po odchudzeniu nagłówków wyglądały za ciężko).
@@ -286,7 +286,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111m`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111n`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

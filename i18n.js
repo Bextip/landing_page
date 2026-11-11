@@ -36,7 +36,7 @@ window.BEXTIP_I18N = {
       b: {
         tag: "Stworzony dla firm",
         quote: "„Wspólne emocje dla całej firmy – od recepcji po zarząd.”",
-        items: ["Wyniki meczów, punkty i tabela liczone automatycznie", "Branding firmy: logo, kolory, własna nazwa gry i subdomena", "Rywalizacja między wewnętrznymi drużynami (do 4)", "Czat, statystyki i historia typowań", "Działa w każdej przeglądarce, na komputerze i telefonie", "Uruchomienie dosłownie w kilka minut"]
+        items: ["Wyniki meczów, punkty i tabela liczone automatycznie", "Branding firmy: logo, kolory i własna nazwa gry", "Rywalizacja między wewnętrznymi drużynami (do 4)", "Czat, statystyki i historia typowań", "Działa w każdej przeglądarce, na komputerze i telefonie", "Uruchomienie dosłownie w kilka minut"]
       },
       c: {
         title: "Jednorazowy event",
@@ -50,7 +50,7 @@ window.BEXTIP_I18N = {
       items: [
         { ico: "⚽", t: "Automatyczne wyniki i punkty", d: "Wyniki meczów aktualizują się same, a punkty graczy są zliczane automatycznie: 3 pkt za dokładny rezultat, 1 pkt za wskazanie zwycięzcy." },
         { ico: "🏆", t: "Tabela graczy na żywo", d: "Ranking aktualizuje się po każdym meczu. Każdy od razu widzi, kto prowadzi i ile brakuje mu do podium." },
-        { ico: "🎨", t: "Branding Twojej firmy", d: "Logo, kolorystyka, własna nazwa gry i własna subdomena, np. nazwa_firmy.bextip.com." },
+        { ico: "🎨", t: "Branding Twojej firmy", d: "Logo, kolorystyka i własna nazwa gry." },
         { ico: "👥", t: "Wewnętrzne drużyny", d: "Podziel graczy na maksymalnie 4 drużyny – działy, oddziały lub biura – i pozwól im rywalizować między sobą." },
         { ico: "🃏", t: "Joker i zdarzenia Ekstra", d: "Joker podwaja punkty w wybranych meczach, a dodatkowe zdarzenia „Ekstra” podkręcają emocje i mieszają w tabeli." },
         { ico: "⭐", t: "Bonus za mistrza", d: "Dodatkowe punkty dla tych, którzy przed startem rozgrywek trafnie wytypują ich zwycięzcę." },
@@ -87,7 +87,7 @@ window.BEXTIP_I18N = {
       net: "netto",
       perYear: "za rok",
       perMonth: "za miesiąc",
-      perPlayer: "{p} za gracza / mies.",
+      perPlayer: "{p} za gracza / miesiąc",
       orYear: "lub {p} rocznie – 2 mies. gratis",
       from: "od",
       // punkty na kafelkach (złote kropki), **…** = pogrubienie (Łukasz, 11.11.2026); softAll – Enterprise
@@ -120,7 +120,6 @@ window.BEXTIP_I18N = {
         "Możliwość podzielenia graczy na maks. **4 wewnętrzne drużyny**",
         "Branding (**logo i kolorystyka**) firmy",
         "**Własna nazwa** gry",
-        "Własna **subdomena** (np.: nazwa_firmy.bextip.com)",
         "Dostęp przez **dowolną przeglądarkę** z komputera lub smartfona",
         "**5 wersji językowych** (polska, angielska, niemiecka, hiszpańska, rosyjska)",
         "**Priorytetowa obsługa** użytkowników firmowych",
@@ -137,7 +136,7 @@ window.BEXTIP_I18N = {
         { q: "Jak szybko możemy zacząć?", a: "Dosłownie w kilka minut: wybierasz pakiet, tworzysz grę i przekazujesz pracownikom kod zaproszenia. Jeśli chcesz, pomożemy Ci przy każdym kroku." },
         { q: "Jak gracze dołączają do gry?", a: "Administrator gry otrzymuje 6-cyfrowy kod zaproszenia. Pracownik rejestruje się na bextip.com, potwierdza adres e-mail kodem weryfikacyjnym i wpisuje kod gry – to wszystko." },
         { q: "Jak liczone są punkty?", a: "Za dokładnie wytypowany wynik gracz otrzymuje 3 punkty, za wskazanie zwycięzcy – 1 punkt. Liczy się rezultat w regulaminowym czasie gry. Do tego dochodzą punkty za Jokera, zdarzenia Ekstra i bonus za wytypowanie mistrza." },
-        { q: "Czy typer może wyglądać jak nasza firma?", a: "Tak. W każdym pakiecie możesz ustawić logo i kolorystykę firmy, własną nazwę gry oraz własną subdomenę, np. nazwa_firmy.bextip.com." },
+        { q: "Czy typer może wyglądać jak nasza firma?", a: "Tak. W każdym pakiecie możesz ustawić logo i kolorystykę firmy oraz własną nazwę gry." },
         { q: "Mamy kilka działów lub oddziałów. Czy mogą rywalizować między sobą?", a: "Tak. Graczy można podzielić na maksymalnie 4 wewnętrzne drużyny, które rywalizują ze sobą obok klasyfikacji indywidualnej." },
         { q: "Nasz zespół jest międzynarodowy. W jakich językach działa Bextip?", a: "W pięciu: polskim, angielskim, niemieckim, hiszpańskim i rosyjskim. Każdy gracz wybiera swój język." },
         { q: "Co, jeśli mamy więcej niż 200 graczy?", a: "Wybierz pakiet Enterprise – cenę ustalamy indywidualnie (od 790 zł miesięcznie albo od 7 900 zł rocznie, netto). Napisz do nas, a przygotujemy ofertę." }
@@ -189,7 +188,7 @@ window.BEXTIP_I18N = {
       b: {
         tag: "Built for companies",
         quote: "“Shared excitement for the whole company – from reception to the boardroom.”",
-        items: ["Match results, points and leaderboard calculated automatically", "Company branding: logo, colours, your own game name and subdomain", "Competition between internal teams (up to 4)", "Chat, statistics and prediction history", "Works in any browser, on desktop and mobile", "Live in literally a few minutes"]
+        items: ["Match results, points and leaderboard calculated automatically", "Company branding: logo, colours and your own game name", "Competition between internal teams (up to 4)", "Chat, statistics and prediction history", "Works in any browser, on desktop and mobile", "Live in literally a few minutes"]
       },
       c: {
         title: "One-off event",
@@ -203,7 +202,7 @@ window.BEXTIP_I18N = {
       items: [
         { ico: "⚽", t: "Automatic results and points", d: "Match results update on their own and points are counted automatically: 3 points for the exact score, 1 point for picking the winner." },
         { ico: "🏆", t: "Live leaderboard", d: "The ranking updates after every match. Everyone sees straight away who is leading and how far they are from the podium." },
-        { ico: "🎨", t: "Your company branding", d: "Logo, colours, your own game name and your own subdomain, e.g. company_name.bextip.com." },
+        { ico: "🎨", t: "Your company branding", d: "Logo, colours and your own game name." },
         { ico: "👥", t: "Internal teams", d: "Split players into up to 4 teams – departments, branches or offices – and let them compete against each other." },
         { ico: "🃏", t: "Joker and Extra events", d: "The Joker doubles points in selected matches, and additional “Extra” events raise the stakes and shake up the table." },
         { ico: "⭐", t: "Champion bonus", d: "Bonus points for those who correctly predict the overall winner before the competition starts." },
@@ -270,7 +269,6 @@ window.BEXTIP_I18N = {
         "Split players into up to **4 internal teams**",
         "Branding (**company logo and colours**)",
         "**Your own game name**",
-        "Your own **subdomain** (e.g. company_name.bextip.com)",
         "Access from **any browser** on desktop or smartphone",
         "**5 languages** (Polish, English, German, Spanish, Russian)",
         "**Priority support** for company users",
@@ -287,7 +285,7 @@ window.BEXTIP_I18N = {
         { q: "How quickly can we start?", a: "In literally a few minutes: choose a package, create your game and share the invitation code with your employees. If you like, we’ll help you with every step." },
         { q: "How do players join the game?", a: "The game administrator gets a 6-digit invitation code. An employee registers at bextip.com, confirms their e-mail with a verification code and enters the game code – that’s all." },
         { q: "How are points awarded?", a: "A player gets 3 points for the exact score and 1 point for picking the winner. The result in regular playing time counts. On top of that come points for the Joker, Extra events and the champion bonus." },
-        { q: "Can the game look like our company?", a: "Yes. Every package lets you set your company logo and colours, your own game name and your own subdomain, e.g. company_name.bextip.com." },
+        { q: "Can the game look like our company?", a: "Yes. Every package lets you set your company logo and colours as well as your own game name." },
         { q: "We have several departments or branches. Can they compete with each other?", a: "Yes. Players can be split into up to 4 internal teams that compete alongside the individual ranking." },
         { q: "Our team is international. Which languages does Bextip support?", a: "Five: Polish, English, German, Spanish and Russian. Each player chooses their own language." },
         { q: "What if we have more than 200 players?", a: "Choose the Enterprise package – the price is set individually (from €179 a month or €1,990 a year, net). Write to us and we will prepare an offer." }
