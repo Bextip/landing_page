@@ -290,9 +290,16 @@ p { margin: 0 0 1em; }
 /* pod ceną: przy płatności rocznej cena za gracza miesięcznie, przy miesięcznej – ile kosztuje rok */
 .tier__pp { margin: 8px 0 0; font-size: .9rem; line-height: 1.4; color: var(--muted); }
 .tier__pp b { font-weight: 600; color: var(--ink); white-space: nowrap; }
-.tier__limits { list-style: none; margin: 0; padding: 16px 0 0; display: flex; flex-direction: column; gap: 4px; font-size: .9rem; line-height: 1.4; color: var(--muted); }
+/* punkty pod nazwą pakietu (Łukasz, 11.11.2026): złote kropki, pogrubienia z i18n.js (**…**); co najmniej 20px do ceny */
+.tier__limits { list-style: none; margin: 0 0 20px; padding: 14px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: .9rem; line-height: 1.4; color: var(--muted); }
+.tier__limits li { position: relative; padding-left: 16px; }
+.tier__limits li::before { content: ""; position: absolute; left: 0; top: calc(.7em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
 .tier__limits b { font-weight: 600; color: var(--ink); }
-.tier__cta { margin: auto 0 0; padding-top: 20px; }
+/* cena i cena za gracza na dole kafelka, nad przyciskiem – przyklejone do dołu, więc stoją w jednej linii we wszystkich
+   kafelkach, nawet gdy punkty w którymś łamią się na dwie linie */
+.tier__buy { margin-top: auto; }
+.tier__buy .tier__price { margin-top: 0; }
+.tier__cta { margin: 0; padding-top: 20px; }
 .tier__cta .btn { width: 100%; }
 /* wyróżniony pakiet (recommended: true w config.js – Mid) – gradient z karty znaku, etykieta „Polecany” na górnej
    krawędzi (wymiary przycisku z kafelka – .tag.tier__badge przy .tag.card__badge) */
@@ -302,7 +309,17 @@ p { margin: 0 0 1em; }
 .tier--wide { margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 16px 40px; padding: 26px 28px; }
 .tier--wide .tier__price { margin: 0; }
 .tier--wide .tier__pp { margin-top: 4px; }
-.tier__limits--row { flex-direction: row; flex-wrap: wrap; gap: 4px 24px; padding-top: 8px; }
+/* Enterprise: punkty w jednym rzędzie, złote kropki między nimi (do 1240px jeden pod drugim, kropka przy każdym) */
+.tier__limits--row { flex-direction: row; flex-wrap: wrap; gap: 4px 0; margin: 0; padding-top: 8px; }
+.tier__limits--row li { padding-left: 0; }
+.tier__limits--row li::before { display: none; }
+.tier__limits--row li + li { padding-left: 30px; }
+.tier__limits--row li + li::before { display: block; left: 12px; }
+@media (max-width: 1240px) {
+  .tier__limits--row { flex-direction: column; gap: 6px; }
+  .tier__limits--row li, .tier__limits--row li + li { padding-left: 16px; }
+  .tier__limits--row li::before, .tier__limits--row li + li::before { display: block; left: 0; }
+}
 .tier--wide .tier__cta { margin: 0; padding: 0; }
 .tier--wide .tier__cta .btn { width: auto; min-width: 200px; }
 .note { color: var(--muted); font-size: .9rem; margin: 20px 0 0; text-align: center; }

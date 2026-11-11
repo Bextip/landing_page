@@ -179,9 +179,13 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   (`billing`). Przy płatności rocznej pod ceną jest cena za gracza miesięcznie, przy miesięcznej – ile kosztuje rok.
 - Układ (Łukasz, 10.11.2026: mniejsze kafelki jak w EQrento): pakiety z limitem graczy to `.tier` w `.tiers` –
   4 w rzędzie powyżej 1100px, 2 × 2 niżej, jeden pod drugim na telefonach; Enterprise (`players: null`) to
-  `.tier--wide` pod nimi na całą szerokość. Kafelek: nazwa, cena z „netto / za rok” obok, cena za gracza, limit
-  graczy, miękki limit, „wszystkie funkcje w cenie”, przycisk. Piąty pakiet z limitem nie zmieści się w rzędzie –
-  trzeba by zmienić siatkę.
+  `.tier--wide` pod nimi na całą szerokość. Piąty pakiet z limitem nie zmieści się w rzędzie – trzeba by zmienić siatkę.
+- **Kafelek** (Łukasz, 11.11.2026): u góry nazwa i trzy punkty ze złotymi kropkami – „do **20 graczy**”, „miękki
+  limit **+10%** (+2 graczy gratis)”, „**wszystkie funkcje** w cenie” (pogrubienia `**…**` w `i18n.js`, nawias
+  z nierozdzielającymi spacjami, żeby łamał się w całości); na dole cena z „netto / za rok” obok, cena za gracza
+  i przycisk. Blok z ceną (`.tier__buy`) jest przyklejony do dołu, więc ceny stoją w jednej linii we wszystkich
+  kafelkach. Enterprise: „ponad **200 graczy** • miękki limit **+10%** graczy gratis • **wszystkie funkcje** w cenie”
+  w jednym rzędzie ze złotymi kropkami między punktami; do 1240px jeden pod drugim, z kropką przy każdym.
 - Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`.
 - **„W każdym pakiecie”** – `pricing.included`: 20 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza
   (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
@@ -282,7 +286,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111k`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111m`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

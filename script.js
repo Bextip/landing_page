@@ -1,6 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261111k";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261111m";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
   var billing = "year";   // okres płatności w cenniku: "year" (domyślnie) albo "month" – przełącznik nad kafelkami
 
@@ -48,23 +48,28 @@
     var tiers = CFG.plans.filter(function (p) { return p.players; });
     var wide = CFG.plans.filter(function (p) { return !p.players; });
     var maxPlayers = Math.max.apply(null, tiers.map(function (p) { return p.players; }));
+    var pct = Math.round(CFG.softLimit * 100);
+    function points(items) { return items.map(function (x) { return "<li>" + rich(x) + "</li>"; }).join(""); }
+    // kafelek (Łukasz, 11.11.2026): u góry nazwa i punkty ze złotymi kropkami (co dostajesz), na dole cena i przycisk
+    // (co płacisz) – blok z ceną jest przyklejony do dołu, więc ceny stoją w jednej linii we wszystkich kafelkach
     $("planGrid").innerHTML =
       '<ul class="tiers">' + tiers.map(function (p) {
         return '<li class="tier' + (p.recommended ? " tier--hero" : "") + '">' +
           (p.recommended ? '<span class="tag tier__badge">' + esc(t.recommended) + "</span>" : "") +
-          '<h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" + price(p) +
-          '<p class="tier__pp">' + (yearly ? amount(t.perPlayer, p[cur].perPlayer) : amount(t.orYear, p[cur].year)) + "</p>" +
-          '<ul class="tier__limits">' +
-          "<li>" + esc(t.upTo).replace("{n}", "<b>" + p.players + "</b>") + "</li>" +
-          "<li>" + esc(t.soft).replace("{pct}", Math.round(CFG.softLimit * 100)).replace("{n}", Math.round(p.players * CFG.softLimit)) + "</li>" +
-          "<li>" + esc(t.allFeatures) + "</li></ul>" +
+          '<h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" +
+          '<ul class="tier__limits">' + points([
+            t.upTo.replace("{n}", p.players),
+            t.soft.replace("{pct}", pct).replace("{n}", Math.round(p.players * CFG.softLimit)),
+            t.allFeatures]) + "</ul>" +
+          '<div class="tier__buy">' + price(p) +
+          '<p class="tier__pp">' + (yearly ? amount(t.perPlayer, p[cur].perPlayer) : amount(t.orYear, p[cur].year)) + "</p></div>" +
           button(p, "btn--primary") + "</li>";
       }).join("") + "</ul>" +
       wide.map(function (p) {
         return '<div class="tier tier--wide">' +
           '<div><h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" +
-          '<ul class="tier__limits tier__limits--row"><li>' + esc(t.over).replace("{n}", "<b>" + maxPlayers + "</b>") + "</li>" +
-          "<li>" + esc(t.allFeatures) + "</li></ul></div>" +
+          '<ul class="tier__limits tier__limits--row">' + points([
+            t.over.replace("{n}", maxPlayers), t.softAll.replace("{pct}", pct), t.allFeatures]) + "</ul></div>" +
           '<div class="tier__pricebox">' + price(p) + '<p class="tier__pp">' + esc(t.custom) + "</p></div>" +
           button(p, "btn--ghost") + "</div>";
       }).join("");
