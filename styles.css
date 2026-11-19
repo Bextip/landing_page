@@ -1,6 +1,6 @@
-/* Bextip landing – kolory z karty znaku 1.4 (listopad 2026; Łukasz, 19.11.2026): niebieski, mięta i biel.
+/* Bextip landing – kolory z karty znaku 1.5 (listopad 2026; Łukasz, 19.11.2026): niebieski, mięta, biel i złoty akcent.
    Marka nie używa już granatu ani limonki i unika gradientów – ciemnym tłem i kolorem tekstu jest niebieski.
-   Trzeci kolor strony: złoty akcent wyróżników (--gold; decyzja Łukasza z 19.11.2026, poza kartą znaku).
+   Złoty akcent wyróżników (--gold) jest w karcie od wersji 1.5; znak nadal ma dwa kolory i biel.
    Zmiana motywu = podmiana zmiennych w :root. */
 :root {
   --blue: #1C4F95;      /* napis, teksty, ciemne tło marki: stopka, „Dla kogo”, kafelek Bextip, wyróżniony pakiet */
@@ -11,7 +11,7 @@
   --mint-shadow: rgba(16, 150, 118, .55);
   --gold: #FDC12F;      /* trzeci kolor – akcent wyróżników (Łukasz, 19.11.2026): etykiety, kropki, strzałki między krokami.
                            Tylko jako wypełnienie, z niebieskim tekstem (kontrast 4,9:1); nie w logo, tekście, cienkich
-                           liniach ani przyciskach. Wykracza poza kartę znaku 1.4 (dwa kolory i biel) */
+                           liniach, przyciskach ani dużych tłach. Karta znaku 1.5: „Złoty (akcent)”, CMYK 2·27·88·0 */
   --gold-shadow: rgba(196, 142, 10, .55);
   --sky: #E6EEF8;
   --sky-2: #F1F4F8;     /* tło strony UI */
@@ -76,8 +76,8 @@ p { margin: 0 0 1em; }
    kółka. --fit (script.js, fitBadge) zmniejsza czcionkę i odstępy razem z etykietą nad hasłem, gdy ta nie mieści się
    w jednej linii; wysokość (kółko 40px) zostaje */
 .btn--lg { padding: 14px calc(26px * var(--fit, 1)); font-size: calc(1.05rem * var(--fit, 1)); }
-/* przycisk główny: mięta z niebieskim tekstem (karta znaku 1.4: „mięta jako tło wyróżnień i przycisków, zawsze
-   z niebieskim tekstem”), płaski kolor bez gradientu; wcześniej zielony gradient */
+/* przycisk główny: mięta z niebieskim tekstem (karta znaku 1.5: „mięta jako tło przycisków, złoty jako tło wyróżnień
+   (etykiet); na obu tekst niebieski”), płaski kolor bez gradientu; wcześniej zielony gradient */
 .btn--primary { background: var(--mint); color: var(--blue); box-shadow: 0 8px 18px -8px var(--mint-shadow); }
 .btn--primary:hover { background: var(--mint-dark); box-shadow: 0 12px 22px -8px var(--mint-shadow); }
 /* strzałka na końcu przycisku (jak na eqrento.com): biała strzałka w niebieskim kółku, tekst z lewej */

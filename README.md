@@ -12,10 +12,10 @@ i18n.js          – wszystkie teksty strony, PL i EN, te same klucze w obu jęz
 config.js        – pakiety, ceny, linki Stripe, e-mail, telefon, adres aplikacji
 script.js        – wybór języka, wypełnianie list i cennika, menu mobilne
 frames.js        – okna przeglądarek (Chrome, Safari, Edge, Firefox, Samsung Internet) wokół ekranów aplikacji
-styles.css       – wygląd; kolory z karty znaku 1.4 i czcionki jako zmienne w :root na górze pliku
-assets/logo/     – pliki SVG z paczki znaku 1.4 (19.11.2026): napis (znak podstawowy), logo z polem, ikona/, deskryptor/, powered-by/, motyw-x/, animacja/
+styles.css       – wygląd; kolory z karty znaku 1.5 i czcionki jako zmienne w :root na górze pliku
+assets/logo/     – pliki SVG z paczki znaku 1.4 (19.11.2026; w paczce 1.5 identyczne): napis (znak podstawowy), logo z polem, ikona/, deskryptor/, powered-by/, motyw-x/, animacja/
 favicon.ico, favicon.svg, favicon-64x64.png, apple-touch-icon.png, icon-192/512.png, icon-maskable-512.png,
-site.webmanifest – zestaw favikon z paczki znaku 1.4 (katalog główny, jak w jej instrukcji)
+site.webmanifest – zestaw favikon z paczki znaku 1.4 (w paczce 1.5 identyczny; katalog główny, jak w jej instrukcji)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
 assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): shop, users, trophy; robi je narzedzia/uicons.ps1;
                    funkcja-joker.svg – czapka błazna przy funkcji „Joker” (własny rysunek w kolorach marki)
@@ -207,17 +207,21 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Do ustalenia przy zakładaniu Stripe (konto jeszcze nie istnieje – 10.11.2026): VAT (ceny na stronie są netto),
   zbieranie NIP i danych do faktury, strona po płatności z tym, co klient robi dalej (stworzenie gry, kod zaproszenia).
 
-## Wygląd – karta znaku Bextip 1.4 (19.11.2026)
+## Wygląd – karta znaku Bextip 1.5 (19.11.2026)
 
-Źródło: „Bextip – karta znaku”, wersja 1.4 (listopad 2026) z paczki `Bextip - logo pack ver. 1.4.rar` od Łukasza
-(19.11.2026: „najnowsza oficjalnie stosowana wersja logotypu”). Zastępuje kartę 1.0 z 11.11.2026 (logo z polem
-w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są w historii gita.
+Źródło: „Bextip – karta znaku”, wersja 1.5 (listopad 2026) z paczki „Bextip - logo pack ver. 1.5” od Łukasza
+(19.11.2026). Wersja 1.5 różni się od 1.4 tylko złotym kolorem akcentu i zawężoną rolą mięty; **wszystkie pliki znaku
+w paczce 1.5 są identyczne z 1.4** (sprawdzone plik po pliku), więc `assets/logo/` i favikony zostały bez zmian.
+Karta 1.4 (ta sama data) wprowadziła napis jako znak podstawowy, miętę zamiast limonki i niebieski zamiast granatu;
+zastąpiła kartę 1.0 z 11.11.2026 (logo z polem w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są
+w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian w 1.5.
 
-- **Kolory marki – dwa i biel:** niebieski `#1C4F95` (napis, x, teksty, ciemne tło), mięta `#22DCAF` (kwadrat pod x,
-  tło wyróżnień i przycisków), biel. Szary `#6B7280` tylko w wersjach „cichych” i „powered by” – strona go nie używa.
-  **W karcie nie ma granatu, limonki ani złota, nie ma gradientów** („ciemnym tłem jest niebieski”; „unikaj neonów, gradientów
-  i estetyki serwisów z zakładami”). Strona ma mimo to złoty akcent – decyzja Łukasza, patrz „Kolory na stronie”.
-  Tło stron UI `#F1F4F8` i linie `#D8E0EC` zostają jako neutralne.
+- **Kolory w karcie 1.5:** niebieski `#1C4F95` (napis, x, teksty, ciemne tło), mięta `#22DCAF` (kwadrat pod x, tło
+  przycisków, znaczniki potwierdzenia), biel, **złoty (akcent) `#FDC12F`** (wyróżniki w materiałach: etykiety,
+  kropki-znaczniki, znaczniki kolejności; CMYK 2·27·88·0). Szary `#6B7280` tylko w wersjach „cichych” i „powered by”
+  – strona go nie używa. Karta: „Znak ma dwa kolory i biel. W materiałach dochodzi złoty jako akcent wyróżników.”
+  **Bez granatu i limonki, bez gradientów** („ciemnym tłem jest niebieski”; „unikaj neonów, gradientów i estetyki
+  serwisów z zakładami”). Tło stron UI `#F1F4F8` i linie `#D8E0EC` zostają jako neutralne.
 - **Zasady mięty:** to kolor kwadratu i tła; **na mięcie tekst niebieski, nie biały**; **nie używać mięty do tekstu
   ani cienkich linii na bieli** – dlatego podkreślenie widocznej sekcji w menu i plusy w FAQ są niebieskie.
 - **Kolory na stronie** (`:root` w `styles.css`):
@@ -234,9 +238,9 @@ w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są w his
     „Stworzony dla firm”, „Polecany” i „2 mies. gratis”, kropki (etykieta w hero, punkty w kafelkach cennika, wybrany
     język w stopce), strzałki między krokami, etykiety na obrazie do podglądu linków. Tylko jako wypełnienie
     z niebieskim tekstem (kontrast 4,9:1); nie w logo, tekście, cienkich liniach, przyciskach ani dużych tłach – ma
-    zajmować kilka procent strony. **Wykracza poza kartę znaku 1.4** („marka ma dwa kolory i biel”) – to świadoma
-    decyzja dla strony; warto dopisać złoty do karty jako kolor akcentu do materiałów (nie do znaku), żeby oferta,
-    e-maile i platforma były spójne. Odcień odrobinę cieplejszy i jaśniejszy od dawnego `#EEC13E`, żeby pasował do
+    zajmować kilka procent strony. **W karcie znaku od wersji 1.5** jako „Złoty (akcent)”: „akcent w materiałach, nie
+    w znaku; tylko jako wypełnienie z niebieskim tekstem; nie do tekstu, cienkich linii, przycisków ani dużych teł”
+    (wcześniej, przy karcie 1.4, był to wyjątek strony). Odcień odrobinę cieplejszy i jaśniejszy od dawnego `#EEC13E`, żeby pasował do
     mięty. Rozważane i odrzucone: zostać przy dwóch kolorach i tylko uporządkować role (mięta w przyciskach
     i etykietach, znaczniki niebieskie – zgodne z kartą, ale strona zostaje chłodna); koral i pomarańcz (niebieski
     tekst za słabo czytelny, ok. 3,3:1); fiolet (za bliski niebieskiemu, kolor etykiet na eqrento.com);
