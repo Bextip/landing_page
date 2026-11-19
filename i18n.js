@@ -147,7 +147,7 @@ window.BEXTIP_I18N = {
       invite: "Napisz lub zadzwoń – odpowiemy na pytania i pomożemy Ci uruchomić typera dosłownie w kilka minut.",
       contactTitle: "Kontakt", siteTitle: "Serwis", appTitle: "Aplikacja",
       login: "Zaloguj się", register: "Załóż konto",
-      tagline1: "Stworzone z pasją w", tagline2: "Polsce", tagline3: ", dla zespołów, które typują razem na", tagline4: "świecie",
+      tagline1: "Stworzone z pasją w", tagline2: "Polsce", tagline3: ", dla zespołów, które typują na", tagline4: "świecie",
       rights: "Wszelkie prawa zastrzeżone.",
       terms: "Regulamin", privacy: "Polityka prywatności", langTitle: "Język"
     }
@@ -292,11 +292,11 @@ window.BEXTIP_I18N = {
       ]
     },
     footer: {
-      about: "Bextip is an automated sports prediction game for companies: results, points and the leaderboard update themselves, and the game can carry your company’s visual identity.",
+      about: "Bextip is an automated online prediction game designed to engage and bring people together through the exciting and immersive experience of forecasting the outcomes of sporting events.",
       invite: "Write or call us – we’ll answer your questions and help you launch your game in literally a few minutes.",
       contactTitle: "Contact", siteTitle: "Site", appTitle: "App",
       login: "Log in", register: "Create an account",
-      tagline1: "Made with passion in", tagline2: "Poland", tagline3: ", for teams that predict together around the", tagline4: "world",
+      tagline1: "Made with passion in", tagline2: "Poland", tagline3: ", for teams that predict around the", tagline4: "world",
       rights: "All rights reserved.",
       terms: "Terms", privacy: "Privacy policy", langTitle: "Language"
     }
