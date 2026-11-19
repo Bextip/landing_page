@@ -232,7 +232,8 @@ w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian
     opcja przełącznika w cenniku, numery kroków, ikony kart „Dla kogo”, tło obrazu do podglądu linków; teksty
     pomocnicze na niebieskim `--on-blue` = `#D5E2F5` (6,1:1);
   - mięta `--mint` = działanie i potwierdzenie: przyciski główne (niebieski tekst, po najechaniu `--mint-dark`),
-    kółka z ptaszkami, co druga ikona funkcji (`--mint-soft`);
+    kółka z ptaszkami. Tła ikon funkcji są wszystkie jasnoniebieskie (`--sky`) – bladomiętowe tło co drugiej ikony
+    zdjęte 19.11.2026, bo karta 1.5 zostawia miętę tylko dla kwadratu pod x, przycisków i potwierdzeń;
   - **złoty `--gold` = `#FDC12F` – trzeci kolor strony, akcent wyróżników** (Łukasz, 19.11.2026: niebieski i mięta
     zdominowały wygląd strony; mięta robiła pięć rzeczy naraz, więc przyciski niczym się nie wyróżniały): etykiety
     „Stworzony dla firm”, „Polecany” i „2 mies. gratis”, kropki (etykieta w hero, punkty w kafelkach cennika, wybrany
@@ -264,7 +265,8 @@ w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian
   Ta sama ikona jest na karcie w oknach przeglądarek (frames.js).
 - **Ekrany aplikacji** (`assets/screens/*.svg`) dostosowane do karty 1.4, żeby stare i nowe logo nie stały obok
   siebie: napis w panelu bocznym podmieniony na nowy (`<g transform="translate(21 27.57) scale(0.2)">` w miejscu
-  sześciu ścieżek starego logo), limonka `#86C93E` → mięta, granat `#0C2A55` → niebieski. Kolory statusów w Tips&Stats
+  sześciu ścieżek starego logo), limonka `#86C93E` → mięta, granat `#0C2A55` → niebieski. Wstążka „EKSTRA” w Tips&Stats jest złota
+  (to etykieta – karta 1.5; Łukasz, 19.11.2026). Kolory statusów w Tips&Stats
   (zielony / bursztynowy / czerwony) bez zmian. Gdy platforma dostanie nowy wygląd, podmienić na świeże zrzuty.
   Napis „obstaw wyniki” na ekranie typowania zamieniony na „typuj wyniki” (Łukasz, 19.11.2026; karta każe unikać
   słowa „obstawiać”): tekst w pliku to odwołania do glifów (`<use xlink:href="#glyph-10-…">`), więc nowe słowo jest
@@ -335,7 +337,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119c`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119d`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

@@ -7,7 +7,6 @@
   --mint: #22DCAF;      /* kwadrat pod x; przyciski i ptaszki (działanie i potwierdzenie) – zawsze z niebieskim tekstem. Karta znaku:
                            nie używać mięty do tekstu ani cienkich linii na bieli */
   --mint-dark: #1FCAA1; /* przycisk po najechaniu myszą */
-  --mint-soft: #DEFAF3; /* jasne tło ikon funkcji (15% mięty) */
   --mint-shadow: rgba(16, 150, 118, .55);
   --gold: #FDC12F;      /* trzeci kolor – akcent wyróżników (Łukasz, 19.11.2026): etykiety, kropki, strzałki między krokami.
                            Tylko jako wypełnienie, z niebieskim tekstem (kontrast 4,9:1); nie w logo, tekście, cienkich
@@ -206,7 +205,6 @@ p { margin: 0 0 1em; }
   display: grid; place-items: center; font-size: 1.3rem; margin: 0;
   box-shadow: inset 0 -2px 0 rgba(28, 79, 149, .07), 0 6px 12px -6px rgba(28, 79, 149, .32);
 }
-.feature:nth-child(even) .ico { background: var(--mint-soft); }   /* na zmianę jasnoniebieskie i jasnomiętowe tło ikony */
 .feature .ico img { width: 28px; height: 28px; }   /* ikona z pliku (assets/icons/funkcja-*.svg) zamiast emoji */
 .feature p { grid-column: 1 / -1; color: var(--muted); margin: 14px 0 0; }
 .who p { color: var(--muted); margin: 0; }
