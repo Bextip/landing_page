@@ -143,8 +143,8 @@ window.BEXTIP_I18N = {
       ]
     },
     footer: {
-      about: "Bextip to automatyczny typer sportowy dla firm: wyniki, punkty i tabela liczą się same, a gra może mieć identyfikację wizualną Twojej firmy.",
-      invite: "Napisz lub zadzwoń – odpowiemy na pytania i pomożemy Ci uruchomić typera dosłownie w kilka minut.",
+      about: "Bextip to automatyczny typer on-line stworzony w celu angażowania użytkowników i integrowania społeczności poprzez ekscytujące, wciągające doświadczenie przewidywania rezultatów wydarzeń sportowych.",
+      invite: "",
       contactTitle: "Kontakt", siteTitle: "Serwis", appTitle: "Aplikacja",
       login: "Zaloguj się", register: "Załóż konto",
       tagline1: "Stworzone z pasją w", tagline2: "Polsce", tagline3: ", dla zespołów, które typują na", tagline4: "świecie",
