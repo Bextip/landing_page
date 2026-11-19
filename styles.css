@@ -8,9 +8,11 @@
                            nie używać mięty do tekstu ani cienkich linii na bieli */
   --mint-dark: #1FCAA1; /* przycisk po najechaniu myszą */
   --mint-shadow: rgba(16, 150, 118, .55);
-  --gold: #FDC12F;      /* trzeci kolor – akcent wyróżników (Łukasz, 19.11.2026): etykiety, kropki, strzałki między krokami.
-                           Tylko jako wypełnienie, z niebieskim tekstem (kontrast 4,9:1); nie w logo, tekście, cienkich
-                           liniach, przyciskach ani dużych tłach. Karta znaku 1.5: „Złoty (akcent)”, CMYK 2·27·88·0 */
+  --gold: #FDC12F;      /* trzeci kolor – akcent wyróżników (Łukasz, 19.11.2026): etykiety (także ta nad hasłem), kropki,
+                           strzałki między krokami. Tylko jako wypełnienie, z niebieskim tekstem (kontrast 4,9:1); nie
+                           w logo, tekście, przyciskach ani dużych tłach. Karta znaku 1.5: „Złoty (akcent)”, CMYK 2·27·88·0.
+                           Wyjątek od karty: złota linia pod aktywnym linkiem w menu (karta: nie do cienkich linii) –
+                           świadoma decyzja Łukasza z 19.11.2026 */
   --gold-shadow: rgba(196, 142, 10, .55);
   --sky: #E6EEF8;
   --sky-2: #F1F4F8;     /* tło strony UI */
@@ -116,9 +118,10 @@ p { margin: 0 0 1em; }
   transform: translateY(var(--nav-shift, 7px));
 }
 .nav__links a { position: relative; display: block; padding: 6px 0; line-height: 1.1; transition: color .2s; }
-.nav__links a::after {   /* podkreślenie widocznej sekcji – niebieskie (mięty nie wolno używać do cienkich linii na bieli) */
+.nav__links a::after {   /* podkreślenie widocznej sekcji – złote (Łukasz, 19.11.2026; wyjątek od karty 1.5, która nie
+                             przewiduje złotego w cienkich liniach – rozważana zgodna z kartą złota kropka odrzucona) */
   content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px; border-radius: 2px;
-  background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform .35s cubic-bezier(.2, .7, .2, 1);
+  background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .35s cubic-bezier(.2, .7, .2, 1);
 }
 .nav__links a:hover, .nav__links a.is-active { color: var(--ink); }
 .nav__links a.is-active::after { transform: scaleX(1); }
@@ -137,15 +140,16 @@ p { margin: 0 0 1em; }
 /* etykieta nad hasłem = duży przycisk „Wybierz pakiet” (Łukasz, 11.11.2026), tylko kolory własne: ta sama wysokość
    (40px linia jak kółko ze strzałką + 2 × 6px + 2 × 1,5px ramki = 55px), czcionka i grubość, 26px od krawędzi
    i 14px między kropką a tekstem (jak między tekstem a kółkiem). Zawsze w jednej linii: gdy się nie mieści,
-   script.js (fitBadge) zmniejsza ją razem z dużymi przyciskami (--fit), a poniżej 14px już tylko ją (--fit-pill) */
+   script.js (fitBadge) zmniejsza ją razem z dużymi przyciskami (--fit), a poniżej 14px już tylko ją (--fit-pill).
+   Kolory (Łukasz, 19.11.2026): złote tło jak inne etykiety, niebieski tekst i niebieska kropka (złota zniknęłaby na złotym) */
 .pill {
   --s: var(--fit-pill, var(--fit, 1));
   display: inline-flex; align-items: center; gap: calc(14px * var(--s)); padding: 6px calc(26px * var(--s));
   line-height: 40px; border-radius: 999px; max-width: 100%; white-space: nowrap;
-  background: var(--white); border: 1.5px solid var(--line); box-shadow: var(--shadow-sm);
+  background: var(--gold); border: 1.5px solid var(--gold); box-shadow: 0 4px 10px -4px var(--gold-shadow);
   color: var(--blue); font-weight: 600; font-size: calc(1.05rem * var(--s)); margin-bottom: 18px;
 }
-.pill::before { content: ""; flex: none; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--gold); }   /* flex: none – kropka nie znika, gdy etykieta dojdzie do max-width */
+.pill::before { content: ""; flex: none; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--blue); }   /* flex: none – kropka nie znika, gdy etykieta dojdzie do max-width */
 .lead { font-size: 1.2rem; color: var(--muted); max-width: 560px; }
 .chips { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li {

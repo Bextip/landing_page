@@ -48,8 +48,8 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   do 1240px 22px. Napis w menu ma 43px wysokości (karta 1.4, 19.11.2026; przy karcie 1.0 logo z polem 48px). Linia bazowa
   linków stoi na podstawie napisu „Bextip” (bez ogonka „p”): `translateY(--nav-shift)`, 7px – zmierzone
   w przeglądarce (różnica ok. 0,4px). Zmiana wysokości logo albo rozmiaru linków = zmierz ponownie.
-- **Podkreślenie widocznej sekcji** (Łukasz, 10.11.2026): niebieska linia 2px pod linkiem (`.is-active`; karta 1.4: mięty
-  nie używać do cienkich linii na bieli); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
+- **Podkreślenie widocznej sekcji** (Łukasz, 10.11.2026): złota linia 2px pod linkiem (`.is-active`; Łukasz, 19.11.2026 –
+  wyjątek od karty 1.5, która nie przewiduje złotego w cienkich liniach; wcześniej linia niebieska); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
   strony – FAQ. Sekcje bez linku (`#inside`, `#who`) zostawiają zaznaczoną poprzednią.
 - **Wybór języka w stopce** (Łukasz, 10.11.2026 – lista w menu wyglądała jak przyciski): kolumna „Język” z flagami
   i nazwami w danym języku („Polski”, „English”…); wybrany jest biały ze złotą kropką. **Język startowy:** `?lang=`
@@ -133,7 +133,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   z ofertą dla firm mówi jeszcze o „kilku godzinach”.
 - Etykieta nad hasłem (Łukasz, 10.11.2026): PL „Automatyczny typer on-line dla firm”, EN „Automated office prediction game” (Łukasz, 11.11.2026; wcześniej „Automated online prediction game for companies” – za długie, żeby na telefonach mieć rozmiar przycisku). W hero jest jeden przycisk – „Wybierz pakiet” („Zobacz, jak to działa” usunięty, Łukasz, 10.11.2026).
   **Etykieta = duży przycisk „Wybierz pakiet”** (Łukasz, 11.11.2026: te same proporcje, czcionka i odstępy, kolory
-  własne): 55px wysokości, 1,05rem / 600, 26px od krawędzi, 14px między kropką a tekstem (jak między tekstem a kółkiem
+  własne – od 19.11.2026 złote tło, niebieski tekst i niebieska kropka): 55px wysokości, 1,05rem / 600, 26px od krawędzi, 14px między kropką a tekstem (jak między tekstem a kółkiem
   ze strzałką). Zawsze w jednej linii: gdy się nie mieści, `fitBadge()` w `script.js` ustawia `--fit` na `<html>`
   i etykieta zmniejsza się razem ze wszystkimi dużymi przyciskami (czcionka i odstępy, wysokość zostaje); przyciski
   najwyżej do 14px, dalej już tylko etykieta (`--fit-pill`). Na telefonach etykieta i przyciski mają w obu językach
@@ -223,7 +223,7 @@ w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian
   **Bez granatu i limonki, bez gradientów** („ciemnym tłem jest niebieski”; „unikaj neonów, gradientów i estetyki
   serwisów z zakładami”). Tło stron UI `#F1F4F8` i linie `#D8E0EC` zostają jako neutralne.
 - **Zasady mięty:** to kolor kwadratu i tła; **na mięcie tekst niebieski, nie biały**; **nie używać mięty do tekstu
-  ani cienkich linii na bieli** – dlatego podkreślenie widocznej sekcji w menu i plusy w FAQ są niebieskie.
+  ani cienkich linii na bieli** – dlatego plusy w FAQ są niebieskie.
 - **Kolory na stronie** (`:root` w `styles.css`):
   - tekst `--ink` = niebieski `#1C4F95` (tytuły, hasło, ceny, pytania FAQ, pogrubienia); opisy i teksty pomocnicze
     `--muted` = `#3E69A5` (85% niebieskiego + 15% bieli, kontrast z bielą 5,6:1) – ta sama zasada co przy decyzji
@@ -235,16 +235,21 @@ w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian
     kółka z ptaszkami. Tła ikon funkcji są wszystkie jasnoniebieskie (`--sky`) – bladomiętowe tło co drugiej ikony
     zdjęte 19.11.2026, bo karta 1.5 zostawia miętę tylko dla kwadratu pod x, przycisków i potwierdzeń;
   - **złoty `--gold` = `#FDC12F` – trzeci kolor strony, akcent wyróżników** (Łukasz, 19.11.2026: niebieski i mięta
-    zdominowały wygląd strony; mięta robiła pięć rzeczy naraz, więc przyciski niczym się nie wyróżniały): etykiety
-    „Stworzony dla firm”, „Polecany” i „2 mies. gratis”, kropki (etykieta w hero, punkty w kafelkach cennika, wybrany
-    język w stopce), strzałki między krokami, etykiety na obrazie do podglądu linków. Tylko jako wypełnienie
+    zdominowały wygląd strony; mięta robiła pięć rzeczy naraz, więc przyciski niczym się nie wyróżniały): etykieta nad
+    hasłem (całe tło, od 19.11.2026; kropka w niej niebieska), etykiety
+    „Stworzony dla firm”, „Polecany” i „2 mies. gratis”, kropki (punkty w kafelkach cennika, wybrany
+    język w stopce), strzałki między krokami, etykiety na obrazie do podglądu linków, linia pod aktywnym linkiem w menu
+    (wyjątek, patrz niżej). Tylko jako wypełnienie
     z niebieskim tekstem (kontrast 4,9:1); nie w logo, tekście, cienkich liniach, przyciskach ani dużych tłach – ma
     zajmować kilka procent strony. **W karcie znaku od wersji 1.5** jako „Złoty (akcent)”: „akcent w materiałach, nie
     w znaku; tylko jako wypełnienie z niebieskim tekstem; nie do tekstu, cienkich linii, przycisków ani dużych teł”
     (wcześniej, przy karcie 1.4, był to wyjątek strony). Odcień odrobinę cieplejszy i jaśniejszy od dawnego `#EEC13E`, żeby pasował do
     mięty. Rozważane i odrzucone: zostać przy dwóch kolorach i tylko uporządkować role (mięta w przyciskach
     i etykietach, znaczniki niebieskie – zgodne z kartą, ale strona zostaje chłodna); koral i pomarańcz (niebieski
-    tekst za słabo czytelny, ok. 3,3:1); fiolet (za bliski niebieskiemu, kolor etykiet na eqrento.com);
+    tekst za słabo czytelny, ok. 3,3:1); fiolet (za bliski niebieskiemu, kolor etykiet na eqrento.com).
+    **Wyjątek od karty 1.5 (Łukasz, 19.11.2026):** złota linia 2px pod aktywnym linkiem w menu – karta nie przewiduje
+    złotego w cienkich liniach (złoty na bieli ma kontrast ok. 1,6:1); rozważana i odrzucona zgodna z kartą złota kropka
+    pod linkiem. Odrzucona też jasnozłota etykieta nad hasłem (jasny odcień złotego nie jest w karcie) – wybrane pełne złoto;
   - kółko ze strzałką w przyciskach: niebieskie z białą strzałką.
 - **Logo na stronie** (karta: „napis” jest znakiem podstawowym na stronie WWW; logo z polem – gra, kampanie, social media):
   - menu: `assets/logo/animacja/Bextip-napis-animacja.svg`, 43px wysokości (jak napis sprzed pola – Łukasz,
@@ -348,7 +353,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119h`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119i`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
