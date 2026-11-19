@@ -52,7 +52,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   nie używać do cienkich linii na bieli); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
   strony – FAQ. Sekcje bez linku (`#inside`, `#who`) zostawiają zaznaczoną poprzednią.
 - **Wybór języka w stopce** (Łukasz, 10.11.2026 – lista w menu wyglądała jak przyciski): kolumna „Język” z flagami
-  i nazwami w danym języku („Polski”, „English”…); wybrany jest biały z miętową kropką. **Język startowy:** `?lang=`
+  i nazwami w danym języku („Polski”, „English”…); wybrany jest biały ze złotą kropką. **Język startowy:** `?lang=`
   w adresie → wybór zapamiętany w przeglądarce (localStorage `bextip-lang`) → przeglądarka ustawiona na polski
   (pierwszy język w `navigator.languages`) – wersja polska, każda inna – angielska. Lista bierze się z `languages`
   w `config.js`, ale pokazuje tylko języki z tekstami w `i18n.js` – dziś PL i EN; flagi DE, ES i RU czekają
@@ -68,7 +68,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **Telefon (do 820px): grafika zaraz pod hasłem** (Łukasz, 10.11.2026): `.hero__copy` ma `display: contents`,
   a elementy hero dostają `order` – etykieta, h1, okno z ekranem, opis, zalety, przyciski.
 - **Kroki** (`#how`, Łukasz, 10.11.2026: żeby było widać, że jeden następuje po drugim): karty z numerem w kółku
-  i miętowe strzałki w odstępach między nimi (`.steps li::after`, strzałka to SVG w CSS); do 1100px karty jedna pod
+  i złote strzałki w odstępach między nimi (`.steps li::after`, strzałka to SVG w CSS); do 1100px karty jedna pod
   drugą i strzałki w dół.
 - **Cienie i głębia** (Łukasz, 10.11.2026: strona była zbyt płaska): trzy poziomy `--shadow-sm / -md / -lg` w `:root`
   na kartach, kafelkach cennika, krokach, pytaniach FAQ (każde na osobnej karcie), etykietach i przyciskach; karty
@@ -179,17 +179,17 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   Poprzedni cennik (do 11.11.2026, jednorazowo za grę na wybrane rozgrywki): Pakiet 20 / 30 / 100 / 250 – 850 / 1150 /
   2850 / 3950 zł, Bez Limitu 3950 zł + 1,25 zł za osobę.
 - **Przełącznik „Rocznie / Miesięcznie”** nad kafelkami (jak na eqrento.com): domyślnie rocznie, wybrana opcja
-  niebieska, „2 mies. gratis” w miętowym znaczniku (w EN bez znacznika). `script.js` rysuje kafelki od nowa
+  niebieska, „2 mies. gratis” w złotym znaczniku (w EN bez znacznika). `script.js` rysuje kafelki od nowa
   (`billing`). Przy płatności rocznej pod ceną jest cena za gracza miesięcznie, przy miesięcznej – ile kosztuje rok.
 - Układ (Łukasz, 10.11.2026: mniejsze kafelki jak w EQrento): pakiety z limitem graczy to `.tier` w `.tiers` –
   4 w rzędzie powyżej 1100px, 2 × 2 niżej, jeden pod drugim na telefonach; Enterprise (`players: null`) to
   `.tier--wide` pod nimi na całą szerokość. Piąty pakiet z limitem nie zmieści się w rzędzie – trzeba by zmienić siatkę.
-- **Kafelek** (Łukasz, 11.11.2026): u góry nazwa i trzy punkty z miętowymi kropkami – „do **20 graczy**”, „miękki
+- **Kafelek** (Łukasz, 11.11.2026): u góry nazwa i trzy punkty ze złotymi kropkami – „do **20 graczy**”, „miękki
   limit **+10%** (+2 graczy gratis)”, „**wszystkie funkcje** w cenie” (pogrubienia `**…**` w `i18n.js`, nawias
   z nierozdzielającymi spacjami, żeby łamał się w całości); na dole cena z „netto za rok” w jednej linii obok, „X,XX zł za gracza / miesiąc”
   i przycisk. Blok z ceną (`.tier__buy`) jest przyklejony do dołu, więc ceny stoją w jednej linii we wszystkich
   kafelkach. Enterprise: „ponad **200 graczy** • miękki limit **+10%** graczy gratis • **wszystkie funkcje** w cenie”
-  w jednym rzędzie z miętowymi kropkami między punktami; do 1240px jeden pod drugim, z kropką przy każdym.
+  w jednym rzędzie ze złotymi kropkami między punktami; do 1240px jeden pod drugim, z kropką przy każdym.
 - Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`.
 - **„W każdym pakiecie”** – `pricing.included`: 19 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza (bez „Własna subdomena” – usunięta z całej strony, Łukasz, 11.11.2026)
   (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
@@ -215,8 +215,9 @@ w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są w his
 
 - **Kolory marki – dwa i biel:** niebieski `#1C4F95` (napis, x, teksty, ciemne tło), mięta `#22DCAF` (kwadrat pod x,
   tło wyróżnień i przycisków), biel. Szary `#6B7280` tylko w wersjach „cichych” i „powered by” – strona go nie używa.
-  **Bez granatu, limonki i złota, bez gradientów** („ciemnym tłem jest niebieski”; „unikaj neonów, gradientów
-  i estetyki serwisów z zakładami”). Tło stron UI `#F1F4F8` i linie `#D8E0EC` zostają jako neutralne.
+  **W karcie nie ma granatu, limonki ani złota, nie ma gradientów** („ciemnym tłem jest niebieski”; „unikaj neonów, gradientów
+  i estetyki serwisów z zakładami”). Strona ma mimo to złoty akcent – decyzja Łukasza, patrz „Kolory na stronie”.
+  Tło stron UI `#F1F4F8` i linie `#D8E0EC` zostają jako neutralne.
 - **Zasady mięty:** to kolor kwadratu i tła; **na mięcie tekst niebieski, nie biały**; **nie używać mięty do tekstu
   ani cienkich linii na bieli** – dlatego podkreślenie widocznej sekcji w menu i plusy w FAQ są niebieskie.
 - **Kolory na stronie** (`:root` w `styles.css`):
@@ -226,9 +227,19 @@ w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są w his
   - ciemne tła `--blue`, płaskie: stopka, sekcja „Dla kogo”, kafelek Bextip w porównaniu, wyróżniony pakiet, wybrana
     opcja przełącznika w cenniku, numery kroków, ikony kart „Dla kogo”, tło obrazu do podglądu linków; teksty
     pomocnicze na niebieskim `--on-blue` = `#D5E2F5` (6,1:1);
-  - mięta `--mint`: przyciski główne (niebieski tekst, po najechaniu `--mint-dark`), etykiety „Stworzony dla firm”,
-    „Polecany” i „2 mies. gratis”, kropki (etykieta w hero, punkty w kafelkach cennika, wybrany język), kółka
-    z ptaszkami, strzałki między krokami, co druga ikona funkcji (`--mint-soft`);
+  - mięta `--mint` = działanie i potwierdzenie: przyciski główne (niebieski tekst, po najechaniu `--mint-dark`),
+    kółka z ptaszkami, co druga ikona funkcji (`--mint-soft`);
+  - **złoty `--gold` = `#FDC12F` – trzeci kolor strony, akcent wyróżników** (Łukasz, 19.11.2026: niebieski i mięta
+    zdominowały wygląd strony; mięta robiła pięć rzeczy naraz, więc przyciski niczym się nie wyróżniały): etykiety
+    „Stworzony dla firm”, „Polecany” i „2 mies. gratis”, kropki (etykieta w hero, punkty w kafelkach cennika, wybrany
+    język w stopce), strzałki między krokami, etykiety na obrazie do podglądu linków. Tylko jako wypełnienie
+    z niebieskim tekstem (kontrast 4,9:1); nie w logo, tekście, cienkich liniach, przyciskach ani dużych tłach – ma
+    zajmować kilka procent strony. **Wykracza poza kartę znaku 1.4** („marka ma dwa kolory i biel”) – to świadoma
+    decyzja dla strony; warto dopisać złoty do karty jako kolor akcentu do materiałów (nie do znaku), żeby oferta,
+    e-maile i platforma były spójne. Odcień odrobinę cieplejszy i jaśniejszy od dawnego `#EEC13E`, żeby pasował do
+    mięty. Rozważane i odrzucone: zostać przy dwóch kolorach i tylko uporządkować role (mięta w przyciskach
+    i etykietach, znaczniki niebieskie – zgodne z kartą, ale strona zostaje chłodna); koral i pomarańcz (niebieski
+    tekst za słabo czytelny, ok. 3,3:1); fiolet (za bliski niebieskiemu, kolor etykiet na eqrento.com);
   - kółko ze strzałką w przyciskach: niebieskie z białą strzałką.
 - **Logo na stronie** (karta: „napis” jest znakiem podstawowym na stronie WWW; logo z polem – gra, kampanie, social media):
   - menu: `assets/logo/animacja/Bextip-napis-animacja.svg`, 43px wysokości (jak napis sprzed pola – Łukasz,
@@ -320,7 +331,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119b`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119c`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
