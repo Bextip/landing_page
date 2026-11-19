@@ -158,13 +158,14 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   28px na jasnoniebieskim kafelku 44px); pole `ico` (emoji) nadal działa, ale strona go już nie używa.
   - `funkcja-wyniki.svg` – piłka: miętowa kula, niebieski pięciokąt i łaty na obwodzie. Pierwsza wersja (niebieska
     kula z białymi łatami) i wersja ze szwami wyglądały w 28 px jak gwiazdka; rozważana też tablica wyników „2:1”;
-  - `funkcja-tabela.svg` – puchar: złota czasza z miętową gwiazdką, niebieskie uchwyty, nóżka i podstawa;
+  - `funkcja-tabela.svg` – medal: miętowa i niebieska wstążka, złoty medal z niebieską gwiazdą (zamieniony z pucharem –
+    Łukasz, 19.11.2026);
   - `funkcja-branding.svg` – niebieska paleta z miętową, złotą i białą farbą;
   - `funkcja-druzyny.svg` – dwie postacie: niebieska z przodu, miętowa z tyłu;
   - `funkcja-joker.svg` – czapka błazna zamiast emoji karty do gry (karta znaku: nie pokazywać kart i żetonów).
     Łukasz wskazał jako wzór ikonę czapki błazna z Flaticon (autor fjstudio, licencja z osobnym podpisem autora) –
     na stronie jest własny rysunek tego motywu, więc dodatkowy podpis nie jest potrzebny;
-  - `funkcja-bonus.svg` – medal: miętowa i niebieska wstążka, złoty medal z niebieską gwiazdą;
+  - `funkcja-bonus.svg` – puchar: złota czasza z miętową gwiazdką, niebieskie uchwyty, nóżka i podstawa;
   - `funkcja-czat.svg` – dymki: niebieski z białymi kropkami z przodu, miętowy z tyłu;
   - `funkcja-statystyki.svg` – rosnące słupki (miętowy i dwa niebieskie) ze złotą gwiazdką nad najwyższym;
   - `funkcja-jezyki.svg` – niebieski globus z białą siatką i miętowym południkiem.
@@ -365,7 +366,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119j`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119k`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
