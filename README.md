@@ -17,7 +17,8 @@ assets/logo/     – pliki SVG z paczki znaku 1.4 (19.11.2026): napis (znak pods
 favicon.ico, favicon.svg, favicon-64x64.png, apple-touch-icon.png, icon-192/512.png, icon-maskable-512.png,
 site.webmanifest – zestaw favikon z paczki znaku 1.4 (katalog główny, jak w jej instrukcji)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
-assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): shop, users, trophy; robi je narzedzia/uicons.ps1
+assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): shop, users, trophy; robi je narzedzia/uicons.ps1;
+                   funkcja-joker.svg – czapka błazna przy funkcji „Joker” (własny rysunek w kolorach marki)
 assets/flags/    – flagi listy języków (pl, gb, de, es, ru; SVG, bo Windows nie pokazuje emoji flag)
 assets/og-image.png – obraz do podglądu linków (1200×630), tworzony przez narzedzia/og-image.ps1
 robots.txt, sitemap.xml – dla wyszukiwarek (adres https://bextip.site/)
@@ -150,7 +151,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   i nadpisywał czcionkę i odstępy. Pod etykietą tyle miejsca co nad przyciskiem (54px górnego i dolnego odstępu).
 - **Przycisk „Wybierz pakiet” na dole sekcji Funkcje i Jak to działa** (Łukasz, 11.11.2026): duży, ze strzałką, jak
   w hero, na środku (`.section-cta`, odstęp nad nim jak pod nagłówkiem sekcji), prowadzi do cennika.
-- **Funkcje** (`#features`, Łukasz, 11.11.2026): ikona i tytuł kafelka w jednym rzędzie, opis pod nimi.
+- **Funkcje** (`#features`, Łukasz, 11.11.2026): ikona i tytuł kafelka w jednym rzędzie, opis pod nimi. Ikona to
+  emoji (pole `ico` w `i18n.js`) albo plik SVG z `assets/icons/` (pole `icon`, 28px). **Joker ma czapkę błazna**
+  `funkcja-joker.svg` zamiast emoji karty do gry (Łukasz, 19.11.2026; karta znaku: nie pokazywać kart i żetonów).
+  Łukasz wskazał jako wzór ikonę czapki błazna z Flaticon (autor fjstudio, licencja z osobnym podpisem autora) –
+  na stronie jest własny rysunek tego motywu w niebieskim i mięcie, więc dodatkowy podpis nie jest potrzebny.
 
 ## Cennik i Stripe
 
@@ -246,15 +251,17 @@ w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są w his
   siebie: napis w panelu bocznym podmieniony na nowy (`<g transform="translate(21 27.57) scale(0.2)">` w miejscu
   sześciu ścieżek starego logo), limonka `#86C93E` → mięta, granat `#0C2A55` → niebieski. Kolory statusów w Tips&Stats
   (zielony / bursztynowy / czerwony) bez zmian. Gdy platforma dostanie nowy wygląd, podmienić na świeże zrzuty.
-  Na ekranie typowania jest napis „obstaw wyniki” – karta każe unikać słowa „obstawiać” (tekst jest krzywymi,
-  do poprawy przy nowych zrzutach). Adresy obrazów mają `?v=`, bo plik zmienił się pod tą samą nazwą.
+  Napis „obstaw wyniki” na ekranie typowania zamieniony na „typuj wyniki” (Łukasz, 19.11.2026; karta każe unikać
+  słowa „obstawiać”): tekst w pliku to odwołania do glifów (`<use xlink:href="#glyph-10-…">`), więc nowe słowo jest
+  złożone z liter tego samego zestawu; litery „u” w nim nie było – to „n” obrócone o 180°. Adresy obrazów mają
+  `?v=`, bo plik zmienia się pod tą samą nazwą.
 - **Cień pod oknami z ekranami** zmniejszony (Łukasz, 19.11.2026: był za mocny i za duży): jedna warstwa
   `0 18px 40px -14px rgba(28, 79, 149, .36)` zamiast dużego cienia z niebieską poświatą, tak samo w hero
   i w `#inside`; hero bez poświaty w tle; mniejszy cień także w obrazie do podglądu linków.
 - **Zasady z karty:** litera x zawsze na kwadracie; nie rozciągać znaku; bez gradientów, cieni i obrysów na znaku;
   pole ochronne co najmniej wysokość litery x. Język: typer, liga, drużyny, ranking, punkty, integracja – unikać słów
   obstawiać, zakład, kurs, kupon, stawka, wygrana pieniężna. Obraz: nie pokazywać kuponów, pieniędzy, żetonów i kart
-  (ikona funkcji „Joker” to emoji karty – do decyzji Łukasza).
+  (dlatego funkcja „Joker” ma czapkę błazna zamiast emoji karty).
 - **Krój napisu w logo: Sora ExtraBold** (B własne). Karta: Sora do tytułów, Inter do tekstu i liczb – jak na stronie
   (patrz „Czcionki”).
 - Czcionki z Google Fonts: **Sora** w nagłówkach (Łukasz, 11.11.2026: krój napisu z logo według karty znaku;
@@ -313,7 +320,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119a`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119b`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

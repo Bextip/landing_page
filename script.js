@@ -1,6 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261119a";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261119b";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
   var billing = "year";   // okres płatności w cenniku: "year" (domyślnie) albo "month" – przełącznik nad kafelkami
 
@@ -87,8 +87,11 @@
     document.querySelectorAll("[data-i18n-list]").forEach(function (el) {
       el.innerHTML = get(el.dataset.i18nList).map(function (x) { return "<li>" + esc(x) + "</li>"; }).join("");
     });
+    // ikona funkcji: emoji (pole ico) albo własny plik SVG z assets/icons/ (pole icon) – czapka błazna przy Jokerze
+    // zamiast emoji karty do gry (karta znaku 1.4: nie pokazywać kart i żetonów; Łukasz, 19.11.2026)
     $("featureGrid").innerHTML = get("features.items").map(function (f) {
-      return '<article class="card feature"><div class="ico">' + f.ico + "</div><h3>" + esc(f.t) + "</h3><p>" + esc(f.d) + "</p></article>";
+      var ico = f.icon ? '<img src="assets/icons/' + esc(f.icon) + "?v=" + ASSET_V + '" alt="" width="28" height="28">' : f.ico;
+      return '<article class="card feature"><div class="ico">' + ico + "</div><h3>" + esc(f.t) + "</h3><p>" + esc(f.d) + "</p></article>";
     }).join("");
     $("stepList").innerHTML = get("how.steps").map(function (s) {
       return "<li><h3>" + esc(s.t) + "</h3><p>" + esc(s.d) + "</p></li>";

@@ -202,6 +202,7 @@ p { margin: 0 0 1em; }
   box-shadow: inset 0 -2px 0 rgba(28, 79, 149, .07), 0 6px 12px -6px rgba(28, 79, 149, .32);
 }
 .feature:nth-child(even) .ico { background: var(--mint-soft); }   /* na zmianę jasnoniebieskie i jasnomiętowe tło ikony */
+.feature .ico img { width: 28px; height: 28px; }   /* ikona z pliku (assets/icons/funkcja-*.svg) zamiast emoji */
 .feature p { grid-column: 1 / -1; color: var(--muted); margin: 14px 0 0; }
 .who p { color: var(--muted); margin: 0; }
 /* „Dla kogo”: białe karty na niebieskim tle; mała biała ikona na niebieskim kafelku obok tekstu – jak ikony na
