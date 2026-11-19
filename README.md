@@ -12,10 +12,10 @@ i18n.js          – wszystkie teksty strony, PL i EN, te same klucze w obu jęz
 config.js        – pakiety, ceny, linki Stripe, e-mail, telefon, adres aplikacji
 script.js        – wybór języka, wypełnianie list i cennika, menu mobilne
 frames.js        – okna przeglądarek (Chrome, Safari, Edge, Firefox, Samsung Internet) wokół ekranów aplikacji
-styles.css       – wygląd; kolory z karty znaku, gradient i czcionki jako zmienne w :root na górze pliku
-assets/logo/     – logo z paczki znaku (11.11.2026): 6 wersji logo w SVG; assets/logo/ikona/ – 11 wariantów ikony „Bx”
-favicon.ico, favicon.svg, favicon-16/32.png, apple-touch-icon.png, icon-192/512.png, icon-maskable-192/512.png,
-site.webmanifest – favikona i ikony z paczki znaku (katalog główny, jak w jej instrukcji)
+styles.css       – wygląd; kolory z karty znaku 1.4 i czcionki jako zmienne w :root na górze pliku
+assets/logo/     – pliki SVG z paczki znaku 1.4 (19.11.2026): napis (znak podstawowy), logo z polem, ikona/, deskryptor/, powered-by/, motyw-x/, animacja/
+favicon.ico, favicon.svg, favicon-64x64.png, apple-touch-icon.png, icon-192/512.png, icon-maskable-512.png,
+site.webmanifest – zestaw favikon z paczki znaku 1.4 (katalog główny, jak w jej instrukcji)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
 assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): shop, users, trophy; robi je narzedzia/uicons.ps1
 assets/flags/    – flagi listy języków (pl, gb, de, es, ru; SVG, bo Windows nie pokazuje emoji flag)
@@ -38,20 +38,20 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   wyśrodkowane; tytuł ma do 840px (angielski tytuł sekcji funkcji ma w Sora 822px), opis pod nim do 720px.
   Wyjątek: `#inside`, gdzie tekst stoi obok ekranu i zostaje wyrównany do lewej.
 - **Hero jest białe** (Łukasz, 10.11.2026: niebieski panel boczny aplikacji na ekranie ginął na niebieskim tle),
-  z delikatną niebieską poświatą za oknem.
+  bez poświaty za oknem (zdjęta 19.11.2026 razem ze zmniejszeniem cienia pod oknem).
 - **Menu u góry białe, z rozmyciem** (Łukasz, 10.11.2026): półprzezroczyste białe tło z `backdrop-filter: blur`, więc
   to, co przewija się pod menu, jest rozmyte; po przewinięciu w dół `script.js` dodaje `.is-scrolled` (cień i linia).
-  Logo w menu: `Bextip-logo-gradient.svg` (wersja ekranowa z gradientem – na jasne tło), 48px wysokości.
+  Logo w menu: `Bextip-napis-kolor.svg` (napis – znak podstawowy na stronie WWW według karty 1.4), 43px wysokości.
 - **Układ menu jak na eqrento.com** (Łukasz, 10.11.2026): trzy kolumny (`1fr auto 1fr`) – logotyp z lewej, linki
   na środku (ok. 300px od logotypu przy 1536px), przyciski z prawej; odstępy między linkami 36px, do 1440px 28px,
-  do 1240px 22px. Logo w menu ma 48px wysokości (nowe logo z polem, 11.11.2026; wcześniej logotyp 43px). Linia bazowa
-  linków stoi na podstawie napisu „Bextip” (bez ogonka „p”): `translateY(--nav-shift)`, 4px – zmierzone
-  w przeglądarce (różnica ok. 0,3px). Zmiana wysokości logo albo rozmiaru linków = zmierz ponownie.
-- **Podkreślenie widocznej sekcji** (Łukasz, 10.11.2026): złota linia 2px pod linkiem (`.is-active`, kolor kropki
-  nad „i”); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
+  do 1240px 22px. Napis w menu ma 43px wysokości (karta 1.4, 19.11.2026; przy karcie 1.0 logo z polem 48px). Linia bazowa
+  linków stoi na podstawie napisu „Bextip” (bez ogonka „p”): `translateY(--nav-shift)`, 7px – zmierzone
+  w przeglądarce (różnica ok. 0,4px). Zmiana wysokości logo albo rozmiaru linków = zmierz ponownie.
+- **Podkreślenie widocznej sekcji** (Łukasz, 10.11.2026): niebieska linia 2px pod linkiem (`.is-active`; karta 1.4: mięty
+  nie używać do cienkich linii na bieli); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
   strony – FAQ. Sekcje bez linku (`#inside`, `#who`) zostawiają zaznaczoną poprzednią.
 - **Wybór języka w stopce** (Łukasz, 10.11.2026 – lista w menu wyglądała jak przyciski): kolumna „Język” z flagami
-  i nazwami w danym języku („Polski”, „English”…); wybrany jest biały ze złotą kropką. **Język startowy:** `?lang=`
+  i nazwami w danym języku („Polski”, „English”…); wybrany jest biały z miętową kropką. **Język startowy:** `?lang=`
   w adresie → wybór zapamiętany w przeglądarce (localStorage `bextip-lang`) → przeglądarka ustawiona na polski
   (pierwszy język w `navigator.languages`) – wersja polska, każda inna – angielska. Lista bierze się z `languages`
   w `config.js`, ale pokazuje tylko języki z tekstami w `i18n.js` – dziś PL i EN; flagi DE, ES i RU czekają
@@ -59,7 +59,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   w tym języku mają go dostawać zamiast angielskiego (dziś automatycznie tylko PL / EN).
 - Tła na przemian: hero białe → `#about` szare (`section--tint`, `#F1F4F8`) → `#features` białe → `#inside` szare →
   `#how` białe → `#who` niebieskie z logo (`section--blue`) → `#pricing` szare (białe kafelki odcinają się jak w EQrento) → `#faq` białe →
-  stopka granatowa. Dodając sekcję, zachowaj naprzemienność.
+  stopka niebieska. Dodając sekcję, zachowaj naprzemienność.
 - **Jeden odstęp góra / dół dla wszystkich sekcji** (Łukasz, 10.11.2026): `--sec-y` w `:root` (72px na komputerze,
   mniej na węższych ekranach) – wzorem był dolny odstęp hero od przycisków do krawędzi. Hero, sekcje i góra stopki
   używają tej samej zmiennej, a ostatni element sekcji nie ma dolnego marginesu. Okno w hero ma `margin-top`
@@ -67,12 +67,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **Telefon (do 820px): grafika zaraz pod hasłem** (Łukasz, 10.11.2026): `.hero__copy` ma `display: contents`,
   a elementy hero dostają `order` – etykieta, h1, okno z ekranem, opis, zalety, przyciski.
 - **Kroki** (`#how`, Łukasz, 10.11.2026: żeby było widać, że jeden następuje po drugim): karty z numerem w kółku
-  i złote strzałki w odstępach między nimi (`.steps li::after`, strzałka to SVG w CSS); do 1100px karty jedna pod
+  i miętowe strzałki w odstępach między nimi (`.steps li::after`, strzałka to SVG w CSS); do 1100px karty jedna pod
   drugą i strzałki w dół.
 - **Cienie i głębia** (Łukasz, 10.11.2026: strona była zbyt płaska): trzy poziomy `--shadow-sm / -md / -lg` w `:root`
   na kartach, kafelkach cennika, krokach, pytaniach FAQ (każde na osobnej karcie), etykietach i przyciskach; karty
-  unoszą się po najechaniu myszą (wyłączone przy „ogranicz animacje”); poświaty na niebieskich i granatowych
-  sekcjach.
+  unoszą się po najechaniu myszą (wyłączone przy „ogranicz animacje”); bez poświat i gradientów (karta 1.4), cienie mają odcień niebieskiego.
 - **Ekrany aplikacji w oknie przeglądarki** (Łukasz, 10.11.2026): `<div class="window">` z paskiem `.window__bar`
   (trzy kropki i adres – `bextip.com/predictions`, `bextip.com/tips-stats`, prawdziwe adresy tych ekranów
   w aplikacji). Ramka to sam CSS (`.window` w styles.css), obrazy są bez ramki. Obraz do podglądu linków jest jeden
@@ -175,23 +174,23 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   Poprzedni cennik (do 11.11.2026, jednorazowo za grę na wybrane rozgrywki): Pakiet 20 / 30 / 100 / 250 – 850 / 1150 /
   2850 / 3950 zł, Bez Limitu 3950 zł + 1,25 zł za osobę.
 - **Przełącznik „Rocznie / Miesięcznie”** nad kafelkami (jak na eqrento.com): domyślnie rocznie, wybrana opcja
-  w gradiencie, „2 mies. gratis” w złotym znaczniku (w EN bez znacznika). `script.js` rysuje kafelki od nowa
+  niebieska, „2 mies. gratis” w miętowym znaczniku (w EN bez znacznika). `script.js` rysuje kafelki od nowa
   (`billing`). Przy płatności rocznej pod ceną jest cena za gracza miesięcznie, przy miesięcznej – ile kosztuje rok.
 - Układ (Łukasz, 10.11.2026: mniejsze kafelki jak w EQrento): pakiety z limitem graczy to `.tier` w `.tiers` –
   4 w rzędzie powyżej 1100px, 2 × 2 niżej, jeden pod drugim na telefonach; Enterprise (`players: null`) to
   `.tier--wide` pod nimi na całą szerokość. Piąty pakiet z limitem nie zmieści się w rzędzie – trzeba by zmienić siatkę.
-- **Kafelek** (Łukasz, 11.11.2026): u góry nazwa i trzy punkty ze złotymi kropkami – „do **20 graczy**”, „miękki
+- **Kafelek** (Łukasz, 11.11.2026): u góry nazwa i trzy punkty z miętowymi kropkami – „do **20 graczy**”, „miękki
   limit **+10%** (+2 graczy gratis)”, „**wszystkie funkcje** w cenie” (pogrubienia `**…**` w `i18n.js`, nawias
   z nierozdzielającymi spacjami, żeby łamał się w całości); na dole cena z „netto za rok” w jednej linii obok, „X,XX zł za gracza / miesiąc”
   i przycisk. Blok z ceną (`.tier__buy`) jest przyklejony do dołu, więc ceny stoją w jednej linii we wszystkich
   kafelkach. Enterprise: „ponad **200 graczy** • miękki limit **+10%** graczy gratis • **wszystkie funkcje** w cenie”
-  w jednym rzędzie ze złotymi kropkami między punktami; do 1240px jeden pod drugim, z kropką przy każdym.
+  w jednym rzędzie z miętowymi kropkami między punktami; do 1240px jeden pod drugim, z kropką przy każdym.
 - Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`.
 - **„W każdym pakiecie”** – `pricing.included`: 19 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza (bez „Własna subdomena” – usunięta z całej strony, Łukasz, 11.11.2026)
   (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
-  z góry na dół (CSS `columns`), dwie do 1100px, jedna na telefonach; ptaszki w złotych kółkach.
+  z góry na dół (CSS `columns`), dwie do 1100px, jedna na telefonach; ptaszki w miętowych kółkach.
 - Ceny w kafelkach: Sora 600, jak hasło i tytuły (wcześniej 800 – po odchudzeniu nagłówków wyglądały za ciężko).
-- „Polecany”: `recommended: true` – **Mid** (Łukasz, 11.11.2026): kafelek w gradiencie z etykietą na górnej krawędzi
+- „Polecany”: `recommended: true` – **Mid** (Łukasz, 11.11.2026): niebieski kafelek z etykietą na górnej krawędzi
   w wymiarach przycisku z kafelka (45px, .95rem / 600 – ta sama reguła co „Stworzony dla firm”). Kafelki mają 40px
   górnego odstępu, żeby nazwy pakietów stały w jednej linii; przy 2 × 2 odstęp między rzędami 44px, na telefonie
   24px więcej tylko nad wyróżnionym kafelkiem.
@@ -203,33 +202,58 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - Do ustalenia przy zakładaniu Stripe (konto jeszcze nie istnieje – 10.11.2026): VAT (ceny na stronie są netto),
   zbieranie NIP i danych do faktury, strona po płatności z tym, co klient robi dalej (stworzenie gry, kod zaproszenia).
 
-## Wygląd – karta znaku Bextip (11.11.2026)
+## Wygląd – karta znaku Bextip 1.4 (19.11.2026)
 
-Źródło: „Bextip – karta znaku” (skrócona księga znaku, wersja 1.0, listopad 2026) z paczki `Bextip-logo-pakiet.zip`
-od Łukasza. Poprzednie logo „Stadion” zostało zastąpione (pliki są w historii gita).
+Źródło: „Bextip – karta znaku”, wersja 1.4 (listopad 2026) z paczki `Bextip - logo pack ver. 1.4.rar` od Łukasza
+(19.11.2026: „najnowsza oficjalnie stosowana wersja logotypu”). Zastępuje kartę 1.0 z 11.11.2026 (logo z polem
+w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są w historii gita.
 
-- **Kolory:** niebieski `#1C4F95` (podstawowy, pole logo), granat `#0C2A55` (koniec gradientu, teksty), zielony
-  `#86C93E` (litera x, akcje – przyciski), złoty `#EEC13E` (kropka nad „i”, akcenty), biel. Tło stron UI `#F1F4F8`
-  zostaje z poprzedniej palety.
-- **Kolory tekstu** (Łukasz, 11.11.2026): tytuły, hasło, ceny, pytania FAQ i pogrubienia w granacie `#0C2A55`
-  (`--ink`); opisy i teksty pomocnicze w jaśniejszym odcieniu tego granatu `#475F80` (`--muted`: 75% granatu,
-  25% bieli, kontrast z bielą 6,5:1; wcześniej szaroniebieski `#55627D`). Wszystko w granacie było rozważane –
-  tytuły przestałyby się wyróżniać, a długie opisy zrobiłyby się ciężkie.
-- **Gradient ekranowy:** liniowy, od `#1C4F95` do `#0C2A55`, kierunek 110° (`--grad` w styles.css). Na stronie:
-  stopka, sekcja „Dla kogo”, kafelek Bextip w porównaniu, ikony kart „Dla kogo”, numery kroków, wyróżniony pakiet
-  i tło obrazu do podglądu linków (Łukasz, 11.11.2026: gradient w stopce i innych ciemnych elementach).
-- **Logo na stronie** (zasady karty: gradient tylko na ekranach i na jasnym tle; na niebieskim tle sam napis, bez pola):
-  - menu (białe): `Bextip-logo-gradient.svg` – pole z gradientem, 48px wysokości;
-  - stopka (gradient od niebieskiego), kafelek Bextip (gradient) i obraz do podglądu linków:
-    `Bextip-napis-bez-pola-na-niebieskie-tlo.svg` – sam napis. Wersja płaska z polem na ciemne tło
-    (`Bextip-logo-plaskie.svg`) zlewała się z niebieskim początkiem gradientu stopki.
-  - Pozostałe wersje (płaska, jednokolorowe: granat, czerń, biel) są w `assets/logo/` – strona ich nie używa.
-- **Ikona „Bx”:** favikona z paczki (`favicon.svg` – wariant do małych rozmiarów z szerszą przerwą w B, `favicon.ico`,
-  `apple-touch-icon.png`, ikony w `site.webmanifest`); ta sama ikona jest na karcie w oknach przeglądarek (frames.js).
-- **Zasady z karty:** nie rozciągać logo i nie zmieniać pochylenia pola; napis biały, x zielone, kropka złota; bez
-  cieni, obrysów i efektów na logo; pole ochronne co najmniej wysokość litery x; najmniejsza wysokość logo 24px;
-  **złoty to akcent – wypełnienia i znaczniki, nie tekst na bieli** (dlatego plusy w FAQ są niebieskie).
-- **Krój napisu w logo: Sora ExtraBold** (B własne) – tym samym krojem są złożone nagłówki strony (patrz „Czcionki”).
+- **Kolory marki – dwa i biel:** niebieski `#1C4F95` (napis, x, teksty, ciemne tło), mięta `#22DCAF` (kwadrat pod x,
+  tło wyróżnień i przycisków), biel. Szary `#6B7280` tylko w wersjach „cichych” i „powered by” – strona go nie używa.
+  **Bez granatu, limonki i złota, bez gradientów** („ciemnym tłem jest niebieski”; „unikaj neonów, gradientów
+  i estetyki serwisów z zakładami”). Tło stron UI `#F1F4F8` i linie `#D8E0EC` zostają jako neutralne.
+- **Zasady mięty:** to kolor kwadratu i tła; **na mięcie tekst niebieski, nie biały**; **nie używać mięty do tekstu
+  ani cienkich linii na bieli** – dlatego podkreślenie widocznej sekcji w menu i plusy w FAQ są niebieskie.
+- **Kolory na stronie** (`:root` w `styles.css`):
+  - tekst `--ink` = niebieski `#1C4F95` (tytuły, hasło, ceny, pytania FAQ, pogrubienia); opisy i teksty pomocnicze
+    `--muted` = `#3E69A5` (85% niebieskiego + 15% bieli, kontrast z bielą 5,6:1) – ta sama zasada co przy decyzji
+    Łukasza z 11.11.2026: opisy w jaśniejszym odcieniu koloru tytułów, żeby tytuły się wyróżniały;
+  - ciemne tła `--blue`, płaskie: stopka, sekcja „Dla kogo”, kafelek Bextip w porównaniu, wyróżniony pakiet, wybrana
+    opcja przełącznika w cenniku, numery kroków, ikony kart „Dla kogo”, tło obrazu do podglądu linków; teksty
+    pomocnicze na niebieskim `--on-blue` = `#D5E2F5` (6,1:1);
+  - mięta `--mint`: przyciski główne (niebieski tekst, po najechaniu `--mint-dark`), etykiety „Stworzony dla firm”,
+    „Polecany” i „2 mies. gratis”, kropki (etykieta w hero, punkty w kafelkach cennika, wybrany język), kółka
+    z ptaszkami, strzałki między krokami, co druga ikona funkcji (`--mint-soft`);
+  - kółko ze strzałką w przyciskach: niebieskie z białą strzałką.
+- **Logo na stronie** (karta: „napis” jest znakiem podstawowym na stronie WWW; logo z polem – gra, kampanie, social media):
+  - menu: `assets/logo/Bextip-napis-kolor.svg`, 43px wysokości (jak napis sprzed pola – Łukasz, 10.11.2026);
+  - stopka, kafelek Bextip (28px) i obraz do podglądu linków: `Bextip-napis-kolor-ciemne-tlo.svg` (biały napis,
+    miętowy kwadrat z niebieskim x);
+  - pozostałe pliki SVG z paczki są w `assets/logo/` (jednokolorowe, logo z polem, `ikona/`, `deskryptor/`,
+    `powered-by/`, `motyw-x/`, `animacja/`) – strona ich nie używa. Najmniejsze wysokości na ekranie: napis 12px,
+    logo z polem 20px, ikona 16px, deskryptor PL 50px / EN 70px;
+  - `animacja/Bextip-napis-animacja.svg`: kwadrat z x obraca się raz przy wczytaniu (0,8 s, szanuje „ogranicz
+    animacje”) – do ewentualnego użycia w menu, na razie napis jest statyczny.
+- **Favikony** z folderu „6 - favicon”: `favicon.ico` (48px), `favicon.svg`, `favicon-64x64.png`,
+  `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `site.webmanifest`. Adresy w `<head>`
+  i w manifeście są względne (paczka ma `/favicon.ico` itd.), bo do podpięcia domeny strona działa w podkatalogu
+  bextip.github.io/landing_page/; `display` zostaje `browser` (paczka: `standalone`) – strona to nie aplikacja.
+  Ta sama ikona jest na karcie w oknach przeglądarek (frames.js).
+- **Ekrany aplikacji** (`assets/screens/*.svg`) dostosowane do karty 1.4, żeby stare i nowe logo nie stały obok
+  siebie: napis w panelu bocznym podmieniony na nowy (`<g transform="translate(21 27.57) scale(0.2)">` w miejscu
+  sześciu ścieżek starego logo), limonka `#86C93E` → mięta, granat `#0C2A55` → niebieski. Kolory statusów w Tips&Stats
+  (zielony / bursztynowy / czerwony) bez zmian. Gdy platforma dostanie nowy wygląd, podmienić na świeże zrzuty.
+  Na ekranie typowania jest napis „obstaw wyniki” – karta każe unikać słowa „obstawiać” (tekst jest krzywymi,
+  do poprawy przy nowych zrzutach). Adresy obrazów mają `?v=`, bo plik zmienił się pod tą samą nazwą.
+- **Cień pod oknami z ekranami** zmniejszony (Łukasz, 19.11.2026: był za mocny i za duży): jedna warstwa
+  `0 18px 40px -14px rgba(28, 79, 149, .36)` zamiast dużego cienia z niebieską poświatą, tak samo w hero
+  i w `#inside`; hero bez poświaty w tle; mniejszy cień także w obrazie do podglądu linków.
+- **Zasady z karty:** litera x zawsze na kwadracie; nie rozciągać znaku; bez gradientów, cieni i obrysów na znaku;
+  pole ochronne co najmniej wysokość litery x. Język: typer, liga, drużyny, ranking, punkty, integracja – unikać słów
+  obstawiać, zakład, kurs, kupon, stawka, wygrana pieniężna. Obraz: nie pokazywać kuponów, pieniędzy, żetonów i kart
+  (ikona funkcji „Joker” to emoji karty – do decyzji Łukasza).
+- **Krój napisu w logo: Sora ExtraBold** (B własne). Karta: Sora do tytułów, Inter do tekstu i liczb – jak na stronie
+  (patrz „Czcionki”).
 - Czcionki z Google Fonts: **Sora** w nagłówkach (Łukasz, 11.11.2026: krój napisu z logo według karty znaku;
   wcześniej Lexend) i Inter w tekście. Strona ładuje tylko Sora 600 i 700.
   Hasło (h1), tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
@@ -237,14 +261,14 @@ od Łukasza. Poprzednie logo „Stadion” zostało zastąpione (pliki są w his
 - **Szerokość jak na eqrento.com** (Łukasz, 10.11.2026): treść do 1360px (`.wrap`), boczne odstępy `--gutter`
   48px, do 1440px 40px, do 1200px 32px, na telefonach (do 640px) 20px. Przy 1366×768 okno w hero mieści się
   na styk – szerszej treści albo wyższego okna nie da się już dodać bez zmniejszenia okna.
-- Główne przyciski: zielone z granatowym napisem – biały napis na tej zieleni ma za słaby kontrast. **Lekki gradient
-  i strzałka na końcu** jak na eqrento.com (Łukasz, 10.11.2026): `.btn--primary` ma gradient `#9AD452 → #7CBC35`;
-  `.btn--arrow` + `<span class="btn__icon">` dodaje na końcu granatowe kółko ze złotą strzałką (`--ico-arrow`), tekst
-  idzie wtedy w `<span>` (atrybut `data-i18n` na `<span>`, nie na `<a>`, bo inaczej zniknęłaby strzałka). Strzałkę
-  mają: przycisk w hero, „Wybierz pakiet” w porównaniu, pod Funkcjami i pod Krokami oraz przyciski pakietów; „Wybierz pakiet” w menu – bez strzałki
-  (jak „Book a demo” w nagłówku EQrento).
-- Ptaszki na listach i w etykietach hero: złote kółko z granatowym ptaszkiem (`--ico-check`; Łukasz, 10.11.2026).
-- Akcent: złoty z karty znaku `#EEC13E` (`--gold`; wcześniej `#F5B82E`). Używany oszczędnie i tylko jako wypełnienie lub znacznik: kropka w etykiecie hero (`--dot` 8,4px), podkreślenie widocznej sekcji w menu, strzałki między krokami i w przyciskach, ptaszki, etykiety „Polecany” / „Stworzony dla firm”, co trzecia ikona funkcji (`--gold-soft`), kropka przy wybranym języku w stopce.
+- Główne przyciski: miętowe z niebieskim napisem, płaskie (karta 1.4; wcześniej zielony gradient). **Strzałka na
+  końcu** jak na eqrento.com (Łukasz, 10.11.2026): `.btn--arrow` + `<span class="btn__icon">` dodaje na końcu
+  niebieskie kółko z białą strzałką (`--ico-arrow`), tekst idzie wtedy w `<span>` (atrybut `data-i18n` na `<span>`,
+  nie na `<a>`, bo inaczej zniknęłaby strzałka). Strzałkę mają: przycisk w hero, „Wybierz pakiet” w porównaniu,
+  pod Funkcjami i pod Krokami oraz przyciski pakietów; „Wybierz pakiet” w menu – bez strzałki (jak „Book a demo”
+  w nagłówku EQrento).
+- Ptaszki na listach i w etykietach hero: miętowe kółko z niebieskim ptaszkiem (`--ico-check`).
+- Kropki-akcenty (`--dot`) mają 8px – tyle, ile kropka nad „i” w napisie z menu (43px wysokości).
 - Wizualizacje „Tabele” i „Typowanie wyniku” zawierają prawdziwe imiona i nazwiska graczy – celowo nie są na stronie.
   Ekran tabeli można dodać, gdy powstanie wersja z fikcyjnymi nazwiskami.
 
@@ -286,7 +310,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261111n`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119a`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

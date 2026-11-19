@@ -1,41 +1,34 @@
-/* Bextip landing – kolory z karty znaku Bextip (11.11.2026): niebieski, granat, zielony x, złota kropka, gradient 110°.
+/* Bextip landing – kolory z karty znaku 1.4 (listopad 2026; Łukasz, 19.11.2026): niebieski, mięta i biel.
+   Marka nie używa już granatu, limonki ani złota i unika gradientów – ciemnym tłem i kolorem tekstu jest niebieski.
    Zmiana motywu = podmiana zmiennych w :root. */
 :root {
-  --blue: #1C4F95;      /* tło firmowe / panel */
-  --blue-dark: #163F78;
-  --navy: #0C2A55;      /* kontur sygnetu, tekst */
-  --bright: #1F86CF;    /* niebieski akcent na jasnym tle */
-  --accent: #86C93E;    /* zielony akcent „x” */
-  --accent-dark: #74B42F;
-  --gold: #EEC13E;      /* złoty z karty znaku: kropka nad „i”, akcenty – tylko wypełnienia i znaczniki, nie tekst na bieli */
-  --gold-soft: #FCF3D8; /* jasne tło ikon funkcji, z tego samego złotego */
-  --gold-shadow: rgba(184, 140, 20, .75);
-  /* gradient ekranowy z karty znaku: od niebieskiego do granatu, kierunek 110° – stopka, sekcja „Dla kogo”,
-     kafelek Bextip, ikony i numery kroków */
-  --grad: linear-gradient(110deg, #1C4F95 0%, #0C2A55 100%);
-  --green-soft: #EDF7E2;
+  --blue: #1C4F95;      /* napis, teksty, ciemne tło marki: stopka, „Dla kogo”, kafelek Bextip, wyróżniony pakiet */
+  --mint: #22DCAF;      /* kwadrat pod x; tło wyróżnień i przycisków – zawsze z niebieskim tekstem. Karta znaku:
+                           nie używać mięty do tekstu ani cienkich linii na bieli */
+  --mint-dark: #1FCAA1; /* przycisk po najechaniu myszą */
+  --mint-soft: #DEFAF3; /* jasne tło ikon funkcji (15% mięty) */
+  --mint-shadow: rgba(16, 150, 118, .55);
   --sky: #E6EEF8;
   --sky-2: #F1F4F8;     /* tło strony UI */
   --line: #D8E0EC;
-  --ink: #0C2A55;
-  --muted: #475F80;     /* opisy i teksty pomocnicze: jaśniejszy odcień granatu #0C2A55 (75% granatu, 25% bieli; kontrast z bielą 6,5:1) – Łukasz, 11.11.2026, wcześniej #55627D */
+  --ink: #1C4F95;       /* tekst: niebieski („kolor tekstu: niebieski na jasnym tle”); wcześniej granat #0C2A55 */
+  --muted: #3E69A5;     /* opisy i teksty pomocnicze: jaśniejszy odcień niebieskiego (85% niebieskiego, 15% bieli; kontrast z bielą 5,6:1) */
+  --on-blue: #D5E2F5;   /* teksty pomocnicze na niebieskim tle (kontrast 6,1:1) */
   --white: #fff;
-  --ok: #5E9E22;
   --radius: 16px;
   /* jeden odstęp góra / dół dla wszystkich sekcji = dolny odstęp hero od przycisków do krawędzi (Łukasz, 10.11.2026) */
   --sec-y: clamp(40px, 6vw, 72px);
   /* szerokość treści jak na eqrento.com: do 1360px, boczne odstępy 48 / 40 / 32 / 20px (Łukasz, 10.11.2026) */
   --gutter: 48px;
-  /* złota strzałka przycisków i granatowy ptaszek na złotym kółku list (SVG w CSS) */
-  --ico-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EEC13E' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E");
-  --ico-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C2A55' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
-  /* złote kropki-akcenty mają rozmiar kropki nad „i” w logo z nagłówka (36px wysokości → ok. 7px) */
-  --dot: 8.4px;   /* logo w menu ma 43px, kropka nad „i” ma w nim ok. 8,4px */
-  /* cienie – trzy poziomy, żeby strona miała głębię („3D”) */
-  --shadow-sm: 0 1px 2px rgba(12, 42, 85, .06), 0 3px 8px -2px rgba(12, 42, 85, .10);
-  --shadow-md: 0 1px 2px rgba(12, 42, 85, .06), 0 12px 30px -12px rgba(12, 42, 85, .26);
-  --shadow-lg: 0 2px 4px rgba(12, 42, 85, .07), 0 26px 50px -18px rgba(12, 42, 85, .36);
-  --shadow-dark: 0 18px 40px -18px rgba(0, 0, 0, .65);
+  /* biała strzałka przycisków (w niebieskim kółku) i niebieski ptaszek na miętowym kółku list (SVG w CSS) */
+  --ico-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 12h15M13.5 6l6 6-6 6'/%3E%3C/svg%3E");
+  --ico-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C4F95' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  /* miętowe kropki-akcenty mają rozmiar kropki nad „i” w napisie z nagłówka */
+  --dot: 8px;   /* napis w menu ma 43px wysokości, kropka nad „i” ma w nim 8px (zmierzone w pliku napisu 1.4) */
+  /* cienie – trzy poziomy, żeby strona miała głębię („3D”); odcień niebieskiego z karty znaku */
+  --shadow-sm: 0 1px 2px rgba(28, 79, 149, .07), 0 3px 8px -2px rgba(28, 79, 149, .12);
+  --shadow-md: 0 1px 2px rgba(28, 79, 149, .07), 0 12px 30px -12px rgba(28, 79, 149, .28);
+  --shadow-lg: 0 2px 4px rgba(28, 79, 149, .08), 0 26px 50px -18px rgba(28, 79, 149, .38);
   --font: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   --font-head: "Sora", "Inter", "Segoe UI", system-ui, sans-serif;   /* krój napisu w logo z karty znaku (Łukasz, 11.11.2026; wcześniej Lexend) */
 }
@@ -60,15 +53,15 @@ p { margin: 0 0 1em; }
 /* ostatni element sekcji bez dolnego marginesu – od treści do krawędzi zawsze jest dokładnie --sec-y */
 .section .wrap > :last-child, .hero__copy > :last-child { margin-bottom: 0; }
 .section--tint { background: var(--sky-2); }
-/* niebieski z logo (#1C4F95) – sekcja „Dla kogo” (Łukasz, 10.11.2026), z jasną i zieloną poświatą */
-.section--blue { color: var(--white); background: var(--grad); }   /* sekcja „Dla kogo” – gradient z karty znaku */
+/* niebieski z logo (#1C4F95) – sekcja „Dla kogo” (Łukasz, 10.11.2026); płaski kolor, bez gradientu (karta znaku 1.4) */
+.section--blue { color: var(--white); background: var(--blue); }
 .sub { color: var(--muted); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; }
 /* tytuł sekcji i opis pod nim – wyśrodkowane, jak na eqrento.com (sekcja #inside ma tekst obok ekranu i zostaje z lewej) */
 .section-head { text-align: center; max-width: 840px; margin: 0 auto clamp(32px, 4vw, 48px); }   /* 840px: tytuł EN „Everything an office prediction game needs” w Sora ma 822px – mieści się w jednej linii */
 .section-head h2 { margin-bottom: .45em; }
 .section-head h2:last-child { margin-bottom: 0; }
 .section-head .sub { margin: 0 auto; }
-.section--blue .section-head .sub { color: #D5E2F5; }
+.section--blue .section-head .sub { color: var(--on-blue); }
 /* przycisk „Wybierz pakiet” na dole sekcji Funkcje i Jak to działa (Łukasz, 11.11.2026); odstęp jak pod nagłówkiem */
 .section-cta { display: flex; justify-content: center; margin-top: clamp(32px, 4vw, 48px); }
 
@@ -78,21 +71,16 @@ p { margin: 0 0 1em; }
    kółka. --fit (script.js, fitBadge) zmniejsza czcionkę i odstępy razem z etykietą nad hasłem, gdy ta nie mieści się
    w jednej linii; wysokość (kółko 40px) zostaje */
 .btn--lg { padding: 14px calc(26px * var(--fit, 1)); font-size: calc(1.05rem * var(--fit, 1)); }
-/* lekki gradient jak na eqrento.com (tam złoto-pomarańczowy, tu zieleń z logo) */
-.btn--primary {
-  background: linear-gradient(90deg, #9AD452 0%, #7CBC35 100%); color: var(--navy);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45), 0 8px 18px -8px rgba(76, 128, 20, .8);
-}
-.btn--primary:hover {
-  background: linear-gradient(90deg, #8ECB44 0%, #6EAE29 100%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35), 0 12px 22px -8px rgba(76, 128, 20, .85);
-}
-/* strzałka na końcu przycisku (jak na eqrento.com): złota strzałka w granatowym kółku, tekst z lewej */
+/* przycisk główny: mięta z niebieskim tekstem (karta znaku 1.4: „mięta jako tło wyróżnień i przycisków, zawsze
+   z niebieskim tekstem”), płaski kolor bez gradientu; wcześniej zielony gradient */
+.btn--primary { background: var(--mint); color: var(--blue); box-shadow: 0 8px 18px -8px var(--mint-shadow); }
+.btn--primary:hover { background: var(--mint-dark); box-shadow: 0 12px 22px -8px var(--mint-shadow); }
+/* strzałka na końcu przycisku (jak na eqrento.com): biała strzałka w niebieskim kółku, tekst z lewej */
 .btn--arrow { justify-content: space-between; gap: 14px; padding: 5px 5px 5px 20px; }
 .btn--lg.btn--arrow { gap: calc(14px * var(--fit, 1)); padding: 6px 6px 6px calc(26px * var(--fit, 1)); }
 .btn__icon {
   flex: none; width: 32px; height: 32px; border-radius: 50%;
-  background: var(--navy) var(--ico-arrow) center / 16px no-repeat;
+  background: var(--blue) var(--ico-arrow) center / 16px no-repeat;
   transition: transform .3s cubic-bezier(.2, .7, .2, 1);
 }
 .btn--lg .btn__icon { width: 40px; height: 40px; background-size: 18px; }
@@ -109,22 +97,24 @@ p { margin: 0 0 1em; }
   -webkit-backdrop-filter: saturate(1.6) blur(14px); backdrop-filter: saturate(1.6) blur(14px);
   border-bottom: 1px solid transparent; transition: border-color .2s, box-shadow .2s;
 }
-.nav.is-scrolled { border-bottom-color: rgba(12, 42, 85, .08); box-shadow: 0 10px 30px -18px rgba(12, 42, 85, .45); }
+.nav.is-scrolled { border-bottom-color: rgba(28, 79, 149, .10); box-shadow: 0 10px 30px -18px rgba(28, 79, 149, .45); }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .nav { background: rgba(255, 255, 255, .97); } }
 /* trzy kolumny jak na eqrento.com: logotyp z lewej, linki na środku (z dala od logotypu), przyciski z prawej */
 .nav__in { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: 24px; height: 68px; }
 .brand { grid-column: 1; justify-self: start; display: flex; align-items: center; }
-.brand img { height: 48px; width: auto; }   /* logo z gradientem (karta znaku: wersja ekranowa na jasne tło), 48px */
+/* karta znaku 1.4: na stronie WWW znakiem podstawowym jest napis (logo z polem – tylko gra i kampanie); 43px
+   wysokości jak napis sprzed pola (Łukasz, 10.11.2026) */
+.brand img { height: 43px; width: auto; }
 /* --nav-shift: linia bazowa linków na wysokości podstawy napisu „Bextip” (bez ogonka „p”) – zmierzone w przeglądarce
-   dla logo z polem 48px (4px; różnica ok. 0,3px) */
+   dla napisu 43px (7px; różnica 0,4px). Zmiana wysokości napisu albo rozmiaru linków = zmierz ponownie */
 .nav__links {
   grid-column: 2; display: flex; gap: 36px; font-weight: 500; color: var(--muted); white-space: nowrap;
-  transform: translateY(var(--nav-shift, 4px));
+  transform: translateY(var(--nav-shift, 7px));
 }
 .nav__links a { position: relative; display: block; padding: 6px 0; line-height: 1.1; transition: color .2s; }
-.nav__links a::after {   /* podkreślenie widocznej sekcji – złota linia jak kropka nad „i” */
+.nav__links a::after {   /* podkreślenie widocznej sekcji – niebieskie (mięty nie wolno używać do cienkich linii na bieli) */
   content: ""; position: absolute; left: 0; right: 0; bottom: -3px; height: 2px; border-radius: 2px;
-  background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .35s cubic-bezier(.2, .7, .2, 1);
+  background: var(--blue); transform: scaleX(0); transform-origin: left; transition: transform .35s cubic-bezier(.2, .7, .2, 1);
 }
 .nav__links a:hover, .nav__links a.is-active { color: var(--ink); }
 .nav__links a.is-active::after { transform: scaleX(1); }
@@ -134,12 +124,9 @@ p { margin: 0 0 1em; }
 .burger { display: none; width: 40px; height: 40px; border: 0; background: none; cursor: pointer; padding: 10px; }
 .burger span { display: block; height: 2px; background: var(--ink); margin: 4px 0; border-radius: 2px; }
 
-/* Hero – białe tło (Łukasz, 10.11.2026: niebieski panel aplikacji na ekranie ginął na niebieskim tle),
-   z delikatną niebieską poświatą za oknem z ekranem */
-.hero {
-  position: relative; overflow: hidden; color: var(--ink); padding: var(--sec-y) 0;
-  background: radial-gradient(42% 60% at 77% 46%, rgba(31, 134, 207, .17), transparent 72%), var(--white);
-}
+/* Hero – białe tło (Łukasz, 10.11.2026: niebieski panel aplikacji na ekranie ginął na niebieskim tle); bez niebieskiej
+   poświaty za oknem z ekranem (Łukasz, 19.11.2026: cień pod grafiką był za mocny i za duży; karta znaku: bez gradientów) */
+.hero { position: relative; overflow: hidden; color: var(--ink); padding: var(--sec-y) 0; background: var(--white); }
 .hero__in { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
 .hero__shot { margin-top: clamp(0px, 1.2vw, 16px); }   /* okno blisko wysokości h1; mniej niż 32px, bo pasek okna Chrome / Edge / Firefox jest wyższy */
 .hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.2rem); }
@@ -154,14 +141,14 @@ p { margin: 0 0 1em; }
   background: var(--white); border: 1.5px solid var(--line); box-shadow: var(--shadow-sm);
   color: var(--blue); font-weight: 600; font-size: calc(1.05rem * var(--s)); margin-bottom: 18px;
 }
-.pill::before { content: ""; flex: none; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--gold); }   /* flex: none – kropka nie znika, gdy etykieta dojdzie do max-width */
+.pill::before { content: ""; flex: none; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--mint); }   /* flex: none – kropka nie znika, gdy etykieta dojdzie do max-width */
 .lead { font-size: 1.2rem; color: var(--muted); max-width: 560px; }
 .chips { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li {
   position: relative; padding: 6px 12px 6px 30px; border-radius: 999px; font-size: .9rem; font-weight: 500;
   background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
 }
-.chips li::before { content: ""; position: absolute; left: 8px; top: 50%; width: 16px; height: 16px; margin-top: -8px; border-radius: 50%; background: var(--gold) var(--ico-check) center / 10px no-repeat; }
+.chips li::before { content: ""; position: absolute; left: 8px; top: 50%; width: 16px; height: 16px; margin-top: -8px; border-radius: 50%; background: var(--mint) var(--ico-check) center / 10px no-repeat; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
 .included { margin-top: 20px; }
 /* „W każdym pakiecie”: 20 funkcji z PDF-u w trzech kolumnach (czytane kolumnami), pogrubienia jak w PDF-ie */
@@ -173,15 +160,15 @@ p { margin: 0 0 1em; }
 
 /* Cards / grids */
 .compare { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 20px; align-items: start; }
-.card { background: var(--white); border: 1px solid rgba(12, 42, 85, .07); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-md); }
+.card { background: var(--white); border: 1px solid rgba(28, 79, 149, .09); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-md); }
 /* kafelek Bextip w porównaniu (Łukasz, 11.11.2026): niebieski, z logotypem zamiast napisu; etykieta na górnej
    krawędzi i przycisk na dolnej – do połowy poza kafelkiem, jak na eqrento.com */
 .card--hl {
   position: relative; border: 0; color: var(--white); padding: 54px 28px; margin-bottom: 26px;   /* pod etykietą tyle miejsca co nad przyciskiem */
-  background: var(--grad);
-  box-shadow: 0 2px 4px rgba(5, 20, 45, .12), 0 26px 50px -18px rgba(12, 42, 85, .6);
+  background: var(--blue);
+  box-shadow: 0 2px 4px rgba(28, 79, 149, .14), 0 22px 44px -18px rgba(28, 79, 149, .55);
 }
-.card--hl .quote { color: #D5E2F5; }
+.card--hl .quote { color: var(--on-blue); }
 .card--hl .list { margin-bottom: 0; }
 /* etykieta „Stworzony dla firm” = przycisk „Wybierz pakiet” z tego kafelka (Łukasz, 11.11.2026), tylko kolory własne:
    ta sama wysokość (32px linia jak kółko ze strzałką + 2 × 5px + 2 × 1,5px ramki = 45px), czcionka, grubość
@@ -196,13 +183,13 @@ p { margin: 0 0 1em; }
    co najmniej 24px wysokości */
 .card__logo img { height: 28px; width: auto; }
 .card__cta { position: absolute; bottom: 0; left: 50%; translate: -50% 50%; white-space: nowrap; }
-.tag { display: inline-block; background: var(--gold); color: var(--navy); font-size: .78rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; box-shadow: 0 4px 10px -4px var(--gold-shadow); }
+.tag { display: inline-block; background: var(--mint); color: var(--blue); font-size: .78rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; box-shadow: 0 4px 10px -4px var(--mint-shadow); }   /* etykiety: mięta z niebieskim tekstem */
 .quote { color: var(--muted); font-style: italic; }
 .list { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; }
 .list li { padding-left: 28px; position: relative; }
 .list li::before { position: absolute; left: 0; top: 0; font-weight: 800; }
-/* ptaszki w kolorze akcentu (Łukasz, 10.11.2026): złote kółko z granatowym ptaszkiem */
-.list--check li::before { content: ""; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--gold) var(--ico-check) center / 11px no-repeat; box-shadow: 0 3px 6px -3px var(--gold-shadow); }
+/* ptaszki w kolorze akcentu (Łukasz, 10.11.2026): miętowe kółko z niebieskim ptaszkiem */
+.list--check li::before { content: ""; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: var(--mint) var(--ico-check) center / 11px no-repeat; box-shadow: 0 3px 6px -3px var(--mint-shadow); }
 .list--minus li::before { content: "–"; color: #9aa6bf; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 /* kafelek funkcji: ikona i tytuł w jednym rzędzie, opis pod nimi (Łukasz, 11.11.2026) */
@@ -212,10 +199,9 @@ p { margin: 0 0 1em; }
 .feature .ico {
   width: 44px; height: 44px; border-radius: 12px; background: var(--sky); color: var(--blue);
   display: grid; place-items: center; font-size: 1.3rem; margin: 0;
-  box-shadow: inset 0 -2px 0 rgba(12, 42, 85, .06), 0 6px 12px -6px rgba(12, 42, 85, .3);
+  box-shadow: inset 0 -2px 0 rgba(28, 79, 149, .07), 0 6px 12px -6px rgba(28, 79, 149, .32);
 }
-.feature:nth-child(3n+2) .ico { background: var(--green-soft); }
-.feature:nth-child(3n) .ico { background: var(--gold-soft); }
+.feature:nth-child(even) .ico { background: var(--mint-soft); }   /* na zmianę jasnoniebieskie i jasnomiętowe tło ikony */
 .feature p { grid-column: 1 / -1; color: var(--muted); margin: 14px 0 0; }
 .who p { color: var(--muted); margin: 0; }
 /* „Dla kogo”: białe karty na niebieskim tle; mała biała ikona na niebieskim kafelku obok tekstu – jak ikony na
@@ -223,43 +209,43 @@ p { margin: 0 0 1em; }
 .card.who {
   display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 18px; align-content: start;
   color: var(--ink); padding: 26px; border: 0;
-  box-shadow: 0 2px 4px rgba(5, 20, 45, .12), 0 24px 50px -20px rgba(5, 20, 45, .6);
+  box-shadow: 0 2px 4px rgba(10, 34, 70, .14), 0 20px 40px -20px rgba(10, 34, 70, .5);
 }
 .who__icon {
   grid-row: 1 / span 2; width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center;
-  background: var(--grad);
+  background: var(--blue);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .16), 0 10px 20px -10px rgba(28, 79, 149, .85);
 }
 .who__icon img { width: 24px; height: 24px; }   /* Uicons (Flaticon) 24×24, jak w EQrento */
 .card.who h3 { margin: 4px 0 6px; }
 .card.who p { grid-column: 2; }
 
-/* Steps – karty z numerem i złotymi strzałkami między nimi, żeby było widać kolejność (Łukasz, 10.11.2026);
+/* Steps – karty z numerem i miętowymi strzałkami między nimi, żeby było widać kolejność (Łukasz, 10.11.2026);
    do 1100px jedna kolumna i strzałki w dół */
 .steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 56px; counter-reset: s; }
 .steps li {
   position: relative; counter-increment: s;
-  padding: 70px 24px 26px; border-radius: 20px; background: var(--white); border: 1px solid rgba(12, 42, 85, .07);
+  padding: 70px 24px 26px; border-radius: 20px; background: var(--white); border: 1px solid rgba(28, 79, 149, .09);
   box-shadow: var(--shadow-md);
 }
 .steps li::before {   /* numer kroku */
   content: counter(s); position: absolute; top: 22px; left: 24px;
   width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--grad); color: var(--white); font: 700 1rem/1 var(--font-head);
+  background: var(--blue); color: var(--white); font: 700 1rem/1 var(--font-head);
   box-shadow: 0 6px 14px -6px rgba(28, 79, 149, .85);
 }
 .steps li:not(:last-child)::after {   /* strzałka do następnego kroku, na środku odstępu między kartami */
   content: ""; position: absolute; z-index: 1; top: 50%; right: -46px; width: 36px; height: 36px; margin-top: -18px;
   border-radius: 50%;
-  background: var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230C2A55' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / 18px no-repeat;
-  box-shadow: 0 6px 14px -6px var(--gold-shadow);
+  background: var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C4F95' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / 18px no-repeat;
+  box-shadow: 0 6px 14px -6px var(--mint-shadow);
 }
 .steps h3 { margin-bottom: .4em; }
 .steps p { color: var(--muted); margin: 0; }
 
 /* Pricing – małe kafelki jak w EQrento: 4 pakiety z limitem w rzędzie, Enterprise pod nimi na całą szerokość */
-/* przełącznik okresu płatności nad kafelkami (jak na eqrento.com; Łukasz, 11.11.2026): wybrana opcja w gradiencie
-   z karty znaku, „2 mies. gratis” w złotym znaczniku; pod nim miejsce na etykietę „Polecany” wystającą nad kafelek */
+/* przełącznik okresu płatności nad kafelkami (jak na eqrento.com; Łukasz, 11.11.2026): wybrana opcja niebieska,
+   „2 mies. gratis” w miętowym znaczniku; pod nim miejsce na etykietę „Polecany” wystającą nad kafelek */
 .billing-bar { display: flex; justify-content: center; margin: 0 0 44px; }
 .billing {
   display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px;
@@ -272,14 +258,14 @@ p { margin: 0 0 1em; }
 }
 @media (max-width: 480px) { .billing__opt { padding: 0 14px; } }   /* telefon: przełącznik z „2 mies. gratis” mieści się w jednej linii */
 .billing__opt:hover { color: var(--ink); }
-.billing__opt[aria-pressed="true"] { background: var(--grad); color: var(--white); cursor: default; }
-.billing__save { padding: 4px 9px; border-radius: 999px; background: var(--gold); color: var(--navy); font-size: .78rem; font-weight: 700; line-height: 1.2; }
+.billing__opt[aria-pressed="true"] { background: var(--blue); color: var(--white); cursor: default; }
+.billing__save { padding: 4px 9px; border-radius: 999px; background: var(--mint); color: var(--blue); font-size: .78rem; font-weight: 700; line-height: 1.2; }
 .billing__save:empty { display: none; }   /* EN: bez znacznika – w euro roczne ceny to nie „2 miesiące gratis” */
 .tiers { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .tier {
   position: relative; display: flex; flex-direction: column;
   padding: 40px 24px 24px; border-radius: 20px; background: var(--white);   /* 40px u góry: miejsce na etykietę „Polecany” – nazwy pakietów w jednej linii */
-  border: 1px solid rgba(12, 42, 85, .06); box-shadow: var(--shadow-md);
+  border: 1px solid rgba(28, 79, 149, .08); box-shadow: var(--shadow-md);
 }
 .tier__name { font-size: 1.25rem; margin: 0; }
 /* cena i obok niej „netto za rok” / „netto za miesiąc” w jednej linii, na wspólnej linii bazowej (Łukasz, 11.11.2026;
@@ -293,10 +279,10 @@ p { margin: 0 0 1em; }
 /* pod ceną: przy płatności rocznej cena za gracza miesięcznie, przy miesięcznej – ile kosztuje rok */
 .tier__pp { margin: 8px 0 0; font-size: .9rem; line-height: 1.4; color: var(--muted); }
 .tier__pp b { font-weight: 600; color: var(--ink); white-space: nowrap; }
-/* punkty pod nazwą pakietu (Łukasz, 11.11.2026): złote kropki, pogrubienia z i18n.js (**…**); co najmniej 20px do ceny */
+/* punkty pod nazwą pakietu (Łukasz, 11.11.2026): miętowe kropki, pogrubienia z i18n.js (**…**); co najmniej 20px do ceny */
 .tier__limits { list-style: none; margin: 0 0 20px; padding: 14px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: .9rem; line-height: 1.4; color: var(--muted); }
 .tier__limits li { position: relative; padding-left: 16px; }
-.tier__limits li::before { content: ""; position: absolute; left: 0; top: calc(.7em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.tier__limits li::before { content: ""; position: absolute; left: 0; top: calc(.7em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--mint); }
 .tier__limits b { font-weight: 600; color: var(--ink); }
 /* cena i cena za gracza na dole kafelka, nad przyciskiem – przyklejone do dołu, więc stoją w jednej linii we wszystkich
    kafelkach, nawet gdy punkty w którymś łamią się na dwie linie */
@@ -304,15 +290,15 @@ p { margin: 0 0 1em; }
 .tier__buy .tier__price { margin-top: 0; }
 .tier__cta { margin: 0; padding-top: 20px; }
 .tier__cta .btn { width: 100%; }
-/* wyróżniony pakiet (recommended: true w config.js – Mid) – gradient z karty znaku, etykieta „Polecany” na górnej
+/* wyróżniony pakiet (recommended: true w config.js – Mid) – niebieski z karty znaku, etykieta „Polecany” na górnej
    krawędzi (wymiary przycisku z kafelka – .tag.tier__badge przy .tag.card__badge) */
-.tier--hero { background: var(--grad); }
+.tier--hero { background: var(--blue); }
 .tier--hero .tier__name, .tier--hero .tier__price b, .tier--hero .tier__limits b, .tier--hero .tier__pp b { color: var(--white); }
-.tier--hero .tier__price, .tier--hero .tier__limits, .tier--hero .tier__pp { color: #B9C8E2; }
+.tier--hero .tier__price, .tier--hero .tier__limits, .tier--hero .tier__pp { color: var(--on-blue); }
 .tier--wide { margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 16px 40px; padding: 26px 28px; }
 .tier--wide .tier__price { margin: 0; }
 .tier--wide .tier__pp { margin-top: 4px; }
-/* Enterprise: punkty w jednym rzędzie, złote kropki między nimi (do 1240px jeden pod drugim, kropka przy każdym) */
+/* Enterprise: punkty w jednym rzędzie, miętowe kropki między nimi (do 1240px jeden pod drugim, kropka przy każdym) */
 .tier__limits--row { flex-direction: row; flex-wrap: wrap; gap: 4px 0; margin: 0; padding-top: 8px; }
 .tier__limits--row li { padding-left: 0; }
 .tier__limits--row li::before { display: none; }
@@ -333,7 +319,7 @@ p { margin: 0 0 1em; }
 .faq__col { display: grid; gap: 12px; }
 @media (max-width: 900px) { #faqList { grid-template-columns: minmax(0, 1fr); } }
 details {
-  background: var(--white); border: 1px solid rgba(12, 42, 85, .07); border-radius: 14px; padding: 18px 22px;
+  background: var(--white); border: 1px solid rgba(28, 79, 149, .09); border-radius: 14px; padding: 18px 22px;
   box-shadow: var(--shadow-sm); transition: box-shadow .2s;
 }
 details[open] { box-shadow: var(--shadow-md); }
@@ -346,13 +332,13 @@ details p { color: var(--muted); margin: 12px 0 0; }
 /* stopka wg schematu eqrento.com: marka (logo + dwa akapity), Kontakt, Serwis, Aplikacja; hasło; prawa i linki */
 .footer {
   position: relative; overflow: hidden; isolation: isolate;
-  background: var(--grad); color: #B9C8E2; padding: var(--sec-y) 0 32px; font-size: .9rem; line-height: 1.7;
+  background: var(--blue); color: var(--on-blue); padding: var(--sec-y) 0 32px; font-size: .9rem; line-height: 1.7;   /* płaski niebieski, bez gradientu */
 }
 
 /* marka do 340px, potem cztery kolumny szerokie na swoją treść; wolne miejsce rozkłada się po równo między kolumnami,
    więc „Kontakt” stoi tak samo daleko od marki, jak kolumny od siebie (Łukasz, 10.11.2026) */
 .footer__grid { display: grid; grid-template-columns: minmax(0, 340px) repeat(4, auto); justify-content: space-between; gap: 32px; }
-.footer__brand img { width: 150px; height: auto; }   /* sam napis – karta znaku: „na niebieskim tle używaj samego napisu, bez pola” (stopka zaczyna się od niebieskiego) */
+.footer__brand img { width: 150px; height: auto; }   /* karta znaku 1.4: na niebieskim tle napis biały z miętowym kwadratem */
 .footer__brand p { margin: 20px 0 0; max-width: 340px; }
 .footer__col { padding-top: 8px; }
 .footer__col h3 { font-family: var(--font); font-size: .9rem; font-weight: 600; letter-spacing: 0; color: var(--white); margin: 0 0 14px; }
@@ -368,7 +354,7 @@ details p { color: var(--muted); margin: 12px 0 0; }
 }
 .footer__bottom p { margin: 0; }
 .footer__legal { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-/* wybór języka w stopce: flaga i nazwa w danym języku; wybrany – biały, ze złotą kropką */
+/* wybór języka w stopce: flaga i nazwa w danym języku; wybrany – biały, z miętową kropką */
 .footer__langs { list-style: none; margin: 0; padding: 0; }
 .footer__lang {
   display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: none;
@@ -377,19 +363,20 @@ details p { color: var(--muted); margin: 12px 0 0; }
 .footer__lang img { flex: none; width: 18px; height: 13px; border-radius: 2px; object-fit: cover; box-shadow: 0 0 0 1px rgba(255, 255, 255, .2); }
 .footer__lang:hover { color: var(--white); }
 .footer__lang[aria-current="true"] { color: var(--white); font-weight: 600; }
-.footer__lang[aria-current="true"]::after { content: ""; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--gold); }
+.footer__lang[aria-current="true"]::after { content: ""; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--mint); }
 .nowrap { white-space: nowrap; }
 
-/* Ekrany aplikacji w oknie przeglądarki (jak na eqrento.com): pasek z trzema kropkami i adresem, cienka krawędź,
-   miękki granatowy cień dookoła i niebieska poświata pod spodem */
+/* Ekrany aplikacji w oknie przeglądarki (jak na eqrento.com): pasek z trzema kropkami i adresem, cienka krawędź
+   i miękki cień pod spodem. Cień zmniejszony (Łukasz, 19.11.2026: był za mocny i za duży): jedna niewielka warstwa
+   zamiast dużego cienia z niebieską poświatą – tak samo w hero i w sekcji z drugim ekranem */
 .window {
   --bar: 32px;
   position: relative; isolation: isolate; border-radius: 12px; overflow: hidden; background: var(--white);
-  box-shadow: 0 1px 3px rgba(7, 10, 27, .08), 0 16px 48px -8px rgba(7, 10, 27, .26), 0 40px 110px -30px rgba(31, 134, 207, .55);
+  box-shadow: 0 2px 4px rgba(28, 79, 149, .08), 0 18px 40px -14px rgba(28, 79, 149, .36);
 }
 .window::after {   /* cienka krawędź nad obrazem */
   content: ""; position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none;
-  box-shadow: inset 0 0 0 1px rgba(12, 42, 85, .16);
+  box-shadow: inset 0 0 0 1px rgba(28, 79, 149, .18);
 }
 .window__bar {
   height: var(--bar); display: grid; grid-template-columns: 64px minmax(0, 1fr) 64px; align-items: center;
@@ -438,8 +425,6 @@ details p { color: var(--muted); margin: 12px 0 0; }
 .br-chrome .window__bar > :not(svg), .br-edge .window__bar > :not(svg), .br-firefox .window__bar > :not(svg),
 .br-safari .window__bar > :not(svg), .br-samsung .window__bar > :not(svg) { display: none; }
 .window__bar > svg { display: block; width: 100%; height: 100%; }
-/* hero: okno wyraźniej uniesione nad białym tłem */
-.hero .window { box-shadow: 0 2px 4px rgba(12, 42, 85, .08), 0 28px 60px -16px rgba(12, 42, 85, .4), 0 50px 120px -30px rgba(31, 134, 207, .55); }
 .inside { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; align-items: center; }
 .inside .sub { margin-bottom: 1.2em; }
 .inside .list { margin-bottom: 0; }
@@ -465,7 +450,7 @@ details p { color: var(--muted); margin: 12px 0 0; }
   .steps { grid-template-columns: minmax(0, 1fr); max-width: 640px; margin-inline: auto; gap: 48px; }
   .steps li { padding: 22px 24px 22px 80px; }
   .steps li:not(:last-child)::after { top: auto; right: auto; bottom: -42px; left: 50%; margin: 0 0 0 -18px; transform: rotate(90deg); }
-  .nav__links { display: none; position: absolute; top: 68px; left: 0; right: 0; transform: none; background: var(--white); flex-direction: column; padding: 16px; margin: 0; border-top: 1px solid var(--line); gap: 14px; box-shadow: 0 18px 30px -18px rgba(12, 42, 85, .45); }
+  .nav__links { display: none; position: absolute; top: 68px; left: 0; right: 0; transform: none; background: var(--white); flex-direction: column; padding: 16px; margin: 0; border-top: 1px solid var(--line); gap: 14px; box-shadow: 0 18px 30px -18px rgba(28, 79, 149, .45); }
   .nav__links.is-open { display: flex; }
   .burger { display: block; }
 }

@@ -9,19 +9,19 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1200px; height: 630px; overflow: hidden; }
   body { position: relative; color: #fff; font-family: Inter, sans-serif;
-    background: linear-gradient(110deg, #1C4F95 0%, #0C2A55 100%); }   /* gradient z karty znaku */
+    background: #1C4F95; }   /* karta znaku 1.4: ciemnym tłem jest niebieski, bez gradientu */
   .copy { position: absolute; left: 64px; top: 56px; width: 540px; }
   .logo { display: block; width: auto; height: 84px; margin-bottom: 44px; }
   /* grubość 600 jak hasło na stronie (h1 w styles.css) */
   h1 { font-family: Sora, sans-serif; font-weight: 600; font-size: 54px; line-height: 1.12; letter-spacing: -0.02em; }
   ul { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-  li { background: #86C93E; color: #0C2A55; font-weight: 600; font-size: 20px; padding: 8px 16px; border-radius: 999px; }
+  li { background: #22DCAF; color: #1C4F95; font-weight: 600; font-size: 20px; padding: 8px 16px; border-radius: 999px; }   /* mięta z niebieskim tekstem */
   .url { position: absolute; left: 64px; bottom: 42px; font-size: 22px; font-weight: 500; color: #C9D8EE; }
   /* ekran w oknie przeglądarki w stylu Windows (Łukasz, 11.11.2026: obraz jest jeden dla wszystkich, a większość
      odbiorców pracuje na Windows) – te same ikony co .os-other .window w styles.css; okno mieści się w kadrze,
      żeby przyciski minimalizuj / maksymalizuj / zamknij były widoczne */
   .shot { position: absolute; left: 628px; top: 112px; width: 540px; border-radius: 8px; overflow: hidden; background: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 30px 70px -10px rgba(5, 20, 45, .6), 0 40px 110px -30px rgba(31, 134, 207, .6); }
+    box-shadow: 0 1px 3px rgba(10, 34, 70, .14), 0 16px 36px -14px rgba(10, 34, 70, .5); }   /* cień zmniejszony jak na stronie (Łukasz, 19.11.2026) */
   .bar { height: 34px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 12px;
     padding-left: 14px; background: #F3F3F3; border-bottom: 1px solid #E1E1E1; }
   .bar .nav { display: block; width: 62px; height: 15px;
@@ -36,7 +36,7 @@
 </head>
 <body>
   <div class="copy">
-    <img class="logo" src="../assets/logo/Bextip-napis-bez-pola-na-niebieskie-tlo.svg" alt="">
+    <img class="logo" src="../assets/logo/Bextip-napis-kolor-ciemne-tlo.svg" alt="">
     <h1>Firmowy typer sportowy, który integruje zespół</h1>
     <ul>
       <li>Liga Mistrzów, Premier League, NHL…</li>
