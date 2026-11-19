@@ -41,7 +41,7 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   bez poświaty za oknem (zdjęta 19.11.2026 razem ze zmniejszeniem cienia pod oknem).
 - **Menu u góry białe, z rozmyciem** (Łukasz, 10.11.2026): półprzezroczyste białe tło z `backdrop-filter: blur`, więc
   to, co przewija się pod menu, jest rozmyte; po przewinięciu w dół `script.js` dodaje `.is-scrolled` (cień i linia).
-  Logo w menu: `Bextip-napis-kolor.svg` (napis – znak podstawowy na stronie WWW według karty 1.4), 43px wysokości.
+  Logo w menu: napis (znak podstawowy na stronie WWW według karty 1.4) w wersji z animacją, 43px wysokości.
 - **Układ menu jak na eqrento.com** (Łukasz, 10.11.2026): trzy kolumny (`1fr auto 1fr`) – logotyp z lewej, linki
   na środku (ok. 300px od logotypu przy 1536px), przyciski z prawej; odstępy między linkami 36px, do 1440px 28px,
   do 1240px 22px. Napis w menu ma 43px wysokości (karta 1.4, 19.11.2026; przy karcie 1.0 logo z polem 48px). Linia bazowa
@@ -226,14 +226,17 @@ w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są w his
     z ptaszkami, strzałki między krokami, co druga ikona funkcji (`--mint-soft`);
   - kółko ze strzałką w przyciskach: niebieskie z białą strzałką.
 - **Logo na stronie** (karta: „napis” jest znakiem podstawowym na stronie WWW; logo z polem – gra, kampanie, social media):
-  - menu: `assets/logo/Bextip-napis-kolor.svg`, 43px wysokości (jak napis sprzed pola – Łukasz, 10.11.2026);
+  - menu: `assets/logo/animacja/Bextip-napis-animacja.svg`, 43px wysokości (jak napis sprzed pola – Łukasz,
+    10.11.2026). To napis z animacją z paczki (Łukasz, 19.11.2026): kwadrat z x obraca się raz przy wczytaniu strony
+    (0,8 s po 0,5 s), potem obraz jest identyczny z `Bextip-napis-kolor.svg`; przy „ogranicz animacje” stoi
+    nieruchomo. Animacja jest w pliku SVG (CSS), wstawionym jako zwykły `<img>` – sprawdzone klatka po klatce;
   - stopka, kafelek Bextip (28px) i obraz do podglądu linków: `Bextip-napis-kolor-ciemne-tlo.svg` (biały napis,
     miętowy kwadrat z niebieskim x);
   - pozostałe pliki SVG z paczki są w `assets/logo/` (jednokolorowe, logo z polem, `ikona/`, `deskryptor/`,
     `powered-by/`, `motyw-x/`, `animacja/`) – strona ich nie używa. Najmniejsze wysokości na ekranie: napis 12px,
     logo z polem 20px, ikona 16px, deskryptor PL 50px / EN 70px;
-  - `animacja/Bextip-napis-animacja.svg`: kwadrat z x obraca się raz przy wczytaniu (0,8 s, szanuje „ogranicz
-    animacje”) – do ewentualnego użycia w menu, na razie napis jest statyczny.
+  - karta: animację odtwarzać raz, przy wczytaniu strony, bez pętli – dlatego tylko w menu; stopka i kafelek Bextip
+    mają napis nieruchomy.
 - **Favikony** z folderu „6 - favicon”: `favicon.ico` (48px), `favicon.svg`, `favicon-64x64.png`,
   `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `site.webmanifest`. Adresy w `<head>`
   i w manifeście są względne (paczka ma `/favicon.ico` itd.), bo do podpięcia domeny strona działa w podkatalogu
