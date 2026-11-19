@@ -14,7 +14,7 @@ script.js        – wybór języka, wypełnianie list i cennika, menu mobilne
 frames.js        – okna przeglądarek (Chrome, Safari, Edge, Firefox, Samsung Internet) wokół ekranów aplikacji
 styles.css       – wygląd; kolory z karty znaku 1.5 i czcionki jako zmienne w :root na górze pliku
 assets/logo/     – pliki SVG z paczki znaku 1.4 (19.11.2026; w paczce 1.5 identyczne): napis (znak podstawowy), logo z polem, ikona/, deskryptor/, powered-by/, motyw-x/, animacja/
-favicon.ico, favicon.svg, favicon-64x64.png, apple-touch-icon.png, icon-192/512.png, icon-maskable-512.png,
+favicon.ico, favicon.svg, favicon-64x64.png (małe, z powiększonym „Bx”), apple-touch-icon.png, icon-192/512.png, icon-maskable-512.png,
 site.webmanifest – zestaw favikon z paczki znaku 1.4 (w paczce 1.5 identyczny; katalog główny, jak w jej instrukcji)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
 assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): shop, users, trophy; robi je narzedzia/uicons.ps1;
@@ -258,11 +258,22 @@ w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian
     logo z polem 20px, ikona 16px, deskryptor PL 50px / EN 70px;
   - karta: animację odtwarzać raz, przy wczytaniu strony, bez pętli – dlatego tylko w menu; stopka i kafelek Bextip
     mają napis nieruchomy.
-- **Favikony** z folderu „6 - favicon”: `favicon.ico` (48px), `favicon.svg`, `favicon-64x64.png`,
-  `apple-touch-icon.png`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `site.webmanifest`. Adresy w `<head>`
-  i w manifeście są względne (paczka ma `/favicon.ico` itd.), bo do podpięcia domeny strona działa w podkatalogu
+- **Favikony** z folderu „6 - favicon”: `favicon.ico`, `favicon.svg`, `favicon-64x64.png`, `apple-touch-icon.png`,
+  `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `site.webmanifest`. Adresy w `<head>` i w manifeście są
+  względne (paczka ma `/favicon.ico` itd.), bo do podpięcia domeny strona działa w podkatalogu
   bextip.github.io/landing_page/; `display` zostaje `browser` (paczka: `standalone`) – strona to nie aplikacja.
   Ta sama ikona jest na karcie w oknach przeglądarek (frames.js).
+- **Małe favikony z powiększonym „Bx”** (Łukasz, 19.11.2026: favicon w karcie przeglądarki był niewyraźny):
+  `favicon.svg`, `favicon.ico` (16, 32 i 48 px) i `favicon-64x64.png` mają „Bx” powiększone o 12% (znak zajmuje
+  ok. 0,85 szerokości kafelka zamiast 0,76 z karty znaku; w SVG: `<g transform="translate(256 256) scale(1.12)
+  translate(-256 -240)">` wokół liter). Przyczyna rozmycia: przy skalowaniu ekranu 150% (np. laptop Łukasza,
+  Brave) ikona w karcie ma 24 px, a przeglądarki z rodziny Chrome trzymają favicon w 16 i 32 px i zmniejszają 32 px
+  do 24 – krawędzie lądują między pikselami, a x na miętowym kwadracie ma ok. 6 px. Powiększenie nie daje pełnej
+  ostrości, ale znaki są większe i łatwiej je rozpoznać. Sprawdzone i odrzucone: wyostrzanie obrazu (ciemne obwódki),
+  rysowanie od razu w 24 px (przeglądarka i tak bierze 32 px), powiększenie o 20% (przy 16 px za ciasno).
+  PNG wyrenderowane z `favicon.svg` w Edge (canvas), ICO złożone z nich. Duże ikony (`apple-touch-icon.png`,
+  `icon-*.png`) zostają z paczki – przy tych rozmiarach proporcje z karty wyglądają dobrze. Odstępstwo od karty
+  znaku 1.5 – do dopisania w paczce jako „favikona do małych rozmiarów”.
 - **Ekrany aplikacji** (`assets/screens/*.svg`) dostosowane do karty 1.4, żeby stare i nowe logo nie stały obok
   siebie: napis w panelu bocznym podmieniony na nowy (`<g transform="translate(21 27.57) scale(0.2)">` w miejscu
   sześciu ścieżek starego logo), limonka `#86C93E` → mięta, granat `#0C2A55` → niebieski. Wstążka „EKSTRA” w Tips&Stats jest złota
@@ -337,7 +348,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119d`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119e`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
