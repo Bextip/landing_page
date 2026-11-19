@@ -48,15 +48,15 @@ window.BEXTIP_I18N = {
       title: "Wszystko, czego potrzebuje firmowy typer",
       sub: "Każdy pakiet zawiera pełen zestaw funkcji – pakiety różnią się wyłącznie liczbą graczy.",
       items: [
-        { ico: "⚽", t: "Automatyczne wyniki i punkty", d: "Wyniki meczów aktualizują się same, a punkty graczy są zliczane automatycznie: 3 pkt za dokładny rezultat, 1 pkt za wskazanie zwycięzcy." },
-        { ico: "🏆", t: "Tabela graczy na żywo", d: "Ranking aktualizuje się po każdym meczu. Każdy od razu widzi, kto prowadzi i ile brakuje mu do podium." },
-        { ico: "🎨", t: "Branding Twojej firmy", d: "Logo, kolorystyka i własna nazwa gry." },
-        { ico: "👥", t: "Wewnętrzne drużyny", d: "Podziel graczy na maksymalnie 4 drużyny – działy, oddziały lub biura – i pozwól im rywalizować między sobą." },
+        { icon: "funkcja-wyniki.svg", t: "Automatyczne wyniki i punkty", d: "Wyniki meczów aktualizują się same, a punkty graczy są zliczane automatycznie: 3 pkt za dokładny rezultat, 1 pkt za wskazanie zwycięzcy." },
+        { icon: "funkcja-tabela.svg", t: "Tabela graczy na żywo", d: "Ranking aktualizuje się po każdym meczu. Każdy od razu widzi, kto prowadzi i ile brakuje mu do podium." },
+        { icon: "funkcja-branding.svg", t: "Branding Twojej firmy", d: "Logo, kolorystyka i własna nazwa gry." },
+        { icon: "funkcja-druzyny.svg", t: "Wewnętrzne drużyny", d: "Podziel graczy na maksymalnie 4 drużyny – działy, oddziały lub biura – i pozwól im rywalizować między sobą." },
         { icon: "funkcja-joker.svg", t: "Joker i zdarzenia Ekstra", d: "Joker podwaja punkty w wybranych meczach, a dodatkowe zdarzenia „Ekstra” podkręcają emocje i mieszają w tabeli." },
-        { ico: "⭐", t: "Bonus za mistrza", d: "Dodatkowe punkty dla tych, którzy przed startem rozgrywek trafnie wytypują ich zwycięzcę." },
-        { ico: "💬", t: "Czat dla graczy", d: "Wspólny czat dla wszystkich uczestników – miejsce na komentarze, gratulacje i przyjacielskie docinki." },
-        { ico: "📊", t: "Statystyki i historia typowań", d: "Rozbudowane statystyki graczy, historia typowań oraz opcja ukrycia swoich typów do rozpoczęcia meczu." },
-        { ico: "🌍", t: "5 języków, zero instalacji", d: "Polski, angielski, niemiecki, hiszpański i rosyjski. Działa w każdej przeglądarce – bez aplikacji i bez integracji z IT." }
+        { icon: "funkcja-bonus.svg", t: "Bonus za mistrza", d: "Dodatkowe punkty dla tych, którzy przed startem rozgrywek trafnie wytypują ich zwycięzcę." },
+        { icon: "funkcja-czat.svg", t: "Czat dla graczy", d: "Wspólny czat dla wszystkich uczestników – miejsce na komentarze, gratulacje i przyjacielskie docinki." },
+        { icon: "funkcja-statystyki.svg", t: "Statystyki i historia typowań", d: "Rozbudowane statystyki graczy, historia typowań oraz opcja ukrycia swoich typów do rozpoczęcia meczu." },
+        { icon: "funkcja-jezyki.svg", t: "5 języków, zero instalacji", d: "Polski, angielski, niemiecki, hiszpański i rosyjski. Działa w każdej przeglądarce – bez aplikacji i bez integracji z IT." }
       ]
     },
     how: {
@@ -200,15 +200,15 @@ window.BEXTIP_I18N = {
       title: "Everything an office prediction game needs",
       sub: "Every package includes the full feature set – packages differ only in the number of players.",
       items: [
-        { ico: "⚽", t: "Automatic results and points", d: "Match results update on their own and points are counted automatically: 3 points for the exact score, 1 point for picking the winner." },
-        { ico: "🏆", t: "Live leaderboard", d: "The ranking updates after every match. Everyone sees straight away who is leading and how far they are from the podium." },
-        { ico: "🎨", t: "Your company branding", d: "Logo, colours and your own game name." },
-        { ico: "👥", t: "Internal teams", d: "Split players into up to 4 teams – departments, branches or offices – and let them compete against each other." },
+        { icon: "funkcja-wyniki.svg", t: "Automatic results and points", d: "Match results update on their own and points are counted automatically: 3 points for the exact score, 1 point for picking the winner." },
+        { icon: "funkcja-tabela.svg", t: "Live leaderboard", d: "The ranking updates after every match. Everyone sees straight away who is leading and how far they are from the podium." },
+        { icon: "funkcja-branding.svg", t: "Your company branding", d: "Logo, colours and your own game name." },
+        { icon: "funkcja-druzyny.svg", t: "Internal teams", d: "Split players into up to 4 teams – departments, branches or offices – and let them compete against each other." },
         { icon: "funkcja-joker.svg", t: "Joker and Extra events", d: "The Joker doubles points in selected matches, and additional “Extra” events raise the stakes and shake up the table." },
-        { ico: "⭐", t: "Champion bonus", d: "Bonus points for those who correctly predict the overall winner before the competition starts." },
-        { ico: "💬", t: "Player chat", d: "A shared chat for all participants – the place for comments, congratulations and friendly banter." },
-        { ico: "📊", t: "Statistics and prediction history", d: "Detailed player statistics, prediction history and the option to hide your picks until kick-off." },
-        { ico: "🌍", t: "5 languages, zero installation", d: "Polish, English, German, Spanish and Russian. Works in any browser – no app and no IT integration." }
+        { icon: "funkcja-bonus.svg", t: "Champion bonus", d: "Bonus points for those who correctly predict the overall winner before the competition starts." },
+        { icon: "funkcja-czat.svg", t: "Player chat", d: "A shared chat for all participants – the place for comments, congratulations and friendly banter." },
+        { icon: "funkcja-statystyki.svg", t: "Statistics and prediction history", d: "Detailed player statistics, prediction history and the option to hide your picks until kick-off." },
+        { icon: "funkcja-jezyki.svg", t: "5 languages, zero installation", d: "Polish, English, German, Spanish and Russian. Works in any browser – no app and no IT integration." }
       ]
     },
     how: {

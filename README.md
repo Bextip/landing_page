@@ -18,7 +18,7 @@ favicon.ico, favicon.svg, favicon-64x64.png (małe, z powiększonym „Bx”), a
 site.webmanifest – zestaw favikon z paczki znaku 1.4 (w paczce 1.5 identyczny; katalog główny, jak w jej instrukcji)
 assets/screens/  – wizualizacje aplikacji: typowania.svg (hero), tips-stats.svg (sekcja #inside)
 assets/icons/    – białe ikony kart „Dla kogo” – Uicons (Flaticon): shop, users, trophy; robi je narzedzia/uicons.ps1;
-                   funkcja-joker.svg – czapka błazna przy funkcji „Joker” (własny rysunek w kolorach marki)
+                   funkcja-*.svg – dziewięć ikon funkcji (własne rysunki w kolorach marki, opis w „Sekcje”)
 assets/flags/    – flagi listy języków (pl, gb, de, es, ru; SVG, bo Windows nie pokazuje emoji flag)
 assets/og-image.png – obraz do podglądu linków (1200×630), tworzony przez narzedzia/og-image.ps1
 robots.txt, sitemap.xml – dla wyszukiwarek (adres https://bextip.site/)
@@ -151,11 +151,23 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   i nadpisywał czcionkę i odstępy. Pod etykietą tyle miejsca co nad przyciskiem (54px górnego i dolnego odstępu).
 - **Przycisk „Wybierz pakiet” na dole sekcji Funkcje i Jak to działa** (Łukasz, 11.11.2026): duży, ze strzałką, jak
   w hero, na środku (`.section-cta`, odstęp nad nim jak pod nagłówkiem sekcji), prowadzi do cennika.
-- **Funkcje** (`#features`, Łukasz, 11.11.2026): ikona i tytuł kafelka w jednym rzędzie, opis pod nimi. Ikona to
-  emoji (pole `ico` w `i18n.js`) albo plik SVG z `assets/icons/` (pole `icon`, 28px). **Joker ma czapkę błazna**
-  `funkcja-joker.svg` zamiast emoji karty do gry (Łukasz, 19.11.2026; karta znaku: nie pokazywać kart i żetonów).
-  Łukasz wskazał jako wzór ikonę czapki błazna z Flaticon (autor fjstudio, licencja z osobnym podpisem autora) –
-  na stronie jest własny rysunek tego motywu w niebieskim i mięcie, więc dodatkowy podpis nie jest potrzebny.
+- **Funkcje** (`#features`, Łukasz, 11.11.2026): ikona i tytuł kafelka w jednym rzędzie, opis pod nimi.
+  **Ikony funkcji** (Łukasz, 19.11.2026): wszystkie dziewięć to własne rysunki SVG w jednym stylu, na wzór czapki
+  błazna przy Jokerze – płaskie wypełnione kształty bez obrysów, pole 64×64, tylko kolory strony: niebieski (główny
+  kształt), mięta (drugi plan), złoty (akcent), biel (detale). W `i18n.js` pole `icon` (plik z `assets/icons/`,
+  28px na jasnoniebieskim kafelku 44px); pole `ico` (emoji) nadal działa, ale strona go już nie używa.
+  - `funkcja-wyniki.svg` – piłka: miętowa kula, niebieski pięciokąt i łaty na obwodzie. Pierwsza wersja (niebieska
+    kula z białymi łatami) i wersja ze szwami wyglądały w 28 px jak gwiazdka; rozważana też tablica wyników „2:1”;
+  - `funkcja-tabela.svg` – puchar: złota czasza z miętową gwiazdką, niebieskie uchwyty, nóżka i podstawa;
+  - `funkcja-branding.svg` – niebieska paleta z miętową, złotą i białą farbą;
+  - `funkcja-druzyny.svg` – dwie postacie: niebieska z przodu, miętowa z tyłu;
+  - `funkcja-joker.svg` – czapka błazna zamiast emoji karty do gry (karta znaku: nie pokazywać kart i żetonów).
+    Łukasz wskazał jako wzór ikonę czapki błazna z Flaticon (autor fjstudio, licencja z osobnym podpisem autora) –
+    na stronie jest własny rysunek tego motywu, więc dodatkowy podpis nie jest potrzebny;
+  - `funkcja-bonus.svg` – medal: miętowa i niebieska wstążka, złoty medal z niebieską gwiazdą;
+  - `funkcja-czat.svg` – dymki: niebieski z białymi kropkami z przodu, miętowy z tyłu;
+  - `funkcja-statystyki.svg` – rosnące słupki (miętowy i dwa niebieskie) ze złotą gwiazdką nad najwyższym;
+  - `funkcja-jezyki.svg` – niebieski globus z białą siatką i miętowym południkiem.
 
 ## Cennik i Stripe
 
@@ -353,7 +365,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119i`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119j`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
