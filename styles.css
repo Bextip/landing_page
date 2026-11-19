@@ -344,6 +344,7 @@ details p { color: var(--muted); margin: 12px 0 0; }
 .footer__grid { display: grid; grid-template-columns: minmax(0, 340px) repeat(4, auto); justify-content: space-between; gap: 32px; }
 .footer__brand img { width: 150px; height: auto; }   /* karta znaku 1.4: na niebieskim tle napis biały z miętowym kwadratem */
 .footer__brand p { margin: 20px 0 0; max-width: 340px; }
+.footer__brand p:empty { display: none; }   /* EN: bez drugiego akapitu (Łukasz, 19.11.2026) */
 .footer__col { padding-top: 8px; }
 .footer__col h3 { font-family: var(--font); font-size: .9rem; font-weight: 600; letter-spacing: 0; color: var(--white); margin: 0 0 14px; }
 .footer__col ul, .footer__legal { list-style: none; margin: 0; padding: 0; }

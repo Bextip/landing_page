@@ -293,7 +293,7 @@ window.BEXTIP_I18N = {
     },
     footer: {
       about: "Bextip is an automated online prediction game designed to engage and bring people together through the exciting and immersive experience of forecasting the outcomes of sporting events.",
-      invite: "Write or call us – we’ll answer your questions and help you launch your game in literally a few minutes.",
+      invite: "",
       contactTitle: "Contact", siteTitle: "Site", appTitle: "App",
       login: "Log in", register: "Create an account",
       tagline1: "Made with passion in", tagline2: "Poland", tagline3: ", for teams that predict around the", tagline4: "world",
