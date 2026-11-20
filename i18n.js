@@ -108,27 +108,38 @@ window.BEXTIP_I18N = {
       orderSubject: "Zamówienie Bextip",
       names: { micro: "Micro", small: "Small", mid: "Mid", large: "Large", enterprise: "Enterprise" },
       includedTitle: "W każdym pakiecie:",
-      // lista funkcji z PDF-u „Oferta dla firm 2026” (Łukasz, 10.11.2026); **…** = pogrubienie jak w PDF-ie
-      included: [
-        "Automatyczna **aktualizacja wyników** rozgrywek",
-        "Automatyczne **zliczanie zdobytych punktów** graczy",
-        "Automatyczna **aktualizacja tabel** graczy i drużyn",
-        "Dodatkowe punkty za **wytypowanie Mistrza** rozgrywek",
-        "Możliwość typowania **zdarzeń „Ekstra”** w wybranych meczach",
-        "Możliwość **ukrycia swoich typowań** do godziny rozpoczęcia meczu",
-        "Opcja **„Jokera”** (podwojenie zdobytych punktów) w wybranych meczach",
-        "Możliwość sprawdzania **historii typowań** graczy",
-        "Rozbudowane **statystyki graczy**",
-        "**Czat** dostępny dla wszystkich graczy",
-        "Możliwość wgrania swojego zdjęcia lub avatara",
-        "Możliwość podzielenia graczy na maks. **4 wewnętrzne drużyny**",
-        "Branding (**logo i kolorystyka**) firmy",
-        "**Własna nazwa** gry",
-        "Dostęp przez **dowolną przeglądarkę** z komputera lub smartfona",
-        "**5 wersji językowych** (polska, angielska, niemiecka, hiszpańska, rosyjska)",
-        "**Priorytetowa obsługa** użytkowników firmowych",
-        "Bezpieczne połączenie protokołem **SSL**",
-        "**Brak reklam**"
+      // „W każdym pakiecie” w sześciu grupach (Łukasz, 20.11.2026 – sugestia audytora): nazwa (t), krótki opis (d) i funkcje
+      // (items). Opis widać na komputerze i tablecie, na telefonie same nazwy; przycisk rozwija pełną listę – w każdej grupie
+      // zamiast opisu jej funkcje. Funkcje: 19 z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza (10.11.2026), **…** =
+      // pogrubienie jak w PDF-ie. {n} w includedShow = liczba funkcji (script.js liczy ją z grup)
+      includedShow: "Pokaż wszystkie funkcje ({n})",
+      includedHide: "Zwiń listę funkcji",
+      includedGroups: [
+        { t: "Automatyczne wyniki i tabele", d: "Wyniki, punkty i tabele liczą się same.", items: [
+          "Automatyczna **aktualizacja wyników** rozgrywek",
+          "Automatyczne **zliczanie zdobytych punktów** graczy",
+          "Automatyczna **aktualizacja tabel** graczy i drużyn"] },
+        { t: "Dodatkowe emocje", d: "Bonus za Mistrza, zdarzenia „Ekstra”, Joker i ukryte typy.", items: [
+          "Dodatkowe punkty za **wytypowanie Mistrza** rozgrywek",
+          "Możliwość typowania **zdarzeń „Ekstra”** w wybranych meczach",
+          "Opcja **„Jokera”** (podwojenie zdobytych punktów) w wybranych meczach",
+          "Możliwość **ukrycia swoich typowań** do godziny rozpoczęcia meczu"] },
+        { t: "Statystyki i historia", d: "Statystyki graczy i pełna historia typowań.", items: [
+          "Możliwość sprawdzania **historii typowań** graczy",
+          "Rozbudowane **statystyki graczy**"] },
+        { t: "Społeczność i drużyny", d: "Czat, własne zdjęcia i do 4 drużyn wewnętrznych.", items: [
+          "**Czat** dostępny dla wszystkich graczy",
+          "Możliwość wgrania swojego zdjęcia lub avatara",
+          "Możliwość podzielenia graczy na maks. **4 wewnętrzne drużyny**"] },
+        { t: "Twoja marka", d: "Logo, kolorystyka i własna nazwa gry.", items: [
+          "Branding (**logo i kolorystyka**) firmy",
+          "**Własna nazwa** gry"] },
+        { t: "Dostęp i bezpieczeństwo", d: "Każda przeglądarka, 5 języków, SSL, priorytetowa obsługa i brak reklam.", items: [
+          "Dostęp przez **dowolną przeglądarkę** z komputera lub smartfona",
+          "**5 wersji językowych** (polska, angielska, niemiecka, hiszpańska, rosyjska)",
+          "**Priorytetowa obsługa** użytkowników firmowych",
+          "Bezpieczne połączenie protokołem **SSL**",
+          "**Brak reklam**"] }
       ],
       note: "Podane ceny są cenami netto. Bezpieczne płatności on-line obsługuje Stripe. Do każdej transakcji wystawiamy fakturę VAT."
     },
@@ -256,26 +267,35 @@ window.BEXTIP_I18N = {
       orderSubject: "Bextip order",
       names: { micro: "Micro", small: "Small", mid: "Mid", large: "Large", enterprise: "Enterprise" },
       includedTitle: "In every package:",
-      included: [
-        "Automatic **update of results**",
-        "Automatic **counting of players’ points**",
-        "Automatic **update of the player and team leaderboards**",
-        "Bonus points for **predicting the champion** of the competition",
-        "Predicting **“Extra” events** in selected matches",
-        "Option to **hide your predictions** until kick-off",
-        "**“Joker”** option (double points) in selected matches",
-        "Players’ **prediction history**",
-        "Detailed **player statistics**",
-        "**Chat** for all players",
-        "Upload your own photo or avatar",
-        "Split players into up to **4 internal teams**",
-        "Branding (**company logo and colours**)",
-        "**Your own game name**",
-        "Access from **any browser** on desktop or smartphone",
-        "**5 languages** (Polish, English, German, Spanish, Russian)",
-        "**Priority support** for company users",
-        "Secure **SSL** connection",
-        "**No ads**"
+      // grupy jak w wersji polskiej (Łukasz, 20.11.2026)
+      includedShow: "Show all features ({n})",
+      includedHide: "Hide the feature list",
+      includedGroups: [
+        { t: "Automatic results and leaderboards", d: "Results, points and leaderboards update on their own.", items: [
+          "Automatic **update of results**",
+          "Automatic **counting of players’ points**",
+          "Automatic **update of the player and team leaderboards**"] },
+        { t: "More excitement", d: "Champion bonus, “Extra” events, the Joker and hidden picks.", items: [
+          "Bonus points for **predicting the champion** of the competition",
+          "Predicting **“Extra” events** in selected matches",
+          "**“Joker”** option (double points) in selected matches",
+          "Option to **hide your predictions** until kick-off"] },
+        { t: "Statistics and history", d: "Player statistics and full prediction history.", items: [
+          "Players’ **prediction history**",
+          "Detailed **player statistics**"] },
+        { t: "Community and teams", d: "Chat, your own photos and up to 4 internal teams.", items: [
+          "**Chat** for all players",
+          "Upload your own photo or avatar",
+          "Split players into up to **4 internal teams**"] },
+        { t: "Your brand", d: "Logo, colours and your own game name.", items: [
+          "Branding (**company logo and colours**)",
+          "**Your own game name**"] },
+        { t: "Access and security", d: "Any browser, 5 languages, SSL, priority support and no ads.", items: [
+          "Access from **any browser** on desktop or smartphone",
+          "**5 languages** (Polish, English, German, Spanish, Russian)",
+          "**Priority support** for company users",
+          "Secure **SSL** connection",
+          "**No ads**"] }
       ],
       note: "All prices are net, in euros (EUR). Secure online payments are handled by Stripe. We issue a VAT invoice for every transaction."
     },

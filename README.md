@@ -221,9 +221,16 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   kafelkach. Enterprise: „ponad **200 graczy** • **+10% graczy** w zapasie, bez dopłaty • **wszystkie funkcje**
   w cenie” w jednym rzędzie ze złotymi kropkami między punktami; do 1319px jeden pod drugim, z kropką przy każdym.
 - Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`.
-- **„W każdym pakiecie”** – `pricing.included`: 19 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza (bez „Własna subdomena” – usunięta z całej strony, Łukasz, 11.11.2026)
-  (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
-  z góry na dół (CSS `columns`), dwie do 1100px, jedna na telefonach; ptaszki w miętowych kółkach.
+- **„W każdym pakiecie”** – `pricing.includedGroups`: 19 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza
+  (10.11.2026; bez „Własna subdomena” – usunięta z całej strony, Łukasz, 11.11.2026), `**…**` = pogrubienie tam, gdzie
+  PDF ma pogrubienie (`rich()` w `script.js`). **Od 20.11.2026 w sześciu grupach** (Łukasz, sugestia audytora; szkic
+  z wariantami zaakceptowany): Automatyczne wyniki i tabele (3), Dodatkowe emocje (4), Statystyki i historia (2),
+  Społeczność i drużyny (3), Twoja marka (2), Dostęp i bezpieczeństwo (5). Każda grupa: miętowy ptaszek, nazwa (`t`)
+  i krótki opis (`d`) – opis na komputerze i tablecie (3 kolumny, do 1100px 2), na telefonie (do 640px) same nazwy.
+  Przycisk „Pokaż wszystkie funkcje (19)” (`includedShow`, liczba liczona z grup) rozwija pełną listę: w każdej grupie
+  zamiast opisu jej funkcje ze złotymi kropkami; „Zwiń listę funkcji” (`includedHide`) zwija i zostawia przycisk na
+  ekranie. Stan: `includedOpen` w `script.js`, klasa `is-open` na `#included`, `aria-expanded` na przycisku. Wysokość
+  karty: komputer 340px (rozwinięta 625px), telefon 374px (rozwinięta ok. 1370px; wcześniej cała lista ok. 1260px).
 - Ceny w kafelkach: Sora 600, jak tytuły kart (wcześniej 800 – po odchudzeniu nagłówków wyglądały za ciężko). Hasło
   i tytuły sekcji mają od 20.11.2026 grubość 400, ceny zostały 600 – to najważniejsza informacja w kafelku.
 - „Polecany”: `recommended: true` – **Mid** (Łukasz, 11.11.2026): niebieski kafelek z etykietą na górnej krawędzi
@@ -424,7 +431,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120h`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120i`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

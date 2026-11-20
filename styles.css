@@ -172,13 +172,40 @@ p { margin: 0 0 1em; }
 }
 .chips li::before { content: ""; position: absolute; left: 8px; top: 50%; width: 16px; height: 16px; margin-top: -8px; border-radius: 50%; background: var(--mint) var(--ico-check) center / 10px no-repeat; }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.included { margin-top: 20px; }
-/* „W każdym pakiecie”: 20 funkcji z PDF-u w trzech kolumnach (czytane kolumnami), pogrubienia jak w PDF-ie */
-.included .list { display: block; columns: 3; column-gap: 36px; margin: 0; }
-.included .list li { break-inside: avoid; margin-bottom: 12px; }
-.included .list b { font-weight: 600; color: var(--ink); }
-@media (max-width: 1100px) { .included .list { columns: 2; } }
-@media (max-width: 640px) { .included .list { columns: 1; } }
+/* „W każdym pakiecie” (Łukasz, 20.11.2026 – sugestia audytora): sześć grup z ptaszkami (miętowe kółko z niebieskim
+   ptaszkiem – potwierdzenie), na komputerze i tablecie z krótkim opisem, na telefonie same nazwy (niżej). Przycisk
+   „Pokaż wszystkie funkcje (19)” (script.js: klasa is-open na karcie) pokazuje w każdej grupie zamiast opisu jej funkcje
+   ze złotymi kropkami, pogrubienia jak w PDF-ie. Wcześniej: 19 funkcji w trzech kolumnach (na telefonie ok. 1260px) */
+.included { margin-top: 20px; padding: 28px 28px 30px; }
+.included h3 { margin: 0 0 20px; }
+.groups { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px 40px; align-items: start; }
+.group { position: relative; padding-left: 32px; }
+.group::before {
+  content: ""; position: absolute; left: 0; top: 1px; width: 20px; height: 20px; border-radius: 50%;
+  background: var(--mint) var(--ico-check) center / 12px no-repeat; box-shadow: 0 3px 6px -3px var(--mint-shadow);
+}
+.group__title { margin: 0 0 4px; font-weight: 600; font-size: 1.02rem; line-height: 1.35; color: var(--ink); }
+.group__desc { margin: 0; font-size: .95rem; line-height: 1.5; color: var(--text); text-wrap: pretty; }
+.group__items { display: none; list-style: none; margin: 4px 0 0; padding: 0; }
+.group__items li { position: relative; padding-left: 15px; margin-top: 6px; font-size: .95rem; line-height: 1.45; color: var(--text); text-wrap: pretty; }
+.group__items li::before { content: ""; position: absolute; left: 0; top: calc(.72em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+.group__items b { font-weight: 600; color: var(--ink); }
+.included.is-open .group__desc { display: none; }
+.included.is-open .group__items { display: block; }
+/* przycisk pod grupami: biały jak „Zaloguj się”, z plusem (po rozwinięciu minus) jak pytania w FAQ; font i kolor
+   wpisane, bo <button> nie dziedziczy ich z akapitu */
+.included__toggle { display: flex; justify-content: center; margin-top: 28px; }
+.included__toggle .btn { gap: 12px; padding: 10px 20px 10px 22px; font: inherit; font-size: .95rem; font-weight: 600; color: var(--ink); }
+.included__toggle .btn::after { content: "+"; font-size: 1.35rem; font-weight: 400; line-height: 1; color: var(--blue); }
+.included.is-open .included__toggle .btn::after { content: "–"; }
+@media (max-width: 1100px) { .groups { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .included { padding: 24px 22px 26px; }
+  .groups { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .included:not(.is-open) .group__desc { display: none; }   /* telefon: same nazwy grup (Łukasz, 20.11.2026) */
+  .included:not(.is-open) .group__title { margin: 0; }
+  .included.is-open .groups { gap: 18px; }
+}
 
 /* Cards / grids */
 .compare { display: grid; grid-template-columns: 1fr 1.15fr 1fr; gap: 20px; align-items: start; }
@@ -207,8 +234,8 @@ p { margin: 0 0 1em; }
 .card__cta { position: absolute; bottom: 0; left: 50%; translate: -50% 50%; white-space: nowrap; }
 .tag { display: inline-block; background: var(--gold); color: var(--blue); font-size: .78rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; box-shadow: 0 4px 10px -4px var(--gold-shadow); }   /* etykiety: złote z niebieskim tekstem (Łukasz, 19.11.2026; wcześniej miętowe) */
 .quote { color: var(--text); font-style: italic; }
-/* listy to zwykły tekst – czarne (Łukasz, 20.11.2026): kafelki porównania, sekcja z ekranem Tips&Stats, „W każdym
-   pakiecie” (pogrubienia w niej niebieskie); w niebieskim kafelku Bextip białe (.card--hl .list) */
+/* listy to zwykły tekst – czarne (Łukasz, 20.11.2026): kafelki porównania, sekcja z ekranem Tips&Stats; w niebieskim
+   kafelku Bextip białe (.card--hl .list). „W każdym pakiecie” ma od 20.11.2026 własne grupy (.groups) */
 .list { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; color: var(--text); }
 .list li { padding-left: 28px; position: relative; }
 .list li::before { position: absolute; left: 0; top: 0; font-weight: 800; }

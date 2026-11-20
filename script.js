@@ -1,8 +1,9 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261120h";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261120i";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
   var billing = CFG.billingPeriods[0];   // okres płatności w cenniku: pierwszy z config.js (od 20.11.2026 tylko "month")
+  var includedOpen = false;   // „W każdym pakiecie”: pełna lista funkcji rozwinięta (przycisk pod grupami)
 
   function get(path) {
     return path.split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, I18N[lang]);
@@ -74,7 +75,22 @@
           '<div class="tier__pricebox">' + price(p) + "</div>" +
           button(p, "btn--ghost") + "</div>";
       }).join("");
-    $("includedList").innerHTML = t.included.map(function (x) { return "<li>" + rich(x) + "</li>"; }).join("");
+    // „W każdym pakiecie” (Łukasz, 20.11.2026): sześć grup – nazwa, krótki opis i funkcje (widoczne po „Pokaż wszystkie”)
+    $("includedGroups").innerHTML = t.includedGroups.map(function (g) {
+      return '<li class="group"><p class="group__title">' + esc(g.t) + '</p><p class="group__desc">' + esc(g.d) + "</p>" +
+        '<ul class="group__items">' + g.items.map(function (x) { return "<li>" + rich(x) + "</li>"; }).join("") + "</ul></li>";
+    }).join("");
+    updateIncluded();
+  }
+
+  // stan listy „W każdym pakiecie”: klasa is-open na karcie (CSS pokazuje funkcje zamiast opisów), napis na przycisku
+  // z liczbą funkcji policzoną z grup i aria-expanded
+  function updateIncluded() {
+    var t = get("pricing"), total = t.includedGroups.reduce(function (n, g) { return n + g.items.length; }, 0);
+    var b = $("includedToggle");
+    $("included").classList.toggle("is-open", includedOpen);
+    b.setAttribute("aria-expanded", includedOpen ? "true" : "false");
+    b.textContent = includedOpen ? t.includedHide : t.includedShow.replace("{n}", total);
   }
 
   function render() {
@@ -177,6 +193,13 @@
   document.querySelectorAll('[data-href="tel"]').forEach(function (a) { a.href = "tel:" + CFG.phone.replace(/\s/g, ""); a.textContent = CFG.phone; });
   document.querySelectorAll("[data-lang]").forEach(function (b) {
     b.addEventListener("click", function () { setLang(b.dataset.lang, true); });
+  });
+  // „Pokaż wszystkie funkcje” / „Zwiń listę funkcji”; po zwinięciu przycisk zostaje w zasięgu wzroku (lista na telefonie
+  // jest długa, więc bez tego strona zostałaby daleko pod nim)
+  $("includedToggle").addEventListener("click", function () {
+    includedOpen = !includedOpen;
+    updateIncluded();
+    if (!includedOpen) this.scrollIntoView({ block: "nearest" });
   });
   // przełącznik okresu płatności w cenniku (jak na eqrento.com): rocznie / miesięcznie – kafelki rysują się od nowa.
   // W index.html ma atrybut hidden; pokazuje się dopiero, gdy config.js ma dwa okresy (Łukasz, 20.11.2026: na razie
