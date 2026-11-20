@@ -171,10 +171,15 @@ p { margin: 0 0 1em; }
 .lead { font-size: 1.2rem; color: var(--text); max-width: 560px; }
 .chips { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li {
-  position: relative; padding: 6px 12px 6px 30px; border-radius: 999px; font-size: .9rem; font-weight: 500;
+  position: relative; padding: 6px 12px 6px 30px; border-radius: 18px; font-size: .9rem; font-weight: 500; text-wrap: balance;
   background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
 }
-.chips li::before { content: ""; position: absolute; left: 8px; top: 50%; width: 16px; height: 16px; margin-top: -8px; border-radius: 50%; background: var(--mint) var(--ico-check) center / 10px no-repeat; }
+.chips li::before { content: ""; position: absolute; left: 8px; top: calc(6px + .775em - 8px); width: 16px; height: 16px; border-radius: 50%; background: var(--mint) var(--ico-check) center / 10px no-repeat; }
+/* etykiety pod opisem (Łukasz, 20.11.2026: „To nie hazard…”, „Od 2,06 zł…”, „Logo i kolory…”, „Start…”): zaokrąglenie 18px =
+   pigułka przy jednej linii, a gdy najdłuższa etykieta złamie się na najwęższym telefonie (320px) – zaokrąglony prostokąt;
+   ptaszek przy pierwszej linii (środek linii: 6px + 0,775em). Poniżej 390px czcionka .82rem – przy 360 i 375px
+   „To nie hazard: gra na punkty, bez pieniędzy” (343px przy .9rem) mieści się w jednej linii */
+@media (max-width: 389px) { .chips li { font-size: .82rem; padding-left: 28px; } }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
 /* „W każdym pakiecie” (Łukasz, 20.11.2026 – sugestia audytora): sześć grup z ptaszkami (miętowe kółko z niebieskim
    ptaszkiem – potwierdzenie), na komputerze i tablecie z krótkim opisem, na telefonie same nazwy (niżej). Przycisk

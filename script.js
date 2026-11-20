@@ -1,6 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261120l";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261120n";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
   var billing = CFG.billingPeriods[0];   // okres płatności w cenniku: pierwszy z config.js (od 20.11.2026 tylko "month")
   var includedOpen = false;   // „W każdym pakiecie”: pełna lista funkcji rozwinięta (przycisk pod grupami)
@@ -93,10 +93,17 @@
     b.textContent = includedOpen ? t.includedHide : t.includedShow.replace("{n}", total);
   }
 
+  // najniższa cena za gracza miesięcznie z config.js w walucie języka – do etykiety pod opisem w hero („Od 2,06 zł za
+  // gracza miesięcznie”, {minPrice} w i18n.js; Łukasz, 20.11.2026), żeby po zmianie cen nie została tam stara kwota
+  function minPrice() {
+    var cur = CFG.currencyByLang[lang] || "eur";
+    return money(Math.min.apply(null, CFG.plans.map(function (p) { return p[cur].perPlayer; })), cur);
+  }
+
   function render() {
     document.documentElement.lang = lang;
     document.title = get("meta.title");
-    document.querySelectorAll("[data-i18n]").forEach(function (el) { el.textContent = get(el.dataset.i18n) || ""; });
+    document.querySelectorAll("[data-i18n]").forEach(function (el) { el.textContent = (get(el.dataset.i18n) || "").replace("{minPrice}", minPrice()); });
     document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
       var parts = el.dataset.i18nAttr.split(":");
       el.setAttribute(parts[0], get(parts[1]));

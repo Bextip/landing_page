@@ -148,6 +148,13 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   ten sam rozmiar: od 412px pełne 16,8px, przy 390px 15,8px (PL) / 16,6px (EN), przy 360px 14,5px / 15,1px. Dłuższy
   tekst etykiety = mniejsze przyciski na telefonach (poniżej 14px zmniejsza się już tylko etykieta). Na telefonie
   etykieta stoi na środku.
+- **Zalety pod opisem w hero** (`hero.chip1–4`, Łukasz, 20.11.2026): „To nie hazard: gra na punkty, bez pieniędzy” · „Od
+  2,06 zł za gracza miesięcznie” · „Logo i kolory Twojej firmy” · „Start w kilka minut” (EN: „Not gambling: a points game,
+  no money” · „From €0.69 per player a month” · …). Cena w drugiej etykiecie to `{minPrice}` – `script.js` wstawia
+  najniższą cenę za gracza z `config.js` w walucie języka, więc po zmianie cennika etykieta zmienia się sama. Poniżej
+  390px etykiety mają .82rem (pierwsza mieści się w jednej linii przy 360 i 375px); przy 320px łamie się w zaokrąglony
+  prostokąt (`border-radius: 18px`, ptaszek przy pierwszej linii, `text-wrap: balance`). Wcześniej: logo i kolory, bez
+  instalacji i działu IT, 5 wersji językowych, start w kilka minut.
 - Opis pod hasłem w dwóch akapitach (`hero.lead` i `hero.lead2`, Łukasz, 11.11.2026), podobnie opis cennika
   (`pricing.sub` i `pricing.sub2`), a od 20.11.2026 także opisy `#about` i `#how` (`about.sub2`, `how.sub2`; drugie
   zdanie w nowej linii – `<br>` w `index.html`). Opisy pod tytułami mają `text-wrap: pretty`, żeby ostatnie słowo
@@ -446,7 +453,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120l`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120n`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
