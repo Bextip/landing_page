@@ -298,8 +298,16 @@ p { margin: 0 0 1em; }
    wcześniej duża była cena pakietu z „netto za rok”) */
 .tier__price { margin: 14px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: .85rem; line-height: 1.3; color: var(--text); }
 .tier__price b { font-family: var(--font-head); font-size: 1.9rem; font-weight: 600; line-height: 1.1; letter-spacing: -.02em; color: var(--ink); white-space: nowrap; }
-/* węższe kafelki (do 1240px): mniejsza cena, żeby „za gracza / miesiąc” mieściło się obok niej w każdym kafelku */
+/* małe „od” przed dużą ceną (Łukasz, 20.11.2026: niektóre turnieje i rozgrywki będą droższe – ceny minimalne);
+   kolor jak „za gracza / miesiąc” obok */
+.tier__from { font: 500 .9rem/1 var(--font); letter-spacing: 0; color: var(--text); }
+.tier--hero .tier__from { color: var(--on-blue); }
+/* węższe kafelki (do 1240px): mniejsza cena, żeby „od” i „za gracza / miesiąc” mieściły się obok niej w każdym kafelku */
 @media (max-width: 1240px) and (min-width: 1101px) { .tier { padding: 40px 18px 20px; } .tier__price b { font-size: 1.7rem; } }
+/* 1241–1366px (m.in. laptop 1920×1080 ze skalowaniem 150% = 1280px): mniejsza cena i węższe boki kafelka, żeby
+   „od 6,45 zł za gracza / miesiąc” stało w jednej linii (20.11.2026, po dodaniu „od”). Przy 1101–1240px (np. iPad
+   poziomo) „za gracza / miesiąc” schodzi pod cenę – większe zmniejszenie osłabiłoby cenę */
+@media (max-width: 1366px) and (min-width: 1241px) { .tier { padding-left: 18px; padding-right: 18px; } .tier__price b { font-size: 1.7rem; } }
 .tier__per { white-space: nowrap; }
 /* pod ceną za gracza: cena pakietu za miesiąc, kwota pogrubiona */
 .tier__pp { margin: 8px 0 0; font-size: .9rem; line-height: 1.4; color: var(--text); }
@@ -323,13 +331,14 @@ p { margin: 0 0 1em; }
 .tier--wide { margin-top: 20px; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 16px 40px; padding: 26px 28px; }
 .tier--wide .tier__price { margin: 0; }
 .tier--wide .tier__pp { margin-top: 4px; }
-/* Enterprise: punkty w jednym rzędzie, złote kropki między nimi (do 1240px jeden pod drugim, kropka przy każdym) */
+/* Enterprise: punkty w jednym rzędzie, złote kropki między nimi (do 1319px jeden pod drugim, kropka przy każdym –
+   od 20.11.2026 dłuższy punkt „+10% graczy w zapasie, bez dopłaty” mieści się w rzędzie dopiero od ok. 1300px) */
 .tier__limits--row { flex-direction: row; flex-wrap: wrap; gap: 4px 0; margin: 0; padding-top: 8px; }
 .tier__limits--row li { padding-left: 0; }
 .tier__limits--row li::before { display: none; }
 .tier__limits--row li + li { padding-left: 30px; }
 .tier__limits--row li + li::before { display: block; left: 12px; }
-@media (max-width: 1240px) {
+@media (max-width: 1319px) {
   .tier__limits--row { flex-direction: column; gap: 6px; }
   .tier__limits--row li, .tier__limits--row li + li { padding-left: 16px; }
   .tier__limits--row li::before, .tier__limits--row li + li::before { display: block; left: 0; }

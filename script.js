@@ -1,6 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261120f";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261120g";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
   var billing = CFG.billingPeriods[0];   // okres płatności w cenniku: pierwszy z config.js (od 20.11.2026 tylko "month")
 
@@ -38,11 +38,13 @@
       return '<p class="tier__cta"><a class="btn btn--arrow ' + cls + '" href="' + esc(href) + '"' + ext + "><span>" +
         esc(label) + "</span>" + ARROW + "</a></p>";
     }
-    // duża cena za gracza i obok niej „za gracza / miesiąc”, pod nią cena pakietu: „129 zł / miesiąc”
-    // (przy płatności rocznej – gdy wróci – cena za gracza z perPlayerYear i „… / rok”)
+    // duża cena za gracza z małym „od” przed nią i „za gracza / miesiąc” obok, pod nią cena pakietu: „od 129 zł /
+    // miesiąc”. „Od” przed obiema cenami (Łukasz, 20.11.2026: niektóre turnieje i rozgrywki będą droższe – to ceny
+    // minimalne). Przy płatności rocznej – gdy wróci – cena za gracza z perPlayerYear i „… / rok”
     function price(p) {
       var c = p[cur], pp = billing === "year" ? c.perPlayerYear : c.perPlayer;
-      return '<p class="tier__price"><b>' + money(pp, cur) + '</b><span class="tier__per">' + esc(t.unitPerPlayer) + "</span></p>" +
+      return '<p class="tier__price"><b><span class="tier__from">' + esc(t.from) + "</span> " + money(pp, cur) + "</b>" +
+        '<span class="tier__per">' + esc(t.unitPerPlayer) + "</span></p>" +
         '<p class="tier__pp">' + amount(t.perPeriod[billing], c[billing]) + "</p>";
     }
     var tiers = CFG.plans.filter(function (p) { return p.players; });

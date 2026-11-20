@@ -194,8 +194,10 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   (w euro 0,745 → 0,75). **Enterprise – potwierdzone przez Łukasza 20.11.2026:** „ponad 200 graczy” (bez górnej
   granicy) i 0,69 € za gracza, choć 619 / 2,06 = 300 graczy, a 189 / 300 = 0,63 € – ceny nie wynikają z liczby graczy.
   Podtytuł: „Płatność miesięczna – im więcej graczy, tym niższa cena za gracza.” FAQ „Co, jeśli mamy więcej niż 200
-  graczy?” – Enterprise za 619 zł miesięcznie; z FAQ o rozgrywkach usunięte „Cennik jest taki sam dla wszystkich”
-  (turnieje mają osobne, jednorazowe opłaty). Poprzednie cenniki są w historii gita: 11–20.11.2026 abonament
+  graczy?” – Enterprise od 619 zł miesięcznie; z FAQ o rozgrywkach usunięte „Cennik jest taki sam dla wszystkich”
+  (turnieje mają osobne, jednorazowe opłaty). **Przed cenami „od”** (Łukasz, 20.11.2026: niektóre turnieje
+  i rozgrywki będą droższe – podane ceny są minimalne, nie jedyne): „od 6,45 zł za gracza / miesiąc”, „od 129 zł /
+  miesiąc”, w EN „from”; także w FAQ o Enterprise. Poprzednie cenniki są w historii gita: 11–20.11.2026 abonament
   miesięczny albo roczny (np. Micro 99 zł / 990 zł rocznie, „2 mies. gratis”, Enterprise od 790 zł), do 11.11.2026
   jednorazowo za grę (Pakiet 20 / 30 / 100 / 250 – 850 / 1150 / 2850 / 3950 zł, Bez Limitu 3950 zł + 1,25 zł za osobę).
 - **Przełącznik „Rocznie / Miesięcznie”** nad kafelkami (jak na eqrento.com) – **zawieszony** (Łukasz, 20.11.2026:
@@ -209,12 +211,15 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **Kafelek** (Łukasz, 11.11.2026; zmiany 20.11.2026): u góry nazwa i trzy punkty ze złotymi kropkami – „do **20
   graczy**”, „**+2 graczy** w zapasie, bez dopłaty” (zamiast „miękki limit +10%”; `softLimit` 10% → +2 / +5 / +10 /
   +20), „**wszystkie funkcje** w cenie” (pogrubienia `**…**` w `i18n.js`; twarde spacje w „+2 graczy”, „bez dopłaty”
-  i EN „extra cost”, żeby nie rozdzielały się między liniami). Na dole **duża cena za gracza** z „za gracza /
-  miesiąc” obok (Łukasz, 20.11.2026: akcent na niższą kwotę), pod nią „**129 zł** / miesiąc” i przycisk. **Bez
-  „netto” przy cenach** – mówi o tym dopisek pod kafelkami. Blok z ceną (`.tier__buy`) jest przyklejony do dołu,
-  więc ceny stoją w jednej linii we wszystkich kafelkach. Enterprise: „ponad **200 graczy** • **+10% graczy**
-  w zapasie, bez dopłaty • **wszystkie funkcje** w cenie” w jednym rzędzie ze złotymi kropkami między punktami; do
-  1240px jeden pod drugim, z kropką przy każdym.
+  i EN „extra cost”, żeby nie rozdzielały się między liniami). Na dole **duża cena za gracza** z małym „od” przed
+  nią (`.tier__from`, kolor jak „za gracza / miesiąc”) i „za gracza / miesiąc” obok (Łukasz, 20.11.2026: akcent na
+  niższą kwotę), pod nią „od **129 zł** / miesiąc” i przycisk. **Bez „netto” przy cenach** – mówi o tym dopisek pod
+  kafelkami. Cena z „za gracza / miesiąc” stoi w jednej linii od 1260px i od 700 do 1100px oraz na telefonach od
+  ok. 340px; przy 1241–1366px kafelki mają węższe boki (18px) i cenę 1,7rem (laptop 1920×1080 ze skalowaniem 150% =
+  1280px), a przy 1101–1259 i 561–699px „za gracza / miesiąc” schodzi pod cenę (większe zmniejszenie osłabiłoby
+  cenę). Blok z ceną (`.tier__buy`) jest przyklejony do dołu, więc ceny stoją w jednej linii we wszystkich
+  kafelkach. Enterprise: „ponad **200 graczy** • **+10% graczy** w zapasie, bez dopłaty • **wszystkie funkcje**
+  w cenie” w jednym rzędzie ze złotymi kropkami między punktami; do 1319px jeden pod drugim, z kropką przy każdym.
 - Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`.
 - **„W każdym pakiecie”** – `pricing.included`: 19 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza (bez „Własna subdomena” – usunięta z całej strony, Łukasz, 11.11.2026)
   (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
@@ -416,7 +421,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120f`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120g`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

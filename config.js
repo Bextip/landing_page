@@ -8,6 +8,7 @@
    „2 mies. gratis”) jest w historii gita.
    perPlayer = cena za gracza miesięcznie – wpisana tak, jak podał Łukasz (nie liczona); na kafelku to duża cena
    (Łukasz, 20.11.2026: akcent na cenę za gracza, bo jest niższa), a cena pakietu za miesiąc stoi pod nią.
+   Przed obiema cenami „od”: to ceny minimalne – niektóre turnieje i rozgrywki będą droższe (Łukasz, 20.11.2026).
    softLimit = gracze w zapasie: tyle graczy ponad limit pakietu bez dopłaty (10% → +2 / +5 / +10 / +20).
    Pakiety z limitem graczy (players) to kafelki w rzędzie (4 – tyle mieści układ); Enterprise (players: null) jest pod
    nimi na całą szerokość, z przyciskiem „Zapytaj o ofertę”.
