@@ -347,9 +347,9 @@ details {
   box-shadow: var(--shadow-sm); transition: box-shadow .2s;
 }
 details[open] { box-shadow: var(--shadow-md); }
-/* pytania bez pogrubienia (Łukasz, 20.11.2026; wcześniej 700) – jak hasło i tytuły sekcji; od odpowiedzi odróżnia je
+/* pytania: Inter 500 – pośrodku (Łukasz, 20.11.2026: 700 za grube, 400 za cienkie); od odpowiedzi odróżnia je też
    niebieski kolor (odpowiedzi czarne). Na eqrento.com pytania mają 600 */
-summary { cursor: pointer; font-weight: 400; font-size: 1.08rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary { cursor: pointer; font-weight: 500; font-size: 1.08rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
 summary::-webkit-details-marker { display: none; }
 summary::after { content: "+"; color: var(--blue); font-size: 1.4rem; line-height: 1; }
 details[open] summary::after { content: "–"; }

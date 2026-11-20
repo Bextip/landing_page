@@ -345,8 +345,9 @@ każde nowe odstępstwo dopisywać tutaj:
   grubsze, a przy 1024px nawet większe – 35px przy haśle 32px). Grubość jak hasło, rozmiar ok. 0,76 hasła – tyle,
   ile przed zmianą hasła: 24–33,6px (przy 1440px 33px; wcześniej 600 i 25,6–38,4px), na telefonach 22px
   (wcześniej 25,6px). W szkicu porównana była grubość 500 – tytuły byłyby wciąż grubsze od hasła; wybrana 400.
-  **Pytania w FAQ bez pogrubienia** (Łukasz, 20.11.2026): Inter 400 zamiast 700; od odpowiedzi odróżnia je kolor
-  (pytania niebieskie, odpowiedzi czarne). Na eqrento.com pytania mają 600.
+  **Pytania w FAQ: Inter 500** (Łukasz, 20.11.2026: 700 było za grube, 400 za cienkie – wybrane pośrednie 500, porównane
+  w szkicu z 400 i 600). Od odpowiedzi odróżnia je też kolor (pytania niebieskie, odpowiedzi czarne). Na eqrento.com
+  pytania mają 600.
   **Hasło w hero (h1): Sora 400, jak na eqrento.com** (Łukasz, 20.11.2026: było duże, ciężkie i przytłaczające,
   zwłaszcza na telefonach). Rozmiar 32–44px (przy 1440px 43px; wcześniej 600 i 34–51px), na telefonach do 28px
   (wcześniej 34px). Poniżej 390px rozmiar maleje tak, żeby dłuższa linia („Firmowy typer sportowy,”, 12em)
@@ -406,7 +407,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120d`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120e`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
