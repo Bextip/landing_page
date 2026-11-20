@@ -272,8 +272,10 @@ każde nowe odstępstwo dopisywać tutaj:
 3. Ikony funkcji w czterech kolorach (19.11.2026, prośba Łukasza): mięta i złoty jako wypełnienia rysunków – karta
    1.5: mięta tylko dla kwadratu pod x, przycisków i potwierdzeń; złoty – etykiety, kropki-znaczniki, znaczniki
    kolejności.
-4. Favikona z „Bx” powiększonym o 12% (19.11.2026) – jest w prompcie do wersji 1.6; jeśli paczka 1.6 jej nie
-   obejmie, przechodzi do 1.7.
+4. Favikona do małych rozmiarów: od 20.11.2026 **pełny kwadrat** (jak „Bextip-ikona-pelny-kwadrat” z folderu
+   „3 - ikona”) z „Bx” powiększonym o **6%** – w Brave ikona zaokrąglona z „Bx” +12% wyglądała w zakładkach na
+   obciętą. Prompt do wersji 1.6 (19.11.2026) opisuje jeszcze wersję zaokrągloną +12% – do poprawienia w 1.7 (albo
+   w 1.6, jeśli Claude Chat jej jeszcze nie przygotował).
 
 - **Kolory w karcie 1.5:** niebieski `#1C4F95` (napis, x, teksty, ciemne tło), mięta `#22DCAF` (kwadrat pod x, tło
   przycisków, znaczniki potwierdzenia), biel, **złoty (akcent) `#FDC12F`** (wyróżniki w materiałach: etykiety,
@@ -333,17 +335,24 @@ każde nowe odstępstwo dopisywać tutaj:
   względne (paczka ma `/favicon.ico` itd.), bo do podpięcia domeny strona działa w podkatalogu
   bextip.github.io/landing_page/; `display` zostaje `browser` (paczka: `standalone`) – strona to nie aplikacja.
   Ta sama ikona jest na karcie w oknach przeglądarek (frames.js).
-- **Małe favikony z powiększonym „Bx”** (Łukasz, 19.11.2026: favicon w karcie przeglądarki był niewyraźny):
-  `favicon.svg`, `favicon.ico` (16, 32 i 48 px) i `favicon-64x64.png` mają „Bx” powiększone o 12% (znak zajmuje
-  ok. 0,85 szerokości kafelka zamiast 0,76 z karty znaku; w SVG: `<g transform="translate(256 256) scale(1.12)
-  translate(-256 -240)">` wokół liter). Przyczyna rozmycia: przy skalowaniu ekranu 150% (np. laptop Łukasza,
+- **Małe favikony: pełny kwadrat, „Bx” +6%** (Łukasz, 20.11.2026): `favicon.svg`, `favicon.ico` (16, 32 i 48 px)
+  i `favicon-64x64.png` mają kafelek bez zaokrągleń (jak „Bextip-ikona-pelny-kwadrat” z folderu „3 - ikona”) i „Bx”
+  powiększone o 6% (w SVG: `<rect width="512" height="512">` i `<g transform="translate(256 256) scale(1.06)
+  translate(-256 -240)">` wokół liter; margines przy „B” ok. 1,5px przy 16px). Powód: w zakładkach Brave (przy
+  skalowaniu ekranu ok. 125%) ikona ma 20px, a przeglądarka ucina z niej ok. 1px z lewej i z góry – przy kafelku
+  zaokrąglonym znikał lewy górny róg, a przy „Bx” +12% litera B dotykała krawędzi, więc ikona wyglądała na obciętą
+  (sprawdzone na zrzucie Łukasza i w symulacji; porównane warianty: zaokrąglona / pełny kwadrat × +12% / +6% / jak
+  w paczce). Pełny kwadrat po ucięciu piksela dalej wygląda na cały, +6% zostawia margines przy „B”, a znak jest
+  wciąż większy niż w paczce. Duże ikony bez zmian.
+  Wcześniej (19–20.11.2026) **zaokrąglone z „Bx” +12%** (Łukasz, 19.11.2026: favicon w karcie przeglądarki był
+  niewyraźny; znak ok. 0,85 szerokości kafelka zamiast 0,76 z karty znaku). Przyczyna rozmycia: przy skalowaniu ekranu 150% (np. laptop Łukasza,
   Brave) ikona w karcie ma 24 px, a przeglądarki z rodziny Chrome trzymają favicon w 16 i 32 px i zmniejszają 32 px
   do 24 – krawędzie lądują między pikselami, a x na miętowym kwadracie ma ok. 6 px. Powiększenie nie daje pełnej
   ostrości, ale znaki są większe i łatwiej je rozpoznać. Sprawdzone i odrzucone: wyostrzanie obrazu (ciemne obwódki),
   rysowanie od razu w 24 px (przeglądarka i tak bierze 32 px), powiększenie o 20% (przy 16 px za ciasno).
   PNG wyrenderowane z `favicon.svg` w Edge (canvas), ICO złożone z nich. Duże ikony (`apple-touch-icon.png`,
   `icon-*.png`) zostają z paczki – przy tych rozmiarach proporcje z karty wyglądają dobrze. Odstępstwo od karty
-  znaku 1.5 – do dopisania w paczce jako „favikona do małych rozmiarów” (prompt do wersji 1.6 z 19.11.2026).
+  znaku 1.5 – do dopisania w paczce jako „favikona do małych rozmiarów” (lista do karty 1.7, punkt 4).
 - **Ekrany aplikacji** (`assets/screens/*.svg`) dostosowane do karty 1.4, żeby stare i nowe logo nie stały obok
   siebie: napis w panelu bocznym podmieniony na nowy (`<g transform="translate(21 27.57) scale(0.2)">` w miejscu
   sześciu ścieżek starego logo), limonka `#86C93E` → mięta, granat `#0C2A55` → niebieski. Wstążka „EKSTRA” w Tips&Stats jest złota
@@ -435,7 +444,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120j`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120k`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
