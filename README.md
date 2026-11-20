@@ -191,8 +191,8 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   | Enterprise | ponad 200 | 2,06 zł / €0.69 | 619 zł / €189 |
 
   Ceny za gracza są wpisane tak, jak podał Łukasz (strona ich nie liczy). Large: 499 / 200 = 2,495 – podane 2,49 zł
-  (w euro 0,745 → 0,75). Enterprise: 619 / 2,06 = 300 graczy, a w euro 189 / 300 = 0,63 przy podanym 0,69 – do
-  potwierdzenia u Łukasza (20.11.2026), tak samo liczba graczy w Enterprise (kafelek mówi „ponad 200 graczy”).
+  (w euro 0,745 → 0,75). **Enterprise – potwierdzone przez Łukasza 20.11.2026:** „ponad 200 graczy” (bez górnej
+  granicy) i 0,69 € za gracza, choć 619 / 2,06 = 300 graczy, a 189 / 300 = 0,63 € – ceny nie wynikają z liczby graczy.
   Podtytuł: „Płatność miesięczna – im więcej graczy, tym niższa cena za gracza.” FAQ „Co, jeśli mamy więcej niż 200
   graczy?” – Enterprise za 619 zł miesięcznie; z FAQ o rozgrywkach usunięte „Cennik jest taki sam dla wszystkich”
   (turnieje mają osobne, jednorazowe opłaty). Poprzednie cenniki są w historii gita: 11–20.11.2026 abonament
@@ -432,8 +432,6 @@ podpinaniu domeny Claude najpierw przypomina Łukaszowi o danych firmy do stopki
   i KRS albo REGON; przy sp. z o.o. także sąd rejestrowy i kapitał zakładowy.
 - Linki Stripe w `config.js` – 8 Payment Links: 4 pakiety × PLN / EUR, tylko miesięcznie (cennik od 20.11.2026;
   płatność roczna zawieszona).
-- Enterprise: potwierdzić u Łukasza liczbę graczy (619 zł / 2,06 zł = 300) i cenę za gracza w euro (189 € / 300 = 0,63,
-  na stronie 0,69 €).
 - Regulamin i Polityka prywatności – linki w stopce prowadzą na razie do `#`.
 - ~~Konto GitHub i repozytorium~~ – zrobione 10.11.2026. DNS i własna domena bextip.site – patrz „Publikacja”.
 - Lżejsze ekrany: `typowania.svg` i `tips-stats.svg` mają po 400–600 KB.

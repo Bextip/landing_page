@@ -45,8 +45,8 @@ window.BEXTIP_CONFIG = {
     { id: "large", players: 200,
       pln: { month: 499, perPlayer: 2.49 }, eur: { month: 149, perPlayer: 0.75 },
       stripe: { pln: { month: "" }, eur: { month: "" } } },
-    // Enterprise: ponad 200 graczy, zamówienie przez kontakt. Ceny jak podał Łukasz 20.11.2026: 619 zł i 2,06 zł za
-    // gracza (= 300 graczy); 189 EUR i 0,69 EUR za gracza – 189 / 300 = 0,63, do potwierdzenia
+    // Enterprise: ponad 200 graczy (bez górnej granicy), zamówienie przez kontakt. Ceny jak podał Łukasz 20.11.2026:
+    // 619 zł i 2,06 zł za gracza, 189 EUR i 0,69 EUR za gracza – potwierdzone, mimo że 189 / 0,69 ≠ 619 / 2,06
     { id: "enterprise", players: null,
       pln: { month: 619, perPlayer: 2.06 }, eur: { month: 189, perPlayer: 0.69 },
       stripe: null }
