@@ -331,9 +331,16 @@ każde nowe odstępstwo dopisywać tutaj:
 - **Krój napisu w logo: Sora ExtraBold** (B własne). Karta: Sora do tytułów, Inter do tekstu i liczb – jak na stronie
   (patrz „Czcionki”).
 - Czcionki z Google Fonts: **Sora** w nagłówkach (Łukasz, 11.11.2026: krój napisu z logo według karty znaku;
-  wcześniej Lexend) i Inter w tekście. Strona ładuje tylko Sora 600 i 700.
-  Hasło (h1), tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
+  wcześniej Lexend) i Inter w tekście. Strona ładuje tylko Sora 400, 600 i 700.
+  Tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
   (Łukasz, 10.11.2026: były za ciężkie); ceny w cenniku też 600, numery kroków 700.
+  **Hasło w hero (h1): Sora 400, jak na eqrento.com** (Łukasz, 20.11.2026: było duże, ciężkie i przytłaczające,
+  zwłaszcza na telefonach). Rozmiar 32–44px (przy 1440px 43px; wcześniej 600 i 34–51px), na telefonach do 28px
+  (wcześniej 34px). Poniżej 390px rozmiar maleje tak, żeby dłuższa linia („Firmowy typer sportowy,”, 12em)
+  mieściła się w całości: `min(1.75rem, (100vw − 2 × gutter) / 12,2)`, przy 375px 27,5px, przy 360px 26px. Ten
+  sam sposób ma eqrento.com. Dzięki temu hasło PL ma na komputerze i telefonie dwie linie zamiast trzech, a EN
+  (dłuższe) trzy. Na eqrento.com hasło ma Sora 400, przy 1440px 42px, na telefonie ok. 29px. W szkicu porównana
+  była grubość 500 – wybrana 400 jak na EQrento. Po zmianie hasła zmierz dłuższą linię ponownie.
 - **Szerokość jak na eqrento.com** (Łukasz, 10.11.2026): treść do 1360px (`.wrap`), boczne odstępy `--gutter`
   48px, do 1440px 40px, do 1200px 32px, na telefonach (do 640px) 20px. Przy 1366×768 okno w hero mieści się
   na styk – szerszej treści albo wyższego okna nie da się już dodać bez zmniejszenia okna.
@@ -386,7 +393,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120a`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120b`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

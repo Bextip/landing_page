@@ -51,7 +51,7 @@ body { margin: 0; font-family: var(--font); color: var(--ink); background: var(-
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 .5em; letter-spacing: -.02em; text-wrap: balance; }
-h1, h2, h3 { font-weight: 600; }   /* hasło, tytuły sekcji i kart lżejsze niż domyślne 700 (Łukasz, 10.11.2026) */
+h1, h2, h3 { font-weight: 600; }   /* tytuły sekcji i kart lżejsze niż domyślne 700 (Łukasz, 10.11.2026); hasło w hero od 20.11.2026 – 400 (.hero h1) */
 h1 { font-size: clamp(2.1rem, 5vw, 3.5rem); }
 h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); }
 h3 { font-size: 1.15rem; }
@@ -142,7 +142,11 @@ p { margin: 0 0 1em; }
 .hero { position: relative; overflow: hidden; color: var(--ink); padding: var(--sec-y) 0; background: var(--white); }
 .hero__in { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
 .hero__shot { margin-top: clamp(0px, 1.2vw, 16px); }   /* okno blisko wysokości h1; mniej niż 32px, bo pasek okna Chrome / Edge / Firefox jest wyższy */
-.hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.2rem); }
+/* hasło jak na eqrento.com (Łukasz, 20.11.2026: było duże, ciężkie i przytłaczające, zwłaszcza na telefonach):
+   Sora 400 zamiast 600, 32–44px (przy 1440px 43px; wcześniej 34–51px), na telefonach do 28px (niżej; wcześniej
+   34px) – hasło PL na komputerze i telefonie w dwóch liniach zamiast trzech. Na eqrento.com hasło ma Sora 400, przy 1440px
+   42px, na telefonie ok. 29px. Rozważana grubość 500 – wybrana 400 jak na EQrento. Tytuły sekcji i kart zostają 600 */
+.hero h1 { font-size: clamp(2rem, 3vw, 2.75rem); font-weight: 400; }
 /* etykieta nad hasłem = duży przycisk „Wybierz pakiet” (Łukasz, 11.11.2026), tylko kolory własne: ta sama wysokość
    (40px linia jak kółko ze strzałką + 2 × 6px + 2 × 1,5px ramki = 55px), czcionka i grubość, 26px od krawędzi
    i 14px między kropką a tekstem (jak między tekstem a kółkiem). Zawsze w jednej linii: gdy się nie mieści,
@@ -490,6 +494,10 @@ details p { color: var(--text); margin: 12px 0 0; }
   .hero__cta { order: 6; }
 }
 @media (max-width: 640px) {
+  /* telefon: hasło do 28px (Łukasz, 20.11.2026; na eqrento.com ok. 29px), a na węższych ekranach tyle, żeby dłuższa
+     linia („Firmowy typer sportowy,”, 12em) zmieściła się w całości – hasło PL zawsze w dwóch liniach (przy 375px
+     27,5px, przy 360px 26px, przy 320px 23px). Ten sam sposób co na eqrento.com. Inne hasło = zmierz ponownie */
+  .hero h1 { font-size: min(1.75rem, calc((100vw - 2 * var(--gutter)) / 12.2)); }
   .window { --bar: 24px; border-radius: 10px; }
   .window__bar { grid-template-columns: 44px minmax(0, 1fr) 44px; padding: 0 8px; }
   .window__dots { width: 7px; height: 7px; box-shadow: 11px 0 #febc2e, 22px 0 #28c840; }
