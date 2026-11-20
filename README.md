@@ -238,9 +238,15 @@ w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian
 - **Zasady mięty:** to kolor kwadratu i tła; **na mięcie tekst niebieski, nie biały**; **nie używać mięty do tekstu
   ani cienkich linii na bieli** – dlatego plusy w FAQ są niebieskie.
 - **Kolory na stronie** (`:root` w `styles.css`):
-  - tekst `--ink` = niebieski `#1C4F95` (tytuły, hasło, ceny, pytania FAQ, pogrubienia); opisy i teksty pomocnicze
-    `--muted` = `#3E69A5` (85% niebieskiego + 15% bieli, kontrast z bielą 5,6:1) – ta sama zasada co przy decyzji
-    Łukasza z 11.11.2026: opisy w jaśniejszym odcieniu koloru tytułów, żeby tytuły się wyróżniały;
+  - tytuły i wyróżnienia `--ink` = niebieski `#1C4F95`: hasło, tytuły sekcji i kart, pytania FAQ, ceny,
+    pogrubienia, zalety pod hasłem, aktywny link w menu;
+  - **zwykłe teksty `--text` = czarny `#111111`** (kontrast z bielą 18,9:1): opisy pod tytułami i w kafelkach,
+    listy, odpowiedzi FAQ, teksty w cenniku, linki w menu. Łukasz, 20.11.2026: za dużo mięty i niebieskiego –
+    strona wyglądała jak oferta gabinetu stomatologicznego albo nowego leku; czarny tekst jak na eqrento.com. Ze
+    szkiców A–D wybrany wariant B: czarny tekst, mięta bez zmian (rozważane też: niebieskie ptaszki i mięta tylko
+    w przyciskach – C, oraz B z C – D). Na eqrento.com tekst jest ciepłą czernią `#1c1a17`; tu neutralna czerń
+    ze szkicu. **Wyjątek od karty 1.5**, która każe pisać „niebieski na jasnym tle”. Wcześniej opisy miały
+    `--muted` = `#3E69A5` (jaśniejszy niebieski, decyzja z 11.11.2026), a listy były niebieskie jak tytuły;
   - ciemne tła `--blue`, płaskie: stopka, sekcja „Dla kogo”, kafelek Bextip w porównaniu, wyróżniony pakiet, wybrana
     opcja przełącznika w cenniku, numery kroków, ikony kart „Dla kogo”, tło obrazu do podglądu linków; teksty
     pomocnicze na niebieskim `--on-blue` = `#D5E2F5` (6,1:1);
@@ -366,7 +372,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261119k`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120a`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

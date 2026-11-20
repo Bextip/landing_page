@@ -1,6 +1,7 @@
 /* Bextip landing – kolory z karty znaku 1.5 (listopad 2026; Łukasz, 19.11.2026): niebieski, mięta, biel i złoty akcent.
-   Marka nie używa już granatu ani limonki i unika gradientów – ciemnym tłem i kolorem tekstu jest niebieski.
+   Marka nie używa już granatu ani limonki i unika gradientów – ciemnym tłem i kolorem tytułów jest niebieski.
    Złoty akcent wyróżników (--gold) jest w karcie od wersji 1.5; znak nadal ma dwa kolory i biel.
+   Zwykłe teksty są czarne (--text, jak na eqrento.com; Łukasz, 20.11.2026) – wyjątek od karty 1.5.
    Zmiana motywu = podmiana zmiennych w :root. */
 :root {
   --blue: #1C4F95;      /* napis, teksty, ciemne tło marki: stopka, „Dla kogo”, kafelek Bextip, wyróżniony pakiet */
@@ -17,8 +18,13 @@
   --sky: #E6EEF8;
   --sky-2: #F1F4F8;     /* tło strony UI */
   --line: #D8E0EC;
-  --ink: #1C4F95;       /* tekst: niebieski („kolor tekstu: niebieski na jasnym tle”); wcześniej granat #0C2A55 */
-  --muted: #3E69A5;     /* opisy i teksty pomocnicze: jaśniejszy odcień niebieskiego (85% niebieskiego, 15% bieli; kontrast z bielą 5,6:1) */
+  --ink: #1C4F95;       /* tytuły i wyróżnienia: niebieski – hasło, tytuły sekcji i kart, pytania FAQ, ceny, pogrubienia,
+                           zalety pod hasłem, aktywny link w menu (wcześniej granat #0C2A55) */
+  --text: #111111;      /* zwykłe teksty: czarny, jak na eqrento.com (Łukasz, 20.11.2026: za dużo mięty i niebieskiego –
+                           strona wyglądała jak oferta gabinetu stomatologicznego; wybrany wariant B: czarny tekst, mięta
+                           bez zmian). Opisy pod tytułami, opisy w kafelkach, listy, odpowiedzi FAQ, teksty w cenniku,
+                           linki w menu. Kontrast z bielą 18,9:1. Wyjątek od karty 1.5 („kolor tekstu: niebieski na
+                           jasnym tle”); wcześniej --muted #3E69A5, jaśniejszy niebieski */
   --on-blue: #D5E2F5;   /* teksty pomocnicze na niebieskim tle (kontrast 6,1:1) */
   --white: #fff;
   --radius: 16px;
@@ -61,7 +67,7 @@ p { margin: 0 0 1em; }
 .section--tint { background: var(--sky-2); }
 /* niebieski z logo (#1C4F95) – sekcja „Dla kogo” (Łukasz, 10.11.2026); płaski kolor, bez gradientu (karta znaku 1.4) */
 .section--blue { color: var(--white); background: var(--blue); }
-.sub { color: var(--muted); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; }
+.sub { color: var(--text); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; }
 /* tytuł sekcji i opis pod nim – wyśrodkowane, jak na eqrento.com (sekcja #inside ma tekst obok ekranu i zostaje z lewej) */
 .section-head { text-align: center; max-width: 840px; margin: 0 auto clamp(32px, 4vw, 48px); }   /* 840px: tytuł EN „Everything an office prediction game needs” w Sora ma 822px – mieści się w jednej linii */
 .section-head h2 { margin-bottom: .45em; }
@@ -114,7 +120,7 @@ p { margin: 0 0 1em; }
 /* --nav-shift: linia bazowa linków na wysokości podstawy napisu „Bextip” (bez ogonka „p”) – zmierzone w przeglądarce
    dla napisu 43px (7px; różnica 0,4px). Zmiana wysokości napisu albo rozmiaru linków = zmierz ponownie */
 .nav__links {
-  grid-column: 2; display: flex; gap: 36px; font-weight: 500; color: var(--muted); white-space: nowrap;
+  grid-column: 2; display: flex; gap: 36px; font-weight: 500; color: var(--text); white-space: nowrap;
   transform: translateY(var(--nav-shift, 7px));
 }
 .nav__links a { position: relative; display: block; padding: 6px 0; line-height: 1.1; transition: color .2s; }
@@ -150,7 +156,7 @@ p { margin: 0 0 1em; }
   color: var(--blue); font-weight: 600; font-size: calc(1.05rem * var(--s)); margin-bottom: 18px;
 }
 .pill::before { content: ""; flex: none; width: var(--dot); height: var(--dot); border-radius: 50%; background: var(--blue); }   /* flex: none – kropka nie znika, gdy etykieta dojdzie do max-width */
-.lead { font-size: 1.2rem; color: var(--muted); max-width: 560px; }
+.lead { font-size: 1.2rem; color: var(--text); max-width: 560px; }
 .chips { list-style: none; padding: 0; margin: 0 0 28px; display: flex; flex-wrap: wrap; gap: 8px; }
 .chips li {
   position: relative; padding: 6px 12px 6px 30px; border-radius: 999px; font-size: .9rem; font-weight: 500;
@@ -161,7 +167,7 @@ p { margin: 0 0 1em; }
 .included { margin-top: 20px; }
 /* „W każdym pakiecie”: 20 funkcji z PDF-u w trzech kolumnach (czytane kolumnami), pogrubienia jak w PDF-ie */
 .included .list { display: block; columns: 3; column-gap: 36px; margin: 0; }
-.included .list li { break-inside: avoid; margin-bottom: 12px; color: var(--muted); }
+.included .list li { break-inside: avoid; margin-bottom: 12px; }
 .included .list b { font-weight: 600; color: var(--ink); }
 @media (max-width: 1100px) { .included .list { columns: 2; } }
 @media (max-width: 640px) { .included .list { columns: 1; } }
@@ -177,7 +183,7 @@ p { margin: 0 0 1em; }
   box-shadow: 0 2px 4px rgba(28, 79, 149, .14), 0 22px 44px -18px rgba(28, 79, 149, .55);
 }
 .card--hl .quote { color: var(--on-blue); }
-.card--hl .list { margin-bottom: 0; }
+.card--hl .list { margin-bottom: 0; color: inherit; }   /* na niebieskim lista zostaje biała */
 /* etykieta „Stworzony dla firm” = przycisk „Wybierz pakiet” z tego kafelka (Łukasz, 11.11.2026), tylko kolory własne:
    ta sama wysokość (32px linia jak kółko ze strzałką + 2 × 5px + 2 × 1,5px ramki = 45px), czcionka, grubość
    i 20px od krawędzi do tekstu; .tag.card__badge, bo .tag stoi niżej i nadpisywał czcionkę i odstępy.
@@ -192,8 +198,10 @@ p { margin: 0 0 1em; }
 .card__logo img { height: 28px; width: auto; }
 .card__cta { position: absolute; bottom: 0; left: 50%; translate: -50% 50%; white-space: nowrap; }
 .tag { display: inline-block; background: var(--gold); color: var(--blue); font-size: .78rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; box-shadow: 0 4px 10px -4px var(--gold-shadow); }   /* etykiety: złote z niebieskim tekstem (Łukasz, 19.11.2026; wcześniej miętowe) */
-.quote { color: var(--muted); font-style: italic; }
-.list { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; }
+.quote { color: var(--text); font-style: italic; }
+/* listy to zwykły tekst – czarne (Łukasz, 20.11.2026): kafelki porównania, sekcja z ekranem Tips&Stats, „W każdym
+   pakiecie” (pogrubienia w niej niebieskie); w niebieskim kafelku Bextip białe (.card--hl .list) */
+.list { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; color: var(--text); }
 .list li { padding-left: 28px; position: relative; }
 .list li::before { position: absolute; left: 0; top: 0; font-weight: 800; }
 /* ptaszki w kolorze akcentu (Łukasz, 10.11.2026): miętowe kółko z niebieskim ptaszkiem */
@@ -210,8 +218,8 @@ p { margin: 0 0 1em; }
   box-shadow: inset 0 -2px 0 rgba(28, 79, 149, .07), 0 6px 12px -6px rgba(28, 79, 149, .32);
 }
 .feature .ico img { width: 28px; height: 28px; }   /* ikona z pliku (assets/icons/funkcja-*.svg) zamiast emoji */
-.feature p { grid-column: 1 / -1; color: var(--muted); margin: 14px 0 0; }
-.who p { color: var(--muted); margin: 0; }
+.feature p { grid-column: 1 / -1; color: var(--text); margin: 14px 0 0; }
+.who p { color: var(--text); margin: 0; }
 /* „Dla kogo”: białe karty na niebieskim tle; mała biała ikona na niebieskim kafelku obok tekstu – jak ikony na
    „chipach” w sekcji „One platform” na eqrento.com (Łukasz, 10.11.2026) */
 .card.who {
@@ -249,7 +257,7 @@ p { margin: 0 0 1em; }
   box-shadow: 0 6px 14px -6px var(--gold-shadow);
 }
 .steps h3 { margin-bottom: .4em; }
-.steps p { color: var(--muted); margin: 0; }
+.steps p { color: var(--text); margin: 0; }
 
 /* Pricing – małe kafelki jak w EQrento: 4 pakiety z limitem w rzędzie, Enterprise pod nimi na całą szerokość */
 /* przełącznik okresu płatności nad kafelkami (jak na eqrento.com; Łukasz, 11.11.2026): wybrana opcja niebieska,
@@ -261,7 +269,7 @@ p { margin: 0 0 1em; }
 }
 .billing__opt {
   display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 22px; border: 0; border-radius: 999px;
-  background: transparent; font: 600 .95rem/1 var(--font); color: var(--muted); cursor: pointer; white-space: nowrap;
+  background: transparent; font: 600 .95rem/1 var(--font); color: var(--text); cursor: pointer; white-space: nowrap;
   transition: color .15s, background-color .15s;
 }
 @media (max-width: 480px) { .billing__opt { padding: 0 14px; } }   /* telefon: przełącznik z „2 mies. gratis” mieści się w jednej linii */
@@ -278,17 +286,17 @@ p { margin: 0 0 1em; }
 .tier__name { font-size: 1.25rem; margin: 0; }
 /* cena i obok niej „netto za rok” / „netto za miesiąc” w jednej linii, na wspólnej linii bazowej (Łukasz, 11.11.2026;
    wcześniej „netto” nad „za rok”) */
-.tier__price { margin: 14px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: .85rem; line-height: 1.3; color: var(--muted); }
+.tier__price { margin: 14px 0 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; font-size: .85rem; line-height: 1.3; color: var(--text); }
 .tier__price b { font-family: var(--font-head); font-size: 1.9rem; font-weight: 600; line-height: 1.1; letter-spacing: -.02em; color: var(--ink); white-space: nowrap; }
-.tier__from { font: 500 .9rem/1 var(--font); letter-spacing: 0; color: var(--muted); }   /* „od” przed ceną Enterprise */
+.tier__from { font: 500 .9rem/1 var(--font); letter-spacing: 0; color: var(--text); }   /* „od” przed ceną Enterprise */
 /* węższe kafelki (do 1240px): mniejsza cena, żeby „netto za rok” mieściło się obok niej w każdym kafelku */
 @media (max-width: 1240px) and (min-width: 1101px) { .tier { padding: 40px 18px 20px; } .tier__price b { font-size: 1.7rem; } }
 .tier__per { display: flex; gap: .3em; white-space: nowrap; }
 /* pod ceną: przy płatności rocznej cena za gracza miesięcznie, przy miesięcznej – ile kosztuje rok */
-.tier__pp { margin: 8px 0 0; font-size: .9rem; line-height: 1.4; color: var(--muted); }
+.tier__pp { margin: 8px 0 0; font-size: .9rem; line-height: 1.4; color: var(--text); }
 .tier__pp b { font-weight: 600; color: var(--ink); white-space: nowrap; }
 /* punkty pod nazwą pakietu (Łukasz, 11.11.2026): złote kropki, pogrubienia z i18n.js (**…**); co najmniej 20px do ceny */
-.tier__limits { list-style: none; margin: 0 0 20px; padding: 14px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: .9rem; line-height: 1.4; color: var(--muted); }
+.tier__limits { list-style: none; margin: 0 0 20px; padding: 14px 0 0; display: flex; flex-direction: column; gap: 6px; font-size: .9rem; line-height: 1.4; color: var(--text); }
 .tier__limits li { position: relative; padding-left: 16px; }
 .tier__limits li::before { content: ""; position: absolute; left: 0; top: calc(.7em - 3px); width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
 .tier__limits b { font-weight: 600; color: var(--ink); }
@@ -319,7 +327,7 @@ p { margin: 0 0 1em; }
 }
 .tier--wide .tier__cta { margin: 0; padding: 0; }
 .tier--wide .tier__cta .btn { width: auto; min-width: 200px; }
-.note { color: var(--muted); font-size: .9rem; margin: 20px 0 0; text-align: center; }
+.note { color: var(--text); font-size: .9rem; margin: 20px 0 0; text-align: center; }
 
 /* FAQ – każde pytanie na osobnej karcie; na szerokich ekranach dwie kolumny (Łukasz, 10.11.2026), każda kolumna
    układa się sama, więc otwarcie pytania nie przesuwa drugiej */
@@ -335,7 +343,7 @@ summary { cursor: pointer; font-weight: 700; font-size: 1.08rem; list-style: non
 summary::-webkit-details-marker { display: none; }
 summary::after { content: "+"; color: var(--blue); font-size: 1.4rem; line-height: 1; }
 details[open] summary::after { content: "–"; }
-details p { color: var(--muted); margin: 12px 0 0; }
+details p { color: var(--text); margin: 12px 0 0; }
 
 /* stopka wg schematu eqrento.com: marka (logo + dwa akapity), Kontakt, Serwis, Aplikacja; hasło; prawa i linki */
 .footer {
@@ -394,7 +402,7 @@ details p { color: var(--muted); margin: 12px 0 0; }
 .window__dots { width: 10px; height: 10px; border-radius: 50%; background: #ff5f57; box-shadow: 16px 0 #febc2e, 32px 0 #28c840; }
 .window__url {
   justify-self: center; width: min(100%, 300px); height: 20px; border-radius: 6px; background: var(--white);
-  font-size: 11px; line-height: 20px; color: var(--muted); text-align: center;
+  font-size: 11px; line-height: 20px; color: var(--text); text-align: center;
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .window img { display: block; width: 100%; height: auto; }
