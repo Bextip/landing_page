@@ -341,6 +341,9 @@ każde nowe odstępstwo dopisywać tutaj:
   wcześniej Lexend) i Inter w tekście. Strona ładuje tylko Sora 400, 600 i 700.
   Tytuły kart (h3) mają grubość 600, nie 700 (Łukasz, 10.11.2026: były za ciężkie); ceny w cenniku też 600,
   numery kroków 700. Tytuły kart przy 18px potrzebują tej grubości, żeby odróżniać się od zwykłego tekstu.
+  Grubość 700 mają tylko numery kroków (Sora) i etykieta „2 mies. gratis” (Inter, 12px) – zostają świadomie
+  (Łukasz, 20.11.2026: rozważane 600 dla spójności, decyzja „zostaw jak jest”). Pozostałe grubości: Sora 400 / 600,
+  Inter 400 (tekst), 500 (linki w menu, zalety pod hasłem, „od”, pytania FAQ), 600 (przyciski, etykiety, pogrubienia).
   **Tytuły sekcji (h2): Sora 400, w proporcji do hasła** (Łukasz, 20.11.2026: po odchudzeniu hasła były od niego
   grubsze, a przy 1024px nawet większe – 35px przy haśle 32px). Grubość jak hasło, rozmiar ok. 0,76 hasła – tyle,
   ile przed zmianą hasła: 24–33,6px (przy 1440px 33px; wcześniej 600 i 25,6–38,4px), na telefonach 22px
