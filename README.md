@@ -229,6 +229,20 @@ Karta 1.4 (ta sama data) wprowadziła napis jako znak podstawowy, miętę zamias
 zastąpiła kartę 1.0 z 11.11.2026 (logo z polem w gradiencie, limonka, złota kropka, granat) – tamte pliki i kolory są
 w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian w 1.5.
 
+**Odstępstwa strony od karty – do wpisania w karcie 1.7.** Łukasz, 20.11.2026: karta zostaje na razie najwyżej
+w wersji 1.6 (tylko favikona do małych rozmiarów i poprawki niespójności paczki – prompt dla Claude Chat
+z 19.11.2026), a ostateczne zmiany w karcie (wersja 1.7) – dopiero po wszystkich poprawkach strony. Do tego czasu
+każde nowe odstępstwo dopisywać tutaj:
+1. Zwykłe teksty czarne `#111111` (20.11.2026) – karta: „kolor tekstu: niebieski na jasnym tle”
+   (szczegóły w „Kolory na stronie”).
+2. Złota linia 2px pod aktywnym linkiem w menu (19.11.2026) – karta: złoty tylko jako wypełnienie, nie do cienkich
+   linii.
+3. Ikony funkcji w czterech kolorach (19.11.2026, prośba Łukasza): mięta i złoty jako wypełnienia rysunków – karta
+   1.5: mięta tylko dla kwadratu pod x, przycisków i potwierdzeń; złoty – etykiety, kropki-znaczniki, znaczniki
+   kolejności.
+4. Favikona z „Bx” powiększonym o 12% (19.11.2026) – jest w prompcie do wersji 1.6; jeśli paczka 1.6 jej nie
+   obejmie, przechodzi do 1.7.
+
 - **Kolory w karcie 1.5:** niebieski `#1C4F95` (napis, x, teksty, ciemne tło), mięta `#22DCAF` (kwadrat pod x, tło
   przycisków, znaczniki potwierdzenia), biel, **złoty (akcent) `#FDC12F`** (wyróżniki w materiałach: etykiety,
   kropki-znaczniki, znaczniki kolejności; CMYK 2·27·88·0). Szary `#6B7280` tylko w wersjach „cichych” i „powered by”
@@ -297,7 +311,7 @@ w historii gita. Reguły oznaczone niżej „karta 1.4” obowiązują bez zmian
   rysowanie od razu w 24 px (przeglądarka i tak bierze 32 px), powiększenie o 20% (przy 16 px za ciasno).
   PNG wyrenderowane z `favicon.svg` w Edge (canvas), ICO złożone z nich. Duże ikony (`apple-touch-icon.png`,
   `icon-*.png`) zostają z paczki – przy tych rozmiarach proporcje z karty wyglądają dobrze. Odstępstwo od karty
-  znaku 1.5 – do dopisania w paczce jako „favikona do małych rozmiarów”.
+  znaku 1.5 – do dopisania w paczce jako „favikona do małych rozmiarów” (prompt do wersji 1.6 z 19.11.2026).
 - **Ekrany aplikacji** (`assets/screens/*.svg`) dostosowane do karty 1.4, żeby stare i nowe logo nie stały obok
   siebie: napis w panelu bocznym podmieniony na nowy (`<g transform="translate(21 27.57) scale(0.2)">` w miejscu
   sześciu ścieżek starego logo), limonka `#86C93E` → mięta, granat `#0C2A55` → niebieski. Wstążka „EKSTRA” w Tips&Stats jest złota
@@ -390,6 +404,8 @@ podpinaniu domeny Claude najpierw przypomina Łukaszowi o danych firmy do stopki
 - Regulamin i Polityka prywatności – linki w stopce prowadzą na razie do `#`.
 - ~~Konto GitHub i repozytorium~~ – zrobione 10.11.2026. DNS i własna domena bextip.site – patrz „Publikacja”.
 - Lżejsze ekrany: `typowania.svg` i `tips-stats.svg` mają po 400–600 KB.
+- **Karta znaku 1.7** – po wszystkich poprawkach strony (Łukasz, 20.11.2026; do tego czasu karta najwyżej 1.6):
+  zmiany z listy „Odstępstwa strony od karty – do wpisania w karcie 1.7” w sekcji „Wygląd”.
 - **Pełny przegląd przed przełączeniem DNS:**
   - teksty PL i EN: literówki, brakujące klucze w `i18n.js`, nazwy pakietów i ceny zgodne z ofertą;
   - linki: menu, stopka, bextip.com/login i /register, e-mail, telefon, Stripe, Regulamin, Polityka prywatności,
