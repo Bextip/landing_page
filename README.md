@@ -207,7 +207,8 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **„W każdym pakiecie”** – `pricing.included`: 19 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza (bez „Własna subdomena” – usunięta z całej strony, Łukasz, 11.11.2026)
   (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
   z góry na dół (CSS `columns`), dwie do 1100px, jedna na telefonach; ptaszki w miętowych kółkach.
-- Ceny w kafelkach: Sora 600, jak hasło i tytuły (wcześniej 800 – po odchudzeniu nagłówków wyglądały za ciężko).
+- Ceny w kafelkach: Sora 600, jak tytuły kart (wcześniej 800 – po odchudzeniu nagłówków wyglądały za ciężko). Hasło
+  i tytuły sekcji mają od 20.11.2026 grubość 400, ceny zostały 600 – to najważniejsza informacja w kafelku.
 - „Polecany”: `recommended: true` – **Mid** (Łukasz, 11.11.2026): niebieski kafelek z etykietą na górnej krawędzi
   w wymiarach przycisku z kafelka (45px, .95rem / 600 – ta sama reguła co „Stworzony dla firm”). Kafelki mają 40px
   górnego odstępu, żeby nazwy pakietów stały w jednej linii; przy 2 × 2 odstęp między rzędami 44px, na telefonie
@@ -332,8 +333,12 @@ każde nowe odstępstwo dopisywać tutaj:
   (patrz „Czcionki”).
 - Czcionki z Google Fonts: **Sora** w nagłówkach (Łukasz, 11.11.2026: krój napisu z logo według karty znaku;
   wcześniej Lexend) i Inter w tekście. Strona ładuje tylko Sora 400, 600 i 700.
-  Tytuły sekcji (h2) i tytuły kart (h3) mają grubość 600, nie 700
-  (Łukasz, 10.11.2026: były za ciężkie); ceny w cenniku też 600, numery kroków 700.
+  Tytuły kart (h3) mają grubość 600, nie 700 (Łukasz, 10.11.2026: były za ciężkie); ceny w cenniku też 600,
+  numery kroków 700. Tytuły kart przy 18px potrzebują tej grubości, żeby odróżniać się od zwykłego tekstu.
+  **Tytuły sekcji (h2): Sora 400, w proporcji do hasła** (Łukasz, 20.11.2026: po odchudzeniu hasła były od niego
+  grubsze, a przy 1024px nawet większe – 35px przy haśle 32px). Grubość jak hasło, rozmiar ok. 0,76 hasła – tyle,
+  ile przed zmianą hasła: 24–33,6px (przy 1440px 33px; wcześniej 600 i 25,6–38,4px), na telefonach 22px
+  (wcześniej 25,6px). W szkicu porównana była grubość 500 – tytuły byłyby wciąż grubsze od hasła; wybrana 400.
   **Hasło w hero (h1): Sora 400, jak na eqrento.com** (Łukasz, 20.11.2026: było duże, ciężkie i przytłaczające,
   zwłaszcza na telefonach). Rozmiar 32–44px (przy 1440px 43px; wcześniej 600 i 34–51px), na telefonach do 28px
   (wcześniej 34px). Poniżej 390px rozmiar maleje tak, żeby dłuższa linia („Firmowy typer sportowy,”, 12em)
@@ -393,7 +398,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120b`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120c`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

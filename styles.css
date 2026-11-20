@@ -51,9 +51,13 @@ body { margin: 0; font-family: var(--font); color: var(--ink); background: var(-
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 .5em; letter-spacing: -.02em; text-wrap: balance; }
-h1, h2, h3 { font-weight: 600; }   /* tytuły sekcji i kart lżejsze niż domyślne 700 (Łukasz, 10.11.2026); hasło w hero od 20.11.2026 – 400 (.hero h1) */
+h1, h2, h3 { font-weight: 600; }   /* tytuły kart lżejsze niż domyślne 700 (Łukasz, 10.11.2026); hasło i tytuły sekcji od 20.11.2026 – 400 (.hero h1, h2) */
 h1 { font-size: clamp(2.1rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.6rem, 3.4vw, 2.4rem); }
+/* tytuły sekcji w proporcji do hasła (Łukasz, 20.11.2026: po odchudzeniu hasła były od niego grubsze, a przy 1024px
+   nawet większe): Sora 400 jak hasło i ok. 0,76 jego rozmiaru – tyle, ile przed zmianą hasła. 24–33,6px (przy
+   1440px 33px; wcześniej 600 i 25,6–38,4px), na telefonach 22px (niżej; wcześniej 25,6px). W szkicu porównana była
+   grubość 500 – tytuły byłyby wciąż grubsze od hasła; wybrana 400. Tytuły kart (h3) i ceny zostają 600 */
+h2 { font-size: clamp(1.5rem, 2.3vw, 2.1rem); font-weight: 400; }
 h3 { font-size: 1.15rem; }
 p { margin: 0 0 1em; }
 
@@ -69,7 +73,7 @@ p { margin: 0 0 1em; }
 .section--blue { color: var(--white); background: var(--blue); }
 .sub { color: var(--text); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; }
 /* tytuł sekcji i opis pod nim – wyśrodkowane, jak na eqrento.com (sekcja #inside ma tekst obok ekranu i zostaje z lewej) */
-.section-head { text-align: center; max-width: 840px; margin: 0 auto clamp(32px, 4vw, 48px); }   /* 840px: tytuł EN „Everything an office prediction game needs” w Sora ma 822px – mieści się w jednej linii */
+.section-head { text-align: center; max-width: 840px; margin: 0 auto clamp(32px, 4vw, 48px); }   /* 840px: tytuł EN „Everything an office prediction game needs” mieści się w jednej linii (od 20.11.2026, Sora 400 33px: 700px; wcześniej, przy 600 i 38,4px: 822px) */
 .section-head h2 { margin-bottom: .45em; }
 .section-head h2:last-child { margin-bottom: 0; }
 .section-head .sub { margin: 0 auto; }
@@ -145,7 +149,7 @@ p { margin: 0 0 1em; }
 /* hasło jak na eqrento.com (Łukasz, 20.11.2026: było duże, ciężkie i przytłaczające, zwłaszcza na telefonach):
    Sora 400 zamiast 600, 32–44px (przy 1440px 43px; wcześniej 34–51px), na telefonach do 28px (niżej; wcześniej
    34px) – hasło PL na komputerze i telefonie w dwóch liniach zamiast trzech. Na eqrento.com hasło ma Sora 400, przy 1440px
-   42px, na telefonie ok. 29px. Rozważana grubość 500 – wybrana 400 jak na EQrento. Tytuły sekcji i kart zostają 600 */
+   42px, na telefonie ok. 29px. Rozważana grubość 500 – wybrana 400 jak na EQrento. Tytuły sekcji też 400 (h2 wyżej) */
 .hero h1 { font-size: clamp(2rem, 3vw, 2.75rem); font-weight: 400; }
 /* etykieta nad hasłem = duży przycisk „Wybierz pakiet” (Łukasz, 11.11.2026), tylko kolory własne: ta sama wysokość
    (40px linia jak kółko ze strzałką + 2 × 6px + 2 × 1,5px ramki = 55px), czcionka i grubość, 26px od krawędzi
@@ -498,6 +502,7 @@ details p { color: var(--text); margin: 12px 0 0; }
      linia („Firmowy typer sportowy,”, 12em) zmieściła się w całości – hasło PL zawsze w dwóch liniach (przy 375px
      27,5px, przy 360px 26px, przy 320px 23px). Ten sam sposób co na eqrento.com. Inne hasło = zmierz ponownie */
   .hero h1 { font-size: min(1.75rem, calc((100vw - 2 * var(--gutter)) / 12.2)); }
+  h2 { font-size: 1.375rem; }   /* telefon: tytuły sekcji 22px – ok. 0,79 hasła (Łukasz, 20.11.2026) */
   .window { --bar: 24px; border-radius: 10px; }
   .window__bar { grid-template-columns: 44px minmax(0, 1fr) 44px; padding: 0 8px; }
   .window__dots { width: 7px; height: 7px; box-shadow: 11px 0 #febc2e, 22px 0 #28c840; }
