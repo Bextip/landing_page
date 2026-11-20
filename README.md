@@ -51,6 +51,10 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 - **Podkreślenie widocznej sekcji** (Łukasz, 10.11.2026): złota linia 2px pod linkiem (`.is-active`; Łukasz, 19.11.2026 –
   wyjątek od karty 1.5, która nie przewiduje złotego w cienkich liniach; wcześniej linia niebieska); `script.js` zaznacza ostatnią sekcję z menu, której góra minęła 30% ekranu pod menu, a na samym dole
   strony – FAQ. Sekcje bez linku (`#inside`, `#who`) zostawiają zaznaczoną poprzednią.
+- **Przewijanie po kliknięciu linku** (Łukasz, 20.11.2026): sekcja zaczyna się dokładnie pod menu –
+  `scroll-padding-top` = `--nav-h` (68px, wysokość menu bez 1px linii pod nim; ta sama zmienna ustawia wysokość
+  menu i miejsce rozwijanego menu na telefonie). Wcześniej było 80px, więc nad każdą sekcją było widać 11-pikselowy
+  pasek poprzedniej. Zmiana wysokości menu = tylko `--nav-h`.
 - **Wybór języka w stopce** (Łukasz, 10.11.2026 – lista w menu wyglądała jak przyciski): kolumna „Język” z flagami
   i nazwami w danym języku („Polski”, „English”…); wybrany jest biały ze złotą kropką. **Język startowy:** `?lang=`
   w adresie → wybór zapamiętany w przeglądarce (localStorage `bextip-lang`) → przeglądarka ustawiona na polski
@@ -431,7 +435,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120i`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120j`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
