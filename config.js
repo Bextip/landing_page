@@ -1,17 +1,19 @@
 /* Bextip – konfiguracja pakietów i płatności.
-   Cennik od 11.11.2026 (Łukasz, nowa strategia cenowa): abonament miesięczny (month) albo roczny (year), ceny netto.
+   Cennik od 20.11.2026 (Łukasz): na start promocji tylko abonament miesięczny (dla rozgrywek ligowych); większe
+   turnieje (np. finały MŚ, EURO 2028) – jednorazowe opłaty, poza tym cennikiem. Ceny netto (dopisek pod kafelkami).
    Wersja polska pokazuje ceny w złotych (pln), pozostałe języki w euro (eur) – currencyByLang.
-   W złotych cena roczna = 10 × miesięczna (2 miesiące gratis); w euro ceny roczne są inne – celowo (Łukasz potwierdził 11.11.2026),
-   dlatego wersja angielska nie pisze o „2 miesiącach gratis”.
-   perPlayer = cena za gracza miesięcznie przy płatności rocznej – wpisana tak, jak podał Łukasz (nie liczona).
-   softLimit = miękki limit: tyle graczy ponad limit pakietu bez dopłaty (10% → +2 / +5 / +10 / +20).
-   Pakiety z limitem graczy (players) to kafelki w rzędzie (4 – tyle mieści układ); Enterprise (players: null, ceny „od”)
-   jest pod nimi na całą szerokość, z wyceną indywidualną i przyciskiem „Zapytaj o ofertę”.
-   recommended: true wyróżnia pakiet (kafelek z gradientem i etykietą „Polecany”) – Mid (Łukasz, 11.11.2026).
-   Stripe: wklej adresy Payment Links (Stripe Dashboard → Payment Links) – osobno dla płatności miesięcznej i rocznej,
-   w każdej walucie. Pusty link = przycisk otwiera e-mail z zamówieniem (pakiet, okres i waluta w temacie).
-   Poprzedni cennik (do 11.11.2026): jednorazowo za grę na wybrane rozgrywki – Pakiet 20 / 30 / 100 / 250 (850 /
-   1150 / 2850 / 3950 zł) i Bez Limitu (3950 zł + 1,25 zł za osobę). */
+   billingPeriods = okresy płatności: ["month"] – sam miesięczny, przełącznik „Rocznie / Miesięcznie” ukryty. Powrót do
+   płatności rocznej (Łukasz: „kiedyś do niego wrócę”): ["year", "month"] (pierwszy jest domyślny), w planach ceny
+   year i perPlayerYear, a w stripe linki year. Poprzedni cennik roczny (11–20.11.2026, w złotych 10 × miesięczna,
+   „2 mies. gratis”) jest w historii gita.
+   perPlayer = cena za gracza miesięcznie – wpisana tak, jak podał Łukasz (nie liczona); na kafelku to duża cena
+   (Łukasz, 20.11.2026: akcent na cenę za gracza, bo jest niższa), a cena pakietu za miesiąc stoi pod nią.
+   softLimit = gracze w zapasie: tyle graczy ponad limit pakietu bez dopłaty (10% → +2 / +5 / +10 / +20).
+   Pakiety z limitem graczy (players) to kafelki w rzędzie (4 – tyle mieści układ); Enterprise (players: null) jest pod
+   nimi na całą szerokość, z przyciskiem „Zapytaj o ofertę”.
+   recommended: true wyróżnia pakiet (niebieski kafelek z etykietą „Polecany”) – Mid (Łukasz, 11.11.2026).
+   Stripe: wklej adresy Payment Links (Stripe Dashboard → Payment Links) – na razie tylko miesięczne, w obu walutach
+   (8 linków). Pusty link = przycisk otwiera e-mail z zamówieniem (pakiet, okres i waluta w temacie). */
 window.BEXTIP_CONFIG = {
   contactEmail: "kontakt@bextip.com",
   phone: "+48 603 197 858",
@@ -27,23 +29,26 @@ window.BEXTIP_CONFIG = {
     { code: "ru", name: "Русский", flag: "ru" }
   ],
   currencyByLang: { pl: "pln" },   // pozostałe języki: "eur"
+  billingPeriods: ["month"],
   softLimit: 0.1,
   plans: [
     { id: "micro", players: 20,
-      pln: { month: 99, year: 990, perPlayer: 4.13 }, eur: { month: 29, year: 239, perPlayer: 0.99 },
-      stripe: { pln: { month: "", year: "" }, eur: { month: "", year: "" } } },
+      pln: { month: 129, perPlayer: 6.45 }, eur: { month: 39, perPlayer: 1.95 },
+      stripe: { pln: { month: "" }, eur: { month: "" } } },
     { id: "small", players: 50,
-      pln: { month: 199, year: 1990, perPlayer: 3.32 }, eur: { month: 59, year: 479, perPlayer: 0.79 },
-      stripe: { pln: { month: "", year: "" }, eur: { month: "", year: "" } } },
+      pln: { month: 249, perPlayer: 4.98 }, eur: { month: 79, perPlayer: 1.58 },
+      stripe: { pln: { month: "" }, eur: { month: "" } } },
     { id: "mid", players: 100, recommended: true,
-      pln: { month: 299, year: 2990, perPlayer: 2.49 }, eur: { month: 89, year: 689, perPlayer: 0.57 },
-      stripe: { pln: { month: "", year: "" }, eur: { month: "", year: "" } } },
+      pln: { month: 379, perPlayer: 3.79 }, eur: { month: 119, perPlayer: 1.19 },
+      stripe: { pln: { month: "" }, eur: { month: "" } } },
+    // Large: 499 / 200 = 2,495 – Łukasz podał 2,49 zł (w euro 149 / 200 = 0,745 → 0,75)
     { id: "large", players: 200,
-      pln: { month: 499, year: 4990, perPlayer: 2.08 }, eur: { month: 149, year: 1199, perPlayer: 0.50 },
-      stripe: { pln: { month: "", year: "" }, eur: { month: "", year: "" } } },
-    // Enterprise: ponad 200 graczy, ceny „od”, wycena indywidualna – zamówienie przez kontakt
+      pln: { month: 499, perPlayer: 2.49 }, eur: { month: 149, perPlayer: 0.75 },
+      stripe: { pln: { month: "" }, eur: { month: "" } } },
+    // Enterprise: ponad 200 graczy, zamówienie przez kontakt. Ceny jak podał Łukasz 20.11.2026: 619 zł i 2,06 zł za
+    // gracza (= 300 graczy); 189 EUR i 0,69 EUR za gracza – 189 / 300 = 0,63, do potwierdzenia
     { id: "enterprise", players: null,
-      pln: { month: 790, year: 7900 }, eur: { month: 179, year: 1990 },
+      pln: { month: 619, perPlayer: 2.06 }, eur: { month: 189, perPlayer: 0.69 },
       stripe: null }
   ]
 };

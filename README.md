@@ -178,37 +178,43 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
 
 ## Cennik i Stripe
 
-- **Cennik od 11.11.2026** (Łukasz, nowa strategia cenowa): abonament miesięczny albo roczny, ceny netto, w `plans`
+- **Cennik od 20.11.2026** (Łukasz: na start promocji Bextipa tylko abonament miesięczny – dla rozgrywek ligowych;
+  większe turnieje, np. finały MŚ czy EURO 2028, będą płatne jednorazowo, poza tym cennikiem). Ceny netto, w `plans`
   w `config.js`. Wersja polska pokazuje złote, pozostałe języki euro (`currencyByLang`).
 
-  | Pakiet | Graczy | Miesięcznie | Rocznie | Za gracza / mies. przy płatności rocznej |
-  |---|---|---|---|---|
-  | Micro | do 20 | 99 zł / €29 | 990 zł / €239 | 4,13 zł / €0.99 |
-  | Small | do 50 | 199 zł / €59 | 1 990 zł / €479 | 3,32 zł / €0.79 |
-  | Mid (Polecany) | do 100 | 299 zł / €89 | 2 990 zł / €689 | 2,49 zł / €0.57 |
-  | Large | do 200 | 499 zł / €149 | 4 990 zł / €1,199 | 2,08 zł / €0.50 |
-  | Enterprise | ponad 200 | od 790 zł / od €179 | od 7 900 zł / od €1,990 | wycena indywidualna |
+  | Pakiet | Graczy | Za gracza / miesiąc (duża cena) | Pakiet / miesiąc |
+  |---|---|---|---|
+  | Micro | do 20 | 6,45 zł / €1.95 | 129 zł / €39 |
+  | Small | do 50 | 4,98 zł / €1.58 | 249 zł / €79 |
+  | Mid (Polecany) | do 100 | 3,79 zł / €1.19 | 379 zł / €119 |
+  | Large | do 200 | 2,49 zł / €0.75 | 499 zł / €149 |
+  | Enterprise | ponad 200 | 2,06 zł / €0.69 | 619 zł / €189 |
 
-  W złotych cena roczna = 10 × miesięczna („2 mies. gratis” przy przełączniku, w podtytule i przy cenie miesięcznej).
-  W euro roczne ceny są inne – celowo, Łukasz potwierdził 11.11.2026 (np. Micro 239 € zamiast 12 × 29 = 348 €,
-  Enterprise 1 990 € zamiast 2 148 €), więc
-  wersja angielska nie pisze o „2 months free” – podtytuł: „yearly billing works out cheaper”. Ceny za gracza są
-  wpisane tak, jak podał Łukasz (strona ich nie liczy). Miękki limit: `softLimit` 10% – na kafelku „miękki limit
-  +10% (+2 / +5 / +10 / +20 graczy gratis)”. FAQ „Co, jeśli mamy więcej niż 200 graczy?” – Enterprise z cenami „od”.
-  Poprzedni cennik (do 11.11.2026, jednorazowo za grę na wybrane rozgrywki): Pakiet 20 / 30 / 100 / 250 – 850 / 1150 /
-  2850 / 3950 zł, Bez Limitu 3950 zł + 1,25 zł za osobę.
-- **Przełącznik „Rocznie / Miesięcznie”** nad kafelkami (jak na eqrento.com): domyślnie rocznie, wybrana opcja
-  niebieska, „2 mies. gratis” w złotym znaczniku (w EN bez znacznika). `script.js` rysuje kafelki od nowa
-  (`billing`). Przy płatności rocznej pod ceną jest cena za gracza miesięcznie, przy miesięcznej – ile kosztuje rok.
+  Ceny za gracza są wpisane tak, jak podał Łukasz (strona ich nie liczy). Large: 499 / 200 = 2,495 – podane 2,49 zł
+  (w euro 0,745 → 0,75). Enterprise: 619 / 2,06 = 300 graczy, a w euro 189 / 300 = 0,63 przy podanym 0,69 – do
+  potwierdzenia u Łukasza (20.11.2026), tak samo liczba graczy w Enterprise (kafelek mówi „ponad 200 graczy”).
+  Podtytuł: „Płatność miesięczna – im więcej graczy, tym niższa cena za gracza.” FAQ „Co, jeśli mamy więcej niż 200
+  graczy?” – Enterprise za 619 zł miesięcznie; z FAQ o rozgrywkach usunięte „Cennik jest taki sam dla wszystkich”
+  (turnieje mają osobne, jednorazowe opłaty). Poprzednie cenniki są w historii gita: 11–20.11.2026 abonament
+  miesięczny albo roczny (np. Micro 99 zł / 990 zł rocznie, „2 mies. gratis”, Enterprise od 790 zł), do 11.11.2026
+  jednorazowo za grę (Pakiet 20 / 30 / 100 / 250 – 850 / 1150 / 2850 / 3950 zł, Bez Limitu 3950 zł + 1,25 zł za osobę).
+- **Przełącznik „Rocznie / Miesięcznie”** nad kafelkami (jak na eqrento.com) – **zawieszony** (Łukasz, 20.11.2026:
+  „kiedyś do niego wrócę”). W `index.html` ma atrybut `hidden`, a `script.js` pokazuje go, gdy `billingPeriods`
+  w `config.js` ma dwa okresy. Powrót: `billingPeriods: ["year", "month"]` (pierwszy jest domyślny), w planach ceny
+  `year` i `perPlayerYear`, w `stripe` linki `year`. Znacznik „2 mies. gratis” (`pricing.billing.save`), teksty
+  „/ rok” (`pricing.perPeriod.year`) i style przełącznika zostały.
 - Układ (Łukasz, 10.11.2026: mniejsze kafelki jak w EQrento): pakiety z limitem graczy to `.tier` w `.tiers` –
   4 w rzędzie powyżej 1100px, 2 × 2 niżej, jeden pod drugim na telefonach; Enterprise (`players: null`) to
   `.tier--wide` pod nimi na całą szerokość. Piąty pakiet z limitem nie zmieści się w rzędzie – trzeba by zmienić siatkę.
-- **Kafelek** (Łukasz, 11.11.2026): u góry nazwa i trzy punkty ze złotymi kropkami – „do **20 graczy**”, „miękki
-  limit **+10%** (+2 graczy gratis)”, „**wszystkie funkcje** w cenie” (pogrubienia `**…**` w `i18n.js`, nawias
-  z nierozdzielającymi spacjami, żeby łamał się w całości); na dole cena z „netto za rok” w jednej linii obok, „X,XX zł za gracza / miesiąc”
-  i przycisk. Blok z ceną (`.tier__buy`) jest przyklejony do dołu, więc ceny stoją w jednej linii we wszystkich
-  kafelkach. Enterprise: „ponad **200 graczy** • miękki limit **+10%** graczy gratis • **wszystkie funkcje** w cenie”
-  w jednym rzędzie ze złotymi kropkami między punktami; do 1240px jeden pod drugim, z kropką przy każdym.
+- **Kafelek** (Łukasz, 11.11.2026; zmiany 20.11.2026): u góry nazwa i trzy punkty ze złotymi kropkami – „do **20
+  graczy**”, „**+2 graczy** w zapasie, bez dopłaty” (zamiast „miękki limit +10%”; `softLimit` 10% → +2 / +5 / +10 /
+  +20), „**wszystkie funkcje** w cenie” (pogrubienia `**…**` w `i18n.js`; twarde spacje w „+2 graczy”, „bez dopłaty”
+  i EN „extra cost”, żeby nie rozdzielały się między liniami). Na dole **duża cena za gracza** z „za gracza /
+  miesiąc” obok (Łukasz, 20.11.2026: akcent na niższą kwotę), pod nią „**129 zł** / miesiąc” i przycisk. **Bez
+  „netto” przy cenach** – mówi o tym dopisek pod kafelkami. Blok z ceną (`.tier__buy`) jest przyklejony do dołu,
+  więc ceny stoją w jednej linii we wszystkich kafelkach. Enterprise: „ponad **200 graczy** • **+10% graczy**
+  w zapasie, bez dopłaty • **wszystkie funkcje** w cenie” w jednym rzędzie ze złotymi kropkami między punktami; do
+  1240px jeden pod drugim, z kropką przy każdym.
 - Nazwy pakietów i napisy przy cenach: `pricing` w `i18n.js`.
 - **„W każdym pakiecie”** – `pricing.included`: 19 funkcji z PDF-u „Oferta dla firm 2026” w brzmieniu Łukasza (bez „Własna subdomena” – usunięta z całej strony, Łukasz, 11.11.2026)
   (10.11.2026), `**…**` = pogrubienie tam, gdzie PDF ma pogrubienie (`rich()` w `script.js`). Trzy kolumny czytane
@@ -219,11 +225,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   w wymiarach przycisku z kafelka (45px, .95rem / 600 – ta sama reguła co „Stworzony dla firm”). Kafelki mają 40px
   górnego odstępu, żeby nazwy pakietów stały w jednej linii; przy 2 × 2 odstęp między rzędami 44px, na telefonie
   24px więcej tylko nad wyróżnionym kafelkiem.
-- Przycisk pakietu zależy od linku Stripe dla wybranego okresu i waluty (`stripe.pln.year`, `stripe.eur.month` itd.):
+- Przycisk pakietu zależy od linku Stripe dla okresu płatności i waluty (`stripe.pln.month`, `stripe.eur.month`):
   - adres Payment Linku → „Kup pakiet”, otwiera Stripe w nowej karcie;
   - `""` (pusty) → „Zamów pakiet”, e-mail do kontakt@bextip.com z pakietem, okresem i walutą w temacie;
-  - Enterprise (`stripe: null`) → „Zapytaj o ofertę” (wycena indywidualna).
-  Stripe: osobny Payment Link na każdy pakiet, okres i walutę (4 pakiety × 2 okresy × 2 waluty = 16 linków).
+  - Enterprise (`stripe: null`) → „Zapytaj o ofertę”.
+  Stripe: osobny Payment Link na każdy pakiet i walutę – na razie tylko miesięczne (4 pakiety × 2 waluty = 8 linków).
 - Do ustalenia przy zakładaniu Stripe (konto jeszcze nie istnieje – 10.11.2026): VAT (ceny na stronie są netto),
   zbieranie NIP i danych do faktury, strona po płatności z tym, co klient robi dalej (stworzenie gry, kod zaproszenia).
 
@@ -410,7 +416,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120e`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120f`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
@@ -424,7 +430,10 @@ podpinaniu domeny Claude najpierw przypomina Łukaszowi o danych firmy do stopki
 
 - **Dane firmy do stopki** – Łukasz je poda (10.11.2026: „Podam inne dane”): kolumna „Firma” z nazwą, adresem, NIP
   i KRS albo REGON; przy sp. z o.o. także sąd rejestrowy i kapitał zakładowy.
-- Linki Stripe w `config.js` – 16 Payment Links: 4 pakiety × miesięcznie / rocznie × PLN / EUR (cennik od 11.11.2026).
+- Linki Stripe w `config.js` – 8 Payment Links: 4 pakiety × PLN / EUR, tylko miesięcznie (cennik od 20.11.2026;
+  płatność roczna zawieszona).
+- Enterprise: potwierdzić u Łukasza liczbę graczy (619 zł / 2,06 zł = 300) i cenę za gracza w euro (189 € / 300 = 0,63,
+  na stronie 0,69 €).
 - Regulamin i Polityka prywatności – linki w stopce prowadzą na razie do `#`.
 - ~~Konto GitHub i repozytorium~~ – zrobione 10.11.2026. DNS i własna domena bextip.site – patrz „Publikacja”.
 - Lżejsze ekrany: `typowania.svg` i `tips-stats.svg` mają po 400–600 KB.

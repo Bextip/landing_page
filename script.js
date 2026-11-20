@@ -1,8 +1,8 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261120e";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261120f";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
-  var billing = "year";   // okres płatności w cenniku: "year" (domyślnie) albo "month" – przełącznik nad kafelkami
+  var billing = CFG.billingPeriods[0];   // okres płatności w cenniku: pierwszy z config.js (od 20.11.2026 tylko "month")
 
   function get(path) {
     return path.split(".").reduce(function (o, k) { return o == null ? o : o[k]; }, I18N[lang]);
@@ -23,12 +23,11 @@
   // przycisk ze strzałką na końcu (złota strzałka w granatowym kółku – .btn__icon w styles.css), jak na eqrento.com
   var ARROW = '<span class="btn__icon" aria-hidden="true"></span>';
 
-  // Cennik (nowa strategia cenowa – Łukasz, 11.11.2026): pakiety z limitem graczy jako małe kafelki w rzędzie,
-  // Enterprise pod nimi na całą szerokość. Ceny z config.js w walucie języka (PL: złote, pozostałe: euro), za rok albo
-  // za miesiąc – wg przełącznika nad kafelkami (billing). Przy płatności rocznej pod ceną: cena za gracza miesięcznie,
-  // przy miesięcznej: ile kosztuje rok.
+  // Cennik: pakiety z limitem graczy jako małe kafelki w rzędzie, Enterprise pod nimi na całą szerokość. Ceny z config.js
+  // w walucie języka (PL: złote, pozostałe: euro). Duża cena to cena za gracza miesięcznie, pod nią cena pakietu za okres
+  // płatności (Łukasz, 20.11.2026: akcent na niższą kwotę; bez „netto” przy cenach – mówi o tym dopisek pod kafelkami).
   function renderPlans() {
-    var t = get("pricing"), cur = CFG.currencyByLang[lang] || "eur", yearly = billing === "year";
+    var t = get("pricing"), cur = CFG.currencyByLang[lang] || "eur";
     function amount(text, n) { return esc(text).replace("{p}", "<b>" + money(n, cur) + "</b>"); }
     function button(p, cls) {
       var name = t.names[p.id], link = (p.stripe && p.stripe[cur] && p.stripe[cur][billing]) || "";
@@ -39,11 +38,12 @@
       return '<p class="tier__cta"><a class="btn btn--arrow ' + cls + '" href="' + esc(href) + '"' + ext + "><span>" +
         esc(label) + "</span>" + ARROW + "</a></p>";
     }
-    // cena i obok niej „netto” nad „za rok” / „za miesiąc”; Enterprise z małym „od” przed kwotą
+    // duża cena za gracza i obok niej „za gracza / miesiąc”, pod nią cena pakietu: „129 zł / miesiąc”
+    // (przy płatności rocznej – gdy wróci – cena za gracza z perPlayerYear i „… / rok”)
     function price(p) {
-      var n = money(p[cur][billing], cur);
-      return '<p class="tier__price"><b>' + (p.players ? n : '<span class="tier__from">' + esc(t.from) + "</span> " + n) + "</b>" +
-        '<span class="tier__per"><span>' + esc(t.net) + "</span><span>" + esc(yearly ? t.perYear : t.perMonth) + "</span></span></p>";
+      var c = p[cur], pp = billing === "year" ? c.perPlayerYear : c.perPlayer;
+      return '<p class="tier__price"><b>' + money(pp, cur) + '</b><span class="tier__per">' + esc(t.unitPerPlayer) + "</span></p>" +
+        '<p class="tier__pp">' + amount(t.perPeriod[billing], c[billing]) + "</p>";
     }
     var tiers = CFG.plans.filter(function (p) { return p.players; });
     var wide = CFG.plans.filter(function (p) { return !p.players; });
@@ -59,18 +59,17 @@
           '<h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" +
           '<ul class="tier__limits">' + points([
             t.upTo.replace("{n}", p.players),
-            t.soft.replace("{pct}", pct).replace("{n}", Math.round(p.players * CFG.softLimit)),
+            t.spare.replace("{n}", Math.round(p.players * CFG.softLimit)),
             t.allFeatures]) + "</ul>" +
-          '<div class="tier__buy">' + price(p) +
-          '<p class="tier__pp">' + (yearly ? amount(t.perPlayer, p[cur].perPlayer) : amount(t.orYear, p[cur].year)) + "</p></div>" +
+          '<div class="tier__buy">' + price(p) + "</div>" +
           button(p, "btn--primary") + "</li>";
       }).join("") + "</ul>" +
       wide.map(function (p) {
         return '<div class="tier tier--wide">' +
           '<div><h3 class="tier__name">' + esc(t.names[p.id]) + "</h3>" +
           '<ul class="tier__limits tier__limits--row">' + points([
-            t.over.replace("{n}", maxPlayers), t.softAll.replace("{pct}", pct), t.allFeatures]) + "</ul></div>" +
-          '<div class="tier__pricebox">' + price(p) + '<p class="tier__pp">' + esc(t.custom) + "</p></div>" +
+            t.over.replace("{n}", maxPlayers), t.spareAll.replace("{pct}", pct), t.allFeatures]) + "</ul></div>" +
+          '<div class="tier__pricebox">' + price(p) + "</div>" +
           button(p, "btn--ghost") + "</div>";
       }).join("");
     $("includedList").innerHTML = t.included.map(function (x) { return "<li>" + rich(x) + "</li>"; }).join("");
@@ -177,7 +176,10 @@
   document.querySelectorAll("[data-lang]").forEach(function (b) {
     b.addEventListener("click", function () { setLang(b.dataset.lang, true); });
   });
-  // przełącznik okresu płatności w cenniku (jak na eqrento.com): rocznie / miesięcznie – kafelki rysują się od nowa
+  // przełącznik okresu płatności w cenniku (jak na eqrento.com): rocznie / miesięcznie – kafelki rysują się od nowa.
+  // W index.html ma atrybut hidden; pokazuje się dopiero, gdy config.js ma dwa okresy (Łukasz, 20.11.2026: na razie
+  // tylko miesięczny, przełącznik zawieszony)
+  document.querySelector(".billing-bar").hidden = CFG.billingPeriods.length < 2;
   document.querySelectorAll("[data-billing]").forEach(function (b) {
     b.addEventListener("click", function () {
       billing = b.dataset.billing;
