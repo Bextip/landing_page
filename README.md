@@ -237,6 +237,9 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   Stripe: osobny Payment Link na każdy pakiet i walutę – na razie tylko miesięczne (4 pakiety × 2 waluty = 8 linków).
 - Do ustalenia przy zakładaniu Stripe (konto jeszcze nie istnieje – 10.11.2026): VAT (ceny na stronie są netto),
   zbieranie NIP i danych do faktury, strona po płatności z tym, co klient robi dalej (stworzenie gry, kod zaproszenia).
+  Dopisek pod cennikiem obiecuje fakturę VAT do każdej transakcji (Łukasz, 20.11.2026: „Do każdej transakcji
+  wystawiamy fakturę VAT.”, w EN „We issue a VAT invoice for every transaction.”) – płatność musi zbierać dane do
+  faktury, a faktury trzeba wystawiać (np. Stripe Invoicing albo program do faktur).
 
 ## Wygląd – karta znaku Bextip 1.5 (19.11.2026)
 
@@ -421,7 +424,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120g`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120h`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo

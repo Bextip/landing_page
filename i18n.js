@@ -130,7 +130,7 @@ window.BEXTIP_I18N = {
         "Bezpieczne połączenie protokołem **SSL**",
         "**Brak reklam**"
       ],
-      note: "Podane ceny są cenami netto. Bezpieczne płatności on-line obsługuje Stripe."
+      note: "Podane ceny są cenami netto. Bezpieczne płatności on-line obsługuje Stripe. Do każdej transakcji wystawiamy fakturę VAT."
     },
     faq: {
       title: "Najczęstsze pytania",
@@ -277,7 +277,7 @@ window.BEXTIP_I18N = {
         "Secure **SSL** connection",
         "**No ads**"
       ],
-      note: "All prices are net, in euros (EUR). Secure online payments are handled by Stripe."
+      note: "All prices are net, in euros (EUR). Secure online payments are handled by Stripe. We issue a VAT invoice for every transaction."
     },
     faq: {
       title: "Frequently asked questions",
