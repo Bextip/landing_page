@@ -416,6 +416,9 @@ details p { color: var(--text); margin: 12px 0 0; }
 .footer a:hover { color: var(--white); }
 .footer__tagline { margin: 48px 0 0; text-align: center; text-wrap: balance; }
 .footer__tagline svg { display: inline-block; vertical-align: -1px; }
+/* dwie połówki hasła w stopce (Łukasz, 20.11.2026): każda jest blokiem w linii, więc gdy całe zdanie się nie mieści,
+   łamie się między nimi – przed „dla” / „for”; w środku połówki tekst łamie się dopiero na bardzo wąskim ekranie */
+.footer__half { display: inline-block; }
 .footer__bottom {
   margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, .1);
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; font-size: .8rem;

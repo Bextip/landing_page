@@ -1,6 +1,6 @@
 (function () {
   var CFG = window.BEXTIP_CONFIG, I18N = window.BEXTIP_I18N;
-  var ASSET_V = "20261120k";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
+  var ASSET_V = "20261120l";   // wersja w adresach ikon – podbij razem z ?v= w index.html, gdy zmieni się plik ikony
   var lang = "pl";
   var billing = CFG.billingPeriods[0];   // okres płatności w cenniku: pierwszy z config.js (od 20.11.2026 tylko "month")
   var includedOpen = false;   // „W każdym pakiecie”: pełna lista funkcji rozwinięta (przycisk pod grupami)

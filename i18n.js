@@ -162,7 +162,7 @@ window.BEXTIP_I18N = {
       invite: "",
       contactTitle: "Kontakt", siteTitle: "Serwis", appTitle: "Aplikacja",
       login: "Zaloguj się", register: "Załóż konto",
-      tagline1: "Stworzone z pasją w", tagline2: "Polsce", tagline3: ", dla zespołów, które typują na", tagline4: "świecie",
+      tagline1: "Stworzone z pasją w", tagline2: "Polsce,", tagline3: "dla zespołów, które typują na", tagline4: "świecie",
       rights: "Wszelkie prawa zastrzeżone.",
       terms: "Regulamin", privacy: "Polityka prywatności", langTitle: "Język"
     }
@@ -318,7 +318,7 @@ window.BEXTIP_I18N = {
       invite: "",
       contactTitle: "Contact", siteTitle: "Site", appTitle: "App",
       login: "Log in", register: "Create an account",
-      tagline1: "Made with passion in", tagline2: "Poland", tagline3: ", for teams that predict around the", tagline4: "world",
+      tagline1: "Made with passion in", tagline2: "Poland,", tagline3: "for teams that predict around the", tagline4: "world",
       rights: "All rights reserved.",
       terms: "Terms", privacy: "Privacy policy", langTitle: "Language"
     }
