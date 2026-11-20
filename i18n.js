@@ -21,13 +21,16 @@ window.BEXTIP_I18N = {
     },
     inside: {
       title: "Każdy gracz widzi swoją formę",
-      sub: "Bextip to nie tylko samo typowanie. Statystyki, historia typowań i tabele sprawiają, że gracze chętniej wracają po każdym meczu, żeby sprawdzić skuteczność swoją oraz innych graczy.",
-      items: ["Pozycja w tabeli i suma punktów na żywo", "Średnia punktów na mecz i z Jokera", "Wykres trafionych wyników, zwycięzców i błędnych typów", "Pełna historia typowań – swoich i innych graczy"],
+      // zdanie i piąty punkt o czacie (Łukasz, 20.11.2026)
+      sub: "Bextip to nie tylko samo typowanie. Statystyki, historia typowań i tabele sprawiają, że gracze chętniej wracają po każdym meczu, żeby sprawdzić skuteczność swoją oraz innych graczy. Jest też czat, na którym gracze rozmawiają i wymieniają opinie o wynikach meczów, punktacji i sytuacji w tabeli.",
+      items: ["Pozycja w tabeli i suma punktów na żywo", "Średnia punktów na mecz i z Jokera", "Wykres trafionych wyników, zwycięzców i błędnych typów", "Pełna historia typowań – swoich i innych graczy", "Czat dla wszystkich graczy – rozmowy o wynikach i tabeli"],
       shotAlt: "Ekran statystyk gracza w serwisie Bextip"
     },
     about: {
       title: "Integracja na całe rozgrywki, a nie na jeden wieczór",
-      sub: "Firmowy typer robi się zwykle w arkuszu, który ktoś musi ręcznie prowadzić – albo zastępuje go jednorazowe wydarzenie, po którym emocje szybko opadają. Bextip daje wspólną zabawę na tygodnie, a w Lidze Mistrzów nawet na miesiące – i nie wymaga od nikogo dodatkowej pracy.",
+      // dwa akapity: sub, potem sub2 w nowej linii (<br> w index.html; Łukasz, 20.11.2026)
+      sub: "Firmowy typer robi się zwykle w arkuszu, który ktoś musi ręcznie prowadzić – albo zastępuje go jednorazowe wydarzenie, po którym emocje szybko opadają.",
+      sub2: "Bextip daje wspólną zabawę na tygodnie, a nawet na miesiące – i nie wymaga od nikogo dodatkowej pracy.",
       a: {
         title: "Typer w arkuszu",
         quote: "„Fajny pomysł, dopóki ktoś nie musi tego liczyć.”",
@@ -61,7 +64,9 @@ window.BEXTIP_I18N = {
     },
     how: {
       title: "Od wyboru pakietu do pierwszego typowania w zaledwie cztery kroki",
-      sub: "Nie potrzebujesz działu IT, instalacji oprogramowania ani szkolenia. Typera Bextip uruchomisz dosłownie w kilka minut.",
+      // dwa akapity: sub, potem sub2 w nowej linii (<br> w index.html; Łukasz, 20.11.2026)
+      sub: "Nie potrzebujesz działu IT, instalacji oprogramowania ani szkolenia.",
+      sub2: "Typera Bextip dla wszystkich pracowników uruchomisz dosłownie w kilka minut.",
       steps: [
         { t: "Wybierz pakiet", d: "Dobierz pakiet do liczby graczy i opłać go on-line." },
         { t: "Stwórz grę", d: "Nadaj grze nazwę, wgraj logo i wybierz kolory firmy. Wszystko możesz później zmienić." },
@@ -173,13 +178,14 @@ window.BEXTIP_I18N = {
     },
     inside: {
       title: "Every player can see their form",
-      sub: "Bextip is more than just predicting. Statistics, prediction history and leaderboards make players come back after every match to check how they – and everyone else – are doing.",
-      items: ["Leaderboard position and total points, live", "Average points per match and from the Joker", "Chart of exact scores, correct winners and misses", "Full prediction history – your own and other players’"],
+      sub: "Bextip is more than just predicting. Statistics, prediction history and leaderboards make players come back after every match to check how they – and everyone else – are doing. There’s also a chat where players talk and swap opinions on match results, scoring and the state of the leaderboard.",
+      items: ["Leaderboard position and total points, live", "Average points per match and from the Joker", "Chart of exact scores, correct winners and misses", "Full prediction history – your own and other players’", "Chat for all players – talk about results and the leaderboard"],
       shotAlt: "Player statistics screen in Bextip"
     },
     about: {
       title: "Team building for the whole competition, not just one evening",
-      sub: "An office prediction game usually lives in a spreadsheet someone has to run by hand – or gets replaced by a one-off event whose buzz fades fast. Bextip gives everyone weeks – in the Champions League even months – of shared fun, with no extra work for anybody.",
+      sub: "An office prediction game usually lives in a spreadsheet someone has to run by hand – or gets replaced by a one-off event whose buzz fades fast.",
+      sub2: "Bextip gives everyone weeks, or even months, of shared fun – with no extra work for anybody.",
       a: {
         title: "Spreadsheet predictor",
         quote: "“A great idea, until someone has to do the maths.”",
@@ -213,7 +219,8 @@ window.BEXTIP_I18N = {
     },
     how: {
       title: "From choosing a package to the first prediction in just four steps",
-      sub: "No IT department, software installation or training needed. You can launch your Bextip game in literally a few minutes.",
+      sub: "No IT department, software installation or training needed.",
+      sub2: "You can launch your Bextip game for all your employees in literally a few minutes.",
       steps: [
         { t: "Choose a package", d: "Pick the package that fits your number of players and pay online." },
         { t: "Create your game", d: "Name the game, upload your logo and choose company colours. You can change it all later." },

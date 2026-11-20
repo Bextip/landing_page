@@ -71,7 +71,7 @@ p { margin: 0 0 1em; }
 .section--tint { background: var(--sky-2); }
 /* niebieski z logo (#1C4F95) – sekcja „Dla kogo” (Łukasz, 10.11.2026); płaski kolor, bez gradientu (karta znaku 1.4) */
 .section--blue { color: var(--white); background: var(--blue); }
-.sub { color: var(--text); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; }
+.sub { color: var(--text); font-size: 1.1rem; max-width: 720px; margin-bottom: 2.2em; text-wrap: pretty; }   /* pretty: bez samotnego słowa w ostatniej linii (20.11.2026) */
 /* tytuł sekcji i opis pod nim – wyśrodkowane, jak na eqrento.com (sekcja #inside ma tekst obok ekranu i zostaje z lewej) */
 .section-head { text-align: center; max-width: 840px; margin: 0 auto clamp(32px, 4vw, 48px); }   /* 840px: tytuł EN „Everything an office prediction game needs” mieści się w jednej linii (od 20.11.2026, Sora 400 33px: 700px; wcześniej, przy 600 i 38,4px: 822px) */
 .section-head h2 { margin-bottom: .45em; }
@@ -347,7 +347,9 @@ details {
   box-shadow: var(--shadow-sm); transition: box-shadow .2s;
 }
 details[open] { box-shadow: var(--shadow-md); }
-summary { cursor: pointer; font-weight: 700; font-size: 1.08rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+/* pytania bez pogrubienia (Łukasz, 20.11.2026; wcześniej 700) – jak hasło i tytuły sekcji; od odpowiedzi odróżnia je
+   niebieski kolor (odpowiedzi czarne). Na eqrento.com pytania mają 600 */
+summary { cursor: pointer; font-weight: 400; font-size: 1.08rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
 summary::-webkit-details-marker { display: none; }
 summary::after { content: "+"; color: var(--blue); font-size: 1.4rem; line-height: 1; }
 details[open] summary::after { content: "–"; }
@@ -496,6 +498,14 @@ details p { color: var(--text); margin: 12px 0 0; }
   .hero .lead { order: 4; }
   .hero .chips { order: 5; }
   .hero__cta { order: 6; }
+  /* „Każdy gracz widzi swoją formę”: ekran Tips&Stats pod opisem, a nad punktami (Łukasz, 20.11.2026) – jak w hero:
+     blok z tekstem przestaje być osobnym elementem siatki (display: contents), a jego części dostają kolejność */
+  .inside { gap: 0; }
+  .inside__text { display: contents; }
+  .inside h2 { order: 1; }
+  .inside .sub { order: 2; }
+  .section .inside > .window { order: 3; margin-bottom: 28px; }   /* .section …: mocniej niż „ostatni element sekcji bez marginesu” */
+  .inside .list { order: 4; }
 }
 @media (max-width: 640px) {
   /* telefon: hasło do 28px (Łukasz, 20.11.2026; na eqrento.com ok. 29px), a na węższych ekranach tyle, żeby dłuższa

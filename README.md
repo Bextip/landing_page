@@ -67,6 +67,8 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   (32px), żeby stało na wysokości nagłówka h1 i mieściło się na ekranie laptopa 1366×768.
 - **Telefon (do 820px): grafika zaraz pod hasłem** (Łukasz, 10.11.2026): `.hero__copy` ma `display: contents`,
   a elementy hero dostają `order` – etykieta, h1, okno z ekranem, opis, zalety, przyciski.
+- **Telefon (do 820px): ekran Tips&Stats pod opisem, nad punktami** (`#inside`, Łukasz, 20.11.2026) – tak samo:
+  blok z tekstem `.inside__text` ma `display: contents`, kolejność tytuł, opis, okno, punkty.
 - **Kroki** (`#how`, Łukasz, 10.11.2026: żeby było widać, że jeden następuje po drugim): karty z numerem w kółku
   i złote strzałki w odstępach między nimi (`.steps li::after`, strzałka to SVG w CSS); do 1100px karty jedna pod
   drugą i strzałki w dół.
@@ -141,7 +143,11 @@ swoją formę (`#inside`, ekran Tips&Stats) → Jak to działa (`#how`, 4 kroki)
   tekst etykiety = mniejsze przyciski na telefonach (poniżej 14px zmniejsza się już tylko etykieta). Na telefonie
   etykieta stoi na środku.
 - Opis pod hasłem w dwóch akapitach (`hero.lead` i `hero.lead2`, Łukasz, 11.11.2026), podobnie opis cennika
-  (`pricing.sub` i `pricing.sub2`).
+  (`pricing.sub` i `pricing.sub2`), a od 20.11.2026 także opisy `#about` i `#how` (`about.sub2`, `how.sub2`; drugie
+  zdanie w nowej linii – `<br>` w `index.html`). Opisy pod tytułami mają `text-wrap: pretty`, żeby ostatnie słowo
+  nie zostawało samo w linii.
+- `#inside` (Łukasz, 20.11.2026): w opisie zdanie o czacie (rozmowy o wynikach, punktacji i tabeli) i piąty punkt
+  „Czat dla wszystkich graczy”. W `#about` zamiast „a w Lidze Mistrzów nawet na miesiące” – „a nawet na miesiące”.
 - **Kafelek Bextip w porównaniu** (`#about`, Łukasz, 11.11.2026): niebieski, zamiast napisu „Bextip” biały logotyp
   28px wysokości – większy od tytułów kafelków obok (Łukasz, 11.11.2026: przy 17px ginął wśród punktów; karta znaku: logo co najmniej 24px), etykieta „Stworzony dla firm”
   na górnej krawędzi i przycisk „Wybierz pakiet” na dolnej – do połowy poza kafelkiem, jak na eqrento.com; kafelek ma
@@ -339,6 +345,8 @@ każde nowe odstępstwo dopisywać tutaj:
   grubsze, a przy 1024px nawet większe – 35px przy haśle 32px). Grubość jak hasło, rozmiar ok. 0,76 hasła – tyle,
   ile przed zmianą hasła: 24–33,6px (przy 1440px 33px; wcześniej 600 i 25,6–38,4px), na telefonach 22px
   (wcześniej 25,6px). W szkicu porównana była grubość 500 – tytuły byłyby wciąż grubsze od hasła; wybrana 400.
+  **Pytania w FAQ bez pogrubienia** (Łukasz, 20.11.2026): Inter 400 zamiast 700; od odpowiedzi odróżnia je kolor
+  (pytania niebieskie, odpowiedzi czarne). Na eqrento.com pytania mają 600.
   **Hasło w hero (h1): Sora 400, jak na eqrento.com** (Łukasz, 20.11.2026: było duże, ciężkie i przytłaczające,
   zwłaszcza na telefonach). Rozmiar 32–44px (przy 1440px 43px; wcześniej 600 i 34–51px), na telefonach do 28px
   (wcześniej 34px). Poniżej 390px rozmiar maleje tak, żeby dłuższa linia („Firmowy typer sportowy,”, 12em)
@@ -398,7 +406,7 @@ Stronę otwieraj przez serwer, nie przez dwuklik w `index.html`.
 
 ## Wersje plików (cache)
 
-`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120c`).
+`index.html` ładuje `styles.css`, `config.js`, `i18n.js` i `script.js` z wersją w adresie (`?v=20261120d`).
 Po zmianie któregoś z tych plików podbij wersję (np. `20261111a`) we wszystkich linkach – GitHub Pages
 trzyma pliki w pamięci przeglądarki do 10 minut. Tę samą wersję mają logo w menu i stopce oraz favicon,
 a ikony kart „Dla kogo” – `ASSET_V` w `script.js`: po podmianie pliku z tą samą nazwą (10.11.2026 nowe kolory logo
