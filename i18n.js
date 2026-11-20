@@ -15,7 +15,8 @@ window.BEXTIP_I18N = {
       chip1: "To nie hazard: gra na punkty, bez pieniędzy",
       chip2: "Od {minPrice} za gracza miesięcznie",   // {minPrice} = najniższa cena za gracza z config.js (script.js)
       chip3: "Logo i kolory Twojej firmy",
-      chip4: "Start w kilka minut",
+      chip4: "Bez instalacji i działu IT",
+      chip5: "Start w kilka minut",
       cta: "Wybierz pakiet",
       shotAlt: "Ekran typowania wyników w serwisie Bextip"
     },
@@ -182,7 +183,8 @@ window.BEXTIP_I18N = {
       chip1: "Not gambling: a points game, no money",
       chip2: "From {minPrice} per player a month",
       chip3: "Your company logo and colours",
-      chip4: "Live in minutes",
+      chip4: "No installation, no IT needed",
+      chip5: "Live in minutes",
       cta: "Choose a package",
       shotAlt: "Match prediction screen in Bextip"
     },
